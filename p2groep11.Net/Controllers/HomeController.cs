@@ -17,6 +17,7 @@ namespace p2groep11.Net.Controllers
         {
             ViewBag.Message = "Your application description page.";
             //test van stijn
+            //test van samuel
             return View();
         }
 
