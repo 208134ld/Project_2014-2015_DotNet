@@ -178,11 +178,10 @@
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\Form.cs" />
     <Compile Include="Models\DAL\KlimaatContext.cs" />
     <Compile Include="Models\DAL\StudentRepository.cs" />
-    <Compile Include="Models\EnumGrade.cs" />
-    <Compile Include="Models\EnumYear.cs" />
-    <Compile Include="Models\Form.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

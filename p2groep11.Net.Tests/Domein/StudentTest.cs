@@ -29,25 +29,25 @@ namespace p2groep11.Net.Tests.Domein
         }
 
         [TestMethod]
-        [ExpectedException(typeof (ArgumentException), "Naam mag niet null zijn")]
+        [ExpectedException(typeof (ArgumentException), "firstname mag niet null zijn")]
         public void NaamThrowsExceptionWhenNull()
         {
             student.Naam = null;
         }
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Voornaam mag niet null zijn")]
+        [ExpectedException(typeof(ArgumentException), "lastname mag niet null zijn")]
         public void voornaamThrowsExceptionWhenNull()
         {
             student.Voornaam = null;
         }
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Naam mag niet leeg zijn")]
+        [ExpectedException(typeof(ArgumentException), "firstname mag niet leeg zijn")]
         public void NaamThrowsExceptionWhenEmpty()
         {
             student.Naam = "";
         }
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Voornaam mag niet leeg zijn")]
+        [ExpectedException(typeof(ArgumentException), "lastname mag niet leeg zijn")]
         public void VoornaamThrowsExceptionWhenEmpty()
         {
             student.Naam = "";

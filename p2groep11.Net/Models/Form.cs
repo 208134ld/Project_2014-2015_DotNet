@@ -4,9 +4,11 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 
-namespace p2groep11.Net
+namespace p2groep11.Net.Models
 {
-    public class Form
+    public enum Form
     {
+        eerste,
+        tweede,
     }
 }

@@ -6,16 +6,12 @@ using System.ComponentModel;
 
 namespace p2groep11.Net.Models
 {
-    public class Student
+    public class Grade
     {
 
+        private int number;
 
-        private string lastname;
-        private string firstname;
-        private string username;
-        private string password;
-
-        public Grade Grade
+        public Form Form
         {
             get
             {
