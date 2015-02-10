@@ -8,7 +8,7 @@ namespace p2groep11.Net.Models
 {
     public enum Form
     {
-        eerste,
-        tweede,
+        Eerste,
+        Tweede,
     }
 }
