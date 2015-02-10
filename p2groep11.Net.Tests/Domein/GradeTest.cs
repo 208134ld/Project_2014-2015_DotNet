@@ -41,8 +41,8 @@ namespace p2groep11.Net.Tests.Domein
         public void setFormSetsFormIfGradeIs2()
         {
             grade.Number = 2;
-            grade.From = Form.eerste;
-            Assert.AreEqual(Form.eerste,grade.From);
+            grade.Form = Form.Eerste;
+            Assert.AreEqual(Form.Eerste,grade.Form);
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace p2groep11.Net.Tests.Domein
         public void setFormThrowsExceptionWhenNot2()
         {
             grade.Number = 1;
-            grade.From = Form.eerste;
+            grade.Form = Form.Tweede;
         }
    }
 }
