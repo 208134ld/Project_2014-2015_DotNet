@@ -180,12 +180,12 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Models\DAL\KlimaatContext.cs" />
     <Compile Include="Models\DAL\StudentRepository.cs" />
+    <Compile Include="Models\EnumGrade.cs" />
     <Compile Include="Models\EnumYear.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EnumGrade.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IStudentRepository.cs" />
