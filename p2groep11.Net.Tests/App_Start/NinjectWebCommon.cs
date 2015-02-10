@@ -1,3 +1,6 @@
+using p2groep11.Net.Models;
+using p2groep11.Net.Models.DAL;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(p2groep11.Net.Tests.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(p2groep11.Net.Tests.App_Start.NinjectWebCommon), "Stop")]
 
@@ -61,6 +64,7 @@ namespace p2groep11.Net.Tests.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IStudentRepository>().To<StudentRepository>().InRequestScope();
         }        
     }
 }

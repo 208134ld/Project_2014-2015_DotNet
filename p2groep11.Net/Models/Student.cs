@@ -8,5 +8,7 @@ namespace p2groep11.Net
 {
     public class Student
     {
+
+        
     }
 }

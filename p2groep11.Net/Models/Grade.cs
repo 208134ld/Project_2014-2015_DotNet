@@ -8,5 +8,10 @@ namespace p2groep11.Net
 {
     public class Grade
     {
+
+        public Grade()
+        {
+            
+        }
     }
 }
