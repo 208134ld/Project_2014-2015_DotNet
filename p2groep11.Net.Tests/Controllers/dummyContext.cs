@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using p2groep11.Net.Models;
 
 namespace p2groep11.Net.Tests.Controllers
 {

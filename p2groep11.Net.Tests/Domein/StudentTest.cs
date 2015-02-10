@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using p2groep11.Net.Models;
 
 namespace p2groep11.Net.Tests.Domein
 {
@@ -17,48 +18,48 @@ namespace p2groep11.Net.Tests.Domein
         [TestMethod]
         public void propVoornaamSetsVoornaam()
         {
-            student.Voornaam = "Franske";
-            Assert.AreEqual("Franske",student.Voornaam);
+            student.Firstname = "Franske";
+            Assert.AreEqual("Franske",student.Firstname);
         }
 
         [TestMethod]
         public void propNaamSetsNaam()
         {
-            student.Naam = "Van Mechelen";
-            Assert.AreEqual("Van Mechelen", student.Naam);
+            student.Lastname = "Van Mechelen";
+            Assert.AreEqual("Van Mechelen", student.Lastname);
         }
 
         [TestMethod]
-        [ExpectedException(typeof (ArgumentException), "firstname mag niet null zijn")]
+        [ExpectedException(typeof(NullReferenceException), "firstname mag niet null zijn")]
         public void NaamThrowsExceptionWhenNull()
         {
-            student.Naam = null;
+            student.Lastname = null;
         }
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "lastname mag niet null zijn")]
+        [ExpectedException(typeof(NullReferenceException), "lastname mag niet null zijn")]
         public void voornaamThrowsExceptionWhenNull()
         {
-            student.Voornaam = null;
+            student.Firstname = null;
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "firstname mag niet leeg zijn")]
         public void NaamThrowsExceptionWhenEmpty()
         {
-            student.Naam = "";
+            student.Lastname = "";
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "lastname mag niet leeg zijn")]
         public void VoornaamThrowsExceptionWhenEmpty()
         {
-            student.Naam = "";
+            student.Lastname = "";
         }
 
         [TestMethod]
         public void setGraadSetsGrade()
         {
-           Grade g = new Grade();
+            Grade g = new Grade();
             student.Grade = g;
-            Assert.AreEqual(g,student.Grade);
+            Assert.AreEqual(g, student.Grade);
         }
 
     }

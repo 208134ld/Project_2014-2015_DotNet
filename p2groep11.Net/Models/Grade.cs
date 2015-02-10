@@ -11,15 +11,17 @@ namespace p2groep11.Net.Models
 
         private int number;
 
-        public Form Form
+        public int Number
         {
             get
             {
-                throw new System.NotImplementedException();
+                
             }
             set
             {
+                
             }
         }
+        public Form From { get; set; }
     }
 }
