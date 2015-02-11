@@ -8,13 +8,11 @@ namespace p2groep11.Net.Models
 {
     public class Student
     {
-
-        
-       
         private String lastname;
         private String firstname;
         private String username;
         private String password;
+        public int  Id { get; set; }
          public String Lastname
         {
             get { return lastname;}
@@ -52,6 +50,7 @@ namespace p2groep11.Net.Models
         {
             return Grade.Number == 2;
         }
+
 
     }
 }
