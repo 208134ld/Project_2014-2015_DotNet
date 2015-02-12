@@ -9,20 +9,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace p2groep11.Net.Models.DAL
 {
-    public class KlimaatContext : IdentityDbContext<ApplicationUser>
+    public class KlimaatContext : DbContext
     {
-        public StuHoGentContext()
-            : base("StuHoGent")
+        public KlimaatContext()
+            : base("Klimaat")
         {
 
         }
-        public DbSet<Werknemer> Werknemers { get; set; }
-        public DbSet<Reden> Redenen { get; set; }
-        public DbSet<Afwezigheid> Afwezigheden { get; set; }
 
-        public static StuHoGentContext Create()
+        public static KlimaatContext Create()
         {
-            return new StuHoGentContext();
+            return new KlimaatContext();
         }
 
 

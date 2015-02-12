@@ -10,7 +10,6 @@ namespace p2groep11.Net.Models
     {
 
         private int number;
-        private Form form;
 
         public int Number
         {
