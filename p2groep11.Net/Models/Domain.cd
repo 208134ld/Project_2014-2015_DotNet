@@ -7,5 +7,12 @@
       <FileName>Models\SchoolYear.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="p2groep11.Net.Continent">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Continent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
