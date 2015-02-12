@@ -100,7 +100,6 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\dummyContext.cs" />
     <Compile Include="Controllers\GradeControllerTest.cs" />
-    <Compile Include="Domein\StudentTest.cs" />
     <Compile Include="Domein\GradeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

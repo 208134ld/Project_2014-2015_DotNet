@@ -1,19 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="p2groep11.Net.Models.Student">
-    <Position X="0.75" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAhAAAAAAAAAAAEAAAAAAAAAAAAAAgEAAAA=</HashCode>
-      <FileName>Models\Student.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Grade" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="p2groep11.Net.Models.Grade">
     <Position X="4.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Grade.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -23,7 +13,7 @@
   <Enum Name="p2groep11.Net.Models.Form">
     <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Form.cs</FileName>
     </TypeIdentifier>
   </Enum>
