@@ -22,7 +22,7 @@ namespace p2groep11.Net.Controllers
         }
 
         [HttpPost]
-        public ViewResult GradeForm(Schoolyear grade)
+        public ViewResult GradeForm(SchoolYear grade)
         {
             return View();
         }
