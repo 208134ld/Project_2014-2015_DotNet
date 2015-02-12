@@ -186,7 +186,7 @@
     <Compile Include="Models\SchoolYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\SchoolYearViewModel.cs" />
+    <Compile Include="ViewModels\SchoolYearFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -220,7 +220,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Schoolyear\homepage.cshtml" />
-    <Content Include="Views\Schoolyear\SchoolYearCreate.cshtml" />
+    <Content Include="Views\Schoolyear\SchoolYearForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
