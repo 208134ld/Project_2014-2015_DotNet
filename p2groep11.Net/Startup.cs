@@ -1,20 +1,17 @@
 ﻿using System;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+using System.Threading.Tasks;
 using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using p2groep11.Net.Models;
+
+[assembly: OwinStartup(typeof(p2groep11.Net.Startup))]
 
 namespace p2groep11.Net
 {
-    public partial class Startup
+    public class Startup
     {
-        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
-        public void ConfigureAuth(IAppBuilder app)
+        public void Configuration(IAppBuilder app)
         {
-            
+            // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
         }
     }
 }
