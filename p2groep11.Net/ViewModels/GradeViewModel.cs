@@ -25,4 +25,14 @@ namespace p2groep11.Net.ViewModels
             SchoolYears = graad.Form;
         }
     }
+
+    public class SchoolYearViewModel
+    {
+        public SelectList SchoolYears { get; private set; }
+
+        public SchoolYearViewModel(IEnumerable<Form> schoolYears)
+        {
+            IEnumerable<Form> forms = Enum.GetValues(typeof (Form));
+        }
+    }
 }
