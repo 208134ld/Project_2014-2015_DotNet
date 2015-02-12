@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(p2groep11.Net.App_Start.Startup1))]
+[assembly: OwinStartup(typeof(p2groep11.Net.Startup))]
 
-namespace p2groep11.Net.App_Start
+namespace p2groep11.Net
 {
-    public class Startup1
+    public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
