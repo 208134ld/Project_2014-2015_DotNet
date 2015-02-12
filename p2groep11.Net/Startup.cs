@@ -8,7 +8,7 @@ namespace p2groep11.Net
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            
         }
     }
 }
