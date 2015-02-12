@@ -19,7 +19,7 @@ namespace p2groep11.Net.ViewModels
         [Display(Name = "Schooljaar")]
         public Form SchoolYears { get; private set; }
 
-        public GradeViewModel(Grade graad)
+        public GradeViewModel(Schoolyear graad)
         {
             Grades = graad.Number;
             SchoolYears = graad.Form;

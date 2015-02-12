@@ -1,21 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="p2groep11.Net.Models.Grade">
-    <Position X="4.25" Y="1.75" Width="1.5" />
+  <Class Name="p2groep11.Net.Models.Schoolyear">
+    <Position X="2.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Models\Grade.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Form" />
-    </ShowAsAssociation>
   </Class>
-  <Enum Name="p2groep11.Net.Models.Form">
-    <Position X="7.25" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Form.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

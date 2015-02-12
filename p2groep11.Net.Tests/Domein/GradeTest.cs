@@ -7,11 +7,11 @@ namespace p2groep11.Net.Tests.Domein
     [TestClass]
     public class GradeTest
     {
-        private Grade grade;
+        private Schoolyear grade;
         [TestInitialize]
        public void InitGradeTest()
         {    
-            grade = new Grade();
+            grade = new Schoolyear();
         }
         [TestMethod]
        public void setGraadSetsGraadl()        {

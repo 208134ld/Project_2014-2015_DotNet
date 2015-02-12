@@ -25,7 +25,7 @@ namespace p2groep11.Net.Tests.Controllers
         [TestMethod]
         public void GradeFormSearchesForLoggedInStudent()
         {
-            Grade g = new Grade();
+            Schoolyear g = new Schoolyear();
             g.Number = 1;
             ViewResult result = controller.GradeForm(new GradeFormViewModel(g),1) as ViewResult;
             mockStudentenRepository.Verify(m=>m.FindById(1),Times.Once);

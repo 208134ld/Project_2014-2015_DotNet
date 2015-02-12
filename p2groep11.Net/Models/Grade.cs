@@ -6,14 +6,14 @@ using System.ComponentModel;
 
 namespace p2groep11.Net.Models
 {
-    public class Grade
+    public class Schoolyear
     {
 
-        private int number;
+        private int _number;
 
         public int Number
         {
-            get { return number; }
+            get { return _number; }
             set
             {
                 if (value > 0 && value <= 3)
@@ -21,18 +21,6 @@ namespace p2groep11.Net.Models
                     this.number = value;
                 }
                 else throw new ArgumentException("Number needs to be between 1 and 3.");
-            }
-        }
-
-        public Form Form
-        {
-            get { return form; }
-            set
-            {
-                if (number == 2)
-                {
-                    form = value;
-                }else throw new ArgumentException("Form cannot be updated when not in second grade");
             }
         }
 
