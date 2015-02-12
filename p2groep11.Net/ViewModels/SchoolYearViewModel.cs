@@ -10,25 +10,23 @@ namespace p2groep11.Net.ViewModels
 
     public class SchoolYearCreateViewModel
     {
-        public SelectList Schoolyear { get; set; }
-        public SchoolYearViewModel schoolyearNumber { get; set; }
+        public List<SelectListItem> SchoolYears { set; get; }
+        public int SelectedYear { get; set; }
+    
 
-        public SchoolYearCreateViewModel(IEnumerable<SchoolYear> years, SchoolYearViewModel school)
+        public SchoolYearCreateViewModel(List<SelectListItem> SYears )
         {
-            Schoolyear = new SelectList(years,"number","number");
-            schoolyearNumber = school;
+            SchoolYears = SYears;
+
         }
 
-    }
-
-    public class SchoolYearViewModel
-    {
-        public int number { get; set; }
-
-        public SchoolYearViewModel()
+        public SchoolYearCreateViewModel()
         {
             
         }
+
     }
+
+
 
 }

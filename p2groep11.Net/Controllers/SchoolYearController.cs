@@ -18,15 +18,25 @@ namespace p2groep11.Net.Controllers
             {
                 years.Add(new SchoolYear(i));
             }
-            return View(new SchoolYearCreateViewModel(years,new SchoolYearViewModel()));
+            return View(new SchoolYearCreateViewModel(GetYears()));
         }
+    
         [HttpPost]
-        public ActionResult SchoolYearCreate([Bind(Prefix = "SchoolYearCreateViewModel")]SchoolYearViewModel model)
+        public ActionResult SchoolYearCreate(SchoolYearCreateViewModel model)
         {
-            Session["SchoolYear"] = 2;
-            return View("homepage");
+            Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
+            return View("homepage"); // verwissel met volgende view en controller.
         }
 
-       
+        private List<SelectListItem> GetYears()
+        {
+            List<SelectListItem> years = new List<SelectListItem>();
+            years.Add(new SelectListItem {Value = "1", Text = "1ste Leerjaar"});
+            for (int i = 2; i < 7; i++)
+            {
+                years.Add(new SelectListItem{Value = i+"",Text = i+"de Leerjaar"});
+            }
+            return years;
+        }
     }
 }
