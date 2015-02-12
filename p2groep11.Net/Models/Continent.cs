@@ -8,12 +8,7 @@ namespace p2groep11.Net
 {
     public class Continent
     {
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
-            set { this.name = value; }
-        }
+        public int RedenId { get; set; }
+        public string Name { get; set; }
     }
 }

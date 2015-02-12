@@ -175,10 +175,14 @@
     <Compile Include="Models\Continent.cs" />
     <Compile Include="Controllers\GradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\KlimaatContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\KlimaatInitializer.cs" />
+    <Compile Include="Models\DAL\Mapper\ContinentMapper.cs" />
+    <Compile Include="Models\IContinentRepository.cs" />
     <Compile Include="Models\SchoolYear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
