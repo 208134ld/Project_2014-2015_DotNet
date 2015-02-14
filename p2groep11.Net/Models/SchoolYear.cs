@@ -22,6 +22,25 @@ namespace p2groep11.Net.Models
             }
         }
 
+        public int CalculateGrade()
+        {
+            switch (number)
+            {
+                case 1:
+                case 2:
+                    return 1;
+                case 3:
+                case 4:
+                    return 2;
+                default:
+                    return 3;
+            }
+        }
+
+        public SchoolYear(int number)
+        {
+            this.number = number;
+        }
 
 
     }

@@ -16,7 +16,7 @@ namespace p2groep11.Net
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "SchoolYear", action = "SchoolYearCreate", id = UrlParameter.Optional }
             );
         }
     }

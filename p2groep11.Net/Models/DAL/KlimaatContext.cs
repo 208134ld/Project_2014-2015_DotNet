@@ -17,6 +17,8 @@ namespace p2groep11.Net.Models.DAL
 
         }
 
+        public DbSet<Continent> Continenten { get; set; }
+
         public static KlimaatContext Create()
         {
             return new KlimaatContext();

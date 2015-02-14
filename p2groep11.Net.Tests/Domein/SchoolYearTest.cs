@@ -43,6 +43,21 @@ namespace p2groep11.Net.Tests.Domein
             grade.Number= 1200;
         }
 
-
+        [TestMethod]
+        public void CalculateGradeGeeftCorrecteGraad()
+        {
+            grade.Number = 1;
+            Assert.AreEqual(1, grade.CalculateGrade());
+            grade.Number = 2;
+            Assert.AreEqual(1, grade.CalculateGrade());
+            grade.Number = 3;
+            Assert.AreEqual(2, grade.CalculateGrade());
+            grade.Number = 4;
+            Assert.AreEqual(2, grade.CalculateGrade());
+            grade.Number = 5;
+            Assert.AreEqual(3, grade.CalculateGrade());
+            grade.Number = 6;
+            Assert.AreEqual(3, grade.CalculateGrade());
+        }
    }
 }
