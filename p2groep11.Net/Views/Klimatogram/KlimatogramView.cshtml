@@ -1,0 +1,36 @@
+﻿@model p2groep11.Net.ViewModels.KlimatogramViewModel
+
+@{
+    ViewBag.Title = "Location picker";
+}
+
+
+@using (Html.BeginForm("SchoolYearForm", "SchoolYear", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <h3>Kies je locatie</h3>
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedContinent)
+        @Html.DropDownListFor(model => model.SelectedContinent, Model.Continents,
+                "--Selecteer een continent--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SelectedContinent, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedCountry)
+        @Html.DropDownListFor(model => model.SelectedCountry, Model.Countrys,
+            "--Selecteer een continent--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SelectedCountry, "", new { @class = "text-danger" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.SelectedLocation)
+        @Html.DropDownListFor(model => model.SelectedLocation, Model.Locations,
+                "--Selecteer een continent--", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SelectedLocation, "", new { @class = "text-danger" })
+    </div>
+    
+    
+    //hier komt de partial view
+}
