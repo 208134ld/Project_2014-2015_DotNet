@@ -11,21 +11,29 @@ namespace p2groep11.Net.Controllers
     public class SchoolYearController : Controller
     {
         // GET: SchoolYear
-        public ActionResult SchoolYearCreate()
+        [HttpGet]
+        public ActionResult SchoolYearForm()
         {
             List<SchoolYear> years = new List<SchoolYear>();
             for (int i = 1; i < 7; i++)
             {
                 years.Add(new SchoolYear(i));
             }
-            return View(new SchoolYearCreateViewModel(GetYears()));
+            return View(new SchoolYearFormViewModel(GetYears()));
         }
     
         [HttpPost]
-        public ActionResult SchoolYearCreate(SchoolYearCreateViewModel model)
+        public ActionResult SchoolYearForm(SchoolYearFormViewModel model)
         {
-            Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
-            return View("homepage"); // verwissel met volgende view en controller.
+            if (ModelState.IsValid)
+            {
+                Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
+                return View("homepage"); // verwissel met volgende view en controller.
+            }
+            else
+            {
+                return View(new SchoolYearFormViewModel(GetYears()));
+            }
         }
 
         private List<SelectListItem> GetYears()
