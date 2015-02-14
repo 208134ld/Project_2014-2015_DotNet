@@ -16,13 +16,13 @@ namespace p2groep11.Net.ViewModels
         [Required]
         [Display(Name = "Schooljaar")]
         public int SelectedYear { get; set; }
-
+    
 
         public SchoolYearFormViewModel(List<SelectListItem> SYears )
         {
             SchoolYears = SYears;
 
-    }
+        }
 
         public SchoolYearFormViewModel()
         {
