@@ -40,7 +40,7 @@ namespace p2groep11.Net.Controllers
             Highcharts chart = new Highcharts("chart")
                .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
                .SetTitle(new Title { Text = "klimatogram" })
-               .SetSubtitle(new Subtitle { Text = "text" })
+               .SetSubtitle(new Subtitle { Text = "cont - land - loc" })
                .SetXAxis(new XAxis { Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" } })
                .SetYAxis(new[]
                 {
@@ -49,12 +49,12 @@ namespace p2groep11.Net.Controllers
                         Labels = new YAxisLabels
                         {
                             Formatter = "function() { return this.value +'°C'; }",
-                            Style = "color: '#89A54E'"
+                            Style = "color: '#DE091E'"
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Temperature",
-                            Style = "color: '#89A54E'"
+                            Text = "Temperatuur",
+                            Style = "color: '#DE091E'"
                         },
                         Opposite = true,
                         Max = 110
@@ -68,7 +68,7 @@ namespace p2groep11.Net.Controllers
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Rainfall",
+                            Text = "Neerslag",
                             Style = "color: '#4572A7'"
                         },
                         Max = 220
@@ -92,7 +92,7 @@ namespace p2groep11.Net.Controllers
                 {
                     new Series
                     {
-                        Name = "Rainfall",
+                        Name = "Neerslag",
                         Color = ColorTranslator.FromHtml("#4572A7"),
                         Type = ChartTypes.Column,
                         YAxis = "1",
@@ -100,7 +100,7 @@ namespace p2groep11.Net.Controllers
                     },
                     new Series
                     {
-                        Name = "Temperature",
+                        Name = "Temperatuur",
                         Color = ColorTranslator.FromHtml("#DE091E"),
                         Type = ChartTypes.Spline,
                         Data = new Data(new object[] { 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6 })
