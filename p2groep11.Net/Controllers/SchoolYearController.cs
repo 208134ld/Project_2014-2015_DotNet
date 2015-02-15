@@ -28,7 +28,7 @@ namespace p2groep11.Net.Controllers
             if (ModelState.IsValid)
             {
                 Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
-                return View("homepage"); // verwissel met volgende view en controller.
+                return RedirectToAction("Index", "Klimatogram");
             }
             else
             {

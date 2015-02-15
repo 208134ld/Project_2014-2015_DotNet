@@ -10,7 +10,6 @@
     {
         @Html.ValidationSummary(true)
 
-        <h3>Schooljaar</h3>
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedYear)
                 @Html.DropDownListFor(model => model.SelectedYear, Model.SchoolYears,

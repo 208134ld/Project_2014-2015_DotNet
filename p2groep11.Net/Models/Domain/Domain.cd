@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="p2groep11.Net.Models.Domain.SchoolYear">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAwAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\SchoolYear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Continent">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <AssociationLine Name="Countries" Type="p2groep11.Net.Models.Domain.Country">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.005" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Continent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Countries" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Month">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Month.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Domain\ClimateChart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Months" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Country">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Country.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Locations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

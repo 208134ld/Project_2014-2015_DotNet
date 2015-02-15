@@ -15,6 +15,10 @@ namespace p2groep11.Net.Controllers
 {
     public class KlimatogramController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         /*
         private IContinentRepository continentRepository;
