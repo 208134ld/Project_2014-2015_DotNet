@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Tests.Domein
 {

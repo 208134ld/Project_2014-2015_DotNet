@@ -1,0 +1,16 @@
+﻿@model IEnumerable<p2groep11.Net.Models.Domain.Continent>
+
+@{
+    ViewBag.Title = "Continents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Continents</h2>
+
+@foreach (var item in Model) {
+    <div>
+        @Html.ActionLink(@item.Name, "ListCountries")
+    </div>
+}
+
+

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 
 namespace p2groep11.Net.Controllers
@@ -28,7 +29,7 @@ namespace p2groep11.Net.Controllers
             if (ModelState.IsValid)
             {
                 Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
-                return RedirectToAction("Index", "Klimatogram");
+                return RedirectToAction("ListContinents", "Continent");
             }
             else
             {

@@ -11,6 +11,7 @@ namespace p2groep11.Net.Models.Domain
     {
         public int Id { get; set; }
         public int Name { get; set; }
+        public Continent Continent { get; set; }
 
         public ICollection<ClimateChart> Locations { get; set; }
     }

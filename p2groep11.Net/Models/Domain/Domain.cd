@@ -15,7 +15,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Continent.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -41,10 +41,18 @@
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Country">
     <Position X="7.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="Continent" Type="p2groep11.Net.Models.Domain.Continent">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.214" Y="0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Country.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Continent" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Locations" />
     </ShowAsCollectionAssociation>

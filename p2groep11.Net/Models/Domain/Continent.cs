@@ -10,9 +10,14 @@ namespace p2groep11.Net.Models.Domain
 {
     public class Continent
     {
-        public int Id { get; set; }
+        public int ContinentID { get; set; }
         public string Name { get; set; }
 
         public ICollection<Country> Countries { get; set; }
+
+        public Continent()
+        {
+            Countries = new List<Country>();
+        }
     }
 }

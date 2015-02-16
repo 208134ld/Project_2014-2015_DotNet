@@ -175,6 +175,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\KlimatogramController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
@@ -267,6 +268,7 @@
     <Content Include="Views\Klimatogram\KlimatogramView.cshtml" />
     <Content Include="Views\Klimatogram\ShowKlimatogram.cshtml" />
     <Content Include="Views\Klimatogram\Index.cshtml" />
+    <Content Include="Views\Continent\ListContinents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

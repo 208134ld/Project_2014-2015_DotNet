@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
+using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL
 {
