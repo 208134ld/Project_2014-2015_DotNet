@@ -9,11 +9,12 @@ namespace p2groep11.Net.Models.Domain
 {
     public class ClimateChart
     {
-        public int Id { get; set; }
+        public int ClimateChartID { get; set; }
         public string Location { get; set; }
         public ICollection<Month> Months { get; set; }
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
+        public Country Country { get; set; }
 
         public ClimateChart(string loc, int begin, int end)
         {

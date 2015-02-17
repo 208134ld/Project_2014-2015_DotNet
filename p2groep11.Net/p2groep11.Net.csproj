@@ -178,15 +178,18 @@
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\KlimatogramController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
+    <Compile Include="Models\DAL\Mapper\CountryMapper.cs" />
+    <Compile Include="Models\DAL\Mapper\MonthMapper.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Domain\Country.cs" />
     <Compile Include="Models\DAL\ContinentRepository.cs" />
-    <Compile Include="Models\DAL\KlimaatContext.cs" />
+    <Compile Include="Models\DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAL\KlimaatInitializer.cs" />
+    <Compile Include="Models\DAL\ProjectInitializer.cs" />
     <Compile Include="Models\DAL\Mapper\ContinentMapper.cs" />
     <Compile Include="Models\IContinentRepository.cs" />
     <Compile Include="Models\Domain\ClimateChart.cs" />

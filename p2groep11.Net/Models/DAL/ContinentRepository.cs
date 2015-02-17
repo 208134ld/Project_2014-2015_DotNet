@@ -9,13 +9,13 @@ namespace p2groep11.Net.Models.DAL
 {
     public class ContinentRepository : IContinentRepository
     {
-        private KlimaatContext context;
+        private ProjectContext context;
         private DbSet<Continent> continents;
 
-        public ContinentRepository(KlimaatContext context)
+        public ContinentRepository(ProjectContext context)
         {
             this.context = context;
-            continents = this.context.Continenten;
+            continents = context.Continents;
         }
 
         public IQueryable<Continent> FindAll()

@@ -9,10 +9,15 @@ namespace p2groep11.Net.Models.Domain
 {
     public class Country
     {
-        public int Id { get; set; }
-        public int Name { get; set; }
+        public int CountryID { get; set; }
+        public string Name { get; set; }
         public Continent Continent { get; set; }
 
-        public ICollection<ClimateChart> Locations { get; set; }
+        public ICollection<ClimateChart> ClimateCharts { get; set; }
+
+        public Country()
+        {
+            ClimateCharts = new List<ClimateChart>();
+        }
     }
 }
