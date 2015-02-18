@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using p2groep11.Net.Models.DAL;
 
 namespace p2groep11.Net
 {
@@ -16,6 +18,8 @@ namespace p2groep11.Net
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer<ProjectContext>(new ProjectInitializer());
+            new ProjectContext().Database.Initialize(true);
         }
     }
 }

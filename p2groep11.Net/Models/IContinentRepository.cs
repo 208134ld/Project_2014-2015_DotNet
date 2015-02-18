@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models
 {
-    interface IContinentRepository
+    public interface IContinentRepository
     {
-        void Remove(Continent continent);
-        void SaveChanges();
+        IQueryable<Continent> FindAll();
         Continent FindById(int continentId);
+        void Remove(Continent continent);
+        void SaveChanges();      
     }
 }
