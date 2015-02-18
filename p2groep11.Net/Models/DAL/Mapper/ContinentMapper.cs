@@ -8,7 +8,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
 {
     public class ContinentMapper : EntityTypeConfiguration<Continent>
     {
-        public ContinentMapper
+        public ContinentMapper()
         {
             Property(t => t.Name).IsRequired().HasMaxLength(50);
             ToTable("Continenten");
