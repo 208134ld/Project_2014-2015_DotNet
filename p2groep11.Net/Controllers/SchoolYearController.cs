@@ -15,11 +15,6 @@ namespace p2groep11.Net.Controllers
         [HttpGet]
         public ActionResult SchoolYearForm()
         {
-            List<SchoolYear> years = new List<SchoolYear>();
-            for (int i = 1; i < 7; i++)
-            {
-                years.Add(new SchoolYear(i));
-            }
             return View(new SchoolYearFormViewModel(GetYears()));
         }
     
@@ -28,13 +23,18 @@ namespace p2groep11.Net.Controllers
         {
             if (ModelState.IsValid)
             {
-                Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
-                return RedirectToAction("ListContinents", "Continent");
+                try
+                {
+                    Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
+                    return RedirectToAction("ListContinents", "Continent");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("",e.Message);
+                }
+               
             }
-            else
-            {
-                return View(new SchoolYearFormViewModel(GetYears()));
-            }
+                return View(model);
         }
 
         private List<SelectListItem> GetYears()

@@ -178,7 +178,10 @@
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\KlimatogramController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
+    <Compile Include="Models\DAL\Mapper\CountryMapper.cs" />
     <Compile Include="Models\DAL\Mapper\MonthMapper.cs" />
+    <Compile Include="Models\DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Domain\Country.cs" />
