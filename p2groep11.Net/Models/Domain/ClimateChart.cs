@@ -21,6 +21,7 @@ namespace p2groep11.Net.Models.Domain
             Location = loc;
             BeginPeriod = begin;
             EndPeriod = end;
+            Months = new List<Month>();
         }
     }
 }

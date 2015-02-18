@@ -35,15 +35,18 @@ namespace p2groep11.Net.Models.DAL
                 countries.ForEach(c => europa.Countries.Add(c));
                 ClimateChart gent = new ClimateChart("Gent", 15, 19);
                 ClimateChart brugge = new ClimateChart("Brugge", 1550, 1580);
-
+                Month maart2014 = new Month(3, 15, 195);
+                Month maart2015 = new Month(4, 25, 208);
+                Month jan = new Month(1,16,200);
+                Month feb = new Month(2,40,23);
+                gent.Months.Add(maart2014);
+                gent.Months.Add(maart2015);
+                brugge.Months.Add(jan);
+                brugge.Months.Add(feb);
                 List<ClimateChart> climateCharts = (new ClimateChart[] { gent, brugge }).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
 
-                //Month maart2014 = new Month(3, 15, 195);
-                //Month maart2015 = new Month(3, 25, 208);
-
-                //List<Month> months = (new Month[] { maart2014, maart2015 }).ToList();
-                //months.ForEach(m => gent.Months.Add(m));
+                
                 context.SaveChanges();
                 System.Diagnostics.Debug.WriteLine("Database created!");                                
             }

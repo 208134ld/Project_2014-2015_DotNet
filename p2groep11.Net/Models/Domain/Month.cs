@@ -26,7 +26,6 @@ namespace p2groep11.Net.Models.Domain
         }
         public int AverTemp { get; set; }
         public int Sediment { get; set; }
-        public ClimateChart ClimateChart { get; set; }
 
         public Month(int month, int temp, int sed)
         {

@@ -24,7 +24,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.EndPeriod).IsRequired();
 
             //Relations
-            HasMany(c => c.Months).WithRequired(c => c.ClimateChart);
+            HasMany(c => c.Months);
         }
     }
 }
