@@ -15,6 +15,7 @@ namespace p2groep11.Net.Models.Domain
 
         public ICollection<ClimateChart> ClimateCharts { get; set; }
 
+
         public Country()
         {
             ClimateCharts = new List<ClimateChart>();
