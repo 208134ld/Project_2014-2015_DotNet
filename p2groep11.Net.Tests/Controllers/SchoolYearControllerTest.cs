@@ -37,8 +37,7 @@ namespace p2groep11.Net.Tests.Controllers
         public void ErrorInSchoolYearPostPassesTheModel()
         {
             controller.ModelState.AddModelError("key", "error");
-            SchoolYearFormViewModel model = new SchoolYearFormViewModel(years) { SelectedYear = 1 };
-            ViewResult result = controller.SchoolYearForm(model) as ViewResult;
+            ViewResult result = controller.Index(1) as ViewResult;
             SchoolYearFormViewModel yearVM = result.Model as SchoolYearFormViewModel;
             Assert.AreEqual(1, yearVM.SelectedYear);
         }

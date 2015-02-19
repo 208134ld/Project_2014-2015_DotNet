@@ -8,8 +8,6 @@ namespace p2groep11.Net.Models.Domain
     {
 
         private int year;
-        private int grade;
-
         public int Year
         {
             get { return year; }
@@ -22,33 +20,9 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Year needs to be between 1 and 6.");
             }
         }
-
-        public int Grade
-        {
-            get { return grade; }
-            set
-            {
-                if (value > 0 && value <= 3)
-                {
-                    this.grade = value;
-                }
-                else throw new ArgumentException("Grade needs to be between 1 and 3.");
-            }
-        }
-
         public int CalculateGrade()
         {
-            switch (year)
-            {
-                case 1:
-                case 2:
-                    return Grade = 1;
-                case 3:
-                case 4:
-                    return Grade = 2;
-                default:
-                    return Grade = 3;
-            }
+            return year/2;
         }
 
         public SchoolYear()

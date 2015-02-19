@@ -25,7 +25,7 @@ namespace p2groep11.Net.Models.DAL
 
         public Continent FindById(int continentId)
         {
-            return continents.FirstOrDefault(c => c.ContinentID == continentId); ;
+            return continents.FirstOrDefault(c => c.ContinentID == continentId); 
         }
 
         public void Remove(Continent continent)

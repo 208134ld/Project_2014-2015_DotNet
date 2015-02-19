@@ -21,7 +21,7 @@ namespace p2groep11.Net.Controllers
         {
             ContinentsListViewModel model = new ContinentsListViewModel
             {
-                Continents = repository.Continents()
+                Continents = repository.FindAll()
             };
              
             return View(model);

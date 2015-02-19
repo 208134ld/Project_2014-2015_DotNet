@@ -65,8 +65,6 @@ namespace p2groep11.Net.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IContinentRepository>().To<ContinentRepository>().InRequestScope();
-            kernel.Bind<ICountryRepository>().To<CountryRepository>().InRequestScope();
-            kernel.Bind<IClimateChartRepository>().To<ClimateChartRepository>().InRequestScope();
             kernel.Bind<ProjectContext>().ToSelf().InSingletonScope();
         }
     }

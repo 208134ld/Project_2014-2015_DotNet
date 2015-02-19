@@ -20,18 +20,13 @@ namespace p2groep11.Net.Models.DAL
         }
 
         public DbSet<Continent> Continents { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<ClimateChart> ClimateCharts { get; set; }
-        public DbSet<Month> Months { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Configurations.Add(new ContinentMapper());
-            modelBuilder.Configurations.Add(new CountryMapper());
-            modelBuilder.Configurations.Add(new ClimateChartMapper());
-            modelBuilder.Configurations.Add(new MonthMapper());
+            base.OnModelCreating(modelBuilder);
+           modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+            modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -35,10 +35,10 @@ namespace p2groep11.Net.Models.DAL
                 countries.ForEach(c => europa.Countries.Add(c));
                 ClimateChart gent = new ClimateChart("Gent", 15, 19);
                 ClimateChart brugge = new ClimateChart("Brugge", 1550, 1580);
-                Month maart2014 = new Month(3, 15, 195);
-                Month maart2015 = new Month(4, 25, 208);
-                Month jan = new Month(1,16,200);
-                Month feb = new Month(2,40,23);
+                Month maart2014 = new Month(MonthsOfTheYear.aug, 15, 195);
+                Month maart2015 = new Month(MonthsOfTheYear.apr, 25, 208);
+                Month jan = new Month(MonthsOfTheYear.jul, 16, 200);
+                Month feb = new Month(MonthsOfTheYear.Dec, 40, 23);
                 gent.Months.Add(maart2014);
                 gent.Months.Add(maart2015);
                 brugge.Months.Add(jan);

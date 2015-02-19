@@ -19,7 +19,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             // Properties
             Property(c => c.MonthID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(c => c.MonthDate).IsRequired();
+            Property(c => c.month).IsRequired();
             Property(c => c.AverTemp).IsRequired();
             Property(c => c.Sediment).IsRequired();
 

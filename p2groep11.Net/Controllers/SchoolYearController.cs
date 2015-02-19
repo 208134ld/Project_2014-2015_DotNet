@@ -13,19 +13,19 @@ namespace p2groep11.Net.Controllers
     {
         // GET: SchoolYear
         [HttpGet]
-        public ActionResult SchoolYearForm()
+        public ActionResult Index()
         {
             return View(new SchoolYearFormViewModel(GetYears()));
         }
     
         [HttpPost]
-        public ActionResult SchoolYearForm(SchoolYearFormViewModel model)
+        public ActionResult Index(int SelectedYear)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    Session["SchoolYear"] = new SchoolYear(model.SelectedYear);
+                    Session["SchoolYear"] = new SchoolYear(SelectedYear);
                     return RedirectToAction("ListContinents", "Continent");
                 }
                 catch (Exception e)
@@ -34,7 +34,7 @@ namespace p2groep11.Net.Controllers
                 }
                
             }
-                return View(model);
+                return View(new SchoolYearFormViewModel(GetYears()));
         }
 
         private List<SelectListItem> GetYears()

@@ -39,41 +39,20 @@ namespace p2groep11.Net.Tests.Domein
         }
 
         [TestMethod]
-        public void SetGradeTo3()
-        {
-            schoolYear.Grade = 3;
-            Assert.AreEqual(3, schoolYear.Grade);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Graad moet tussen 1 en 3 liggen")]
-        public void GradeCanNotBeLowerThan1()
-        {
-            schoolYear.Grade = 0;
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof (ArgumentException), "Graad moet tussen 1 en 3 liggen")]
-        public void GradeCanNotBeHigherThan3()      
-        {
-            schoolYear.Grade = 5;
-        }
-
-        [TestMethod]
         public void CalculateGradeGeeftCorrecteGraad()
         {
             schoolYear.Year = 1;
-            Assert.AreEqual( schoolYear.Grade = 1, schoolYear.CalculateGrade());
+            Assert.AreEqual(1, schoolYear.CalculateGrade());
             schoolYear.Year = 2;
-            Assert.AreEqual( schoolYear.Grade = 1, schoolYear.CalculateGrade());
+            Assert.AreEqual( 2, schoolYear.CalculateGrade());
             schoolYear.Year = 3;
-            Assert.AreEqual( schoolYear.Grade = 2, schoolYear.CalculateGrade());
+            Assert.AreEqual( 3, schoolYear.CalculateGrade());
             schoolYear.Year = 4;
-            Assert.AreEqual( schoolYear.Grade = 2, schoolYear.CalculateGrade());
+            Assert.AreEqual( 4, schoolYear.CalculateGrade());
             schoolYear.Year = 5;
-            Assert.AreEqual( schoolYear.Grade = 3, schoolYear.CalculateGrade());
+            Assert.AreEqual( 5, schoolYear.CalculateGrade());
             schoolYear.Year = 6;
-            Assert.AreEqual( schoolYear.Grade = 3, schoolYear.CalculateGrade());
+            Assert.AreEqual(6, schoolYear.CalculateGrade());
         }
    }
 }
