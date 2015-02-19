@@ -7,8 +7,8 @@ namespace p2groep11.Net.Models.Domain
     public class SchoolYear
     {
 
-        private int year;
-        public int Year
+        private double year;
+        public double Year
         {
             get { return year; }
             set
@@ -22,7 +22,7 @@ namespace p2groep11.Net.Models.Domain
         }
         public int CalculateGrade()
         {
-            return year/2;
+    return (int) Math.Ceiling(year/2);
         }
 
         public SchoolYear()
