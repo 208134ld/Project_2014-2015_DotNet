@@ -6,7 +6,7 @@ using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models
 {
-    interface IClimateChartMapper
+    interface IClimateChartRepository
     {
         IQueryable<ClimateChart> FindAll();
         ClimateChart FindById(int climateChartId);
