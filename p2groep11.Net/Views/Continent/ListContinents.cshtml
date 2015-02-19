@@ -1,4 +1,4 @@
-﻿@model IEnumerable<p2groep11.Net.Models.Domain.Continent>
+﻿@model p2groep11.Net.ViewModels.ContinentsListViewModel
 
 @{
     ViewBag.Title = "Continents";
@@ -7,7 +7,7 @@
 
 <h2>Continents</h2>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Continents) {
     <div>
         @Html.ActionLink(@item.Name, "ListContinents")
     </div>

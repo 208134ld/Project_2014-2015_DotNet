@@ -199,6 +199,7 @@
     <Compile Include="Models\IClimateChartMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ContinentsListViewModel.cs" />
     <Compile Include="ViewModels\KlimatogramViewModel.cs" />
     <Compile Include="ViewModels\SchoolYearFormViewModel.cs" />
   </ItemGroup>

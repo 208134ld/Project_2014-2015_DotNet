@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using p2groep11.Net.Models;
+using p2groep11.Net.ViewModels;
 
 namespace p2groep11.Net.Controllers
 {
@@ -18,7 +19,12 @@ namespace p2groep11.Net.Controllers
 
         public ViewResult ListContinents()
         {
-            return View(repository.FindAll());
+            ContinentsListViewModel model = new ContinentsListViewModel
+            {
+                Continents = repository.Continents()
+            };
+             
+            return View(model);
         }
 
     }
