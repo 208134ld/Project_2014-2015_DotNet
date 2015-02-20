@@ -16,6 +16,17 @@ namespace p2groep11.Net.Models.Domain
         public int EndPeriod { get; set; }
         public Country Country { get; set; }
 
+        public p2groep11.Net.DeterminateTableComponent DeterminateTableComponent
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public ClimateChart(string loc, int begin, int end)
         {
             Location = loc;
