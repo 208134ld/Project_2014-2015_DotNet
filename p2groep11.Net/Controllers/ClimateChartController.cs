@@ -13,25 +13,16 @@ using p2groep11.Net.ViewModels;
 
 namespace p2groep11.Net.Controllers
 {
-    public class KlimatogramController : Controller
+    public class ClimateChartController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        /*
         private IContinentRepository continentRepository;
         //repositories voor landen en locaties
 
-        public KlimatogramController(IContinentRepository continentRepository)
+        public ClimateChartController(IContinentRepository continentRepository)
         {
             this.continentRepository = continentRepository;
             //rest van de repositories gelijkstellen
-        }*/
-
-        //
-        // GET: /Klimatogram/
+        }
         [HttpGet]
         public ActionResult ChooseKlimatogram()
         {
@@ -39,8 +30,9 @@ namespace p2groep11.Net.Controllers
             return View(new KlimatogramViewModel(GetContinents(), GetCountrys(), GetLocations()));
         }
         //setUp voor demo als chooseklimatogram nog niet werkt.
-        public ActionResult ShowKlimatogram()
+        public ActionResult ShowClimateChart()
         {
+
             Highcharts chart = new Highcharts("chart")
                .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
                .SetTitle(new Title { Text = "klimatogram" })
@@ -67,7 +59,7 @@ namespace p2groep11.Net.Controllers
                     {
                         Labels = new YAxisLabels
                         {
-                            Formatter = "function() { return this.value +' mm'; }",
+                            Formatter = "function() { return this.value +'mm'; }",
                             Style = "color: '#4572A7'"
                         },
                         Title = new YAxisTitle
@@ -80,7 +72,7 @@ namespace p2groep11.Net.Controllers
                 })
                .SetTooltip(new Tooltip
                {
-                   Formatter = "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Rainfall' ? ' mm' : '°C'); }"
+                   Formatter = "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag' ? ' mm' : '°C'); }"
                })
                .SetLegend(new Legend
                {

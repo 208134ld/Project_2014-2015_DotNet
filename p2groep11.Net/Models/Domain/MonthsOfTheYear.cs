@@ -7,6 +7,6 @@ namespace p2groep11.Net.Models.Domain
 {
     public enum MonthsOfTheYear
     {
-     jan,feb,mrt,apr,mei,jun,jul,aug,sep,okt,nov,Dec
+     Jan,Feb,Mrt,Apr,Mei,Jun,Jul,Aug,Sep,Okt,Nov,Dec
     }
 }

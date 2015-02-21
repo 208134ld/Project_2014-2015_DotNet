@@ -176,7 +176,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContinentController.cs" />
-    <Compile Include="Controllers\KlimatogramController.cs" />
+    <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
     <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
     <Compile Include="Models\DAL\Mapper\CountryMapper.cs" />
@@ -184,7 +184,7 @@
     <Compile Include="Models\DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\Domain\Country.cs" />
+    <Compile Include="obj\Country.cs" />
     <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -270,9 +270,9 @@
     <Content Include="Views\Schoolyear\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Klimatogram\KlimatogramView.cshtml" />
-    <Content Include="Views\Klimatogram\ShowKlimatogram.cshtml" />
-    <Content Include="Views\Klimatogram\Index.cshtml" />
+    <Content Include="Views\ClimateChart\KlimatogramView.cshtml" />
+    <Content Include="Views\ClimateChart\ShowClimateChart.cshtml" />
+    <Content Include="Views\ClimateChart\Index.cshtml" />
     <Content Include="Views\Continent\ListContinents.cshtml" />
   </ItemGroup>
   <ItemGroup>
