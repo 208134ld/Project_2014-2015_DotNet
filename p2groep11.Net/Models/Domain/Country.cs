@@ -13,7 +13,7 @@ namespace p2groep11.Net.Models.Domain
         public string Name { get; set; }
         public Continent Continent { get; set; }
 
-        public virtual ICollection<ClimateChart> ClimateCharts { get; set; }
+        public virtual ICollection<ClimateChart> ClimateCharts { get; private set; }
 
 
         public Country()

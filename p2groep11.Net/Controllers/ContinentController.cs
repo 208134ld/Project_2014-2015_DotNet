@@ -17,13 +17,25 @@ namespace p2groep11.Net.Controllers
             repository = continentRepository;
         }
 
-        public ViewResult ListContinents()
+        public ViewResult ListContinents(int grade)
         {
+            ViewBag.Grade = grade;
             ContinentsListViewModel model = new ContinentsListViewModel
             {
                 Continents = repository.FindAll()
             };
              
+            return View(model);
+        }
+
+        public ViewResult ListCountries(int grade, int continentId)
+        {
+            ViewBag.Grade = grade;
+            CountryListViewModel model = new CountryListViewModel
+            {
+                Countries = repository.FindCountriesByContinentID(continentId)
+            };
+
             return View(model);
         }
 

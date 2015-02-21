@@ -11,12 +11,12 @@ namespace p2groep11.Net.Models.Domain
     {
         public int ClimateChartID { get; set; }
         public string Location { get; set; }
-        public virtual ICollection<Month> Months { get; set; }
+        public virtual ICollection<Month> Months { get; private set; }
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public Country Country { get; set; }
 
-        public p2groep11.Net.DeterminateTableComponent DeterminateTableComponent
+        /*public p2groep11.Net.DeterminateTableComponent DeterminateTableComponent
         {
             get
             {
@@ -25,7 +25,7 @@ namespace p2groep11.Net.Models.Domain
             set
             {
             }
-        }
+        }*/
 
         public ClimateChart(string loc, int begin, int end)
         {

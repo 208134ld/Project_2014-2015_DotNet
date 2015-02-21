@@ -11,6 +11,7 @@ namespace p2groep11.Net.Models
     {
         IQueryable<Continent> FindAll();
         Continent FindById(int continentId);
+        IQueryable<Country> FindCountriesByContinentID(int continentId);
         void Remove(Continent continent);
         void SaveChanges();      
     }

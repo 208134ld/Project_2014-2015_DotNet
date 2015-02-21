@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using p2groep11.Net.Models;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
@@ -25,8 +26,9 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-                    Session["SchoolYear"] = new SchoolYear(SelectedYear);
-                    return RedirectToAction("ListContinents", "Continent");
+                    SchoolYear schoolYear = new SchoolYear(SelectedYear);
+                    int grade = schoolYear.CalculateGrade();
+                    return RedirectToAction("ListContinents", "Continent", new { grade });
                 }
                 catch (Exception e)
                 {

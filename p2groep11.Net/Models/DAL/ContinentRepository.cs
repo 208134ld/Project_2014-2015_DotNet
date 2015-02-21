@@ -28,6 +28,13 @@ namespace p2groep11.Net.Models.DAL
             return continents.FirstOrDefault(c => c.ContinentID == continentId); 
         }
 
+        public IQueryable<Country> FindCountriesByContinentID(int continentId)
+        {
+            Continent continent = FindById(continentId);
+            return continent.Countries.AsQueryable().OrderBy(c => c.Name);
+        }
+
+
         public void Remove(Continent continent)
         {
             continents.Remove(continent);

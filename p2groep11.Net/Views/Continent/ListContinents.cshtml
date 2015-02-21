@@ -7,9 +7,10 @@
 
 <h2>Continents</h2>
 
-@foreach (var item in Model.Continents) {
+@foreach (var item in Model.Continents) 
+{
     <div>
-        @Html.ActionLink(@item.Name, "ListContinents")
+        @Html.ActionLink(@item.Name, "ListCountries", new { grade = @ViewBag.Grade,continentId = item.ContinentID})
     </div>
 }
 
