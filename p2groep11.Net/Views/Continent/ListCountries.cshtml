@@ -1,0 +1,15 @@
+﻿@model p2groep11.Net.ViewModels.CountryListViewModel
+
+@{
+    ViewBag.Title = "ListCountries";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListCountries</h2>
+
+@foreach (var item in Model.Countries)
+{
+    <div>
+        @Html.ActionLink(@item.Name, "ListCountries")
+    </div>
+}

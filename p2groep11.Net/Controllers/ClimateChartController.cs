@@ -36,10 +36,7 @@ namespace p2groep11.Net.Controllers
         //setUp voor demo als chooseklimatogram nog niet werkt.
         public ActionResult ShowClimateChart()
         {
-            //IQueryable<Continent> cont = continentRepository.FindAll().Include(cu => cu.Countries);
-            //Country co =continentRepository.FindCountryByID(1, 1);
-            ////testen
-            /// 
+            
             ClimateChart c = continentRepository.FindClimateChartById(1,1,1);
             int[] sed = c.Months.Select(p => p.Sediment).ToArray();
             int[] tem = c.Months.Select(p => p.AverTemp).ToArray();

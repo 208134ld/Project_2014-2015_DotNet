@@ -22,7 +22,7 @@ namespace p2groep11.Net.Models.Domain
         }
         public int CalculateGrade()
         {
-            return year/2;
+            return (year+1)/2;
         }
 
         public SchoolYear()

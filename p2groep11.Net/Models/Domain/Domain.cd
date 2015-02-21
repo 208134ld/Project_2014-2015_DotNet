@@ -32,12 +32,9 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAIAAAAAAAIAAAAEAAgAEAACAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAAAAAAAAIAAAAAAAIAAAAEAAAAEAACAAA=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="DeterminateTableComponent" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Months" />
     </ShowAsCollectionAssociation>

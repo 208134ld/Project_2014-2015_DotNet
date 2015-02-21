@@ -14,6 +14,12 @@ namespace p2groep11.Net
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Continents",
+                url: "Continents/{grade}",
+                defaults: new { controller = "Continent", action = "ListContinents", grade = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "SchoolYear", action = "Index", id = UrlParameter.Optional }
