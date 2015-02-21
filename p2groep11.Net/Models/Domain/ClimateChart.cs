@@ -16,6 +16,10 @@ namespace p2groep11.Net.Models.Domain
         public int EndPeriod { get; set; }
         public Country Country { get; set; }
 
+        public ClimateChart()
+        {
+            
+        }
         public ClimateChart(string loc, int begin, int end,int[]temperatures,int[] sediments)
         {
             if (temperatures.Length != 12 || sediments.Length != 12)

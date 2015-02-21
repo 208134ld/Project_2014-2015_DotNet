@@ -28,6 +28,23 @@ namespace p2groep11.Net.Models.DAL
             return continents.FirstOrDefault(c => c.ContinentID == continentId); 
         }
 
+        public Country FindCountryByID(int continentId, int countryId)
+        {
+            return
+                context.Continents.Include(m => m.Countries)
+                    .SingleOrDefault(m => m.ContinentID == continentId)
+                    .Countries.FirstOrDefault(co => co.CountryID == countryId);
+        }
+
+        public ClimateChart FindClimateChartById(int continentId, int countryId, int climateId)
+        {
+            return context.Continents.Include(m => m.Countries.Select(cl => cl.ClimateCharts.Select(mon=>mon.Months)))
+                .FirstOrDefault(m => m.ContinentID == continentId)
+                .Countries.FirstOrDefault(co => co.CountryID == countryId)
+                .ClimateCharts.FirstOrDefault(c => c.ClimateChartID == climateId);
+
+        }
+
         public void Remove(Continent continent)
         {
             continents.Remove(continent);

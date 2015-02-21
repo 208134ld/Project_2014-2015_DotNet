@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,9 @@ using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
+using Point = DotNet.Highcharts.Options.Point;
 
 namespace p2groep11.Net.Controllers
 {
@@ -29,10 +32,21 @@ namespace p2groep11.Net.Controllers
             //locaties, landen en locaties uit de repository halen
             return View(new KlimatogramViewModel(GetContinents(), GetCountrys(), GetLocations()));
         }
+
         //setUp voor demo als chooseklimatogram nog niet werkt.
         public ActionResult ShowClimateChart()
         {
-
+            //IQueryable<Continent> cont = continentRepository.FindAll().Include(cu => cu.Countries);
+            //Country co =continentRepository.FindCountryByID(1, 1);
+            ////testen
+            /// 
+            ClimateChart c = continentRepository.FindClimateChartById(1,1,1);
+            int[] sed = c.Months.Select(p => p.Sediment).ToArray();
+            int[] tem = c.Months.Select(p => p.AverTemp).ToArray();
+            Object[] sediments = new object[12];
+            Object[] temp = new object[12];
+            CopyIntArrayToObjectArray(sed, sediments);
+            CopyIntArrayToObjectArray(tem, temp);
             Highcharts chart = new Highcharts("chart")
                .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
                .SetTitle(new Title { Text = "klimatogram" })
@@ -92,21 +106,25 @@ namespace p2groep11.Net.Controllers
                         Color = ColorTranslator.FromHtml("#4572A7"),
                         Type = ChartTypes.Column,
                         YAxis = "1",
-                        Data = new Data(new object[] { 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+                        Data = new Data(sediments)
+                         
                     },
                     new Series
                     {
                         Name = "Temperatuur",
                         Color = ColorTranslator.FromHtml("#DE091E"),
                         Type = ChartTypes.Spline,
-                        Data = new Data(new object[] { 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6 })
+                        Data = new Data(temp)
                     }
                 });
 
             return View(chart);
         }
-        
 
+        private void CopyIntArrayToObjectArray(int [] intArray,Object[] objectAr)
+        {
+            intArray.CopyTo(objectAr,0);
+        }
         //voorlopig om strings in de selectlist te steken
         private List<SelectListItem> GetContinents()
         {

@@ -16,6 +16,10 @@ namespace p2groep11.Net.Models.Domain
         public int AverTemp { get; set; }
         public int Sediment { get; set; }
 
+        public Month()
+        {
+            
+        }
         public Month(MonthsOfTheYear month, int temp, int sed)
         {
             this.month = month;
