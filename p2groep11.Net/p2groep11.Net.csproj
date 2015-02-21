@@ -175,9 +175,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CompositeIterator.cs" />
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\Domain\DeterminateTableComponent.cs" />
+    <Compile Include="Models\Domain\DeterminateTableItem.cs" />
+    <Compile Include="Models\Domain\DeterminateTable.cs" />
     <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
     <Compile Include="Models\DAL\Mapper\CountryMapper.cs" />
     <Compile Include="Models\DAL\Mapper\MonthMapper.cs" />
@@ -196,6 +200,7 @@
     <Compile Include="Models\Domain\ClimateChart.cs" />
     <Compile Include="Models\Domain\Month.cs" />
     <Compile Include="Models\Domain\SchoolYear.cs" />
+    <Compile Include="NullIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ContinentsListViewModel.cs" />
@@ -299,7 +304,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1848</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
