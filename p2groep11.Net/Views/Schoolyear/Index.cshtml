@@ -1,10 +1,10 @@
 ﻿@model p2groep11.Net.ViewModels.SchoolYearFormViewModel
 
 @{
-    ViewBag.Title = "Submit";
+    ViewBag.Title = "Kies uw schooljaar";
 }
 
-<h2>Submit</h2>
+<h2>@ViewBag.Title</h2>
 <div class="pane">
     @using (Html.BeginForm("Index", "SchoolYear", FormMethod.Post))
     {

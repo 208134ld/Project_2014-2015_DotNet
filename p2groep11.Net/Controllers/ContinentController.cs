@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 
 namespace p2groep11.Net.Controllers
@@ -28,17 +29,23 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListCountries(int grade, int continentId)
+        public ViewResult ListCountries(int grade, int continentId, string search)
         {
-            //ViewBag.Grade = grade;
-            //CountryListViewModel model = new CountryListViewModel
-            //{
-            //    Countries = repository.FindCountryByID(continentId)
-            //};
+            ViewBag.Grade = grade;
+            IEnumerable<Country> countryList = repository.FindCountriesByContinentID(continentId);
+            if (!String.IsNullOrEmpty(search))
+            {
+                countryList = repository.FindCountriesByContinentID(continentId).Where(c => c.Name.ToLower().Contains(search));
+            };
 
-            //return View(model);
-            return View();
+            CountryListViewModel model = new CountryListViewModel
+            {
+                Countries = countryList
+            };
+
+            return View(model);
         }
+
 
     }
 }

@@ -11,6 +11,7 @@ namespace p2groep11.Net.Models
     {
         IQueryable<Continent> FindAll();
         Continent FindById(int continentId);
+        IQueryable<Country> FindCountriesByContinentID(int continentId);
         Country FindCountryByID(int continentId, int countryId);
         ClimateChart FindClimateChartById(int continentId, int countryId, int climateId);
         void Remove(Continent continent);

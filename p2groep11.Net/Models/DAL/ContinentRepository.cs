@@ -28,6 +28,14 @@ namespace p2groep11.Net.Models.DAL
             return continents.FirstOrDefault(c => c.ContinentID == continentId); 
         }
 
+        public IQueryable<Country> FindCountriesByContinentID(int continentId)
+        {
+            return context.Continents.Include(c => c.Countries)
+                .SingleOrDefault(c => c.ContinentID == continentId)
+                .Countries.AsQueryable().OrderBy(c => c.Name);
+
+        }
+
         public Country FindCountryByID(int continentId, int countryId)
         {
             return
@@ -42,7 +50,6 @@ namespace p2groep11.Net.Models.DAL
                 .FirstOrDefault(m => m.ContinentID == continentId)
                 .Countries.FirstOrDefault(co => co.CountryID == countryId)
                 .ClimateCharts.FirstOrDefault(c => c.ClimateChartID == climateId);
-
         }
 
         public void Remove(Continent continent)

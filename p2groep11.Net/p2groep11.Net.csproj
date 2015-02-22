@@ -175,7 +175,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CompositeIterator.cs" />
+    <Compile Include="Models\Domain\CompositeIterator.cs" />
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
@@ -188,7 +188,7 @@
     <Compile Include="Models\DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="obj\Country.cs" />
+    <Compile Include="Models\Domain\Country.cs" />
     <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -200,7 +200,7 @@
     <Compile Include="Models\Domain\ClimateChart.cs" />
     <Compile Include="Models\Domain\Month.cs" />
     <Compile Include="Models\Domain\SchoolYear.cs" />
-    <Compile Include="NullIterator.cs" />
+    <Compile Include="Models\Domain\NullIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ClimateChartViewModel.cs" />
@@ -281,9 +281,11 @@
     <Content Include="Views\ClimateChart\ShowClimateChart.cshtml" />
     <Content Include="Views\ClimateChart\Index.cshtml" />
     <Content Include="Views\Continent\ListContinents.cshtml" />
+    <Content Include="Views\Continent\ListCountries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -9,18 +9,10 @@
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Continent">
     <Position X="3.25" Y="1.25" Width="1.5" />
-    <AssociationLine Name="Countries" Type="p2groep11.Net.Models.Domain.Country">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.005" Y="0.06" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Continent.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Countries" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Month">
     <Position X="9.25" Y="4.5" Width="1.5" />
@@ -32,27 +24,12 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAIAAAAAAAIAAAAEAAAAEAACAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAQAAAAAIIAAAAAAAIAAAAEAAAAEAACAAA=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Months" />
     </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="p2groep11.Net.Models.Domain.Country">
-    <Position X="7.25" Y="1.5" Width="1.5" />
-    <AssociationLine Name="Continent" Type="p2groep11.Net.Models.Domain.Continent">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.214" Y="0.081" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAACQAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain\Country.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Continent" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.DeterminateTable">
     <Position X="14.25" Y="3.5" Width="1.5" />
@@ -79,15 +56,30 @@
     <Position X="15.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CompositeIterator.cs</FileName>
+      <FileName>Models\Domain\CompositeIterator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NullIterator">
     <Position X="16.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>NullIterator.cs</FileName>
+      <FileName>Models\Domain\NullIterator.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Country">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="Continent" Type="p2groep11.Net.Models.Domain.Continent">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.214" Y="0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAACQAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Country.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Continent" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
