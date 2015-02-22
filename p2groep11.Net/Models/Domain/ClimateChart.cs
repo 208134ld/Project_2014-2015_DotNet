@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Linq;
 
 namespace p2groep11.Net.Models.Domain
 {
@@ -39,6 +40,22 @@ namespace p2groep11.Net.Models.Domain
                 Months.Add(new Month(month,temperatures[counter],sediments[counter]));
                 counter++;
             }
+        }
+
+        public int CalculateMaxForChart()
+        {
+            int mTemp = Months.Select(m => m.AverTemp).Max();
+            int mSed = Months.Select(m => m.Sediment).Max();
+            int max = 0;
+            if (mTemp > mSed)
+            {
+                max = mTemp;
+            }
+            else
+            {
+                max = mSed;
+            }
+            return max;
         }
     }
 }

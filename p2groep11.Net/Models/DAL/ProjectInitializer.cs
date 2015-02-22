@@ -33,7 +33,7 @@ namespace p2groep11.Net.Models.DAL
 
                 List<Country> countries = (new Country[] { belgië, frankrijk }).ToList();
                 countries.ForEach(c => europa.Countries.Add(c));
-                int []temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 2 };
+                int []temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9 };
                 int []sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
                 ClimateChart gent = new ClimateChart("Gent", 1920, 1921,temps,sed);
                 ClimateChart brugge = new ClimateChart("Brugge", 1550,1551,temps,sed);

@@ -30,13 +30,14 @@ namespace p2groep11.Net.Controllers
 
         public ViewResult ListCountries(int grade, int continentId)
         {
-            ViewBag.Grade = grade;
-            CountryListViewModel model = new CountryListViewModel
-            {
-                Countries = repository.FindCountriesByContinentID(continentId)
-            };
+            //ViewBag.Grade = grade;
+            //CountryListViewModel model = new CountryListViewModel
+            //{
+            //    Countries = repository.FindCountryByID(continentId)
+            //};
 
-            return View(model);
+            //return View(model);
+            return View();
         }
 
     }

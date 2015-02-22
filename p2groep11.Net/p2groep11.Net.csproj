@@ -203,7 +203,9 @@
     <Compile Include="NullIterator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ClimateChartViewModel.cs" />
     <Compile Include="ViewModels\ContinentsListViewModel.cs" />
+    <Compile Include="ViewModels\CountryListViewModel.cs" />
     <Compile Include="ViewModels\KlimatogramViewModel.cs" />
     <Compile Include="ViewModels\SchoolYearFormViewModel.cs" />
   </ItemGroup>

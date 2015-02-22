@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
 using DotNet.Highcharts.Options;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.DAL;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 using Point = DotNet.Highcharts.Options.Point;
@@ -32,12 +34,40 @@ namespace p2groep11.Net.Controllers
             //locaties, landen en locaties uit de repository halen
             return View(new KlimatogramViewModel(GetContinents(), GetCountrys(), GetLocations()));
         }
-
-        //setUp voor demo als chooseklimatogram nog niet werkt.
-        public ActionResult ShowClimateChart()
+        public ActionResult ShowClimateChart(int continentId,int countryId,int climateId)
         {
-            
-            ClimateChart c = continentRepository.FindClimateChartById(1,1,1);
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //ClimateChart c = continentRepository.FindClimateChartById(continentId, countryId, climateId);
+                    ClimateChart c = continentRepository.FindClimateChartById(continentId,countryId, climateId);
+                    ClimateChartViewModel cViewModel = DrawClimateChart(c);
+                    return View(cViewModel);
+                }
+                catch (SqlException sqlExc)
+                {
+                    ModelState.AddModelError("", "Connection lost with the database \n" + sqlExc.Message);
+
+                }
+                catch (NullReferenceException nullEx)
+                {
+                    ModelState.AddModelError("",
+                        "Could not find the climateChart associated with this continentId or countryId or climateId \n" +
+                        nullEx.Message);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("",e.Message);
+                }
+            }
+            return RedirectToAction("Index","SchoolYear");
+        }
+        #region privateMethods
+        private ClimateChartViewModel DrawClimateChart(ClimateChart climateChart)
+        {
+            ClimateChart c = climateChart;
+            int m = c.CalculateMaxForChart();
             int[] sed = c.Months.Select(p => p.Sediment).ToArray();
             int[] tem = c.Months.Select(p => p.AverTemp).ToArray();
             Object[] sediments = new object[12];
@@ -46,8 +76,8 @@ namespace p2groep11.Net.Controllers
             CopyIntArrayToObjectArray(tem, temp);
             Highcharts chart = new Highcharts("chart")
                .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
-               .SetTitle(new Title { Text = "klimatogram" })
-               .SetSubtitle(new Subtitle { Text = "cont - land - loc" })
+               .SetTitle(new Title { Text = "klimatogram " + c.Location + " (" + c.Country.Name + ")" })
+               .SetSubtitle(new Subtitle { Text = c.BeginPeriod + " - " + c.EndPeriod })
                .SetXAxis(new XAxis { Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" } })
                .SetYAxis(new[]
                 {
@@ -64,7 +94,7 @@ namespace p2groep11.Net.Controllers
                             Style = "color: '#DE091E'"
                         },
                         Opposite = true,
-                        Max = 110
+                        Max = c.CalculateMaxForChart()/2
                     },
                     new YAxis
                     {
@@ -78,7 +108,7 @@ namespace p2groep11.Net.Controllers
                             Text = "Neerslag",
                             Style = "color: '#4572A7'"
                         },
-                        Max = 220
+                        Max = c.CalculateMaxForChart()
                     }
                 })
                .SetTooltip(new Tooltip
@@ -115,13 +145,14 @@ namespace p2groep11.Net.Controllers
                     }
                 });
 
-            return View(chart);
+            return new ClimateChartViewModel(chart,c.Months);
         }
 
         private void CopyIntArrayToObjectArray(int [] intArray,Object[] objectAr)
         {
             intArray.CopyTo(objectAr,0);
         }
+        
         //voorlopig om strings in de selectlist te steken
         private List<SelectListItem> GetContinents()
         {
@@ -155,6 +186,6 @@ namespace p2groep11.Net.Controllers
             }
             return locationList;
         }
-        
-	}
+        #endregion
+    }
 }

@@ -39,7 +39,7 @@ namespace p2groep11.Net.Tests.Controllers
             controller.ModelState.AddModelError("key", "error");
             ViewResult result = controller.Index(1) as ViewResult;
             SchoolYearFormViewModel yearVM = result.Model as SchoolYearFormViewModel;
-            Assert.AreEqual(1, yearVM.SelectedYear);
+            Assert.AreEqual(0, yearVM.SelectedYear);
         }
     }
 }
