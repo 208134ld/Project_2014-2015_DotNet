@@ -49,7 +49,7 @@ namespace p2groep11.Net.Controllers
         public ViewResult ListLocations(int grade, int continentId, int countryId, string search)
         {
             ViewBag.Grade = grade;
-            IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(1, 1);
+            IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(continentId, countryId);
             if (!String.IsNullOrEmpty(search))
             {
                 locationList = repository.FindLocationsByCountryID(continentId, countryId)
