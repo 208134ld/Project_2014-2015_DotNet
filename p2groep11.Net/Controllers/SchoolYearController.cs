@@ -28,7 +28,12 @@ namespace p2groep11.Net.Controllers
                 {
                     SchoolYear schoolYear = new SchoolYear(SelectedYear);
                     int grade = schoolYear.CalculateGrade();
-                    return RedirectToAction("ListContinents", "Continent", new { grade });
+                    if (grade < 3)
+                    {
+                        return RedirectToAction("ListContinents", "Continent", new { grade });
+                    }
+                    return RedirectToAction("Error");
+
                 }
                 catch (Exception e)
                 {
@@ -39,13 +44,18 @@ namespace p2groep11.Net.Controllers
                 return View(new SchoolYearFormViewModel(GetYears()));
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
         private List<SelectListItem> GetYears()
         {
             List<SelectListItem> years = new List<SelectListItem>();
-            years.Add(new SelectListItem {Value = "1", Text = "1ste Leerjaar"});
+            years.Add(new SelectListItem {Value = "1", Text = "1ste leerjaar"});
             for (int i = 2; i < 7; i++)
             {
-                years.Add(new SelectListItem{Value = i+"",Text = i+"de Leerjaar"});
+                years.Add(new SelectListItem{Value = i+"",Text = i+"de leerjaar"});
             }
             return years;
         }

@@ -9,16 +9,23 @@
 <p>
     @using (Html.BeginForm("ListCountries", "Continent", FormMethod.Get))
     {
-    <p>
+    <div>
         Land: @Html.TextBox("Search")
         <input type="submit" value="Filter" />
-    </p>
+    </div>
     }
 </p>
 
-@foreach (var item in Model.Countries)
-{
-    <div>        
-        @Html.ActionLink(@item.Name, "ListCountries")
-    </div>
-}
+<div>
+    @foreach (var item in Model.Countries)
+    {
+        <div>
+            @Html.ActionLink(@item.Name, "ListLocations", 
+            new { grade = @ViewBag.Grade, continentId = item.Continent.ContinentID, countryId = item.CountryID })
+        </div>       
+    }
+</div>
+ 
+    
+
+

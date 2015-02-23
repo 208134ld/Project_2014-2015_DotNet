@@ -206,7 +206,7 @@
     <Compile Include="ViewModels\ClimateChartViewModel.cs" />
     <Compile Include="ViewModels\ContinentsListViewModel.cs" />
     <Compile Include="ViewModels\CountryListViewModel.cs" />
-    <Compile Include="ViewModels\KlimatogramViewModel.cs" />
+    <Compile Include="ViewModels\LocationListViewModel.cs" />
     <Compile Include="ViewModels\SchoolYearFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,11 +277,14 @@
     <Content Include="Views\Schoolyear\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\ClimateChart\KlimatogramView.cshtml" />
     <Content Include="Views\ClimateChart\ShowClimateChart.cshtml" />
     <Content Include="Views\ClimateChart\Index.cshtml" />
     <Content Include="Views\Continent\ListContinents.cshtml" />
     <Content Include="Views\Continent\ListCountries.cshtml" />
+    <Content Include="Views\Continent\ListLocations.cshtml" />
+    <Content Include="Views\Schoolyear\Error.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

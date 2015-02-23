@@ -28,19 +28,13 @@ namespace p2groep11.Net.Controllers
             this.continentRepository = continentRepository;
             //rest van de repositories gelijkstellen
         }
-        [HttpGet]
-        public ActionResult ChooseKlimatogram()
-        {
-            //locaties, landen en locaties uit de repository halen
-            return View(new KlimatogramViewModel(GetContinents(), GetCountrys(), GetLocations()));
-        }
+        
         public ActionResult ShowClimateChart(int continentId,int countryId,int climateId)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //ClimateChart c = continentRepository.FindClimateChartById(continentId, countryId, climateId);
                     ClimateChart c = continentRepository.FindClimateChartById(continentId,countryId, climateId);
                     ClimateChartViewModel cViewModel = DrawClimateChart(c);
                     return View(cViewModel);

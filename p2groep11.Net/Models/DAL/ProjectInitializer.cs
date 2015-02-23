@@ -114,7 +114,7 @@ namespace p2groep11.Net.Models.DAL
                 countriesAzië.ForEach(c => azië.Countries.Add(c));
 
                 //EUROPA
-                Country be = new Country { Name = "België" };
+                Country belgië = new Country { Name = "België" };
                 Country bosnië = new Country { Name = "Bosnië-Hercegovina" };
                 Country bulgarije = new Country { Name = "Bulgarije" };
                 Country cyprus = new Country { Name = "Cyprus" };
@@ -156,7 +156,7 @@ namespace p2groep11.Net.Models.DAL
                 Country zwitserland = new Country { Name = "Zwitserland" };
                 List<Country> countriesEU = (new Country[]
                 {
-                    be, bosnië, bulgarije, cyprus, denemarken, duitsland, estland, finland, fr, lux, georgië, griekenland, groenland, hongarije, ierland, ijsland, italië, kroatië,
+                    belgië, bosnië, bulgarije, cyprus, denemarken, duitsland, estland, finland, fr, lux, georgië, griekenland, groenland, hongarije, ierland, ijsland, italië, kroatië,
                     letland, lithouwen, macedonië, malta, moldavië, ned, noorwegen, oekraïne, oostenrijk, polen, portugal, roemenië, russischeFed, servië, slovenië, slowakije, spanje,
                     spanjeEilanden, tsjechië, vk, zweden, zwitserland
                 }).ToList();
@@ -216,8 +216,8 @@ namespace p2groep11.Net.Models.DAL
                 //_______________
                 int []temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9 };
                 int []sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
-                ClimateChart gent = new ClimateChart("Gent", 1920, 1921,temps,sed);
-                ClimateChart brugge = new ClimateChart("Brugge", 1550,1551,temps,sed);
+                ClimateChart gent = new ClimateChart("Gent", 1920, 1921, temps, sed);
+                ClimateChart brugge = new ClimateChart("Brugge", 1550,1551, temps, sed);
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] { gent, brugge }).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));

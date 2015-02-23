@@ -46,6 +46,23 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
+        public ViewResult ListLocations(int grade, int continentId, int countryId, string search)
+        {
+            ViewBag.Grade = grade;
+            IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(1, 1);
+            if (!String.IsNullOrEmpty(search))
+            {
+                locationList = repository.FindLocationsByCountryID(continentId, countryId)
+                    .Where(c => c.Location.ToLower().Contains(search));
+            };
+
+            LocationListViewModel model = new LocationListViewModel
+            {
+                Locations = locationList
+            };
+
+            return View(model);
+        }
 
     }
 }

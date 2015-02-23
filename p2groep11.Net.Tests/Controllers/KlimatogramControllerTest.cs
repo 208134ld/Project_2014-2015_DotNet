@@ -18,7 +18,7 @@ namespace p2groep11.Net.Tests.Controllers
         private Mock<IContinentRepository> continentRepository;
 
         private Continent continent;
-        private KlimatogramViewModel model;
+        private LocationListViewModel model;
         private DummyDataContext context;
         private ClimateChartViewModel chartModel;
         [TestInitialize]

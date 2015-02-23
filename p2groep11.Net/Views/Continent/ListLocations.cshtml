@@ -1,0 +1,28 @@
+﻿@model p2groep11.Net.ViewModels.LocationListViewModel
+
+@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Locations</h2>
+
+<p>
+    @using (Html.BeginForm("ListLocations", "Continent", FormMethod.Get))
+    {
+        <div>
+            Locatie: @Html.TextBox("Search")
+            <input type="submit" value="Filter" />
+        </div>
+    }
+</p>
+
+<div>
+    @foreach (var item in Model.Locations)
+    {
+        <div>      
+            @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
+            new { continentId = item.Country.Continent.ContinentID, countryId = item.Country.CountryID, climateId = item.ClimateChartID }, null)
+        </div>
+    }
+</div>

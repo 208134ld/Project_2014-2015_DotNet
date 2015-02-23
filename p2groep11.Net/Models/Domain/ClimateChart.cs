@@ -12,7 +12,7 @@ namespace p2groep11.Net.Models.Domain
     {
         public int ClimateChartID { get; set; }
         public string Location { get; set; }
-        public virtual List<Month> Months { get; set; }
+        public virtual List<Month> Months { get; private set; }
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public Country Country { get; set; }
@@ -21,7 +21,7 @@ namespace p2groep11.Net.Models.Domain
         {
             
         }
-        public ClimateChart(string loc, int begin, int end,int[]temperatures,int[] sediments)
+        public ClimateChart(string loc, int begin, int end, int[]temperatures, int[] sediments)
         {
             if (temperatures.Length != 12 || sediments.Length != 12)
                 throw new ArgumentException("Temperatures and sediments have to contain 12 values");
