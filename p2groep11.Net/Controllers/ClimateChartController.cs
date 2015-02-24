@@ -29,8 +29,9 @@ namespace p2groep11.Net.Controllers
             //rest van de repositories gelijkstellen
         }
         
-        public ActionResult ShowClimateChart(int continentId,int countryId,int climateId)
+        public ActionResult ShowClimateChart(int selectedYear,int continentId,int countryId,int climateId)
         {
+            @ViewBag.SchoolYear = selectedYear;
             if (ModelState.IsValid)
             {
                 try

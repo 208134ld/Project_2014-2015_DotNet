@@ -28,12 +28,15 @@ namespace p2groep11.Net.Controllers
                 {
                     SchoolYear schoolYear = new SchoolYear(SelectedYear);
                     int grade = schoolYear.CalculateGrade();
-                    if (grade < 3)
+                    switch (grade)
                     {
-                        return RedirectToAction("ListContinents", "Continent", new { grade });
+                        case 1:
+                            return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 1});
+                        case 2:
+                            return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
+                        default:
+                            return RedirectToAction("Error");
                     }
-                    return RedirectToAction("Error");
-
                 }
                 catch (Exception e)
                 {

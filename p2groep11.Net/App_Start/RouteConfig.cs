@@ -15,15 +15,30 @@ namespace p2groep11.Net
 
             routes.MapRoute(
                 name: "Continents",
-                url: "{grade}/Continents",
-                defaults: new { controller = "Continent", action = "ListContinents", grade = UrlParameter.Optional }
+                url: "{SelectedYear}/Continents",
+                defaults: new { controller = "Continent", action = "ListContinents", SelectedYear = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Countries",
-                url: "{grade}/Continents/{continentId}/Countries",
-                defaults: new { controller = "Continent", action = "ListCountries", 
-                    grade = UrlParameter.Optional, continentId = UrlParameter.Optional }
+                url: "{SelectedYear}/Continents/{continentId}/Countries",
+                defaults: new { controller = "Continent", action = "ListCountries",
+                                SelectedYear = UrlParameter.Optional,
+                                continentId = UrlParameter.Optional
+                }
+            );
+
+            routes.MapRoute(
+                name: "Locations",
+                url: "{SelectedYear}/Continents/{continentId}/Countries/{countryId}/Locations",
+                defaults: new
+                {
+                    controller = "Continent",
+                    action = "ListLocations",
+                    SelectedYear = UrlParameter.Optional,
+                    continentId = UrlParameter.Optional,
+                    countryId = UrlParameter.Optional
+                }
             );
 
             routes.MapRoute(

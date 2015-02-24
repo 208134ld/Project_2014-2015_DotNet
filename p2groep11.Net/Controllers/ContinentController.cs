@@ -18,9 +18,9 @@ namespace p2groep11.Net.Controllers
             repository = continentRepository;
         }
 
-        public ViewResult ListContinents(int grade)
+        public ViewResult ListContinents(int SelectedYear)
         {
-            ViewBag.Grade = grade;
+            ViewBag.SchoolYear = SelectedYear;
             ContinentsListViewModel model = new ContinentsListViewModel
             {
                 Continents = repository.FindAll()
@@ -29,9 +29,9 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListCountries(int grade, int continentId, string search)
+        public ViewResult ListCountries(int SelectedYear, int continentId, string search)
         {
-            ViewBag.Grade = grade;
+            ViewBag.SchoolYear = SelectedYear;
             IEnumerable<Country> countryList = repository.FindCountriesByContinentID(continentId);
             if (!String.IsNullOrEmpty(search))
             {
@@ -46,9 +46,9 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListLocations(int grade, int continentId, int countryId, string search)
+        public ViewResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
         {
-            ViewBag.Grade = grade;
+            ViewBag.SchoolYear = SelectedYear;
             IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(continentId, countryId);
             if (!String.IsNullOrEmpty(search))
             {

@@ -31,7 +31,7 @@
     {
         <div>      
             @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
-            new { continentId = item.Country.Continent.ContinentID, countryId = item.Country.CountryID, climateId = item.ClimateChartID }, null)
+            new { SelectedYear = ViewBag.SchoolYear, continentId = item.Country.Continent.ContinentID, countryId = item.Country.CountryID, climateId = item.ClimateChartID }, null)
         </div>
     }
 </div>
