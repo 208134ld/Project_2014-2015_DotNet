@@ -25,3 +25,8 @@ textarea {
 .ClimateTable {
     margin-left: 120px;   
 }
+
+footer p{
+    margin-top: 20px;
+    text-align: center;
+}

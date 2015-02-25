@@ -27,7 +27,7 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAQAAAAAIIAAAAAAAIAAAAEAAAAEAACAAA=</HashCode>
+      <HashCode>AAAAQAAAAAAQAAAAAIIAAAAAAAIAAAAGAAAAEAACAAA=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -55,19 +55,43 @@
       <Property Name="ClimateCharts" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="p2groep11.Net.Result">
-    <Position X="11.25" Y="7.5" Width="1.5" />
+  <Class Name="p2groep11.Net.Models.Domain.Clause">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAIABAQAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Clause.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAIABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\ClauseComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.ClauseIterator">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAIAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\ClauseIterator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Result">
+    <Position X="13" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="p2groep11.Net.Clause">
-    <Position X="14.75" Y="7.5" Width="1.5" />
+  <Class Name="p2groep11.Net.Models.Domain.NullIterator">
+    <Position X="14.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain\Clause.cs</FileName>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\NullIterator.cs</FileName>
+      <NewMemberFileName>Models\Domain\nullIterator.cs</NewMemberFileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
