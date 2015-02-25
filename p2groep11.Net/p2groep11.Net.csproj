@@ -288,7 +288,6 @@
     <Content Include="Views\Schoolyear\Error.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Continent\NoLocationsInCountryErrorPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
