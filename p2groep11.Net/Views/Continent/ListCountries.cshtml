@@ -6,6 +6,7 @@
 }
 
 <h2>Countries</h2>
+<div id="partialdiv"></div>
 <p>
     @using (Html.BeginForm("ListCountries", "Continent", FormMethod.Get))
     {
@@ -20,8 +21,15 @@
     @foreach (var item in Model.Countries)
     {
         <div>
-            @Html.ActionLink(@item.Name, "ListLocations",
-             new { Selectedyear = @ViewBag.SchoolYear, continentId = item.Continent.ContinentID, countryId = item.CountryID })
+            @Ajax.ActionLink(@item.Name, "ListLocations", new { Selectedyear = @ViewBag.SchoolYear, continentId = item.Continent.ContinentID, countryId = item.CountryID }, new AjaxOptions
+               {
+                   HttpMethod = "GET",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "partialdiv"
+               })
+            
+            @*@Html.ActionLink(@item.Name, "ListLocations",
+                new {Selectedyear = @ViewBag.SchoolYear, continentId = item.Continent.ContinentID, countryId = item.CountryID})*@
         </div>       
     }
 </div>

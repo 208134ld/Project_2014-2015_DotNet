@@ -46,7 +46,7 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
+        public ActionResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
         {
             ViewBag.SchoolYear = SelectedYear;
             IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(continentId, countryId);
@@ -61,7 +61,14 @@ namespace p2groep11.Net.Controllers
                 Locations = locationList
             };
 
-            return View(model);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("NoLocationsInCountryErrorPartial");
+            }
+            else
+            {
+                return View(model);
+            }
         }
 
     }
