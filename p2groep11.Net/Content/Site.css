@@ -23,15 +23,5 @@ textarea {
     max-width: 280px;
 }
 .ClimateTable {
-    margin-left: 120px;
-    
-}
-
-.noLocations {
-    background: url("information-sign.png") no-repeat 15px 5px;
-    background-size: 20px 20px;
-    background-color: #FEFCC8;
-    line-height: 30px;
-    height: 30px;
-    padding-left: 50px;
+    margin-left: 120px;   
 }

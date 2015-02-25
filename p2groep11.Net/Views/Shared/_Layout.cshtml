@@ -20,7 +20,12 @@
             </div>            
         </div>
     </div>
-
+    <div id="content" class="wrapper">
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

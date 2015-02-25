@@ -18,7 +18,7 @@ namespace p2groep11.Net.Controllers
             repository = continentRepository;
         }
 
-        public ViewResult ListContinents(int SelectedYear)
+        public ActionResult ListContinents(int SelectedYear)
         {
             ViewBag.SchoolYear = SelectedYear;
             ContinentsListViewModel model = new ContinentsListViewModel
@@ -29,7 +29,7 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListCountries(int SelectedYear, int continentId, string search)
+        public ActionResult ListCountries(int SelectedYear, int continentId, string search)
         {
             ViewBag.SchoolYear = SelectedYear;
             IEnumerable<Country> countryList = repository.FindCountriesByContinentID(continentId);
@@ -46,7 +46,7 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
+        public ActionResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
         {
             ViewBag.SchoolYear = SelectedYear;
             IEnumerable<ClimateChart> locationList = repository.FindLocationsByCountryID(continentId, countryId);
@@ -56,12 +56,18 @@ namespace p2groep11.Net.Controllers
                     .Where(c => c.Location.ToLower().Contains(search));
             };
 
-            LocationListViewModel model = new LocationListViewModel
+            LocationListViewModel locationListViewModel = new LocationListViewModel
             {
                 Locations = locationList
             };
 
-            return View(model);
+            if (!locationListViewModel.Locations.Any())
+            {
+                TempData["Error"] = "Er zijn geen locaties gevonden voor dit land.";
+                return RedirectToAction("ListCountries", new{SelectedYear, continentId});
+
+            }
+            return View(locationListViewModel);
         }
 
     }
