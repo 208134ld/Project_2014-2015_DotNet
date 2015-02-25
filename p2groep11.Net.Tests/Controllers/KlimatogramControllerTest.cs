@@ -21,6 +21,7 @@ namespace p2groep11.Net.Tests.Controllers
         private LocationListViewModel model;
         private DummyDataContext context;
         private ClimateChartViewModel chartModel;
+
         [TestInitialize]
         public void Initialize()
         {
@@ -34,12 +35,13 @@ namespace p2groep11.Net.Tests.Controllers
             //    controller.GetLocations());
 
         }
+
         [TestMethod]
         public void ErrorInShowClimateChartRedirectToSelectSchoolyear()
         {
             
             controller.ModelState.AddModelError("key", "error");
-            RedirectToRouteResult result = controller.ShowClimateChart(1,1,1) as RedirectToRouteResult;
+            RedirectToRouteResult result = controller.ShowClimateChart(1,1,1,1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["Action"]);
         }
 
@@ -47,7 +49,7 @@ namespace p2groep11.Net.Tests.Controllers
         public void ShowClimatogramPassesViewmodelToView()
         {
             
-            ViewResult result = controller.ShowClimateChart(1, 1, 1) as ViewResult;
+            ViewResult result = controller.ShowClimateChart(1,1, 1, 1) as ViewResult;
             ClimateChartViewModel model = result.Model as ClimateChartViewModel;
             Assert.AreEqual(model.Months,context.Gent.Months);
         }

@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace p2groep11.Net
 {
-    public class DeterminateTableItem : DeterminateTableComponent
+    public class Result : ClauseComponent
     {
     }
 }
