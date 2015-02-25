@@ -18,7 +18,7 @@ namespace p2groep11.Net.Controllers
             repository = continentRepository;
         }
 
-        public ViewResult ListContinents(int SelectedYear)
+        public ActionResult ListContinents(int SelectedYear)
         {
             ViewBag.SchoolYear = SelectedYear;
             ContinentsListViewModel model = new ContinentsListViewModel
@@ -29,7 +29,7 @@ namespace p2groep11.Net.Controllers
             return View(model);
         }
 
-        public ViewResult ListCountries(int SelectedYear, int continentId, string search)
+        public ActionResult ListCountries(int SelectedYear, int continentId, string search)
         {
             ViewBag.SchoolYear = SelectedYear;
             IEnumerable<Country> countryList = repository.FindCountriesByContinentID(continentId);
@@ -56,19 +56,18 @@ namespace p2groep11.Net.Controllers
                     .Where(c => c.Location.ToLower().Contains(search));
             };
 
-            LocationListViewModel model = new LocationListViewModel
+            LocationListViewModel locationListViewModel = new LocationListViewModel
             {
                 Locations = locationList
             };
 
-            if (Request.IsAjaxRequest())
+            if (!locationListViewModel.Locations.Any())
             {
-                return PartialView("NoLocationsInCountryErrorPartial");
+                TempData["Error"] = "Er zijn geen locaties gevonden voor dit land.";
+                return RedirectToAction("ListCountries", new{SelectedYear, continentId});
+
             }
-            else
-            {
-                return View(model);
-            }
+            return View(locationListViewModel);
         }
 
     }

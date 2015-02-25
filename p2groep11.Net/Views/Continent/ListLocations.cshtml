@@ -5,16 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Locations</h2>
-
-<p>
-    @*@if (!Model.Locations.Any())
-    {
-        <div class="noLocations">
-            Er zijn geen locaties gevonden voor dit land.
-        </div>
-    }*@
-</p>
+<h2>Locations </h2>
 
 <p>
     @using (Html.BeginForm("ListLocations", "Continent", FormMethod.Get))
