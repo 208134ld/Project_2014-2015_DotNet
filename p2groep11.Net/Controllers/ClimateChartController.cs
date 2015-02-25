@@ -32,7 +32,7 @@ namespace p2groep11.Net.Controllers
         public ActionResult ShowClimateChart(int selectedYear,int continentId,int countryId,int climateId)
         {
             @ViewBag.SchoolYear = selectedYear;
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 try
                 {
@@ -89,7 +89,9 @@ namespace p2groep11.Net.Controllers
                             Style = "color: '#DE091E'"
                         },
                         Opposite = true,
-                        Max = c.CalculateMaxForChart()/2
+                        Max = c.CalculateMaxForChart()/2,
+                        Min = c.CalculateMinForChart()
+                        
                     },
                     new YAxis
                     {
@@ -103,7 +105,8 @@ namespace p2groep11.Net.Controllers
                             Text = "Neerslag",
                             Style = "color: '#4572A7'"
                         },
-                        Max = c.CalculateMaxForChart()
+                        Max = c.CalculateMaxForChart(),
+                        Min = c.CalculateMinForChart()*2
                     }
                 })
                .SetTooltip(new Tooltip

@@ -18,6 +18,18 @@ namespace p2groep11.Net.Tests.Domein
         }
 
         [TestMethod]
+        public void CalculateMaxGivesMax()
+        {
+            ClimateChart chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
+            Assert.AreEqual(200,chart.CalculateMaxForChart());
+        }
+        [TestMethod]
+        public void CalculateMinGivesMin()
+        {
+            ClimateChart chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
+            Assert.AreEqual(2, chart.CalculateMinForChart());
+        }
+        [TestMethod]
         public void ConstructorMakesAClimateChartWithMonthList()
         {
             ClimateChart chart = new ClimateChart("Gent",1990,1991,temps,sed);

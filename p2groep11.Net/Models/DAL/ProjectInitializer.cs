@@ -216,8 +216,10 @@ namespace p2groep11.Net.Models.DAL
                 //_______________
                 int []temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9 };
                 int []sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
+                int[] temps2 = new int[] { 10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9 };
+                int[] sed2 = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
                 ClimateChart gent = new ClimateChart("Gent", 1920, 1921, temps, sed);
-                ClimateChart brugge = new ClimateChart("Brugge", 1550,1551, temps, sed);
+                ClimateChart brugge = new ClimateChart("Brugge", 1550,1551, temps2, sed2);
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] { gent, brugge }).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
