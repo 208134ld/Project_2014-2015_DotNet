@@ -20,10 +20,15 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Year needs to be between 1 and 6.");
             }
         }
-        public int CalculateGrade()
+        public int Grade { 
+            get { return (year + 1) / 2; }
+        }
+
+
+        /*public int CalculateGrade()
         {
             return (year+1)/2;
-        }
+        }*/
 
         public SchoolYear()
         {
@@ -35,6 +40,7 @@ namespace p2groep11.Net.Models.Domain
             this.year = number;
         }
 
+        
 
     }
 }

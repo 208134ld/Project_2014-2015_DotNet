@@ -12,7 +12,7 @@ namespace p2groep11.Net.Models.Domain
 
         public int MonthID { get; set; }
         //Gemiddelde Temperatuur
-        public MonthsOfTheYear month { get; set; }
+        public virtual MonthsOfTheYear month { get; set; }
         public int AverTemp { get; set; }
         public int Sediment { get; set; }
 

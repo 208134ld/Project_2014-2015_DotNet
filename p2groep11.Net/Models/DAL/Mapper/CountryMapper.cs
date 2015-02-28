@@ -22,7 +22,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.Name).IsRequired();
 
             //Relations
-            HasMany(c => c.ClimateCharts).WithRequired(c => c.Country);
+            HasMany(c => c.ClimateCharts).WithRequired(c => c.Country).Map(m => m.MapKey("CountryID")).WillCascadeOnDelete(true);
         }
     }
 }

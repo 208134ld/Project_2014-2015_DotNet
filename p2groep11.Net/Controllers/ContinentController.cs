@@ -35,7 +35,7 @@ namespace p2groep11.Net.Controllers
             IEnumerable<Country> countryList = repository.FindCountriesByContinentID(continentId);
             if (!String.IsNullOrEmpty(search))
             {
-                countryList = repository.FindCountriesByContinentID(continentId).Where(c => c.Name.ToLower().Contains(search));
+                countryList = repository.FindCountriesByContinentID(continentId).Where(c => c.Name.ToLower().Contains(search.ToLower()));
             };
 
             CountryListViewModel model = new CountryListViewModel

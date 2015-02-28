@@ -18,11 +18,11 @@ namespace p2groep11.Net.Tests.Controllers
         {
             controller = new SchoolYearController();
             years = new List<SelectListItem>();
-            years.Add(new SelectListItem { Value = "1", Text = "1ste Leerjaar" });
+            /*years.Add(new SelectListItem { Value = "1", Text = "1ste Leerjaar" });
             for (int i = 2; i < 7; i++)
             {
                 years.Add(new SelectListItem { Value = i + "", Text = i + "de Leerjaar" });
-            }
+            }*/
         }
         //[TestMethod]
         //public void SelectASchoolYearPostRedirectToListContinents()

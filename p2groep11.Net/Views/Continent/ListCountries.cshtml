@@ -7,7 +7,7 @@
     int count = 0;
 }
 
-<h2>Countries</h2>
+<h2>Landen</h2>
 <p>
     @using (Html.BeginForm("ListCountries", "Continent", FormMethod.Get))
     {
@@ -18,9 +18,9 @@
     }
 </p>
 
+
 <div>
 
-    
     @foreach (var item in Model.Countries)
     {
            @:<div class="col-md-4">

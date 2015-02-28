@@ -26,8 +26,9 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
+                    //de Businesslogica in de controller moet hier weg (switch case)
                     SchoolYear schoolYear = new SchoolYear(SelectedYear);
-                    int grade = schoolYear.CalculateGrade();
+                    int grade = schoolYear.Grade;
                     switch (grade)
                     {
                         case 1:
