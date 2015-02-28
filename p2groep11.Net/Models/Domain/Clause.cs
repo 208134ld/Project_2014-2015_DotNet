@@ -38,6 +38,11 @@ namespace p2groep11.Net.Models.Domain
             return this.YesClause;
         }
 
+        public override ClauseComponent GetNoClause()
+        {
+            return this.NoClause;
+        }
+
         public override void Add(Boolean soort, ClauseComponent component)
         {
             if (soort)

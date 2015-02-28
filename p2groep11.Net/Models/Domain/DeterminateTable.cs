@@ -21,10 +21,5 @@ namespace p2groep11.Net.Models.Domain
         {
             return ClauseComponent.Determinate(chart);
         }
-
-        public String Determinate()
-        {
-            return "hallo";
-        }
     }
 }

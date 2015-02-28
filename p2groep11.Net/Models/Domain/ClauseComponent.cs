@@ -22,10 +22,27 @@ namespace p2groep11.Net.Models.Domain
             throw new NotImplementedException();
         }
 
+        public virtual ClauseComponent GetNoClause()
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual ClauseComponent GetChild()
         {
             throw new NotImplementedException();
         }
+
+        public virtual String GetVegetatiekenmerk()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual String GetKlimaatkenmerk()
+        {
+            throw new NotImplementedException();
+        }
+
+
 
     }
 }

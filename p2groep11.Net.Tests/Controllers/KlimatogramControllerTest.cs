@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using p2groep11.Net.Controllers;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.DAL;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 

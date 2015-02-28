@@ -30,3 +30,38 @@ footer p{
     margin-top: 20px;
     text-align: center;
 }
+.row {
+    margin-top: 50px;
+    border-bottom: 1px solid black;
+}
+.clauseTd {
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background: lightblue;
+    width: 70px;
+}
+
+.row div {
+    display: inline-block;
+    margin: 5px;
+        
+}
+
+div.resultTd {
+    padding: 10px;
+    border: 1px solid blue;
+    background: lightblue;
+    width: 240px;
+    text-align: center;
+
+}
+
+
+
+.tussen {
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    width: 70px;
+}

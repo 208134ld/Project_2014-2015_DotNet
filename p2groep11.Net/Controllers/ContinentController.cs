@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.DAL;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 

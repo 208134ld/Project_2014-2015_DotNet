@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using p2groep11.Net.Models.Domain;
 
-namespace p2groep11.Net.Models
+namespace p2groep11.Net.Models.DAL
 {
     public interface IContinentRepository
     {

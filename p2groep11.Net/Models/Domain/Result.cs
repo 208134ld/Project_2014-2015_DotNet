@@ -18,9 +18,14 @@ namespace p2groep11.Net.Models.Domain
             return "Het klimaatkenmerk is: " + Klimaatkenmerk + "Het vegetatiekenmerk is: " + Vegetatiekenmerk;
         }
 
-        //public override void Add(ClauseComponent component)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public override String GetVegetatiekenmerk()
+        {
+            return this.Vegetatiekenmerk;
+        }
+
+        public override String GetKlimaatkenmerk()
+        {
+            return this.Klimaatkenmerk;
+        }
     }
 }
