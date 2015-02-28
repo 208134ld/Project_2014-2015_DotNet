@@ -21,12 +21,10 @@ namespace p2groep11.Net.Controllers
     public class ClimateChartController : Controller
     {
         private IContinentRepository continentRepository;
-        //repositories voor landen en locaties
 
         public ClimateChartController(IContinentRepository continentRepository)
         {
             this.continentRepository = continentRepository;
-            //rest van de repositories gelijkstellen
         }
         
         public ActionResult ShowClimateChart(int selectedYear,int continentId,int countryId,int climateId)
