@@ -58,24 +58,16 @@
   <Class Name="p2groep11.Net.Models.Domain.Clause">
     <Position X="10.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAIABAQAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAABIQAAAAAAAAAAAAAk=</HashCode>
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
-    <Position X="12" Y="3.25" Width="1.5" />
+    <Position X="13.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAIABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\ClauseComponent.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="p2groep11.Net.Models.Domain.ClauseIterator">
-    <Position X="14.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAIAEAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain\ClauseIterator.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Result">
     <Position X="13" Y="7.5" Width="1.5" />
@@ -84,14 +76,19 @@
       <FileName>Models\Domain\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="p2groep11.Net.Models.Domain.NullIterator">
-    <Position X="14.75" Y="6.25" Width="1.5" />
+  <Class Name="p2groep11.Net.Models.Domain.DeterminateTable">
+    <Position X="9.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Domain\NullIterator.cs</FileName>
-      <NewMemberFileName>Models\Domain\nullIterator.cs</NewMemberFileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\DeterminateTable.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Parameter">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Parameter.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

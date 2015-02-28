@@ -61,7 +61,29 @@ namespace p2groep11.Net.Controllers
         #region privateMethods
         private ClimateChartViewModel DrawClimateChart(ClimateChart climateChart)
         {
+            //determinatetable aanmaken, efkes zonder database werken
+            Parameter tw = new Parameter(0, "TW");
+            Parameter tj = new Parameter(0, "TJ");
+            Parameter nj = new Parameter(0, "NJ");
+            Parameter tk = new Parameter(0, "TK");
+            Parameter d = new Parameter(0, "D");
+            Parameter nz = new Parameter(0, "NZ");
+            Parameter nw = new Parameter(0, "NW");
+            ClauseComponent hoofdClause1 = new Clause("TW <= 10", tw, 10);
+            ClauseComponent clause2 = new Clause("TW <= 0", tw, 0);
+            ClauseComponent result1 = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat");
+            ClauseComponent result2 = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat");
+            clause2.Add(true, result1);
+            clause2.Add(false, result2);
+            hoofdClause1.Add(true, clause2);
+            hoofdClause1.Add(false, result2); //voorlopig om te testen
+
+            DeterminateTable table = new DeterminateTable(hoofdClause1);
+
+
+
             ClimateChart c = climateChart;
+
             int m = c.CalculateMaxForChart();
             int[] sed = c.Months.Select(p => p.Sediment).ToArray();
             int[] tem = c.Months.Select(p => p.AverTemp).ToArray();
@@ -143,7 +165,7 @@ namespace p2groep11.Net.Controllers
                     }
                 });
 
-            return new ClimateChartViewModel(chart,c.Months);
+            return new ClimateChartViewModel(chart,c.Months, table);
         }
 
         private void CopyIntArrayToObjectArray(int [] intArray,Object[] objectAr)

@@ -1,11 +1,31 @@
-﻿namespace p2groep11.Net.Models.Domain
+﻿using System;
+
+namespace p2groep11.Net.Models.Domain
 {
     public abstract class ClauseComponent
     {
-        public abstract void Add(ClauseComponent clauseComponent);
-        public abstract void Remove(ClauseComponent clauseComponent);
-        public abstract ClauseComponent GetChild(int i);
-        public abstract string Name { get; set; }
+        public int ClauseComponentId { get; set; }
+        public abstract string Determinate(ClimateChart chart);
+
+        public virtual void Add(Boolean soort, ClauseComponent component)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual String GetName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual ClauseComponent GetYesClause()
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual ClauseComponent GetChild()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

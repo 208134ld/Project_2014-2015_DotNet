@@ -16,6 +16,7 @@ namespace p2groep11.Net.Models.Domain
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public Country Country { get; set; }
+        public DeterminateTable DeterminateTable { get; set; }
 
         public ClimateChart()
         {
@@ -73,5 +74,17 @@ namespace p2groep11.Net.Models.Domain
             }
             return min;
         }
+
+        public int CalculateHottestMonth()
+        {
+            return Months.Select(month => month.AverTemp).Concat(new[] { -200 }).Max();
+        }
+
+        public int CalculateAverageYeartemp()
+        {
+            return (Months.Sum(month => month.AverTemp)) / 12;
+        }
+
+
     }
 }

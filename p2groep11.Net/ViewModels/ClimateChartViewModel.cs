@@ -15,12 +15,15 @@ namespace p2groep11.Net.ViewModels
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double AvgTemp { get; private set; }
         public int SumSed { get; private set; }
-        public ClimateChartViewModel(Highcharts chart, IEnumerable<Month> months )
+        public DeterminateTable table { get; private set; }
+        
+        public ClimateChartViewModel(Highcharts chart, IEnumerable<Month> months, DeterminateTable table)
         {
             this.Chart = chart;
             this.Months = months;
             AvgTemp =  Months.Average(m => m.AverTemp);
             SumSed = months.Sum(m => m.Sediment);
+            this.table = table;
         }
     }
 }

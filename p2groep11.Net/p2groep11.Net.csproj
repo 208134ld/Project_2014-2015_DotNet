@@ -178,13 +178,14 @@
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\DAL\Mapper\ClauseComponentsMapper.cs" />
+    <Compile Include="Models\DAL\Mapper\DeterminateTableMapper.cs" />
     <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
     <Compile Include="Models\DAL\Mapper\CountryMapper.cs" />
     <Compile Include="Models\DAL\Mapper\MonthMapper.cs" />
     <Compile Include="Models\DAL\ProjectInitializer.cs" />
     <Compile Include="Models\Domain\Clause.cs" />
     <Compile Include="Models\Domain\ClauseComponent.cs" />
-    <Compile Include="Models\Domain\ClauseIterator.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Domain\Country.cs" />
@@ -194,8 +195,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Mapper\ContinentMapper.cs" />
+    <Compile Include="Models\Domain\DeterminateTable.cs" />
     <Compile Include="Models\Domain\MonthsOfTheYear.cs" />
-    <Compile Include="Models\Domain\NullIterator.cs" />
+    <Compile Include="Models\Domain\Parameter.cs" />
     <Compile Include="Models\Domain\Result.cs" />
     <Compile Include="Models\IContinentRepository.cs" />
     <Compile Include="Models\Domain\ClimateChart.cs" />

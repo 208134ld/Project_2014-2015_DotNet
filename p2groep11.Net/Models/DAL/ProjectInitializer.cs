@@ -212,19 +212,42 @@ namespace p2groep11.Net.Models.DAL
                 }).ToList();
                 countriesZAM.ForEach(c => zuidAmerika.Countries.Add(c));
                 
+                //DeterminateTable aanmaken met hun clauses
+                //De parameters hun waarde is bijvoorbeeld de temperatuur van de warmste maand, nu voorlopig zonder database dus nog niet nodig
+                Parameter tw = new Parameter(0, "TW");
+                Parameter tj = new Parameter(0, "TJ");
+                Parameter nj = new Parameter(0, "NJ");
+                Parameter tk = new Parameter(0, "TK");
+                Parameter d = new Parameter(0, "D");
+                Parameter nz = new Parameter(0, "NZ");
+                Parameter nw = new Parameter(0, "NW");
+                ClauseComponent hoofdClause1 = new Clause("TW <= 10", tw, 10);
+                ClauseComponent clause2 = new Clause("TW <= 0", tw, 0);
+                ClauseComponent result1 = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat");
+                ClauseComponent result2 = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat");
+                clause2.Add(true, result1);
+                clause2.Add(false, result2);
+                hoofdClause1.Add(true, clause2);
+                hoofdClause1.Add(false, result2); //voorlopig om te testen
+
+                DeterminateTable detTable1 = new DeterminateTable(hoofdClause1);
 
                 //_______________
-                int []temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9 };
-                int []sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
+                int[] temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9 };
+                int[] sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
                 int[] temps2 = new int[] { 10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9 };
                 int[] sed2 = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
                 ClimateChart gent = new ClimateChart("Gent", 1920, 1921, temps, sed);
-                ClimateChart brugge = new ClimateChart("Brugge", 1550,1551, temps2, sed2);
+                ClimateChart brugge = new ClimateChart("Brugge", 1550, 1551, temps2, sed2);
+                gent.DeterminateTable = detTable1;
+                brugge.DeterminateTable = detTable1; 
+
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] { gent, brugge }).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 context.SaveChanges();
-                System.Diagnostics.Debug.WriteLine("Database created!");                                
+                System.Diagnostics.Debug.WriteLine("Database created!");
+                              
             }
             catch (DbEntityValidationException ex)
             {
