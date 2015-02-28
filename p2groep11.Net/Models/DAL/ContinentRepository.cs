@@ -20,46 +20,14 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Continent> FindAll()
         {
-            return continents.OrderBy(c => c.Name);
+            return continents.Include(l => l.Countries).OrderBy(c => c.Name);
+            //return continents.OrderBy(c => c.Name);
         }
 
         public Continent FindById(int continentId)
         {
-            return continents.FirstOrDefault(c => c.ContinentID == continentId); 
-        }
 
-        public IQueryable<Country> FindCountriesByContinentID(int continentId)
-        {
-            return context.Continents.Include(c => c.Countries)
-                .FirstOrDefault(c => c.ContinentID == continentId)
-                .Countries.AsQueryable().OrderBy(c => c.Name);
-
-        }
-
-        public IQueryable<ClimateChart> FindLocationsByCountryID(int continentId, int countryId)
-        {
-            return context.Continents.Include(m => m.Countries.Select(cl => cl.ClimateCharts.Select(mon => mon.Months)))
-                .FirstOrDefault(m => m.ContinentID == continentId)
-                .Countries.FirstOrDefault(co => co.CountryID == countryId)
-                .ClimateCharts.AsQueryable().OrderBy(c => c.Location);
-
-        }
-
-        public Country FindCountryByID(int continentId, int countryId)
-        {
-            return
-                context.Continents.Include(m => m.Countries)
-                    .SingleOrDefault(m => m.ContinentID == continentId)
-                    .Countries.FirstOrDefault(co => co.CountryID == countryId);
-                
-        }
-
-        public ClimateChart FindClimateChartById(int continentId, int countryId, int climateId)
-        {
-            return context.Continents.Include(m => m.Countries.Select(cl => cl.ClimateCharts.Select(mon=>mon.Months)))
-                .FirstOrDefault(m => m.ContinentID == continentId)
-                .Countries.FirstOrDefault(co => co.CountryID == countryId)
-                .ClimateCharts.FirstOrDefault(c => c.ClimateChartID == climateId);
+            return continents.Include(l => l.Countries.Select(c=>c.ClimateCharts.Select(mon=>mon.Months))).FirstOrDefault(c => c.ContinentID == continentId); 
         }
 
         public void Remove(Continent continent)

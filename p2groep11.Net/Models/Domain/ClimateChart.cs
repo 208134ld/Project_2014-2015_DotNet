@@ -16,7 +16,7 @@ namespace p2groep11.Net.Models.Domain
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
-        public DeterminateTable DeterminateTable { get; set; }
+        public virtual DeterminateTable DeterminateTable { get; set; }
 
         public ClimateChart()
         {

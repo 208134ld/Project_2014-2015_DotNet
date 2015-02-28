@@ -34,7 +34,7 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-                    ClimateChart c = continentRepository.FindClimateChartById(continentId,countryId, climateId);
+                    ClimateChart c = continentRepository.FindById(continentId).Countries.FirstOrDefault(co=>co.CountryID==countryId).ClimateCharts.FirstOrDefault(cl=>cl.ClimateChartID==climateId);
                     ClimateChartViewModel cViewModel = DrawClimateChart(c);
                     return View(cViewModel);
                 }
