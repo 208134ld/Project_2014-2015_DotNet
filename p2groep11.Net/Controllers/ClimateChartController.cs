@@ -35,7 +35,7 @@ namespace p2groep11.Net.Controllers
                 try
                 {
                     ClimateChart c = continentRepository.FindClimateChartById(continentId,countryId, climateId);
-                    ClimateChartViewModel cViewModel = DrawClimateChart(c);
+                    ClimateChartViewModel cViewModel = c.DrawClimateChart();
                     return View(cViewModel);
                 }
                 catch (SqlException sqlExc)
@@ -57,10 +57,10 @@ namespace p2groep11.Net.Controllers
             return RedirectToAction("Index","SchoolYear");
         }
         #region privateMethods
-        private ClimateChartViewModel DrawClimateChart(ClimateChart climateChart)
+        /*private ClimateChartViewModel DrawClimateChart(ClimateChart climateChart)
         {
             //determinatetable aanmaken, efkes zonder database werken
-            Parameter tw = new Parameter(0, "TW");
+            /*Parameter tw = new Parameter(0, "TW");
             Parameter tj = new Parameter(0, "TJ");
             Parameter nj = new Parameter(0, "NJ");
             Parameter tk = new Parameter(0, "TK");
@@ -83,7 +83,7 @@ namespace p2groep11.Net.Controllers
             ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat");
             tj0.Add(true, tj0Yes);
             ClauseComponent nj200 = new Clause("NJ <= 200", nj, 200);
-            
+
 
 
             ClauseComponent tk15 = new Clause("TK <= 15", tk, 15);
@@ -137,7 +137,7 @@ namespace p2groep11.Net.Controllers
             tk18.Add(false, d12);
 
             DeterminateTable table = new DeterminateTable(tw10);
-
+            DeterminateTable table = new DeterminateTable();
 
 
             ClimateChart c = climateChart;
@@ -223,14 +223,14 @@ namespace p2groep11.Net.Controllers
                     }
                 });
 
-            return new ClimateChartViewModel(chart,c.Months, table);
+            return new ClimateChartViewModel(chart, c.Months, table);
         }
 
-        private void CopyIntArrayToObjectArray(int [] intArray,Object[] objectAr)
+        private void CopyIntArrayToObjectArray(int[] intArray, Object[] objectAr)
         {
-            intArray.CopyTo(objectAr,0);
+            intArray.CopyTo(objectAr, 0);
         }
-        
+
         //voorlopig om strings in de selectlist te steken
         private List<SelectListItem> GetContinents()
         {
@@ -263,7 +263,7 @@ namespace p2groep11.Net.Controllers
                 locationList.Add(new SelectListItem { Value = i + "", Text = i + "de Locatie" });
             }
             return locationList;
-        }
+        }*/
         #endregion
     }
 }
