@@ -28,8 +28,9 @@ namespace p2groep11.Net.Controllers
                 {
                     //de Businesslogica in de controller moet hier weg (switch case) --> grade klasse maken
                     SchoolYear schoolYear = new SchoolYear(SelectedYear);
-                    int grade = schoolYear.Grade;
-                    switch (grade)
+                    Grade grade = new Grade(schoolYear);
+                    int gradeInt = grade.GradeInt;
+                    switch (gradeInt)
                     {
                         case 1:
                             return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 1});
