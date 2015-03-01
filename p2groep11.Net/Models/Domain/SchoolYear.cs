@@ -20,9 +20,7 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Year needs to be between 1 and 6.");
             }
         }
-        public int Grade { 
-            get { return (year + 1) / 2; }
-        }
+        public Grade GradeProp { get; set; }
 
 
         /*public int CalculateGrade()

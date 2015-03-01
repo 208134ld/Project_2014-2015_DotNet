@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="p2groep11.Net.Models.Domain.SchoolYear">
-    <Position X="0.75" Y="1" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAEAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\SchoolYear.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GradeProp" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Continent">
-    <Position X="3.25" Y="1.25" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Continent.cs</FileName>
@@ -18,16 +21,16 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Month">
-    <Position X="3.25" Y="5" Width="1.5" />
+    <Position X="5.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAQAAAQAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAEAAAAAAAAAAAAQAAAAAAAAAAEA=</HashCode>
       <FileName>Models\Domain\Month.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
-    <Position X="7.25" Y="4.75" Width="1.5" />
+    <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAQAAAAAIIAAAAAAAIAAAAGAAAAEAACAAA=</HashCode>
+      <HashCode>AAAAQAACAAIQAAEAAIoAEAQAAAIAAAAGAAAAEAADAAQ=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -38,7 +41,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Country">
-    <Position X="7.25" Y="1.5" Width="1.5" />
+    <Position X="8.75" Y="0.75" Width="1.5" />
     <AssociationLine Name="Continent" Type="p2groep11.Net.Models.Domain.Continent">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.214" Y="0.081" />
@@ -56,39 +59,58 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Clause">
-    <Position X="10.75" Y="6" Width="1.5" />
+    <Position X="11.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAABIQAAAAAAAAAAAAAk=</HashCode>
+      <HashCode>AAZADAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAEABAk=</HashCode>
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
     <Position X="13.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAZAAAAAAAAAAAAAAAIAAAAAAAABEAAAAIAAAAAABAA=</HashCode>
       <FileName>Models\Domain\ClauseComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Result">
-    <Position X="13" Y="7.5" Width="1.5" />
+    <Position X="15" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAEAAAAAAAAAAAAAABAAAAABEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.DeterminateTable">
-    <Position X="9.25" Y="3" Width="1.5" />
+    <Position X="5.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAAgAAAAIAAAAAAAAAAAAgEAAAAEAAAAA=</HashCode>
       <FileName>Models\Domain\DeterminateTable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Parameter">
-    <Position X="9.5" Y="0.75" Width="1.5" />
+    <Position X="11.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\Parameter.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.Models.Domain.Grade">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <AssociationLine Name="ContinentProp" Type="p2groep11.Net.Models.Domain.Continent">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.692" Y="0.039" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAEAIAAAABAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Grade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DeterminateTableProp" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ContinentProp" />
+      <Property Name="SchoolYearProp" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
