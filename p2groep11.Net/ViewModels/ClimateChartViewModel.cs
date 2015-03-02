@@ -20,6 +20,7 @@ namespace p2groep11.Net.ViewModels
         public double AvgTemp { get; private set; }
         public int SumSed { get; private set; }
         public DeterminateTable table { get; private set; }
+        public String ResultaatDeterminate { get; private set; }
         
         public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
         {
@@ -29,7 +30,14 @@ namespace p2groep11.Net.ViewModels
             AvgTemp =  Months.Average(m => m.AverTemp);
             SumSed = Months.Sum(m => m.Sediment);
             this.table = table;
+            ResultaatDeterminate = Determinate(c, table);
         }
+
+        public String Determinate(ClimateChart c, DeterminateTable t)
+        {
+            return t.Determinate(c);
+        }
+
         public Highcharts DrawClimateChart(ClimateChart climateChart)
         {
             DeterminateTable table = new DeterminateTable();

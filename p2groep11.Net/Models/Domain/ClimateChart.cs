@@ -83,16 +83,82 @@ namespace p2groep11.Net.Models.Domain
             return min;
         }
 
+        //berekent TW
         public int CalculateHottestMonth()
         {
             return Months.Select(month => month.AverTemp).Concat(new[] { -200 }).Max();
         }
 
+        //berekent TJ
         public int CalculateAverageYeartemp()
         {
             return (Months.Sum(month => month.AverTemp)) / 12;
         }
 
+        //berekent TK
+        public int CalculateColdestMonth()
+        {
+            return Months.Select(m => m.AverTemp).Concat(new[] {200}).Min();
+        }
 
+        //berekent NJ
+        public int CalculateTotalRainOfYear()
+        {
+            return Months.Sum(m => m.Sediment);
+        }
+
+        //berekent D
+        public int CalculateTotalDryMonths()
+        {
+            return Months.Count(m => (m.AverTemp*2) > m.Sediment);
+        }
+
+        //berekent NZ - opgelet: zomermaanden verschillen per locatie, dient nog ingebouwd te worden in country of location
+        public int CalculateRainInSummer()
+        {
+            if (Country.AboveEquator)
+            {
+                var count = 0;
+                for (var i=4; i< 10; i++)
+                {
+                    count += Months[i].Sediment;
+                }
+                return count;
+            }
+            var count2 = 0;
+            for (var i = 10; i < 13; i++)
+            {
+                count2 += Months[i].Sediment;
+            }
+            for (var i = 1; i < 4; i++)
+            {
+                count2 += Months[i].Sediment;
+            }
+            return count2;
+        }
+
+        //berekent NW
+        public int CalculateRainInWinter()
+        {
+            if (!Country.AboveEquator)
+            {
+                var count = 0;
+                for (var i = 4; i < 10; i++)
+                {
+                    count += Months[i].Sediment;
+                }
+                return count;
+            }
+            var count2 = 0;
+            for (var i = 10; i < 13; i++)
+            {
+                count2 += Months[i].Sediment;
+            }
+            for (var i = 1; i < 4; i++)
+            {
+                count2 += Months[i].Sediment;
+            }
+            return count2;
+        }
     }
 }

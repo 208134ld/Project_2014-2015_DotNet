@@ -15,7 +15,7 @@ namespace p2groep11.Net.Models.Domain
 
         public override string Determinate(ClimateChart chart)
         {
-            return "Het klimaatkenmerk is: " + Klimaatkenmerk + "Het vegetatiekenmerk is: " + Vegetatiekenmerk;
+            return "Klimaatkenmerk: " + Klimaatkenmerk + ". Vegetatiekenmerk: " + Vegetatiekenmerk + ".";
         }
 
         public override String GetVegetatiekenmerk()

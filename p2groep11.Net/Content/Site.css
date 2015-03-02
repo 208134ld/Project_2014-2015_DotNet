@@ -57,11 +57,17 @@ div.resultTd {
 
 }
 
-
-
 .tussen {
     padding: 10px;
     width: 100px;
     text-align: center;
     width: 70px;
+}
+
+div.determinateResult {
+    margin: 20px;
+    padding: 20px;
+    font-size: 120%;
+    font-weight: bold;
+    color: pink;
 }
