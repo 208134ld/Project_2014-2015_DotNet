@@ -41,6 +41,13 @@ footer p{
     background: lightblue;
     width: 70px;
 }
+.clauseTdAct {
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background: goldenrod;
+    width: 70px;
+}
 
 .row div {
     display: inline-block;
@@ -56,7 +63,14 @@ div.resultTd {
     text-align: center;
 
 }
-
+div.resultTdAct {
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background: goldenrod;
+    width: 240px;
+    text-align: center;
+}
 .tussen {
     padding: 10px;
     width: 100px;
