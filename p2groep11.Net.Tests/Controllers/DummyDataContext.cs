@@ -35,11 +35,12 @@ namespace p2groep11.Net.Tests.Controllers
                Gent
            };
            Belgium.ClimateCharts = ClimateCharts;
-           Europa.Countries = Countries;
+           
            Countries = new List<Country>
            {
                Belgium,England
            };
+           Europa.Countries = Countries;
             Continenten = new List<Continent>
                           {
                               Europa

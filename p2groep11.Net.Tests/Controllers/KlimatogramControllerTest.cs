@@ -13,7 +13,7 @@ using p2groep11.Net.ViewModels;
 namespace p2groep11.Net.Tests.Controllers
 {
     [TestClass]
-    public class ReservatieControllerTest
+    public class ClimateChartControllerTest
     {
         private ClimateChartController controller;
         private Mock<IContinentRepository> continentRepository;
@@ -28,7 +28,7 @@ namespace p2groep11.Net.Tests.Controllers
             context = new DummyDataContext();
             continentRepository = new Mock<IContinentRepository>();
             continentRepository.Setup(c => c.FindById(1)).Returns(context.Europa);
-            continentRepository.Setup(c => c.FindClimateChartById(1, 1, 1)).Returns(context.Gent);
+            
             continent = context.Europa;
             controller = new ClimateChartController(continentRepository.Object);
             //model = new KlimatogramViewModel(controller.GetContinents(), controller.GetCountrys(),

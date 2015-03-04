@@ -1,4 +1,4 @@
-﻿@model p2groep11.Net.ViewModels.LocationListViewModel
+﻿@model IEnumerable<p2groep11.Net.ViewModels.LocationListViewModel>
 
 @{
     ViewBag.Title = "Locations";
@@ -18,11 +18,11 @@
 </p>
 
 <div>
-    @foreach (var item in Model.Locations)
+    @foreach (var item in Model)
     {
         <div>      
             @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
-            new { SelectedYear = ViewBag.SchoolYear, continentId = item.Country.Continent.ContinentID, countryId = item.Country.CountryID, climateId = item.ClimateChartID }, null)
+            new { SelectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID }, null)
         </div>
     }
 </div>

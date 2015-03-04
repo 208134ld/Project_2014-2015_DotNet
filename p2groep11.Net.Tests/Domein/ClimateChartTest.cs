@@ -40,14 +40,14 @@ namespace p2groep11.Net.Tests.Domein
         public void ConstructorMakesAClimateChartWithFirstMonthJan()
         {
             ClimateChart chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
-            Assert.AreEqual(MonthsOfTheYear.Jan,chart.Months[0].month);
+            Assert.AreEqual(MonthsOfTheYear.Jan,chart.Months[0].MonthProp);
         }
 
         [TestMethod]
         public void ConstructorMakesAClimateChartWithLastMonthDec()
         {
             ClimateChart chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
-            Assert.AreEqual(MonthsOfTheYear.Dec,chart.Months[chart.Months.Count-1].month);
+            Assert.AreEqual(MonthsOfTheYear.Dec,chart.Months[chart.Months.Count-1].MonthProp);
         }
 
         [ExpectedException(typeof (ArgumentException))]

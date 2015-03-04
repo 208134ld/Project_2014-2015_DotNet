@@ -8,6 +8,17 @@ namespace p2groep11.Net.ViewModels
 {
     public class ContinentsListViewModel
     {
-        public IEnumerable<Continent> Continents { get; set; }
+        public String Name { get; set; }
+        public int ContinentID { get; set; }
+        public ContinentsListViewModel(Continent c)
+        {
+            Name = c.Name;
+            ContinentID = c.ContinentID;
+        }
+
+        public ContinentsListViewModel()
+        {
+            
+        }
     }
 }

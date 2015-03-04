@@ -1,5 +1,5 @@
 ﻿@using p2groep11.Net.Models.Domain
-@model p2groep11.Net.ViewModels.CountryListViewModel
+@model IEnumerable<p2groep11.Net.ViewModels.CountryListViewModel>
 
 @{
     ViewBag.Title = "Countries";
@@ -21,14 +21,14 @@
 
 <div>
 
-    @foreach (var item in Model.Countries)
+    @foreach (var item in Model)
     {
            @:<div class="col-md-4">
         
 
                 <div>
                     @Html.ActionLink(@item.Name, "ListLocations",
-                        new {Selectedyear = @ViewBag.SchoolYear, continentId = item.Continent.ContinentID, countryId = item.CountryID})
+                        new {Selectedyear = @ViewBag.SchoolYear, continentId = item.ContinentId, countryId = item.CountryId})
                 </div>
     
         @:</div>

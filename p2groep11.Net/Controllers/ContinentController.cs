@@ -21,54 +21,53 @@ namespace p2groep11.Net.Controllers
 
         public ActionResult ListContinents(int SelectedYear)
         {
-            ViewBag.SchoolYear = SelectedYear;
-            ContinentsListViewModel model = new ContinentsListViewModel
-            {
-                Continents = repository.FindAll()
-            };
-            
-            return View(model);
+           ViewBag.SchoolYear = SelectedYear;
+            IEnumerable<Continent> continents = repository.FindAll();
+           return View(continents.Select(co=>new ContinentsListViewModel(co)).ToList());
         }
 
-        public ActionResult ListCountries(int SelectedYear, int continentId, string search)
+        public ActionResult ListCountries(int selectedYear, int continentId, string search)
         {
-            ViewBag.SchoolYear = SelectedYear;
+            ViewBag.SchoolYear = selectedYear;
             IEnumerable<Country> countryList = repository.FindById(continentId).Countries;
             if (!String.IsNullOrEmpty(search))
             {
                 countryList = repository.FindById(continentId).Countries.Where(c => c.Name.ToLower().Contains(search.ToLower()));
             };
-
-            CountryListViewModel model = new CountryListViewModel
-            {
-                Countries = countryList
-            };
-
-            return View(model);
+            return View(countryList.Select(c=>new CountryListViewModel(c)).ToList());
         }
 
-        public ActionResult ListLocations(int SelectedYear, int continentId, int countryId, string search)
+        public ActionResult ListLocations(int selectedYear, int continentId, int countryId, string search)
         {
-            ViewBag.SchoolYear = SelectedYear;
-            IEnumerable<ClimateChart> locationList = repository.FindById(continentId).Countries.FirstOrDefault(c=>c.CountryID==countryId).ClimateCharts;
-            if (!String.IsNullOrEmpty(search))
+            try
             {
-                locationList = repository.FindById(continentId).Countries.FirstOrDefault(c => c.CountryID == countryId).ClimateCharts
-                    .Where(c => c.Location.ToLower().Contains(search));
-            };
+                ViewBag.SchoolYear = selectedYear;
+                IEnumerable<ClimateChart> locationList =
+                    repository.FindById(continentId)
+                        .Countries.FirstOrDefault(c => c.CountryID == countryId)
+                        .ClimateCharts;
+                if (!String.IsNullOrEmpty(search))
+                {
+                    locationList = repository.FindById(continentId)
+                        .Countries.FirstOrDefault(c => c.CountryID == countryId)
+                        .ClimateCharts
+                        .Where(c => c.Location.ToLower().Contains(search));
+                }
+                ;
 
-            LocationListViewModel locationListViewModel = new LocationListViewModel
-            {
-                Locations = locationList
-            };
+                if (!locationList.Any())
+                {
+                    TempData["Error"] = "Er zijn geen locaties gevonden voor dit land.";
+                    return RedirectToAction("ListCountries", new {selectedYear, continentId});
 
-            if (!locationListViewModel.Locations.Any())
-            {
-                TempData["Error"] = "Er zijn geen locaties gevonden voor dit land.";
-                return RedirectToAction("ListCountries", new{SelectedYear, continentId});
-
+                }
+                return View(locationList.Select(lo => new LocationListViewModel(lo)).ToList());
             }
-            return View(locationListViewModel);
+            catch (Exception e)
+            {
+                TempData["Error"] = "Er is een onverwachte fout opgetreden";
+                return RedirectToAction("ListCountries", new { selectedYear, continentId });
+            }
         }
 
     }
