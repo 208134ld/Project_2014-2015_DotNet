@@ -26,6 +26,11 @@ namespace p2groep11.Net.Models.Domain
         public virtual ICollection<Continent> ContinentProp { get; set; }
         public virtual ICollection<SchoolYear> SchoolYearProp { get; set; } //nog niet zeker of we dit gaan nodig hebben
 
+        public Grade()
+        {
+            
+        }
+
         public Grade(SchoolYear schoolYear)
         {
             GradeInt = CalculateGrade(schoolYear.Year);

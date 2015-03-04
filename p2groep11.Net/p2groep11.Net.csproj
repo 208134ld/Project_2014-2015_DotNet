@@ -191,7 +191,6 @@
     <Compile Include="Models\Domain\Clause.cs" />
     <Compile Include="Models\Domain\ClauseComponent.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Domain\Country.cs" />
     <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\ProjectContext.cs" />

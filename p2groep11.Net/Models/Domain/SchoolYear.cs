@@ -22,12 +22,6 @@ namespace p2groep11.Net.Models.Domain
         }
         public Grade GradeProp { get; set; }
 
-
-        /*public int CalculateGrade()
-        {
-            return (year+1)/2;
-        }*/
-
         public SchoolYear()
         {
             

@@ -102,11 +102,11 @@
     <Compile Include="Controllers\KlimatogramControllerTest.cs" />
     <Compile Include="Controllers\SchoolYearControllerTest.cs" />
     <Compile Include="Domein\ClimateChartTest.cs" />
+    <Compile Include="Domein\GradeTest.cs" />
     <Compile Include="Domein\MonthTest.cs" />
     <Compile Include="Domein\DeterminateTableTest.cs" />
     <Compile Include="Domein\SchoolYearTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
