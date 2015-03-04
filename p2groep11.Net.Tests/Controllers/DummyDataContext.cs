@@ -30,6 +30,7 @@ namespace p2groep11.Net.Tests.Controllers
            int[] sed = new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120};
            Gent = new ClimateChart("gent",1950,1960,temp,sed);
            Gent.Country = Belgium;
+           Gent.ClimateChartID = 1;
            ClimateCharts = new List<ClimateChart>
            {
                Gent
