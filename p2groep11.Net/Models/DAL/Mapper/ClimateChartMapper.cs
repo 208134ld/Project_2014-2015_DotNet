@@ -25,7 +25,6 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             //Relations
             HasMany(c => c.Months);
-            HasRequired(c => c.DeterminateTable);
         }
     }
 }

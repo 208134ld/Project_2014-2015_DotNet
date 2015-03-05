@@ -10,6 +10,7 @@ namespace p2groep11.Net.Models.Domain
         public ClauseComponent YesClause { get; set; }
         public ClauseComponent NoClause { get; set; }
         public String Name { get; private set; }
+    
         public Parameter Par1;
         public Parameter Par2;
         public int Waarde;

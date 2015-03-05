@@ -21,10 +21,12 @@ namespace p2groep11.Net.Controllers
     public class ClimateChartController : Controller
     {
         private IContinentRepository continentRepository;
+        private IGradeRepository gradeRepository;
 
-        public ClimateChartController(IContinentRepository continentRepository)
+        public ClimateChartController(IContinentRepository continentRepository, IGradeRepository gradeRepository)
         {
             this.continentRepository = continentRepository;
+            this.gradeRepository = gradeRepository;
         }
 
         public ActionResult ShowClimateChart(int continentId, int countryId, int climateId)
@@ -37,8 +39,11 @@ namespace p2groep11.Net.Controllers
                         continentRepository.FindById(continentId)
                             .Countries.FirstOrDefault(co => co.CountryID == countryId)
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
+                    Grade g =
+                        gradeRepository.FindById(1);
 
-                    return View(new ClimateChartViewModel(c, new DeterminateTable()));
+                    
+                    return View(new ClimateChartViewModel(c, g.DeterminateTableProp));
                 }
                 catch (SqlException sqlExc)
                 {

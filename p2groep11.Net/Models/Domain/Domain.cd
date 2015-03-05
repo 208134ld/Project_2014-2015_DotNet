@@ -30,7 +30,7 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAACAAIQAAEAAIoAEAQAAAIAAAAGAAAAEAADAAQ=</HashCode>
+      <HashCode>gAAAQAEAAAAUAAEAAIIAEAAAAAIAQAAGAACAEAACAAQ=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -48,7 +48,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAACQAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAQAAACQAAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Country.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -64,9 +64,13 @@
       <HashCode>AAZADAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAEABAk=</HashCode>
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Par1" />
+      <Field Name="Par2" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
-    <Position X="13.5" Y="3" Width="1.5" />
+    <Position X="13.5" Y="3" Width="3.75" />
     <TypeIdentifier>
       <HashCode>EAZAAAAAAAAAAAAAAAIAAAAAAAABEAAAAIAAAAAABAA=</HashCode>
       <FileName>Models\Domain\ClauseComponent.cs</FileName>
@@ -85,6 +89,9 @@
       <HashCode>AABAAAAAAAAAAgAAAAIAAAAAAAAAAAAgEAAAAEAAAAA=</HashCode>
       <FileName>Models\Domain\DeterminateTable.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ClauseComponent" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Parameter">
     <Position X="11.75" Y="0.75" Width="1.5" />

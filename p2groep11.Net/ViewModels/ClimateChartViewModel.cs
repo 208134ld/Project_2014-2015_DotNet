@@ -40,7 +40,7 @@ namespace p2groep11.Net.ViewModels
 
         public Highcharts DrawClimateChart(ClimateChart climateChart)
         {
-            DeterminateTable table = new DeterminateTable();
+            
 
 
             /*ClimateChart c = climateChart;*/

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using p2groep11.Net.Models;
+using p2groep11.Net.Models.DAL;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 
@@ -12,6 +13,8 @@ namespace p2groep11.Net.Controllers
 {
     public class SchoolYearController : Controller
     {
+        private IGradeRepository gradeRepository;
+
         // GET: SchoolYear
         [HttpGet]
         public ActionResult Index()

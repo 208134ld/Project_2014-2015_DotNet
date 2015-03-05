@@ -23,8 +23,7 @@ namespace p2groep11.Net.Models.Domain
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
-        public virtual DeterminateTable DeterminateTable { get; set; }
-
+        
         public ClimateChart()
         {
             
@@ -86,19 +85,19 @@ namespace p2groep11.Net.Models.Domain
         //berekent TW
         public int CalculateHottestMonth()
         {
-            return Months.Select(month => month.AverTemp).Concat(new[] { -200 }).Max();
+            return Months.Select(month => month.AverTemp).Max();
         }
 
         //berekent TJ
         public int CalculateAverageYeartemp()
         {
-            return (Months.Sum(month => month.AverTemp)) / 12;
+            return (int)(Months.Average(month => month.AverTemp));
         }
 
         //berekent TK
         public int CalculateColdestMonth()
         {
-            return Months.Select(m => m.AverTemp).Concat(new[] {200}).Min();
+            return Months.Select(m => m.AverTemp).Min();
         }
 
         //berekent NJ

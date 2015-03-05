@@ -20,6 +20,7 @@ namespace p2groep11.Net.Models.DAL
         }
 
         public DbSet<Continent> Continents { get; set; }
+        public DbSet<Grade> Grades { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

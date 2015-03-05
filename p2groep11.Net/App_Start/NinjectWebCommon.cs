@@ -1,5 +1,6 @@
 using p2groep11.Net.Models;
 using p2groep11.Net.Models.DAL;
+using p2groep11.Net.Models.Domain;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(p2groep11.Net.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(p2groep11.Net.App_Start.NinjectWebCommon), "Stop")]
@@ -65,6 +66,7 @@ namespace p2groep11.Net.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IContinentRepository>().To<ContinentRepository>().InRequestScope();
+            kernel.Bind<IGradeRepository>().To<GradeRepository>().InRequestScope();
             kernel.Bind<ProjectContext>().ToSelf().InSingletonScope();
         }
     }
