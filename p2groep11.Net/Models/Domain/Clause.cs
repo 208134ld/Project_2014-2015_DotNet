@@ -57,12 +57,18 @@ namespace p2groep11.Net.Models.Domain
 
         
 
-        public override string Determinate(ClimateChart chart)
+        public override string Determinate(ClimateChart chart, ICollection<String> clausePath )
         {
             switch (Par1.Code)
             {
                 case "TW":
-                    return chart.CalculateHottestMonth() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+                    if (chart.CalculateHottestMonth() <= Waarde)
+                    {
+                        clausePath.Add(YesClause.GetName());
+                        return YesClause.Determinate(chart, clausePath);
+                    }
+                    clausePath.Add(NoClause.GetName());
+                    return NoClause.Determinate(chart, clausePath);
                 case "TJ":
                     return chart.CalculateAverageYeartemp() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
                 case "TK":

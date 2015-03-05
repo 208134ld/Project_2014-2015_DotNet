@@ -9,9 +9,10 @@ namespace p2groep11.Net.Models.Domain
     {
         public int DeterminateTableId { get; set; }
         public int GradeId { get; set; }
-        public ClauseComponent ClauseComponent { get; set; }
+        public virtual ClauseComponent ClauseComponent { get; set; }
         //tijdelijk
-        public ClauseComponent tw10Temp;
+        public  ClauseComponent tw10Temp;
+        public ICollection<String> ClausePath { get; set; }
 
         public DeterminateTable(ClauseComponent component)
         {
@@ -29,7 +30,7 @@ namespace p2groep11.Net.Models.Domain
 
         public String Determinate(ClimateChart chart)
         {
-            return ClauseComponent.Determinate(chart);
+            return ClauseComponent.Determinate(chart, ClausePath);
         }
 
         public void CreateParameters()
@@ -110,7 +111,7 @@ namespace p2groep11.Net.Models.Domain
             d12.Add(false, d12No);
             tk18.Add(false, d12);
 
-            /*DeterminateTable table = new DeterminateTable(tw10);*/
+            DeterminateTable table = new DeterminateTable(tw10);
 
             tw10Temp = tw10; //  <-- Temp voor te testen
         }

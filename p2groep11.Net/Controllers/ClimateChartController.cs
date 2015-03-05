@@ -37,7 +37,9 @@ namespace p2groep11.Net.Controllers
                         continentRepository.FindById(continentId)
                             .Countries.FirstOrDefault(co => co.CountryID == countryId)
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
-
+                    DeterminateTable table = continentRepository.FindById(continentId)
+                            .Countries.FirstOrDefault(co => co.CountryID == countryId)
+                            .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId).DeterminateTable;
                     return View(new ClimateChartViewModel(c, new DeterminateTable()));
                 }
                 catch (SqlException sqlExc)

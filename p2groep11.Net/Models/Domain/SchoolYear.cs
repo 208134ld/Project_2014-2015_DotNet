@@ -20,16 +20,17 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Year needs to be between 1 and 6.");
             }
         }
-        public Grade GradeProp { get; set; }
+        public virtual Grade GradeProp { get; set; }
 
         public SchoolYear()
         {
-            
+            this.GradeProp = null;
         }
 
         public SchoolYear(int number)
         {
             this.year = number;
+            
         }
 
         

@@ -20,6 +20,7 @@ namespace p2groep11.Net.Models.Domain
         public Country()
         {
             ClimateCharts = new List<ClimateChart>();
+            Continent = null;
             AboveEquator = true;
         }
 

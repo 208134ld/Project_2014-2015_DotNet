@@ -20,14 +20,17 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Continent> FindAll()
         {
-            return continents.Include(l => l.Countries).OrderBy(c => c.Name);
+            //return continents.Include(l => l.Countries).OrderBy(c => c.Name);
+            return continents;
+            
             //return continents.OrderBy(c => c.Name);
         }
 
         public Continent FindById(int continentId)
         {
 
-            return continents.Include(l => l.Countries.Select(c=>c.ClimateCharts.Select(mon=>mon.Months))).FirstOrDefault(c => c.ContinentID == continentId); 
+        //    return continents.Include(l => l.Countries.Select(c=>c.ClimateCharts.Select(mon=>mon.Months))).FirstOrDefault(c => c.ContinentID == continentId); 
+            return continents.FirstOrDefault(co => co.ContinentID == continentId);
         }
 
         public void Remove(Continent continent)

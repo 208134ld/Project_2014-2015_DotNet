@@ -19,7 +19,7 @@ namespace p2groep11.Net.Models.Domain
     {
         public int ClimateChartID { get; set; }
         public string Location { get; set; }
-        public virtual List<Month> Months { get; private set; }
+        public virtual ICollection<Month> Months { get; private set; }
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
@@ -27,7 +27,9 @@ namespace p2groep11.Net.Models.Domain
 
         public ClimateChart()
         {
-            
+            Months = new List<Month>();
+            Country = null;
+            DeterminateTable = null;
         }
         public ClimateChart(string loc, int begin, int end, int[]temperatures, int[] sediments)
         {
