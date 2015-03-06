@@ -23,7 +23,6 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             //Relations
             HasMany(c => c.Countries).WithRequired(c => c.Continent).Map(m => m.MapKey("ContinentID")).WillCascadeOnDelete(true);
-            
         }
     }
 }

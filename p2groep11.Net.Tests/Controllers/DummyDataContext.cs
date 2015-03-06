@@ -17,12 +17,15 @@ namespace p2groep11.Net.Tests.Controllers
        public Country Belgium { get; private set; }
        public Country England { get; private set; }
        public ClimateChart Gent { get; private set; }
+       public Grade Graad { get; private set; }
 
        public DummyDataContext()
        {
            Europa = new Continent();
            Europa.ContinentID = 1;
            Europa.Name = "Europa";
+
+           Graad = new Grade("Graad 1");
           
            Belgium = new Country(1,"Belgie",Europa);
            England = new Country(2,"England",Europa);

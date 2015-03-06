@@ -18,21 +18,43 @@ namespace p2groep11.Net.Models.DAL
         {
             try
             {
+
+
+                Grade grade1 = new Grade("Graad 1");
+                Grade grade2 = new Grade("Graad 2");
+                Grade grade3 = new Grade("Graad 3");
+                List<Grade> grades = (new Grade[] { grade1, grade2, grade3 }).ToList();
+
                 Continent europa = new Continent { Name = "Europa" };
                 Continent azië = new Continent { Name = "Azië" };
                 Continent afrika = new Continent { Name = "Afrika" };
                 Continent noordCentraalAmerika = new Continent { Name = "Noord- en Centraal-Amerika" };
                 Continent zuidAmerika = new Continent { Name = "Zuid-Amerika" };
                 Continent oceanië = new Continent { Name = "Oceanië" };
-
                 List<Continent> continents = (new Continent[] { europa, azië, afrika, noordCentraalAmerika, zuidAmerika, oceanië }).ToList();
                 continents.ForEach(c => context.Continents.Add(c));
-                Grade grade1 = new Grade();
-                Grade grade2 = new Grade();
-                Grade grade3 = new Grade();
-                List<Grade> grades = (new Grade[] {grade1, grade2, grade3}).ToList();
-                continents.ForEach(c => c.GradeInt = grade1);
 
+                continents.ForEach(c => c.GradeId = grade2);
+                
+                SchoolYear year1 = new SchoolYear(1, grade1);
+                SchoolYear year2 = new SchoolYear(2, grade1);
+                SchoolYear year3 = new SchoolYear(3, grade2);
+                SchoolYear year4 = new SchoolYear(4, grade2);
+                SchoolYear year5 = new SchoolYear(5, grade3);
+                SchoolYear year6 = new SchoolYear(6, grade3);
+
+                grade1.SchoolYearProp.Add(year1);
+                grade1.SchoolYearProp.Add(year2);
+                grade2.SchoolYearProp.Add(year3);
+                grade2.SchoolYearProp.Add(year4);
+                grade3.SchoolYearProp.Add(year5);
+                grade3.SchoolYearProp.Add(year6);
+
+                grade1.ContinentProp.Add(europa);
+                continents.ForEach(c => grade2.ContinentProp.Add(c));
+                continents.ForEach(c => grade3.ContinentProp.Add(c));
+
+                grades.ForEach(g => context.Grades.Add(g));
 
                 //AFRIKA
                 Country algerije = new Country { Name = "Algerije" };

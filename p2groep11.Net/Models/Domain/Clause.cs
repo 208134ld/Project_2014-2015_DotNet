@@ -6,7 +6,7 @@ namespace p2groep11.Net.Models.Domain
 {
     public class Clause : ClauseComponent
     {
-        //public ICollection<ClauseComponent> ClauseComponents { get; set; }
+        
         public ClauseComponent YesClause { get; set; }
         public ClauseComponent NoClause { get; set; }
         public String Name { get; private set; }

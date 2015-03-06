@@ -12,7 +12,7 @@ namespace p2groep11.Net.Tests.Domein
         [TestInitialize]
         public void InitGradeTest()
         {
-            grade = new Grade();
+            grade = new Grade("Graad 1");
         }
 
         [TestMethod]

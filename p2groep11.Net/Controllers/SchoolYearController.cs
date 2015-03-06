@@ -15,6 +15,12 @@ namespace p2groep11.Net.Controllers
     {
         private IGradeRepository gradeRepository;
 
+
+        public SchoolYearController(IGradeRepository gradeRepository)
+        {
+            this.gradeRepository = gradeRepository;
+        }
+
         // GET: SchoolYear
         [HttpGet]
         public ActionResult Index()
@@ -29,14 +35,11 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-                    //de Businesslogica in de controller moet hier weg (switch case) --> grade klasse maken
-                    SchoolYear schoolYear = new SchoolYear(SelectedYear);
-                    Grade grade = new Grade(schoolYear);
-                    int gradeInt = grade.GradeInt;
-                    switch (gradeInt)
+                    Grade grade = gradeRepository.FindById((SelectedYear + 1) / 2);
+                    switch (grade.GradeId)
                     {
                         case 1:
-                            return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 1});
+                            return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 6});
                         case 2:
                             return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                         default:

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Forms;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
@@ -33,31 +34,34 @@ namespace p2groep11.Net.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 try
                 {
                     ClimateChart c =
                         continentRepository.FindById(continentId)
                             .Countries.FirstOrDefault(co => co.CountryID == countryId)
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
-                    Grade g =
-                        gradeRepository.FindById(1);
-
                     
-                    return View(new ClimateChartViewModel(c, g.DeterminateTableProp));
+                    Grade gr = gradeRepository.FindById(1);
+                    
+                    return View(new ClimateChartViewModel(c, gr.DeterminateTableProp));
                 }
                 catch (SqlException sqlExc)
                 {
+                    MessageBox.Show(sqlExc.InnerException.ToString());
                     ModelState.AddModelError("", "Connection lost with the database \n" + sqlExc.Message);
 
                 }
                 catch (NullReferenceException nullEx)
                 {
+                    MessageBox.Show(nullEx.InnerException.ToString());
                     ModelState.AddModelError("",
                         "Could not find the climateChart associated with this continentId or countryId or climateId \n" +
                         nullEx.Message);
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.InnerException.ToString());
                     ModelState.AddModelError("", e.Message);
                 }
             }

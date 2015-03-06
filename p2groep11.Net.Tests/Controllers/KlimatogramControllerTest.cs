@@ -17,6 +17,7 @@ namespace p2groep11.Net.Tests.Controllers
     {
         private ClimateChartController controller;
         private Mock<IContinentRepository> continentRepository;
+        private Mock<IGradeRepository> gradeRepository;
         private Continent continent;
         private LocationListViewModel model;
         private DummyDataContext context;
@@ -29,10 +30,14 @@ namespace p2groep11.Net.Tests.Controllers
             continentRepository = new Mock<IContinentRepository>();
             continentRepository.Setup(c => c.FindById(1)).Returns(context.Europa);
             
+            gradeRepository = new Mock<IGradeRepository>();
+            gradeRepository.Setup(c => c.FindById(1)).Returns(context.Graad);
+
             continent = context.Europa;
-            controller = new ClimateChartController(continentRepository.Object);
+            controller = new ClimateChartController(continentRepository.Object, gradeRepository.Object);
             //model = new KlimatogramViewModel(controller.GetContinents(), controller.GetCountrys(),
             //    controller.GetLocations());
+            
 
         }
 

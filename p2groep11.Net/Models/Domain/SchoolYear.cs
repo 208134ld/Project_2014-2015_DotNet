@@ -27,9 +27,10 @@ namespace p2groep11.Net.Models.Domain
             
         }
 
-        public SchoolYear(int number)
+        public SchoolYear(int number, Grade grade)
         {
             this.year = number;
+            this.GradeProp = grade;
         }
 
         

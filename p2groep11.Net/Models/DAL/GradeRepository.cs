@@ -20,15 +20,12 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Grade> FindAll()
         {
-            return grades.OrderBy(g => g.GradeInt);
-            //return continents.Include(l => l.Countries).OrderBy(c => c.Name);
-            //return continents.OrderBy(c => c.Name);
+            return grades.OrderBy(g => g.name);
         }
 
         public Grade FindById(int gradeId)
         {
-            return grades.Include(l => l.DeterminateTableProp).FirstOrDefault(g => g.GradeInt == gradeId);
-            //return continents.Include(l => l.Countries.Select(c=>c.ClimateCharts.Select(mon=>mon.Months))).FirstOrDefault(c => c.ContinentID == continentId); 
+            return grades.Include(l => l.DeterminateTableProp).FirstOrDefault(g => g.GradeId == gradeId);
         }
 
         public void Remove(Grade grade)

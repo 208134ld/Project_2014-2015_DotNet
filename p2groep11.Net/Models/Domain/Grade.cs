@@ -10,7 +10,9 @@ namespace p2groep11.Net.Models.Domain
     public class Grade
     {
         private int grade;
-        public int GradeInt
+
+        public String name { get; set; }
+        public int GradeId
         {
             get { return grade; }
             set
@@ -24,21 +26,18 @@ namespace p2groep11.Net.Models.Domain
         }
         public virtual DeterminateTable DeterminateTableProp{ get; set; }
         public virtual ICollection<Continent> ContinentProp { get; set; }
-        public virtual ICollection<SchoolYear> SchoolYearProp { get; set; } //nog niet zeker of we dit gaan nodig hebben
+        public virtual ICollection<SchoolYear> SchoolYearProp { get; set; }
 
         public Grade()
         {
             
         }
 
-        public Grade(SchoolYear schoolYear)
+        public Grade(String name)
         {
-            GradeInt = CalculateGrade(schoolYear.Year);
-        }
-
-        public int CalculateGrade(int year )
-        {
-            return (year + 1) / 2;
+            this.name = name;
+            SchoolYearProp = new List<SchoolYear>();
+            ContinentProp = new List<Continent>();
         }
 
     }

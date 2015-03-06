@@ -15,14 +15,15 @@ namespace p2groep11.Net.Models.DAL.Mapper
             ToTable("Grades");
 
             // Primary key
-            HasKey(c => c.GradeInt);
+            HasKey(c => c.GradeId);
 
             // Properties
-            Property(c => c.GradeInt).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(c => c.GradeId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(g => g.name).IsRequired();
 
             //Relations
-            this.HasRequired(c => c.DeterminateTableProp);
-            //this.HasMany(c => c.ContinentProp);
+            HasRequired(c => c.DeterminateTableProp);
+            HasMany(c => c.ContinentProp).WithRequired(c => c.GradeId).Map(m => m.MapKey("GradeId")).WillCascadeOnDelete(true);
         }
     }
 }

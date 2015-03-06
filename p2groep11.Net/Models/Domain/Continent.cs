@@ -12,7 +12,7 @@ namespace p2groep11.Net.Models.Domain
     {
         public int ContinentID { get; set; }
         public string Name { get; set; }
-        public Grade GradeInt { get; set; }
+        public Grade GradeId { get; set; }
 
         public virtual ICollection<Country> Countries { get; set; }
 
