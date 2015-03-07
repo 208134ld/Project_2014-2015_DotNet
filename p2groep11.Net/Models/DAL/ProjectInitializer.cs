@@ -242,13 +242,13 @@ namespace p2groep11.Net.Models.DAL
                 
                 //DeterminateTable aanmaken met hun clauses
                 //De parameters hun waarde is bijvoorbeeld de temperatuur van de warmste maand, nu voorlopig zonder database dus nog niet nodig
-                Parameter tw = new Parameter(0, "TW");
-                Parameter tj = new Parameter(0, "TJ");
-                Parameter nj = new Parameter(0, "NJ");
-                Parameter tk = new Parameter(0, "TK");
-                Parameter d = new Parameter(0, "D");
-                Parameter nz = new Parameter(0, "NZ");
-                Parameter nw = new Parameter(0, "NW");
+                Parameter tw = new TW();
+                Parameter tj = new TJ();
+                Parameter nj = new NJ();
+                Parameter tk = new TK();
+                Parameter d = new D();
+                Parameter nz = new NZ();
+                Parameter nw = new NW();
 
                 ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);
