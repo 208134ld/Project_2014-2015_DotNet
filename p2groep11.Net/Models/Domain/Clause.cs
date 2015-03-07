@@ -60,23 +60,13 @@ namespace p2groep11.Net.Models.Domain
 
         public override string Determinate(ClimateChart chart)
         {
-            switch (Par1.Code)
+            /*if (Par2.Execute(chart).Equals(null))    Hier is iets fout*/
+                return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+            /*else
             {
-                case "TW":
-                    return chart.CalculateHottestMonth() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                case "TJ":
-                    return chart.CalculateAverageYeartemp() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                case "TK":
-                    return chart.CalculateColdestMonth() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                case "NJ":
-                    return chart.CalculateTotalRainOfYear() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                case "D":
-                    return chart.CalculateTotalDryMonths() <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                case "NZ":
-                    return chart.CalculateRainInSummer() <= chart.CalculateRainInWinter() ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                default:
-                    return null;
-            }
+                return Par1.Execute(chart) <= Par2.Execute(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+            }*/
+            
         }
     }
 }
