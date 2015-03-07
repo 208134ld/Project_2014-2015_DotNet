@@ -20,13 +20,13 @@ namespace p2groep11.Net.Tests.Domein
             sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
             chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
 
-            Parameter tw = new Parameter(0, "TW");
-            Parameter tj = new Parameter(0, "TJ");
-            Parameter nj = new Parameter(0, "NJ");
-            Parameter tk = new Parameter(0, "TK");
-            Parameter d = new Parameter(0, "D");
-            Parameter nz = new Parameter(0, "NZ");
-            Parameter nw = new Parameter(0, "NW");
+            Parameter tw = new TW();
+            Parameter tj = new TJ();
+            Parameter nj = new NJ();
+            Parameter tk = new TK();
+            Parameter d = new D();
+            Parameter nz = new NZ();
+            Parameter nw = new NW();
 
             ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
             ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);

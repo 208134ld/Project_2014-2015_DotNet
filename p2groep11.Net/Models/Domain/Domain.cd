@@ -13,7 +13,7 @@
   <Class Name="p2groep11.Net.Models.Domain.Continent">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQQAAAAACAAAEAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Continent.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -30,7 +30,7 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAQAEAAAAUAAEAAIIAEAAAAAIAQAAGAACAEAACAAQ=</HashCode>
+      <HashCode>gAAAQAEAAAAUAAEAAIIAAAAAAAIAQAAGAACAEAACAAQ=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -59,25 +59,25 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Clause">
-    <Position X="11.75" Y="6.5" Width="1.5" />
+    <Position X="10.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAZADAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAEABAk=</HashCode>
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Par1" />
       <Field Name="Par2" />
+      <Field Name="Par1" />
     </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
-    <Position X="13.5" Y="3" Width="3.75" />
+    <Position X="10.75" Y="3" Width="3.75" />
     <TypeIdentifier>
       <HashCode>EAZAAAAAAAAAAAAAAAIAAAAAAAABEAAAAIAAAAAABAA=</HashCode>
       <FileName>Models\Domain\ClauseComponent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Result">
-    <Position X="15" Y="7" Width="1.5" />
+    <Position X="13" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAEAAAAAAAAAAAAAABAAAAABEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Result.cs</FileName>
@@ -93,13 +93,6 @@
       <Property Name="ClauseComponent" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="p2groep11.Net.Models.Domain.Parameter">
-    <Position X="11.75" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>Models\Domain\Parameter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="p2groep11.Net.Models.Domain.Grade">
     <Position X="3.25" Y="3.25" Width="1.5" />
     <AssociationLine Name="ContinentProp" Type="p2groep11.Net.Models.Domain.Continent">
@@ -108,7 +101,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAAAAEAIAAAABAAAAAAwAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAAAAAEAIAAAAAEAAAAEQAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Grade.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -119,5 +112,68 @@
       <Property Name="SchoolYearProp" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="p2groep11.Net.TW">
+    <Position X="13.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\TW.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.TJ">
+    <Position X="15.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\TJ.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.NJ">
+    <Position X="12" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\NJ.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.TK">
+    <Position X="17.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\TK.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.D">
+    <Position X="17.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\D.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.NZ">
+    <Position X="15.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\NZ.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="p2groep11.Net.NW">
+    <Position X="11.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\NW.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="p2groep11.Net.Models.Domain.Parameter">
+    <Position X="13" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Parameter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

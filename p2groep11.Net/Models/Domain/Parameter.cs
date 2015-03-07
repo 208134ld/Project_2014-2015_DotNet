@@ -5,15 +5,16 @@ using System.Web;
 
 namespace p2groep11.Net.Models.Domain
 {
-    public class Parameter
+    public interface Parameter
     {
-        public int Waarde { get; set; }
+        /*public int Waarde { get; set; }
         public String Code { get; set; }
 
         public Parameter(int waarde, String code)
         {
             this.Waarde = waarde;
             this.Code = code;
-        }
+        }*/
+        int Execute(ClimateChart chart);
     }
 }
