@@ -44,6 +44,21 @@ namespace p2groep11.Net.Models.Domain
             return this.NoClause;
         }
 
+        public override String GetHtmlCode(Boolean isYes)
+        {
+            String html = "";
+            if(isYes)
+            html += "<li><span class='YesSpan'>" + Name + "</span><ul> \n";
+            else
+            {
+                html += "<li><span class='NoSpan'>" + Name + "</span><ul> \n";
+            }
+            html += YesClause.GetHtmlCode(true) + "\n" +
+            NoClause.GetHtmlCode(false) + "\n</ul></li>";
+
+            return html;
+        }
+
         public override void Add(Boolean soort, ClauseComponent component)
         {
             if (soort)

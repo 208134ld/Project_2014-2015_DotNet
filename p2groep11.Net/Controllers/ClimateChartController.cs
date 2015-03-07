@@ -43,7 +43,8 @@ namespace p2groep11.Net.Controllers
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
                     
                     Grade gr = gradeRepository.FindById(1);
-                    
+                    String html = "";
+                    html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
                     return View(new ClimateChartViewModel(c, gr.DeterminateTableProp));
                 }
                 catch (SqlException sqlExc)

@@ -21,7 +21,9 @@ namespace p2groep11.Net.ViewModels
         public int SumSed { get; private set; }
         public DeterminateTable table { get; private set; }
         public String ResultaatDeterminate { get; private set; }
-        
+
+        public String HtmlDetTabel { get; private set; }
+
         public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
         {
             this.Months = c.Months;
@@ -31,6 +33,7 @@ namespace p2groep11.Net.ViewModels
             SumSed = Months.Sum(m => m.Sediment);
             this.table = table;
             ResultaatDeterminate = Determinate(c, table);
+            HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
         }
 
         public String Determinate(ClimateChart c, DeterminateTable t)

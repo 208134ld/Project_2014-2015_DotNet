@@ -18,6 +18,17 @@ namespace p2groep11.Net.Models.Domain
             return "Klimaatkenmerk: " + Klimaatkenmerk + ". Vegetatiekenmerk: " + Vegetatiekenmerk + ".";
         }
 
+        public override String GetHtmlCode(Boolean isYes)
+        {
+            if(isYes)
+            return "<li><span class='YesSpan'>" + Klimaatkenmerk + "</span></li>";
+            else
+            {
+                return "<li><span class='NoSpan'>" + Klimaatkenmerk + "</span></li>";
+            }
+        }
+
+
         public override String GetVegetatiekenmerk()
         {
             return this.Vegetatiekenmerk;
