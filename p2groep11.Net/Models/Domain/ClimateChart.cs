@@ -23,7 +23,100 @@ namespace p2groep11.Net.Models.Domain
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
-        
+
+        public int HottestMonth //TW
+        {
+            get
+            {
+                return Months.Select(month => month.AverTemp).Max();
+            }
+        }
+        public int AverageYearTemp //TJ
+        {
+            get
+            {
+                return (int)(Months.Average(month => month.AverTemp));
+            }
+        }
+
+        public int ColdestMonth  //TK
+        {
+            get
+            {
+                return Months.Select(m => m.AverTemp).Min();
+            }
+        }
+
+        public int TotalRainOfYear //NJ
+        {
+            get
+            {
+                return Months.Sum(m => m.Sediment);
+            }
+        }
+
+        public int TotalDryMonths //D
+        {
+            get
+            {
+                return Months.Sum(m => m.Sediment);
+            }
+        }
+
+        public int RainInSummer //NZ
+        {
+            get
+            {
+                if (Country.AboveEquator)
+                {
+                    var count = 0;
+                    for (var i = 4; i < 10; i++)
+                    {
+                        count += Months[i].Sediment;
+                    }
+                    return count;
+                }
+                var count2 = 0;
+                for (var i = 10; i < 13; i++)
+                {
+                    count2 += Months[i].Sediment;
+                }
+                for (var i = 1; i < 4; i++)
+                {
+                    count2 += Months[i].Sediment;
+                }
+                return count2;
+            }
+        }
+
+        public int RainInWinter //NW
+        {
+            get
+            {
+                if (!Country.AboveEquator)
+                {
+                    var count = 0;
+                    for (var i = 4; i < 10; i++)
+                    {
+                        count += Months[i].Sediment;
+                    }
+                    return count;
+                }
+                var count2 = 0;
+                for (var i = 10; i < 13; i++)
+                {
+                    count2 += Months[i].Sediment;
+                }
+                for (var i = 1; i < 4; i++)
+                {
+                    count2 += Months[i].Sediment;
+                }
+                return count2;
+            }
+        }
+
+
+
         public ClimateChart()
         {
             
@@ -80,84 +173,6 @@ namespace p2groep11.Net.Models.Domain
                 min = mSed;
             }
             return min;
-        }
-
-        //berekent TW
-        public int CalculateHottestMonth()
-        {
-            return Months.Select(month => month.AverTemp).Max();
-        }
-
-        //berekent TJ
-        public int CalculateAverageYeartemp()
-        {
-            return (int)(Months.Average(month => month.AverTemp));
-        }
-
-        //berekent TK
-        public int CalculateColdestMonth()
-        {
-            return Months.Select(m => m.AverTemp).Min();
-        }
-
-        //berekent NJ
-        public int CalculateTotalRainOfYear()
-        {
-            return Months.Sum(m => m.Sediment);
-        }
-
-        //berekent D
-        public int CalculateTotalDryMonths()
-        {
-            return Months.Count(m => (m.AverTemp*2) > m.Sediment);
-        }
-
-        //berekent NZ - opgelet: zomermaanden verschillen per locatie, dient nog ingebouwd te worden in country of location
-        public int CalculateRainInSummer()
-        {
-            if (Country.AboveEquator)
-            {
-                var count = 0;
-                for (var i=4; i< 10; i++)
-                {
-                    count += Months[i].Sediment;
-                }
-                return count;
-            }
-            var count2 = 0;
-            for (var i = 10; i < 13; i++)
-            {
-                count2 += Months[i].Sediment;
-            }
-            for (var i = 1; i < 4; i++)
-            {
-                count2 += Months[i].Sediment;
-            }
-            return count2;
-        }
-
-        //berekent NW
-        public int CalculateRainInWinter()
-        {
-            if (!Country.AboveEquator)
-            {
-                var count = 0;
-                for (var i = 4; i < 10; i++)
-                {
-                    count += Months[i].Sediment;
-                }
-                return count;
-            }
-            var count2 = 0;
-            for (var i = 10; i < 13; i++)
-            {
-                count2 += Months[i].Sediment;
-            }
-            for (var i = 1; i < 4; i++)
-            {
-                count2 += Months[i].Sediment;
-            }
-            return count2;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace p2groep11.Net
         }
         public int Execute(ClimateChart chart)
         {
-            return chart.CalculateTotalDryMonths();
+            return chart.TotalDryMonths;
         }
     }
 }

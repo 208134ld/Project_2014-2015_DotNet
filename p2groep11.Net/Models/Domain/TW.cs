@@ -14,7 +14,7 @@ namespace p2groep11.Net
         }
         public int Execute(ClimateChart chart)
         {
-            return chart.CalculateHottestMonth();
+            return chart.HottestMonth;
         }
     }
 }

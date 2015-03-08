@@ -20,6 +20,8 @@ namespace p2groep11.Net.Models.DAL.Mapper
             // Properties
             Property(c => c.DeterminateTableId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             
+            //relations
+            this.HasRequired(d => d.ClauseComponent);
         }
     }
 }

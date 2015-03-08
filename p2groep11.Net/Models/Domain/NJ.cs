@@ -15,7 +15,7 @@ namespace p2groep11.Net
         }
         public int Execute(ClimateChart chart)
         {
-            return chart.CalculateTotalRainOfYear();
+            return chart.TotalRainOfYear;
         }
     }
 }

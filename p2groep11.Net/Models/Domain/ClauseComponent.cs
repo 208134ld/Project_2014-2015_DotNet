@@ -10,37 +10,37 @@ namespace p2groep11.Net.Models.Domain
         public abstract String GetHtmlCode(Boolean isYes);
         public virtual void Add(Boolean soort, ClauseComponent component)
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual String GetName()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual ClauseComponent GetYesClause()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual ClauseComponent GetNoClause()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual ClauseComponent GetChild()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual String GetVegetatiekenmerk()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
 
         public virtual String GetKlimaatkenmerk()
         {
-            throw new NotImplementedException();
+            throw new ApplicationException();
         }
        
 
