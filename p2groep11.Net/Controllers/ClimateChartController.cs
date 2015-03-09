@@ -75,6 +75,7 @@ namespace p2groep11.Net.Controllers
             return RedirectToAction("Index", "SchoolYear");
         }
 
+        //alle redirects nodig wegens viewbag probleem tussen verschillende controllers
         public ActionResult ListLocations(int selectedyear, int continentid, int countryid)
         {
             return RedirectToAction("ListLocations", "Continent", new {selectedYear = selectedyear, continentId = continentid, countryId = countryid});
