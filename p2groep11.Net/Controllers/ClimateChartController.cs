@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Windows.Forms;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
@@ -30,8 +31,13 @@ namespace p2groep11.Net.Controllers
             this.gradeRepository = gradeRepository;
         }
 
-        public ActionResult ShowClimateChart(int continentId, int countryId, int climateId)
+        public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)
         {
+            ViewBag.SchoolYear = selectedYear;
+            ViewBag.ContinentId = continentId;
+            ViewBag.CountryId = countryId;
+            ViewBag.ClimateId = climateId;
+
             if (ModelState.IsValid)
             {
                 
@@ -67,6 +73,22 @@ namespace p2groep11.Net.Controllers
                 }
             }
             return RedirectToAction("Index", "SchoolYear");
+        }
+
+        //alle redirects nodig wegens viewbag probleem tussen verschillende controllers
+        public ActionResult ListLocations(int selectedyear, int continentid, int countryid)
+        {
+            return RedirectToAction("ListLocations", "Continent", new {selectedYear = selectedyear, continentId = continentid, countryId = countryid});
+        }
+
+        public ActionResult ListCountries(int selectedyear, int continentid)
+        {
+            return RedirectToAction("ListCountries", "Continent", new { selectedYear = selectedyear, continentId = continentid});
+        }
+
+        public ActionResult ListContinents(int schoolyear)
+        {
+            return RedirectToAction("ListContinents", "Continent", new { selectedYear = schoolyear});
         }
     }
 }

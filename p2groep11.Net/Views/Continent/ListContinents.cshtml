@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="breadcrumbs">
+    @Html.ActionLink("Kies schooljaar", "Index", "SchoolYear") >
+    @Html.ActionLink("Kies continent", "ListContinents") >
+</div>
+
+
 <h2>Continenten</h2>
 
 @foreach (var item in Model) 

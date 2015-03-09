@@ -142,3 +142,11 @@ background-color: #FEEFB3;
 color: #4F8A10;
 background-color: #DFF2BF;
 }
+
+.breadcrumbs {
+    padding: 10px!important;
+    margin: 20px;
+    margin-bottom: 0px;
+    font-size: 85%;
+    background-color: beige;
+}

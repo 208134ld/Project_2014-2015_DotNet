@@ -115,6 +115,14 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
+        public int MaandenOnder10 //TM
+        {
+            get
+            {
+                return Months.Count(m => m.AverTemp >= 10);
+            }
+        }
+
 
 
         public ClimateChart()
