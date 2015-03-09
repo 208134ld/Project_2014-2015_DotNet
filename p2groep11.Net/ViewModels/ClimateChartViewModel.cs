@@ -58,7 +58,7 @@ namespace p2groep11.Net.ViewModels
             Highcharts chart = new Highcharts("chart")
                .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
                .SetTitle(new Title { Text = "klimatogram " + climateChart.Location + " (" + climateChart.Country.Name + ")" })
-               .SetSubtitle(new Subtitle { Text = climateChart.BeginPeriod + " - " + climateChart.EndPeriod })
+               .SetSubtitle(new Subtitle { Text = climateChart.BeginPeriod + " - " + climateChart.EndPeriod }).SetCredits(new Credits{Enabled = false})
                .SetXAxis(new XAxis { Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" } })
                .SetYAxis(new[]
                 {
@@ -105,9 +105,9 @@ namespace p2groep11.Net.ViewModels
                    Align = HorizontalAligns.Left,
                    X = 120,
                    VerticalAlign = VerticalAligns.Top,
-                   Y = 100,
+                   Y = 10,
                    Floating = true,
-                   BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
+                   //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
                })
                .SetSeries(new[]
                 {

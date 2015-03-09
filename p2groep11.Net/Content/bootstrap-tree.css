@@ -9,21 +9,62 @@
   background-color: #fbfbfb;
   border: 1px solid #777777;
   margin-bottom: 10px;
-  max-height: 800px;
+  max-height: 1300px;
   min-height: 20px;
   overflow-y: auto;
   padding: 19px;
   /*Remove connectors before root*/
 }
+.answerCorrect{
+    border: 2px solid #37B509;
+    background-color: #72C953;
+    color: white;
+    margin-left: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 14px;
+    padding: 10px 10px;
+}
 .YesSpan {
+    border: 1px solid #777777;
     background-color: #308029;
     color: white;
     margin-left: 20px;
 }
 .NoSpan {
+    border: 1px solid #777777;
     background-color: #CF2525;
     color: white;
     margin-left: 20px;
+}
+.YesSpanActive {
+    border : 1px solid black;
+    background-color: yellow;
+    color: black;
+    margin-left: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 14px;
+    padding: 10px 10px;
+}
+.NoSpanActive{
+     border : 1px solid black;
+    background-color: yellow;
+    color: black;
+    margin-left: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 14px;
+    padding: 10px 10px;
+}
+.wrongAnswer{
+    background-color: red;
+    color: yellow;
+    margin-left: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 14px;
+    padding: 10px 10px;
 }
 .tree a {
   display: inline;
@@ -70,11 +111,11 @@
 .tree li span {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  border: 1px solid #777777;
   border-radius: 5px;
+   border-radius: 5px;
   display: inline-block;
   line-height: 14px;
-  padding: 2px 4px;
+  padding: 10px 10px;
   text-decoration: none;
   -webkit-transition: color 0.2s ease 0.1s, background-color 0.2s ease 0.1s, border-color 0.3s ease 0.2s;
   -moz-transition: color 0.2s ease 0.1s, background-color 0.2s ease 0.1s, border-color 0.3s ease 0.2s;
