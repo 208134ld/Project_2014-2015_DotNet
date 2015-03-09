@@ -7,7 +7,19 @@
     int count = 0;
 }
 
+<div class="breadcrumbs">
+    @Html.ActionLink("Kies schooljaar", "Index", "SchoolYear") >
+    @if (@ViewBag.SchoolYear > 2)
+    {
+        @Html.ActionLink("Kies continent", "ListContinents", "Continent")
+        <span>></span>
+    }
+    @Html.ActionLink("Kies land", "ListCountries", "Continent") >
+</div>
+
+
 <h2>Landen</h2>
+
 <p>
     @using (Html.BeginForm("ListCountries", "Continent", FormMethod.Get))
     {

@@ -29,6 +29,7 @@ namespace p2groep11.Net.Controllers
         public ActionResult ListCountries(int selectedYear, int continentId, string search)
         {
             ViewBag.SchoolYear = selectedYear;
+            ViewBag.ContinentId = continentId;
             IEnumerable<Country> countryList = repository.FindById(continentId).Countries;
             if (!String.IsNullOrEmpty(search))
             {
@@ -39,9 +40,13 @@ namespace p2groep11.Net.Controllers
 
         public ActionResult ListLocations(int selectedYear, int continentId, int countryId, string search)
         {
+            ViewBag.SchoolYear = selectedYear;
+            ViewBag.ContinentId = continentId;
+            ViewBag.CountryId = countryId;
+            
             try
             {
-                ViewBag.SchoolYear = selectedYear;
+                
                 IEnumerable<ClimateChart> locationList =
                     repository.FindById(continentId)
                         .Countries.FirstOrDefault(c => c.CountryID == countryId)

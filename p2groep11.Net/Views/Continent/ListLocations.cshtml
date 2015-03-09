@@ -5,6 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="breadcrumbs">
+    @Html.ActionLink("Kies schooljaar", "Index", "SchoolYear") >
+    @if (@ViewBag.Schoolyear > 2)
+    {
+        @Html.ActionLink("Kies continent", "ListContinents")
+        <span>></span>
+    }
+    @Html.ActionLink("Kies land", "ListCountries") >
+    @Html.ActionLink("Kies locatie", "ListLocations", new { Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId }) >
+</div>
+
 <h2>Locaties</h2>
 
 <p>
@@ -22,7 +33,7 @@
     {
         <div>      
             @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
-            new { SelectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID }, null)
+            new { selectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID }, null)
         </div>
     }
 </div>
