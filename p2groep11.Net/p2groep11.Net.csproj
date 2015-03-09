@@ -184,6 +184,7 @@
     <Compile Include="Models\DAL\IGradeRepository.cs" />
     <Compile Include="Models\DAL\Mapper\SchoolYearMapper.cs" />
     <Compile Include="Models\DAL\Mapper\GradeMapper.cs" />
+    <Compile Include="Models\Domain\TM.cs" />
     <Compile Include="Models\Domain\D.cs" />
     <Compile Include="Models\Domain\Grade.cs" />
     <Compile Include="Models\DAL\IContinentRepository.cs" />
