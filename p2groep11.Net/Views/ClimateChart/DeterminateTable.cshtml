@@ -6,12 +6,16 @@
     ViewBag.Title = "Klimatogram";
 }
 
-
+<div class="warning">
+</div>
+<div class="success">
+</div>
 <div class="tree">
     <ul>
         @Html.Raw(@Model.HtmlDetTabel);
     </ul>
+    <input type="button" class="testBut" value="Valideer"/>
 </div>
-
+<script src="../../Content/DeterminateTabelInteraction.js" type="text/javascript"></script>
 
 
