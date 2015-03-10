@@ -19,11 +19,8 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             // Properties
             Property(c => c.ClauseComponentId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            
 
             //Relations
-            //HasMany(c => c.Months);
-            //HasRequired(c => c.DeterminateTable);
         }
     }
 }

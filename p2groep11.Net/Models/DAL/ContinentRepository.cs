@@ -20,7 +20,6 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Continent> FindAll()
         {
-            //return continents.Include(l => l.Countries).OrderBy(c => c.Name);
             return continents.OrderBy(c => c.Name);
         }
 

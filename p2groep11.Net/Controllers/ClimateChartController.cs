@@ -48,10 +48,11 @@ namespace p2groep11.Net.Controllers
                             .Countries.FirstOrDefault(co => co.CountryID == countryId)
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
                     
-                    Grade gr = gradeRepository.FindById(1);
+                    Grade gr = gradeRepository.FindById((selectedYear+1)/2);
+                    DeterminateTable ta = gr.DeterminateTableProp;
                     String html = "";
                     html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
-                    return View(new ClimateChartViewModel(c, gr.DeterminateTableProp));
+                    return View(new ClimateChartViewModel(c, ta));
                 }
                 catch (SqlException sqlExc)
                 {

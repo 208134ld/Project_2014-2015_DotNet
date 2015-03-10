@@ -19,8 +19,6 @@ namespace p2groep11.Net.Models.DAL.Mapper
             // Properties
 
             //Relations
-            //this.HasRequired(c => c.GradeProp).WithMany(c => c.SchoolYearProp).HasForeignKey(c => c.GradeProp).WillCascadeOnDelete(true);
         }
-        
     }
 }

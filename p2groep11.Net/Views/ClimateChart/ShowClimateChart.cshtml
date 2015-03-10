@@ -56,7 +56,8 @@
     </div>
 
     <div class="determinateResult">
-        @Model.ResultaatDeterminate
+        Klimaatkenmerk: @Model.ResultaatDeterminate[0]<br/>
+        Vegetatiekenmerk: @Model.ResultaatDeterminate[1]
     </div>
     <div>
         @Html.Partial("DeterminateTable")

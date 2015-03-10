@@ -8,8 +8,7 @@ namespace p2groep11.Net.Models.Domain
     public class DeterminateTable
     {
         public int DeterminateTableId { get; set; }
-        public int GradeId { get; set; }
-        public ClauseComponent ClauseComponent { get; set; }
+        public virtual ClauseComponent ClauseComponent { get; set; }
 
         //tijdelijk
         public ClauseComponent tw10Temp;
@@ -17,18 +16,14 @@ namespace p2groep11.Net.Models.Domain
         public DeterminateTable(ClauseComponent component)
         {
             this.ClauseComponent = component;
-            this.GradeId = 1;
         }
 
         public DeterminateTable()
         {
-            // temp default constructor
-            CreateParameters();
-            this.ClauseComponent = tw10Temp;
-            this.GradeId = 1; //moet nog aangepast worden
+
         }
 
-        public String Determinate(ClimateChart chart)
+        public String[] Determinate(ClimateChart chart)
         {
             return ClauseComponent.Determinate(chart);
         }
@@ -36,13 +31,6 @@ namespace p2groep11.Net.Models.Domain
         public void CreateParameters()
         {
             //determinatetable aanmaken, efkes zonder database werken
-            /*Parameter tw = new Parameter(0, "TW");
-            Parameter tj = new Parameter(0, "TJ");
-            Parameter nj = new Parameter(0, "NJ");
-            Parameter tk = new Parameter(0, "TK");
-            Parameter d = new Parameter(0, "D");
-            Parameter nz = new Parameter(0, "NZ");
-            Parameter nw = new Parameter(0, "NW");*/
             Parameter tw = new TW();
             Parameter tj = new TJ();
             Parameter nj = new NJ();
@@ -117,8 +105,6 @@ namespace p2groep11.Net.Models.Domain
             d12.Add(true, d12Yes);
             d12.Add(false, d12No);
             tk18.Add(false, d12);
-
-            /*DeterminateTable table = new DeterminateTable(tw10);*/
 
             tw10Temp = tw10; //  <-- Temp voor te testen
         }

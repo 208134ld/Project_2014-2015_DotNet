@@ -25,7 +25,9 @@ namespace p2groep11.Net.Models.DAL
 
         public Grade FindById(int gradeId)
         {
-            return grades.Include(l => l.DeterminateTableProp).FirstOrDefault(g => g.GradeId == gradeId);
+            Grade gr = grades.Include(l => l.DeterminateTableProp.ClauseComponent).FirstOrDefault(g => g.GradeId == gradeId);
+            int i = 0;
+            return gr;
         }
 
         public void Remove(Grade grade)

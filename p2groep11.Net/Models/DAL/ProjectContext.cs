@@ -26,7 +26,7 @@ namespace p2groep11.Net.Models.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
-           modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+            modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
             modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
         }
     }

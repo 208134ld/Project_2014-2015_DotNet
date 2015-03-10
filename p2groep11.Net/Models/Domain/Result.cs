@@ -13,9 +13,14 @@ namespace p2groep11.Net.Models.Domain
             this.Vegetatiekenmerk = vk;
         }
 
-        public override string Determinate(ClimateChart chart)
+        public Result()
         {
-            return "Klimaatkenmerk: " + Klimaatkenmerk + ". Vegetatiekenmerk: " + Vegetatiekenmerk + ".";
+            
+        }
+
+        public override string[] Determinate(ClimateChart chart)
+        {
+            return new string[] { Klimaatkenmerk, Vegetatiekenmerk };
         }
 
         public override String GetHtmlCode(Boolean isYes)
@@ -26,17 +31,6 @@ namespace p2groep11.Net.Models.Domain
             {
                 return "<li><span class='NoSpan'>" + Klimaatkenmerk + "</span></li>";
             }
-        }
-
-
-        public override String GetVegetatiekenmerk()
-        {
-            return this.Vegetatiekenmerk;
-        }
-
-        public override String GetKlimaatkenmerk()
-        {
-            return this.Klimaatkenmerk;
         }
     }
 }

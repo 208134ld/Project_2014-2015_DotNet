@@ -20,7 +20,7 @@ namespace p2groep11.Net.ViewModels
         public double AvgTemp { get; private set; }
         public int SumSed { get; private set; }
         public DeterminateTable table { get; private set; }
-        public String ResultaatDeterminate { get; private set; }
+        public String[] ResultaatDeterminate { get;  set; }
 
         public String HtmlDetTabel { get; private set; }
 
@@ -36,7 +36,7 @@ namespace p2groep11.Net.ViewModels
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
         }
 
-        public String Determinate(ClimateChart c, DeterminateTable t)
+        public String[] Determinate(ClimateChart c, DeterminateTable t)
         {
             return t.Determinate(c);
         }

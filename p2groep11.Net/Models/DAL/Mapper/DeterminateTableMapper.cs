@@ -21,7 +21,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.DeterminateTableId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             
             //relations
-            this.HasRequired(d => d.ClauseComponent);
+            HasRequired(d => d.ClauseComponent);
         }
     }
 }
