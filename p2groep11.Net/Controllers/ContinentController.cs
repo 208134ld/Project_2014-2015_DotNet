@@ -22,7 +22,7 @@ namespace p2groep11.Net.Controllers
         public ActionResult ListContinents(int SelectedYear)
         {
            ViewBag.SchoolYear = SelectedYear;
-            IEnumerable<Continent> continents = repository.FindAll();
+           IEnumerable<Continent> continents = repository.FindAll();
            return View(continents.Select(co=>new ContinentsListViewModel(co)).ToList());
         }
 

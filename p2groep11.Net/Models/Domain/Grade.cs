@@ -11,7 +11,6 @@ namespace p2groep11.Net.Models.Domain
     {
         private int grade;
 
-        public String name { get; set; }
         public int GradeId
         {
             get { return grade; }
@@ -24,20 +23,27 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Grade needs to be between 1 and 3.");
             }
         }
-        public virtual DeterminateTable DeterminateTableProp{ get; set; }
-        public virtual ICollection<Continent> ContinentProp { get; set; }
-        public virtual ICollection<SchoolYear> SchoolYearProp { get; set; }
+        public virtual DeterminateTable DeterminateTableProp { get; set; }
+        public virtual ICollection<Continent> Continents { get; private set; }
+        public virtual ICollection<SchoolYear> SchoolYears { get; private set; }
 
         public Grade()
         {
-            
+            SchoolYears = new List<SchoolYear>();
+            Continents = new List<Continent>();
         }
 
-        public Grade(String name)
+        public Grade(int selectedYear)
         {
-            this.name = name;
-            SchoolYearProp = new List<SchoolYear>();
-            ContinentProp = new List<Continent>();
+            CalculateGrade(selectedYear);
+            SchoolYears = new List<SchoolYear>();
+            Continents = new List<Continent>();
+            GradeId = grade;
+        }
+
+        public void CalculateGrade(int selectedYear)
+        {
+            grade = (selectedYear + 1)/2;
         }
 
     }

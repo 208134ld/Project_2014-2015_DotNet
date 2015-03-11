@@ -1,17 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using System.ComponentModel;
 using System.Linq;
-using p2groep11.Net.ViewModels;
-using DotNet.Highcharts;
-using DotNet.Highcharts.Options;
-using DotNet.Highcharts.Enums;
-using DotNet.Highcharts.Helpers;
-using System.Drawing;
-using System.Web.Mvc;
 
 namespace p2groep11.Net.Models.Domain
 {
@@ -19,10 +8,10 @@ namespace p2groep11.Net.Models.Domain
     {
         public int ClimateChartID { get; set; }
         public string Location { get; set; }
-        public virtual List<Month> Months { get; private set; }
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
+        public virtual List<Month> Months { get; private set; }
 
         public int HottestMonth //TW
         {
@@ -123,12 +112,11 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-
-
         public ClimateChart()
         {
-            
+            Months = new List<Month>();
         }
+
         public ClimateChart(string loc, int begin, int end, int[]temperatures, int[] sediments)
         {
             if (temperatures.Length != 12 || sediments.Length != 12)

@@ -20,14 +20,19 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Grade> FindAll()
         {
-            return grades.OrderBy(g => g.name);
+            return grades; 
         }
 
         public Grade FindById(int gradeId)
         {
-            Grade gr = grades.Include(l => l.DeterminateTableProp.ClauseComponent).FirstOrDefault(g => g.GradeId == gradeId);
-            int i = 0;
-            return gr;
+            return grades.Include(l => l.DeterminateTableProp.ClauseComponent).FirstOrDefault(g => g.GradeId == gradeId);         
+        }
+
+        public Grade FindBySchoolYear(SchoolYear year)
+        {
+            return
+                grades.Include(l => l.DeterminateTableProp.ClauseComponent)
+                    .FirstOrDefault(g => g.SchoolYears.Contains(year) == true);
         }
 
         public void Remove(Grade grade)

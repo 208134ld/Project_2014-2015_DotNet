@@ -14,13 +14,28 @@ namespace p2groep11.Net.Models.DAL
         {
             try
             {
-
-
-                Grade grade1 = new Grade("Graad 1");
-                Grade grade2 = new Grade("Graad 2");
-                Grade grade3 = new Grade("Graad 3");
+                // GRADES
+                Grade grade1 = new Grade(1);
+                Grade grade2 = new Grade(3);
+                Grade grade3 = new Grade(5);
                 List<Grade> grades = (new Grade[] { grade1, grade2, grade3 }).ToList();
 
+                // SCHOOLYEARS
+                SchoolYear year1 = new SchoolYear(1);
+                SchoolYear year2 = new SchoolYear(2);
+                SchoolYear year3 = new SchoolYear(3);
+                SchoolYear year4 = new SchoolYear(4);
+                SchoolYear year5 = new SchoolYear(5);
+                SchoolYear year6 = new SchoolYear(6);
+
+                grade1.SchoolYears.Add(year1);
+                grade1.SchoolYears.Add(year2);
+                grade2.SchoolYears.Add(year3);
+                grade2.SchoolYears.Add(year4);
+                grade3.SchoolYears.Add(year5);
+                grade3.SchoolYears.Add(year6);
+
+                // CONTINENTS
                 Continent europa = new Continent { Name = "Europa" };
                 Continent azië = new Continent { Name = "Azië" };
                 Continent afrika = new Continent { Name = "Afrika" };
@@ -28,27 +43,10 @@ namespace p2groep11.Net.Models.DAL
                 Continent zuidAmerika = new Continent { Name = "Zuid-Amerika" };
                 Continent oceanië = new Continent { Name = "Oceanië" };
                 List<Continent> continents = (new Continent[] { europa, azië, afrika, noordCentraalAmerika, zuidAmerika, oceanië }).ToList();
-                continents.ForEach(c => context.Continents.Add(c));
 
-                continents.ForEach(c => c.GradeId = grade2);
-                
-                SchoolYear year1 = new SchoolYear(1, grade1);
-                SchoolYear year2 = new SchoolYear(2, grade1);
-                SchoolYear year3 = new SchoolYear(3, grade2);
-                SchoolYear year4 = new SchoolYear(4, grade2);
-                SchoolYear year5 = new SchoolYear(5, grade3);
-                SchoolYear year6 = new SchoolYear(6, grade3);
-
-                grade1.SchoolYearProp.Add(year1);
-                grade1.SchoolYearProp.Add(year2);
-                grade2.SchoolYearProp.Add(year3);
-                grade2.SchoolYearProp.Add(year4);
-                grade3.SchoolYearProp.Add(year5);
-                grade3.SchoolYearProp.Add(year6);
-
-                grade1.ContinentProp.Add(europa);
-                continents.ForEach(c => grade2.ContinentProp.Add(c));
-                continents.ForEach(c => grade3.ContinentProp.Add(c));
+                grade1.Continents.Add(europa);
+                continents.ForEach(c => grade2.Continents.Add(c));
+                continents.ForEach(c => grade3.Continents.Add(c));
 
                 grades.ForEach(g => context.Grades.Add(g));
 
@@ -218,7 +216,7 @@ namespace p2groep11.Net.Models.DAL
                 }).ToList();
                 countriesOceanië.ForEach(c => oceanië.Countries.Add(c));
 
-                //ZUID_AMERIKA HYPEEE
+                //ZUID_AMERIKA
                 Country argentinië = new Country { Name = "Argentinië" };
                 Country brbrbr = new Country { Name = "Brazillië" };
                 Country chili = new Country { Name = "Chili" };
@@ -262,8 +260,6 @@ namespace p2groep11.Net.Models.DAL
                 tj0.Add(true, tj0Yes);
                 ClauseComponent nj200 = new Clause("NJ <= 200", nj, 200);
 
-
-
                 ClauseComponent tk15 = new Clause("TK <= 15", tk, 15);
                 ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten");
                 ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen"); //Nooit gebruikt in de tabel!!!!
@@ -271,7 +267,6 @@ namespace p2groep11.Net.Models.DAL
                 tk15.Add(false, tk15Yes);
                 nj200.Add(true, tk15);
                 tj0.Add(false, nj200);
-
 
                 ClauseComponent tk18 = new Clause("TK <= 18", tk, 18);
                 ClauseComponent nj400 = new Clause("NJ <= 400", nj, 400);

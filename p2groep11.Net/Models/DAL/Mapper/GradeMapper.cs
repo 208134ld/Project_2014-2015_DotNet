@@ -18,12 +18,11 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasKey(c => c.GradeId);
 
             // Properties
-            Property(c => c.GradeId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(g => g.name).IsRequired();
 
             //Relations
-            HasRequired(c => c.DeterminateTableProp);
-            HasMany(c => c.ContinentProp).WithRequired(c => c.GradeId).Map(m => m.MapKey("GradeId")).WillCascadeOnDelete(true);
+            HasRequired(g => g.DeterminateTableProp);
+            HasMany(g => g.Continents).WithMany(g => g.Grades);
+            HasMany(g => g.SchoolYears).WithRequired(g => g.GradeProp);
         }
     }
 }

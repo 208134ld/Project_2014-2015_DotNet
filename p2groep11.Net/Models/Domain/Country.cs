@@ -11,11 +11,9 @@ namespace p2groep11.Net.Models.Domain
     {
         public int CountryID { get; set; }
         public string Name { get; set; }
-        public virtual Continent Continent { get; set; }
         public Boolean AboveEquator { get; set; }
-
+        public virtual Continent Continent { get; set; }
         public virtual ICollection<ClimateChart> ClimateCharts { get; set; }
-
 
         public Country()
         {
@@ -23,11 +21,12 @@ namespace p2groep11.Net.Models.Domain
             AboveEquator = true;
         }
 
-        public Country(int countId, String name, Continent c)
+        public Country(String name, Continent c)
         {
-            this.CountryID = countId;
-            this.Name = name;
-            this.Continent = c;
+            Name = name;
+            Continent = c;
+            ClimateCharts = new List<ClimateChart>();
+            AboveEquator = true;
         }
     }
 }

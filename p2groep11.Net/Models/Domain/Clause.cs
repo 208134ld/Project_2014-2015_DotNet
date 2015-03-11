@@ -11,9 +11,14 @@ namespace p2groep11.Net.Models.Domain
         public virtual ClauseComponent NoClause { get; set; }
         public String Name { get; private set; }
     
-        public Parameter Par1;
-        public Parameter Par2;
-        public int Waarde;
+        private Parameter Par1 { get; set; }
+        private Parameter Par2 { get; set; }
+        private int Waarde { get; set; }
+
+        public Clause()
+        {
+
+        }
 
         public Clause(String name, Parameter par1, int waarde)
         {
@@ -27,11 +32,6 @@ namespace p2groep11.Net.Models.Domain
             this.Name = name;
             this.Par1 = par1;
             this.Par2 = par2;
-        }
-
-        public Clause()
-        {
-            
         }
 
         public override String GetHtmlCode(Boolean isYes)
