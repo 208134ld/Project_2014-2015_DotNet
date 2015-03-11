@@ -48,10 +48,19 @@ namespace p2groep11.Net.Controllers
                             .Countries.FirstOrDefault(co => co.CountryID == countryId)
                             .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
                     
+
                     Grade gr = gradeRepository.FindById((selectedYear+1)/2);
-                    DeterminateTable ta = gr.DeterminateTableProp;
+
+                    //om met database te werken
+                    //DeterminateTable ta = gr.DeterminateTableProp;
+                    //String html = "";
+                    //html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
+
+                    //om zonder database te werken
+                    DeterminateTable ta = new DeterminateTable(gr.GradeId);
                     String html = "";
-                    html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
+                    html = ta.ClauseComponent.GetHtmlCode(true);
+
                     return View(new ClimateChartViewModel(c, ta));
                 }
                 catch (SqlException sqlExc)
@@ -62,7 +71,7 @@ namespace p2groep11.Net.Controllers
                 }
                 catch (NullReferenceException nullEx)
                 {
-                    MessageBox.Show(nullEx.InnerException.ToString());
+                    //MessageBox.Show(nullEx.InnerException.ToString());
                     ModelState.AddModelError("",
                         "Could not find the climateChart associated with this continentId or countryId or climateId \n" +
                         nullEx.Message);

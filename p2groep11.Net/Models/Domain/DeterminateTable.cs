@@ -18,9 +18,16 @@ namespace p2groep11.Net.Models.Domain
             this.ClauseComponent = component;
         }
 
+        public DeterminateTable(int grade)
+        {
+            this.DeterminateTableId = 2;
+            this.ClauseComponent = CreateParameters(grade);
+            tw10Temp = CreateParameters(grade);
+        }
+
         public DeterminateTable()
         {
-
+            
         }
 
         public String[] Determinate(ClimateChart chart)
@@ -28,7 +35,7 @@ namespace p2groep11.Net.Models.Domain
             return ClauseComponent.Determinate(chart);
         }
 
-        public void CreateParameters()
+        public ClauseComponent CreateParameters(int grade)
         {
             //determinatetable aanmaken, efkes zonder database werken
             Parameter tw = new TW();
@@ -38,6 +45,48 @@ namespace p2groep11.Net.Models.Domain
             Parameter d = new D();
             Parameter nz = new NZ();
             Parameter nw = new NW();
+            Parameter tm = new TM();
+
+            if (grade == 1)
+            {
+                ClauseComponent tw10V1 = new Clause("TW <= 10", tw, 10);
+                ClauseComponent tw0V1 = new Clause("TW <= 0", tw, 0);
+                ClauseComponent tw0YesV1 = new Result("Koud zonder dooiseizoen", "Koud");
+                ClauseComponent tw0NoV1 = new Result("Koud met dooiseizoen", "Koud");
+                tw0V1.Add(true, tw0YesV1);
+                tw0V1.Add(false, tw0NoV1);
+                tw10V1.Add(true, tw0V1);
+                ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm, 10);
+                tw10V1.Add(false, tm10V1);
+
+                ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd");
+                tw10V1.Add(true, tm10YesV1);
+                ClauseComponent tk18V1 = new Clause("Tk < 18", tk, 18);
+                tw10V1.Add(false, tk18V1);
+
+                ClauseComponent nj400V1 = new Clause("Nj > 400mm", nj, 400);
+                tk18V1.Add(true, nj400V1);
+                ClauseComponent tk18NoV1 = new Result("Warm", "Warm");
+                tk18V1.Add(false, tk18NoV1);
+
+                ClauseComponent nj400YesV1 = new Clause("Tk < -3", tk, -3);
+                nj400V1.Add(true, nj400YesV1);
+                ClauseComponent nj400NoV1 = new Result("Gematigd en droog", "Droog");
+                nj400V1.Add(false, nj400NoV1);
+
+                ClauseComponent tkMin3Yes = new Result("Koel gematigd met strenge winter", "Gematigd");
+                nj400YesV1.Add(true, tkMin3Yes);
+                ClauseComponent tkMin3No = new Clause("Tw < 22", tw, 22);
+                nj400YesV1.Add(false, tkMin3No);
+
+                ClauseComponent tw22YesV1 = new Result("Koel gematigd met zachte winter", "Gematigd");
+                ClauseComponent tw22NoV1 = new Result("warm gematigd met natte winter", "Gematigd");
+                tkMin3No.Add(true, tw22YesV1);
+                tkMin3No.Add(false, tw22NoV1);
+
+                return tw10V1;
+            }
+            
 
             ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
             ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);
@@ -106,7 +155,7 @@ namespace p2groep11.Net.Models.Domain
             d12.Add(false, d12No);
             tk18.Add(false, d12);
 
-            tw10Temp = tw10; //  <-- Temp voor te testen
+            return tw10;
         }
 
     }

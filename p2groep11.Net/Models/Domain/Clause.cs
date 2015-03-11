@@ -10,9 +10,9 @@ namespace p2groep11.Net.Models.Domain
         public virtual ClauseComponent YesClause { get; set; }
         public virtual ClauseComponent NoClause { get; set; }
         public String Name { get; private set; }
-    
-        public Parameter Par1;
-        public Parameter Par2;
+
+        public virtual Parameter Par1 { get; set; }
+        public virtual Parameter Par2 { get; set; }
         public int Waarde;
 
         public Clause(String name, Parameter par1, int waarde)
