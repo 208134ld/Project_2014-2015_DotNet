@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using p2groep11.Net.Controllers;
+using p2groep11.Net.Models.DAL;
 using p2groep11.Net.Models.Domain;
 using p2groep11.Net.ViewModels;
 
@@ -12,26 +14,26 @@ namespace p2groep11.Net.Tests.Controllers
     public class SchoolYearControllerTest
     {
         private SchoolYearController controller;
-        private List<SelectListItem> years;
+        private Mock<GradeRepository> repo;
+        private DummyDataContext context;
         [TestInitialize]
         public void Init()
         {
-            controller = new SchoolYearController();
-            years = new List<SelectListItem>();
-            /*years.Add(new SelectListItem { Value = "1", Text = "1ste Leerjaar" });
-            for (int i = 2; i < 7; i++)
-            {
-                years.Add(new SelectListItem { Value = i + "", Text = i + "de Leerjaar" });
-            }*/
-        }
-        //[TestMethod]
-        //public void SelectASchoolYearPostRedirectToListContinents()
-        //{
+            context = new DummyDataContext();
+            repo = new Mock<GradeRepository>();
+            repo.Setup(m => m.FindById(1)).Returns(context.Graad);
+            controller = new SchoolYearController(repo.Object);
             
-        //    SchoolYearFormViewModel model = new SchoolYearFormViewModel(years) {SelectedYear = 1};
-        //    RedirectToRouteResult result =  controller.SchoolYearForm(model) as RedirectToRouteResult;
-        //    Assert.AreEqual("ListContinents",result.RouteValues["Action"]);
-        //}
+           
+        }
+        [TestMethod]
+        public void SelectASchoolYearPostRedirectToListContinents()
+        {
+
+            SchoolYearFormViewModel model = new SchoolYearFormViewModel(new List<SelectListItem>()) { SelectedYear = 1 };
+            RedirectToRouteResult result = controller.Index(1) as RedirectToRouteResult;
+            Assert.AreEqual("ListCountries", result.RouteValues["Action"]);
+        }
 
         [TestMethod]
         public void ErrorInSchoolYearPostPassesTheModel()

@@ -119,8 +119,7 @@ namespace p2groep11.Net.Models.Domain
 
         public ClimateChart(string loc, int begin, int end, int[]temperatures, int[] sediments)
         {
-            if (temperatures.Length != 12 || sediments.Length != 12)
-                throw new ArgumentException("Temperatures and sediments have to contain 12 values");
+            
             Location = loc;
             BeginPeriod = begin;
             EndPeriod = end;
@@ -131,6 +130,10 @@ namespace p2groep11.Net.Models.Domain
 
         private void MakeMonthsList(int[] temperatures,int[] sediments)
         {
+            if (temperatures.Length != 12 || sediments.Length != 12)
+                throw new ArgumentException("Temperatures and sediments have to contain 12 values");
+            if(sediments.Min()<0)
+                throw new ArgumentException("Sediments have to be greater than 0");
             int counter = 0;
             foreach (MonthsOfTheYear month in Enum.GetValues(typeof(MonthsOfTheYear)))
             {

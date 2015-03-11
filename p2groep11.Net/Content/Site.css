@@ -150,3 +150,6 @@ background-color: #DFF2BF;
     font-size: 85%;
     background-color: beige;
 }
+.invis {
+    visibility: visible;
+}
