@@ -10,10 +10,10 @@ namespace p2groep11.Net.Tests.Controllers
 {
    public class DummyDataContext
    {
-       public  IList<Continent> Continenten { get; set; }
+       public IList<Continent> Continenten { get; set; }
        public IList<Country> Countries { get; set; }
        public IList<ClimateChart> ClimateCharts { get; set; }
-       public  Continent Europa { get; private set; }
+       public Continent Europa { get; private set; }
        public Country Belgium { get; private set; }
        public Country England { get; private set; }
        public ClimateChart Gent { get; private set; }
@@ -25,7 +25,7 @@ namespace p2groep11.Net.Tests.Controllers
            Europa.ContinentID = 1;
            Europa.Name = "Europa";
 
-           Graad = new Grade("Graad 1");
+           Graad = new Grade(1);
           
            Belgium = new Country(1,"Belgie",Europa);
            England = new Country(2,"England",Europa);
@@ -34,21 +34,11 @@ namespace p2groep11.Net.Tests.Controllers
            Gent = new ClimateChart("gent",1950,1960,temp,sed);
            Gent.Country = Belgium;
            Gent.ClimateChartID = 1;
-           ClimateCharts = new List<ClimateChart>
-           {
-               Gent
-           };
-           Belgium.ClimateCharts = ClimateCharts;
-           
-           Countries = new List<Country>
-           {
-               Belgium,England
-           };
+           ClimateCharts = new List<ClimateChart>{ Gent };
+           Belgium.ClimateCharts = ClimateCharts;  
+           Countries = new List<Country>{ Belgium,England };
            Europa.Countries = Countries;
-            Continenten = new List<Continent>
-                          {
-                              Europa
-                          };
+           Continenten = new List<Continent>{ Europa };
        }
     }
 }

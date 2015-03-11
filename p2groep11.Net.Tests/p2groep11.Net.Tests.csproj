@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\ContinentControllerTest.cs" />
     <Compile Include="Controllers\DummyDataContext.cs" />
     <Compile Include="Controllers\KlimatogramControllerTest.cs" />
     <Compile Include="Controllers\SchoolYearControllerTest.cs" />
