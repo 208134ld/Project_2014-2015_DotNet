@@ -35,9 +35,11 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-                    SchoolYear schoolYear = new SchoolYear(SelectedYear);
-                    Grade grade = gradeRepository.FindBySchoolYear(schoolYear);
-                    List<SchoolYear> lijst = grade.SchoolYears.ToList();
+
+                    Grade grade = gradeRepository.FindById((SelectedYear + 1) / 2);
+                    //SchoolYear schoolYear = new SchoolYear(SelectedYear);
+                    //Grade grade = gradeRepository.FindBySchoolYear(schoolYear);
+                    //List<SchoolYear> lijst = grade.SchoolYears.ToList();
                     switch (grade.GradeId)
                     {
                         case 1:

@@ -25,7 +25,7 @@ namespace p2groep11.Net.Tests.Controllers
            Europa.ContinentID = 1;
            Europa.Name = "Europa";
 
-           Graad = new Grade("Graad 1");
+           Graad = new Grade(1);
           
            Belgium = new Country(1,"Belgie",Europa);
            England = new Country(2,"England",Europa);
