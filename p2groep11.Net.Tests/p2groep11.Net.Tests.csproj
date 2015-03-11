@@ -102,9 +102,9 @@
     <Compile Include="Controllers\KlimatogramControllerTest.cs" />
     <Compile Include="Controllers\SchoolYearControllerTest.cs" />
     <Compile Include="Domein\ClimateChartTest.cs" />
+    <Compile Include="Domein\DeterminateTableTest.cs" />
     <Compile Include="Domein\GradeTest.cs" />
     <Compile Include="Domein\MonthTest.cs" />
-    <Compile Include="Domein\DeterminateTableTest.cs" />
     <Compile Include="Domein\SchoolYearTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,6 +125,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
