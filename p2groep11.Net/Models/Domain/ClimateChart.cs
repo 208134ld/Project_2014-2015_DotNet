@@ -48,7 +48,7 @@ namespace p2groep11.Net.Models.Domain
         {
             get
             {
-                return Months.Sum(m => m.Sediment);
+                return Months.Count(m => (m.AverTemp*2) > m.Sediment);
             }
         }
 
@@ -59,18 +59,18 @@ namespace p2groep11.Net.Models.Domain
                 if (Country.AboveEquator)
                 {
                     var count = 0;
-                    for (var i = 4; i < 10; i++)
+                    for (var i = 3; i < 9; i++)
                     {
                         count += Months[i].Sediment;
                     }
                     return count;
                 }
                 var count2 = 0;
-                for (var i = 10; i < 13; i++)
+                for (var i = 9; i < 12; i++)
                 {
                     count2 += Months[i].Sediment;
                 }
-                for (var i = 1; i < 4; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     count2 += Months[i].Sediment;
                 }
@@ -85,18 +85,18 @@ namespace p2groep11.Net.Models.Domain
                 if (!Country.AboveEquator)
                 {
                     var count = 0;
-                    for (var i = 4; i < 10; i++)
+                    for (var i = 3; i < 9; i++)
                     {
                         count += Months[i].Sediment;
                     }
                     return count;
                 }
                 var count2 = 0;
-                for (var i = 10; i < 13; i++)
+                for (var i = 9; i < 12; i++)
                 {
                     count2 += Months[i].Sediment;
                 }
-                for (var i = 1; i < 4; i++)
+                for (var i = 0; i < 3; i++)
                 {
                     count2 += Months[i].Sediment;
                 }

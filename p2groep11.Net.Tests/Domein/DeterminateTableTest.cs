@@ -10,16 +10,40 @@ namespace p2groep11.Net.Tests.Domein
 
         private int[] temps;
         private int[] sed;
+        private int[] temps2;
+        private int[] sed2;
+        private int[] temps3;
+        private int[] sed3;
         private DeterminateTable dTable;
         private ClimateChart chart;
+        private ClimateChart chart2;
+        private ClimateChart chart3;
 
         [TestInitialize]
         public void init()
         {
+
+            Country belgië = new Country { Name = "België" };
             temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 2 };
             sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
             chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
+            chart.Country = belgië;
 
+            temps2 = new int[] { 14, 15, 17, 21, 25, 27, 28, 27, 26, 23, 19, 15 };
+            sed2 = new[] { 7, 4, 4, 2, 0, 0, 0, 0, 0, 1, 3, 5 };
+            chart2 = new ClimateChart("Kaïro", 1961, 1990, temps2, sed2);
+            Country egypte = new Country { Name = "Egypte" };
+            egypte.AboveEquator = false;
+            chart2.Country = egypte;
+
+            temps3 = new int[] { 0, 1, 5, 11, 17, 22, 25, 24, 20, 14, 9, 3 };
+            sed3 = new[] { 77, 73, 91, 96, 97, 91, 103, 95, 86, 77, 97, 86 };
+            chart3 = new ClimateChart("New York", 1961, 1990, temps3, sed3);
+            Country newyork = new Country { Name = "New York" };
+            chart3.Country = newyork;
+
+
+            
             Parameter tw = new TW();
             Parameter tj = new TJ();
             Parameter nj = new NJ();
@@ -27,6 +51,7 @@ namespace p2groep11.Net.Tests.Domein
             Parameter d = new D();
             Parameter nz = new NZ();
             Parameter nw = new NW();
+            
 
             ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
             ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);
@@ -100,13 +125,19 @@ namespace p2groep11.Net.Tests.Domein
         [TestMethod]
         public void DeterminateReturnsString()
         {
-            Assert.AreNotEqual(true, System.String.IsNullOrEmpty(dTable.Determinate(chart)));
+            Assert.AreNotEqual(true, System.String.IsNullOrEmpty(dTable.Determinate(chart)[0]));
         }
 
         [TestMethod]
         public void DeterminateReturnsCorrectSolution()
         {
-            Assert.AreEqual("Klimaatkenmerk: Warmgematigd altijd nat klimaat. Vegetatiekenmerk: Subtropisch regenwoudklimaat.", dTable.Determinate(chart));
+            Assert.AreEqual("Warmgematigd altijd nat klimaat", dTable.Determinate(chart)[0]);
+            Assert.AreEqual("Subtropisch regenwoudklimaat", dTable.Determinate(chart)[1]);
+            Assert.AreEqual("Gematigd altijd droog klimaat", dTable.Determinate(chart2)[0]);
+            Assert.AreEqual("Woestijnklimaat van de middelbreedten", dTable.Determinate(chart2)[1]);
+            Assert.AreEqual("Warmgematigd altijd nat klimaat", dTable.Determinate(chart3)[0]);
+            Assert.AreEqual("Subtropisch regenwoudklimaat", dTable.Determinate(chart3)[1]);
         }
+
     }
 }
