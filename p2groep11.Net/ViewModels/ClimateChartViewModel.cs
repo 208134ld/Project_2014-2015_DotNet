@@ -21,6 +21,7 @@ namespace p2groep11.Net.ViewModels
         public int SumSed { get; private set; }
         public DeterminateTable table { get; private set; }
         public String[] ResultaatDeterminate { get;  set; }
+        public List<String> CorrectPath { get; set; }
 
         public String HtmlDetTabel { get; private set; }
 
@@ -34,6 +35,8 @@ namespace p2groep11.Net.ViewModels
             this.table = table;
             ResultaatDeterminate = Determinate(c, table);
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
+            CorrectPath = table.CorrectPath;
+            int lf = 0;
         }
 
         public String[] Determinate(ClimateChart c, DeterminateTable t)

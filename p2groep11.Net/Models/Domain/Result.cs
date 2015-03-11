@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace p2groep11.Net.Models.Domain
 {
@@ -18,8 +19,10 @@ namespace p2groep11.Net.Models.Domain
             
         }
 
-        public override string[] Determinate(ClimateChart chart)
+        public override string[] Determinate(ClimateChart chart, List<String> correctPath)
         {
+            correctPath.Add(Klimaatkenmerk);
+            correctPath.Add(Vegetatiekenmerk);
             return new string[] { Klimaatkenmerk, Vegetatiekenmerk };
         }
 

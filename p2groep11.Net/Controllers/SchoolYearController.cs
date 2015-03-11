@@ -43,7 +43,7 @@ namespace p2groep11.Net.Controllers
                     switch (grade.GradeId)
                     {
                         case 1:
-                            return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 6});
+                            return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 1});
                         case 2:
                             return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                         default:

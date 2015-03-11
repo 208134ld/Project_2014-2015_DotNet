@@ -66,4 +66,12 @@
     <div>
         @Html.Partial("DeterminateTable")
     </div>
+
+    <div>
+        Het correcte pad:
+        @foreach (var p in Model.CorrectPath)
+        {
+            p.ToString();<br/>
+        }
+    </div>
 </div>
