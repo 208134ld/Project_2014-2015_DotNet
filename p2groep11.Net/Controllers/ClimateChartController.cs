@@ -52,14 +52,14 @@ namespace p2groep11.Net.Controllers
                     Grade gr = gradeRepository.FindById((selectedYear+1)/2);
 
                     //om met database te werken
-                    //DeterminateTable ta = gr.DeterminateTableProp;
-                    //String html = "";
-                    //html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
+                    DeterminateTable ta = gr.DeterminateTableProp;
+                    String html = "";
+                    html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
 
                     //om zonder database te werken
-                    DeterminateTable ta = new DeterminateTable(gr.GradeId);
-                    String html = "";
-                    html = ta.ClauseComponent.GetHtmlCode(true);
+                    //DeterminateTable ta = new DeterminateTable(gr.GradeId);
+                    //String html = "";
+                    //html = ta.ClauseComponent.GetHtmlCode(true);
 
                     return View(new ClimateChartViewModel(c, ta));
                 }

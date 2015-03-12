@@ -7,7 +7,6 @@ namespace p2groep11.Net.Models.DAL
     {
         IQueryable<Grade> FindAll();
         Grade FindById(int gradeId);
-        Grade FindBySchoolYear(SchoolYear year);
         void Remove(Grade grade);
         void SaveChanges();      
     }

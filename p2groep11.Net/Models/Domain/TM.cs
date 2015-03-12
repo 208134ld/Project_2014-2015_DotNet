@@ -6,9 +6,13 @@ using System.Text;
 
 namespace p2groep11.Net
 {
-    class TM : Parameter
+    public class TM : Parameter
     {
-        public int Execute(ClimateChart chart)
+        public TM()
+        {
+            
+        }
+        public override int Execute(ClimateChart chart)
         {
             return chart.MaandenOnder10;
         }

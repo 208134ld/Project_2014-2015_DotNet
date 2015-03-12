@@ -28,13 +28,6 @@ namespace p2groep11.Net.Models.DAL
             return grades.Include(l => l.DeterminateTableProp.ClauseComponent).FirstOrDefault(g => g.GradeId == gradeId);         
         }
 
-        public Grade FindBySchoolYear(SchoolYear year)
-        {
-            return
-                grades.Include(l => l.DeterminateTableProp.ClauseComponent)
-                    .FirstOrDefault(g => g.SchoolYears.Contains(year) == true);
-        }
-
         public void Remove(Grade grade)
         {
             grades.Remove(grade);

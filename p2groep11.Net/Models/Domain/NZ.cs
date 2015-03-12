@@ -13,7 +13,7 @@ namespace p2groep11.Net
         public NZ()
         {
         }
-        public int Execute(ClimateChart chart)
+        public override int Execute(ClimateChart chart)
         {
             return chart.RainInSummer;
         }

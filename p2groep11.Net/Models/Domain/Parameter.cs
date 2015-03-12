@@ -5,8 +5,9 @@ using System.Web;
 
 namespace p2groep11.Net.Models.Domain
 {
-    public interface Parameter
+    public abstract class Parameter
     {
+        public int ParameterId { get; set; }
         /*public int Waarde { get; set; }
         public String Code { get; set; }
 
@@ -15,6 +16,6 @@ namespace p2groep11.Net.Models.Domain
             this.Waarde = waarde;
             this.Code = code;
         }*/
-        int Execute(ClimateChart chart);
+        public abstract int Execute(ClimateChart chart);
     }
 }

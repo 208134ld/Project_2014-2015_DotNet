@@ -14,10 +14,13 @@ namespace p2groep11.Net.Tests.Domein
         private int[] sed2;
         private int[] temps3;
         private int[] sed3;
+        private int[] temps4;
+        private int[] sed4;
         private DeterminateTable dTable;
         private ClimateChart chart;
         private ClimateChart chart2;
         private ClimateChart chart3;
+        private ClimateChart chart4;
 
         [TestInitialize]
         public void init()
@@ -41,6 +44,12 @@ namespace p2groep11.Net.Tests.Domein
             chart3 = new ClimateChart("New York", 1961, 1990, temps3, sed3);
             Country newyork = new Country { Name = "New York" };
             chart3.Country = newyork;
+
+            temps4 = new int[] { 25, 1, 5, 11, 17, 22, 25, 24, 20, 14, 9, 3 };
+            sed4 = new[] { 1, 2, 0, 0, 0, 100, 100, 100, 100, 100, 0, 0 };
+            chart4 = new ClimateChart("Fictief", 1961, 1990, temps4, sed4);
+            Country fictief = new Country { Name = "Fictief" };
+            chart4.Country = fictief;
 
 
             
@@ -137,6 +146,8 @@ namespace p2groep11.Net.Tests.Domein
             Assert.AreEqual("Woestijnklimaat van de middelbreedten", dTable.Determinate(chart2)[1]);
             Assert.AreEqual("Warmgematigd altijd nat klimaat", dTable.Determinate(chart3)[0]);
             Assert.AreEqual("Subtropisch regenwoudklimaat", dTable.Determinate(chart3)[1]);
+            Assert.AreEqual("Warmgematigd klimaat met natte zomer", dTable.Determinate(chart4)[0]);
+            Assert.AreEqual("Subtropisch savanneklimaat", dTable.Determinate(chart4)[1]);
         }
 
     }

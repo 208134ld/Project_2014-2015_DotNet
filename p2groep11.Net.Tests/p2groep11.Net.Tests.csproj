@@ -98,15 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="Controllers\ContinentControllerTest.cs" />
-    <Compile Include="Controllers\DummyDataContext.cs" />
-    <Compile Include="Controllers\KlimatogramControllerTest.cs" />
-    <Compile Include="Controllers\SchoolYearControllerTest.cs" />
-    <Compile Include="Domein\ClimateChartTest.cs" />
     <Compile Include="Domein\DeterminateTableTest.cs" />
-    <Compile Include="Domein\GradeTest.cs" />
-    <Compile Include="Domein\MonthTest.cs" />
-    <Compile Include="Domein\SchoolYearTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,7 +118,9 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

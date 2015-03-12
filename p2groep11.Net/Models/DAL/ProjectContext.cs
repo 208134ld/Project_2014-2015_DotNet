@@ -16,7 +16,7 @@ namespace p2groep11.Net.Models.DAL
         public ProjectContext()
             : base("HOGENT1415_11")
         {
-            this.Configuration.ProxyCreationEnabled = false;
+            //this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<Continent> Continents { get; set; }
