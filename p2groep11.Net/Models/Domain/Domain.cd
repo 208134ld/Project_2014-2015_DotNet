@@ -62,10 +62,10 @@
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="YesClause" />
+      <Property Name="NoClause" />
       <Property Name="Par1" />
       <Property Name="Par2" />
-      <Property Name="NoClause" />
-      <Property Name="YesClause" />
     </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
@@ -105,57 +105,71 @@
   <Class Name="p2groep11.Net.TW">
     <Position X="14.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TW.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.TJ">
     <Position X="14.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TJ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NJ">
     <Position X="12.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NJ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.TK">
     <Position X="16.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.D">
     <Position X="16.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\D.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NZ">
     <Position X="18.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NZ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NW">
     <Position X="12.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NW.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Parameter" Collapsed="true">
     <Position X="15.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\Parameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.MW">
+    <Position X="18.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\MW.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2groep11.Net.MK">
+    <Position X="20" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Domain\MK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
