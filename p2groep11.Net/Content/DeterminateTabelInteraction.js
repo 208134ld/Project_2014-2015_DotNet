@@ -8,14 +8,17 @@
 
     function compare(itemsYes, itemsNo) {
         console.log("Compare word aangeroepen");
-        var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
+       
+        //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
+        var detPath = $(".invis");
         var wrongItems = [];
         var found = false;
         $.each(itemsYes, function(key, valueItem) {
             found = false;
-            $.each(detPath, function(keyDet, valueDet) {
-                if ((valueItem.textContent == valueDet)) {
-                    console.log(valueItem.textContent + " =  " + valueDet);
+            $.each(detPath, function (keyDet, valueDet) {
+                console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+                if ((valueItem.textContent == valueDet.textContent)) {
+                    console.log(valueItem.textContent + " =  " + valueDet.textContent);
                     found = true;
                 }
                 if (keyDet == detPath.length - 1) {
@@ -54,16 +57,14 @@
     }
 
     function validate(ar) {
-        var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
+        var detPath = $(".invis");
         var bool = false;
         if (ar.length == detPath.length) {
-
-
             for (var prop in detPath) {
                 bool = false;
                 for (var a in ar) {
 
-                    if (ar[a].textContent == detPath[prop]) {
+                    if (ar[a].textContent == detPath[prop].textContent) {
                         bool = true;
                         break;
                     }
@@ -82,7 +83,8 @@
 
 
     }
-    $(".testBut").on("click", function() {
+    $(".testBut").on("click", function () {
+        
         var selectedItemsYes = document.getElementsByClassName("YesSpanActive");
         var selectedItemsNo = document.getElementsByClassName("NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);

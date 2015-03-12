@@ -81,5 +81,12 @@ namespace p2groep11.Net.Tests.Domein
             sed = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6,15,30 };
             ClimateChart chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
         }
+
+        [ExpectedException(typeof (ArgumentException))]
+        public void SedimentHaveToBeGreaterThan0()
+        {
+            sed = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6,-15};
+            ClimateChart chart = new ClimateChart("Gent",1990,1991,temps,sed);
+        }
     }
 }

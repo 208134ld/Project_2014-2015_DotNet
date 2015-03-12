@@ -46,7 +46,7 @@ namespace p2groep11.Net.Tests.Controllers
         {
             
             controller.ModelState.AddModelError("key", "error");
-            RedirectToRouteResult result = controller.ShowClimateChart(1,1,1) as RedirectToRouteResult;
+            RedirectToRouteResult result = controller.ShowClimateChart(1,1,1,1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["Action"]);
         }
 
@@ -54,7 +54,7 @@ namespace p2groep11.Net.Tests.Controllers
         public void ShowClimatogramPassesViewmodelToView()
         {
             
-            ViewResult result = controller.ShowClimateChart(1,1,1) as ViewResult;
+            ViewResult result = controller.ShowClimateChart(1,1,1,1) as ViewResult;
             ClimateChartViewModel model = result.Model as ClimateChartViewModel;
             Assert.AreEqual(model.Months,context.Gent.Months);
         }
