@@ -8,7 +8,7 @@ using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL
 {
-    public class ProjectInitializer : DropCreateDatabaseIfModelChanges<ProjectContext>
+    public class ProjectInitializer : DropCreateDatabaseAlways<ProjectContext>
     {
         protected override void Seed(ProjectContext context)
         {
@@ -236,14 +236,18 @@ namespace p2groep11.Net.Models.DAL
                 
                 //DeterminateTable aanmaken met hun clauses
                 //De parameters hun waarde is bijvoorbeeld de temperatuur van de warmste maand, nu voorlopig zonder database dus nog niet nodig
-                Parameter tw = new TW();
-                Parameter tj = new TJ();
-                Parameter nj = new NJ();
-                Parameter tk = new TK();
-                Parameter d = new D();
-                Parameter nz = new NZ();
-                Parameter nw = new NW();
-                Parameter tm = new TM();
+                Parameter mw = new MW("Wat is de warmste maand?");
+                Parameter tw = new TW("Wat is de temeperatuur van de warmste maand (TW)?");
+                Parameter mk = new MK("Wat is de temperatuur van de koudste maand?");
+                Parameter tk = new TK("Wat is de temperatuur van de koudste maand (TK)?");
+                Parameter d = new D("Hoeveel droge maanden zijn er?");
+                Parameter nz = new NZ("Hoeveelheid neerslag in de zomer?");
+                Parameter nw = new NW("Hoeveelheid neerslag in de winter?");
+                Parameter tj = new TJ("");
+                Parameter nj = new NJ("");
+                Parameter tm = new TM("");
+                
+                
 
                 ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);
@@ -273,10 +277,10 @@ namespace p2groep11.Net.Models.DAL
                 ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat");
                 ClauseComponent tk10N = new Clause("TK <= -10", tk, -10);
                 ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat");
-                ClauseComponent d1 = new Clause("D <= 1", d, 1);
+                ClauseComponent d1 = new Clause(" D <= 1", d, 1);
                 ClauseComponent tk3N = new Clause("TK <= -3", tk, -3);
                 ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat");
-                ClauseComponent tw22 = new Clause("TW <= 22", tw, 22);
+                ClauseComponent tw22 = new Clause(" TW <= 22", tw, 22);
                 ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat");
                 ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat");
                 ClauseComponent nznw = new Clause("NZ <= NW", nz, nw);

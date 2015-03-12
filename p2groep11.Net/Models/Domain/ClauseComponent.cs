@@ -6,7 +6,8 @@ namespace p2groep11.Net.Models.Domain
     public abstract class ClauseComponent
     {
         public int ClauseComponentId { get; set; }
-        public abstract string[] Determinate(ClimateChart chart, List<String> correctPath);
+        public abstract string[] Determinate(ClimateChart chart);
+        public abstract void CorrectPath(ClimateChart chart, List<ClauseComponent> cp);
 
         public abstract String GetHtmlCode(Boolean isYes);
         public virtual void Add(Boolean soort, ClauseComponent component)
