@@ -46,7 +46,7 @@ namespace p2groep11.Net.Controllers
             
             try
             {
-                
+                //werken met getland, navigeren door domein
                 IEnumerable<ClimateChart> locationList =
                     repository.FindById(continentId)
                         .Countries.FirstOrDefault(c => c.CountryID == countryId)

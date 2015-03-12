@@ -86,6 +86,7 @@ namespace p2groep11.Net.Controllers
         }
 
         //alle redirects nodig wegens viewbag probleem tussen verschillende controllers
+        //werken met tempdata, low priority
         public ActionResult ListLocations(int selectedyear, int continentid, int countryid)
         {
             return RedirectToAction("ListLocations", "Continent", new {selectedYear = selectedyear, continentId = continentid, countryId = countryid});

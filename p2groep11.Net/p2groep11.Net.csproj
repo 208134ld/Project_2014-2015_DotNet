@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\GradeRepository.cs" />
     <Compile Include="Models\DAL\IGradeRepository.cs" />
     <Compile Include="Models\DAL\Mapper\SchoolYearMapper.cs" />
@@ -198,7 +199,6 @@
     <Compile Include="Models\Domain\ClauseComponent.cs" />
     <Compile Include="Models\Domain\Continent.cs" />
     <Compile Include="Models\Domain\Country.cs" />
-    <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\ProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

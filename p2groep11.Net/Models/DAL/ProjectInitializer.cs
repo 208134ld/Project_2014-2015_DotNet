@@ -8,7 +8,7 @@ using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL
 {
-    public class ProjectInitializer : DropCreateDatabaseAlways<ProjectContext>
+    public class ProjectInitializer : DropCreateDatabaseIfModelChanges<ProjectContext>
     {
         protected override void Seed(ProjectContext context)
         {

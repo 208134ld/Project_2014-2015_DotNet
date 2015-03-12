@@ -7,7 +7,7 @@
     });
 
     function compare(itemsYes, itemsNo) {
-        console.log("Compare word aangeroepen");
+        //console.log("Compare word aangeroepen");
        
         //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
         var detPath = $(".invis");
@@ -16,9 +16,9 @@
         $.each(itemsYes, function(key, valueItem) {
             found = false;
             $.each(detPath, function (keyDet, valueDet) {
-                console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+                //console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
                 if ((valueItem.textContent == valueDet.textContent)) {
-                    console.log(valueItem.textContent + " =  " + valueDet.textContent);
+                    //console.log(valueItem.textContent + " =  " + valueDet.textContent);
                     found = true;
                 }
                 if (keyDet == detPath.length - 1) {
@@ -91,10 +91,10 @@
 
         var wrongItems = compare(yesNo);
         if (wrongItems.length == 0) {
-            console.log("validate bereikt");
+            //console.log("validate bereikt");
            if (validate(yesNo)) {
                $(".success").append("<p>10/10 ! </p>");
-               console.log("Einde bereikt");
+               //console.log("Einde bereikt");
            }
 
         } else {
