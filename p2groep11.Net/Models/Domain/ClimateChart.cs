@@ -104,7 +104,7 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-        public int MaandenOnder10 //TM
+        public int MonthsAbove10Degree //TM
         {
             get
             {

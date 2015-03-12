@@ -44,5 +44,13 @@ namespace p2groep11.Net.Tests.Domein
             Assert.AreEqual(3, grade.GradeId);
             
         }
+
+        [TestMethod]
+        public void gradeConstructorInitGrade()
+        {
+            Grade g = new Grade();
+            g.GradeId = 2;
+            Assert.AreEqual(2,g.GradeId);
+        }
     }
 }

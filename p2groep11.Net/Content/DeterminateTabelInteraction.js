@@ -1,10 +1,4 @@
-﻿$(document).ready(function() {
-    $(".YesSpan").on("click", function() {
-        $(this).toggleClass("YesSpanActive");
-    });
-    $(".NoSpan").on("click", function() {
-        $(this).toggleClass("NoSpanActive");
-    });
+﻿$(document).ready(function () {
 
     function compare(itemsYes, itemsNo) {
         //console.log("Compare word aangeroepen");
@@ -83,6 +77,15 @@
 
 
     }
+    $(".YesSpan").on("click", function() {
+        $(this).toggleClass("YesSpanActive");
+        var ar  = compare($(this));
+        removeClassesFromWrongItems(ar);
+    });
+    $(".NoSpan").on("click", function() {
+        $(this).toggleClass("NoSpanActive");
+    });
+
     $(".testBut").on("click", function () {
         
         var selectedItemsYes = document.getElementsByClassName("YesSpanActive");
@@ -92,8 +95,10 @@
         var wrongItems = compare(yesNo);
         if (wrongItems.length == 0) {
             //console.log("validate bereikt");
-           if (validate(yesNo)) {
-               $(".success").append("<p>10/10 ! </p>");
+            if (validate(yesNo)) {
+                var detPath = $(".invis");
+                
+               $(".success").append("<p>"+detPath[detPath.length - 1]+"</p>");
                //console.log("Einde bereikt");
            }
 

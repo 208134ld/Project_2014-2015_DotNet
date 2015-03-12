@@ -38,5 +38,18 @@ namespace p2groep11.Net.Tests.Domein
             schoolYear.Year = 7;
         }
 
+        [TestMethod]
+        public void ConstructorSchoolyearCreatesNewSchoolyear()
+        {
+            SchoolYear s = new SchoolYear(2);
+            Assert.AreEqual(2,s.Year);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ConstructorSchoolyearThrowsExceptionWhenGreaterThan6()
+        {
+            SchoolYear s = new SchoolYear(7);
+        }
    }
 }

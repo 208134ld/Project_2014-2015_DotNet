@@ -14,7 +14,7 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
-            return chart.MaandenOnder10;
+            return chart.MonthsAbove10Degree;
         }
     }
 }

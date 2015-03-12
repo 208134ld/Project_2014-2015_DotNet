@@ -107,6 +107,7 @@
     <Compile Include="Domein\GradeTest.cs" />
     <Compile Include="Domein\MonthTest.cs" />
     <Compile Include="Domein\SchoolYearTest.cs" />
+    <Compile Include="Domein\ContinentTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
