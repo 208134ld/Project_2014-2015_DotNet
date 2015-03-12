@@ -13,6 +13,21 @@ namespace p2groep11.Net.Models.Domain
         public virtual Country Country { get; set; }
         public virtual List<Month> Months { get; private set; }
 
+        public ClimateChart()
+        {
+            Months = new List<Month>();
+        }
+
+        public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments)
+        {
+
+            Location = loc;
+            BeginPeriod = begin;
+            EndPeriod = end;
+            Months = new List<Month>();
+            MakeMonthsList(temperatures, sediments);
+        }
+
         public int HottestMonth //TW
         {
             get
@@ -111,22 +126,6 @@ namespace p2groep11.Net.Models.Domain
                 return Months.Count(m => m.AverTemp >= 10);
             }
         }
-
-        public ClimateChart()
-        {
-            Months = new List<Month>();
-        }
-
-        public ClimateChart(string loc, int begin, int end, int[]temperatures, int[] sediments)
-        {
-            
-            Location = loc;
-            BeginPeriod = begin;
-            EndPeriod = end;
-            Months = new List<Month>();
-            MakeMonthsList(temperatures,sediments);
-        }
-
 
         private void MakeMonthsList(int[] temperatures,int[] sediments)
         {

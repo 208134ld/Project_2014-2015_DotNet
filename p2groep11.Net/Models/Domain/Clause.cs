@@ -61,10 +61,26 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-        public override string[] Determinate(ClimateChart chart, List<String> correctPath)
+        public override string[] Determinate(ClimateChart chart)
         {
-            correctPath.Add(Name);
-            return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart, correctPath) : NoClause.Determinate(chart, correctPath);
+            if(Par2==null)
+                return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+            return Par1.Execute(chart) <= Par2.Execute(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+        }
+
+        public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
+        {
+            cp.Add(this);
+            if (Par2 == null)
+                if(Par1.Execute(chart) <= Waarde)
+                    YesClause.CorrectPath(chart, cp);
+                else
+                    NoClause.CorrectPath(chart, cp);
+            else
+                if(Par1.Execute(chart) <= Par2.Execute(chart))
+                    YesClause.CorrectPath(chart, cp);
+                else
+                    NoClause.CorrectPath(chart, cp);
         }
     }
 }

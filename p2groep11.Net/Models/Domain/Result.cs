@@ -19,11 +19,14 @@ namespace p2groep11.Net.Models.Domain
             
         }
 
-        public override string[] Determinate(ClimateChart chart, List<String> correctPath)
+        public override string[] Determinate(ClimateChart chart)
         {
-            correctPath.Add(Klimaatkenmerk);
-            correctPath.Add(Vegetatiekenmerk);
             return new string[] { Klimaatkenmerk, Vegetatiekenmerk };
+        }
+
+        public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
+        {
+            cp.Add(this);
         }
 
         public override String GetHtmlCode(Boolean isYes)

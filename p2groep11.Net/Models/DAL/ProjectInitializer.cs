@@ -8,7 +8,7 @@ using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL
 {
-    public class ProjectInitializer : DropCreateDatabaseIfModelChanges<ProjectContext>
+    public class ProjectInitializer : DropCreateDatabaseAlways<ProjectContext>
     {
         protected override void Seed(ProjectContext context)
         {
@@ -273,10 +273,10 @@ namespace p2groep11.Net.Models.DAL
                 ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat");
                 ClauseComponent tk10N = new Clause("TK <= -10", tk, -10);
                 ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat");
-                ClauseComponent d1 = new Clause("D <= 1", d, 1);
+                ClauseComponent d1 = new Clause(" D <= 1", d, 1);
                 ClauseComponent tk3N = new Clause("TK <= -3", tk, -3);
                 ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat");
-                ClauseComponent tw22 = new Clause("TW <= 22", tw, 22);
+                ClauseComponent tw22 = new Clause(" TW <= 22", tw, 22);
                 ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat");
                 ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat");
                 ClauseComponent nznw = new Clause("NZ <= NW", nz, nw);
