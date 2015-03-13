@@ -22,12 +22,10 @@ namespace p2groep11.Net.Controllers
 {
     public class ClimateChartController : Controller
     {
-        private IContinentRepository continentRepository;
         private IGradeRepository gradeRepository;
 
-        public ClimateChartController(IContinentRepository continentRepository, IGradeRepository gradeRepository)
+        public ClimateChartController(IGradeRepository gradeRepository)
         {
-            this.continentRepository = continentRepository;
             this.gradeRepository = gradeRepository;
         }
 
@@ -43,23 +41,16 @@ namespace p2groep11.Net.Controllers
                 
                 try
                 {
-                    ClimateChart c =
-                        continentRepository.FindById(continentId)
-                            .Countries.FirstOrDefault(co => co.CountryID == countryId)
-                            .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
+                    ClimateChart c = gradeRepository.GetClimateChartByClimateChartId(selectedYear, continentId,
+                        countryId, climateId);
                     
 
-                    Grade gr = gradeRepository.FindById((selectedYear+1)/2);
+                    Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 
                     //om met database te werken
                     DeterminateTable ta = gr.DeterminateTableProp;
                     String html = "";
                     html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
-
-                    //om zonder database te werken
-                    //DeterminateTable ta = new DeterminateTable(gr.GradeId);
-                    //String html = "";
-                    //html = ta.ClauseComponent.GetHtmlCode(true);
 
                     return View(new ClimateChartViewModel(c, ta));
                 }
