@@ -18,11 +18,16 @@ namespace p2groep11.Net.Models.Domain
             VegetationPicture = image;
         }
 
+        public Result(String km,String vk)
+        {
+            Climatefeature = km;
+            Vegetationfeature = vk;
+        }
+
         public Result()
         {
             
         }
-
         public override string[] Determinate(ClimateChart chart)
         {
             return new string[] { Climatefeature, Vegetationfeature };
@@ -35,11 +40,11 @@ namespace p2groep11.Net.Models.Domain
 
         public override String GetHtmlCode(Boolean isYes)
         {
-            if(isYes)
-            return "<li><span class='YesSpan'>" + Climatefeature + "</span></li>";
+            if (isYes)
+                return "<li><span class='YesSpan'><span class='glyphicon glyphicon-ok'>" + " " +Climatefeature + "</span></span></li>";
             else
             {
-                return "<li><span class='NoSpan'>" + Vegetationfeature + "</span></li>";
+                return "<li><span class='NoSpan'><span class='glyphicon glyphicon-remove'>" + " " + Climatefeature + "</span></li>";
             }
         }
 

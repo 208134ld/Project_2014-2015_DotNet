@@ -251,10 +251,11 @@ namespace p2groep11.Net.Models.DAL
                 Parameter tm = new TM("");
 
 
-                Image image = Image.FromFile(@"C:\Users\Samsung\Pictures\Project II\vegetatie1.jpg");
-                MemoryStream ms = new MemoryStream();
-                image.Save(ms, ImageFormat.Gif);
-                byte[] picture = ms.ToArray();
+                //Image image = Image.FromFile(@"C:\Users\Samsung\Pictures\Project II\vegetatie1.jpg");
+                //MemoryStream ms = new MemoryStream();
+                //image.Save(ms, ImageFormat.Gif);
+                //byte[] picture = ms.ToArray();
+                byte[] picture = null;
                 ClauseComponent tw10 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw,"<=", 0);
                 ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture);

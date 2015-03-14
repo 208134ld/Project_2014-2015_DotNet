@@ -4,12 +4,16 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace p2groep11.Net.Models.Domain
 {
     public class Grade
     {
         private int grade;
+        public virtual DeterminateTable DeterminateTableProp { get; set; }
+        public virtual ICollection<Continent> Continents { get; set; }
+        public virtual ICollection<SchoolYear> SchoolYears { get; private set; }
 
         public int GradeId
         {
@@ -23,9 +27,7 @@ namespace p2groep11.Net.Models.Domain
                 else throw new ArgumentException("Grade needs to be between 1 and 3.");
             }
         }
-        public virtual DeterminateTable DeterminateTableProp { get; set; }
-        public virtual ICollection<Continent> Continents { get; set; }
-        public virtual ICollection<SchoolYear> SchoolYears { get; private set; }
+        
 
         public Grade()
         {
@@ -46,5 +48,10 @@ namespace p2groep11.Net.Models.Domain
             grade = (selectedYear + 1)/2;
         }
 
+        public Continent GetContinent(int continentId)
+        {
+            return Continents.FirstOrDefault(c => c.ContinentID == continentId);
+        }
+        
     }
 }

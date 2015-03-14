@@ -103,7 +103,7 @@ namespace p2groep11.Net.ViewModels
                     {
                         Labels = new YAxisLabels
                         {
-                            Formatter = "function() { return this.value +'mm'; }",
+                            Formatter = "function() { return this.value; }",
                             Style = "color: '#4572A7'"
                         },
                         Title = new YAxisTitle

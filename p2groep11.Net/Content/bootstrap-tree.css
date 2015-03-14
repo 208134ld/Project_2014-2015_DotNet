@@ -27,14 +27,14 @@
 }
 .YesSpan {
     border: 1px solid #777777;
-    background-color: #308029;
-    color: white;
+    background-color: #BAE3C4;
+    color: black;
     margin-left: 20px;
 }
 .NoSpan {
     border: 1px solid #777777;
-    background-color: #CF2525;
-    color: white;
+    background-color: #E3BAC4;
+    color: black;
     margin-left: 20px;
 }
 .YesSpanActive {

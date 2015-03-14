@@ -1,31 +1,23 @@
 ﻿$(document).ready(function () {
+    //Lightbox
+    $('.lightbox').click(function () {
+        $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
+        $('.box').animate({ 'opacity': '1.00' }, 300, 'linear');
+        $('.backdrop, .box').css('display', 'block');
+    });
 
-    //function compare(itemsYes, itemsNo) {
-    //    //console.log("Compare word aangeroepen");
-       
-    //    //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
-    //    var detPath = $(".invis");
-    //    var wrongItems = [];
-    //    var found = false;
-    //    $.each(itemsYes, function(key, valueItem) {
-    //        found = false;
-    //        $.each(detPath, function (keyDet, valueDet) {
-    //            console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
-    //            if ((valueItem.textContent == " " +valueDet.textContent)) {
-    //                console.log(valueItem.textContent + " =  " + valueDet.textContent);
-    //                found = true;
-    //            }
-    //            if (keyDet == detPath.length - 1) {
-    //                if (!found) {
-    //                    wrongItems.push(valueItem);
-    //                }
-    //            }
-    //        });
-    //    });
-    //    return wrongItems;
-    //}
+    $('.close').click(function () {
+        close_box();
+    });
 
-
+    $('.backdrop').click(function () {
+        close_box();
+    });
+    function close_box() {
+        $('.backdrop, .box').animate({ 'opacity': '0' }, 300, 'linear', function () {
+            $('.backdrop, .box').css('display', 'none');
+        });
+    }
     function compare(itemsYes) {
         //console.log("Compare word aangeroepen");
 
@@ -36,30 +28,35 @@
         $.each(itemsYes, function (key, valueItem) {
             found = false;
             $.each(detPath, function (keyDet, valueDet) {
-                console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+                //console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
                 if ((valueItem.textContent == " " + valueDet.textContent)) {
-                    console.log(valueItem.textContent + " =  " + valueDet.textContent);
+                    //console.log(valueItem.textContent + " =  " + valueDet.textContent);
+                    wrightArr.push(valueItem);
                     found = true;
-                }
-                if (keyDet == detPath.length - 1) {
-                    if (!found) {
-                        wrightArr.push(valueItem);
-                    }
                 }
             });
         });
         return wrightArr;
     }
     function removeClassesFromWrongItems(items) {
-        $(".warning").empty();
+        $(".success").empty();
         if (items.length != 0) {
-            $(".warning").append("<p> Volgende statements zijn fout:</p>");
+            $(".success").append("<p> Volgende statements zijn juist:</p>");
             $.each(items, function(key, i) {
-                $(".warning").append("<p>" + $(this).context.textContent + "</p>");
+                $(".success").append("<p>" + $(this).context.textContent + "</p>");
                 $(this).removeClass();
-                $(this).addClass("wrongAnswer");
+                $(this).addClass("AnswerC");
             });
         }
+        $.each($(".YesSpanActive"), function(key, i) {
+            $(this).removeClass("YesSpanActive");
+            $(this).addClass("YesSpan");
+        });
+        $.each($(".NoSpanActive"), function (key, i) {
+            $(this).removeClass("NoSpanActive");
+            $(this).addClass("NoSpan");
+        });
+       
     }
 
     function concat(y, n) {
@@ -74,35 +71,8 @@
 
         return x;
     }
-
-    function validate(ar) {
-        var detPath = $(".invis");
-        var bool = false;
-        if (ar.length == detPath.length) {
-            for (var prop in detPath) {
-                bool = false;
-                for (var a in ar) {
-
-                    if (ar[a].textContent == detPath[prop].textContent) {
-                        bool = true;
-                        break;
-                    }
-
-                }
-                if (!bool) {
-                    break;
-                }
-
-            }
-
-        } else {
-            return false;
-        }
-        return bool;
-
-
-    }
-    $(".YesSpan").on("click", function() {
+    $(".YesSpan").on("click", function () {
+        console.log($(this));
         $(this).toggleClass("YesSpanActive");
     });
     $(".NoSpan").on("click", function() {
@@ -114,19 +84,19 @@
         var selectedItemsYes = document.getElementsByClassName("YesSpanActive");
         var selectedItemsNo = document.getElementsByClassName("NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);
-
         var wrightArr = compare(yesNo);
-        if (wrightArr.length == 0) {
-            //console.log("validate bereikt");
-            if (validate(yesNo)) {
+        removeClassesFromWrongItems(wrightArr);
+        console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
+        if ($(".AnswerC").length == $(".invis").length-1) {
+            console.log("validate bereikt" + $(".invis").length);
+           
                 var detPath = $(".invis");
-                
-               $(".success").append("<p>"+detPath[detPath.length - 1]+"</p>");
+              
+                $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
+               $(".success").append("<p> Het klimaattype is "+detPath[detPath.length - 1].textContent+"</p>");
                //console.log("Einde bereikt");
-           }
+           
 
-        } else {
-            removeClassesFromWrongItems(wrightArr);
         }
 
     });

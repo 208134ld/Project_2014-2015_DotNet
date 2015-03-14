@@ -23,7 +23,7 @@ namespace p2groep11.Net.Controllers
         public ActionResult ListContinents(int SelectedYear)
         {
            ViewBag.SchoolYear = SelectedYear;
-           IEnumerable<Continent> continents = repository.GetContinents(SelectedYear);
+           IEnumerable<Continent> continents = repository.FindBySchoolyear(SelectedYear).Continents;
            return View(continents.Select(co=>new ContinentsListViewModel(co)).ToList());
         }
 
@@ -31,10 +31,10 @@ namespace p2groep11.Net.Controllers
         {
             ViewBag.SchoolYear = selectedYear;
             ViewBag.ContinentId = continentId;
-            IEnumerable<Country> countryList = repository.GetCountries(selectedYear, continentId);
+            IEnumerable<Country> countryList = repository.FindBySchoolyear(selectedYear).GetContinent(continentId).Countries;
             if (!String.IsNullOrEmpty(search))
             {
-                countryList = repository.GetCountries(selectedYear, continentId).Where(c => c.Name.ToLower().Contains(search.ToLower()));
+                countryList = repository.FindBySchoolyear(selectedYear).GetContinent(continentId).Countries.Where(c => c.Name.ToLower().Contains(search.ToLower()));
             };
             return View(countryList.Select(c=>new CountryListViewModel(c)).ToList());
         }
@@ -48,12 +48,17 @@ namespace p2groep11.Net.Controllers
             try
             {
                 //werken met getland, navigeren door domein
-                IEnumerable<ClimateChart> locationList = repository.GetClimateCharts(selectedYear, continentId,
-                    countryId);
+                IEnumerable<ClimateChart> locationList =
+                    repository.FindBySchoolyear(selectedYear)
+                        .GetContinent(continentId)
+                        .getCountry(countryId)
+                        .ClimateCharts;
                 if (!String.IsNullOrEmpty(search))
                 {
-                    locationList = repository.GetClimateCharts(selectedYear, continentId,
-                    countryId).Where(c => c.Location.ToLower().Contains(search));
+                    locationList = repository.FindBySchoolyear(selectedYear)
+                        .GetContinent(continentId)
+                        .getCountry(countryId)
+                        .ClimateCharts.Where(c => c.Location.ToLower().Contains(search));
                 }
 
                 if (!locationList.Any())

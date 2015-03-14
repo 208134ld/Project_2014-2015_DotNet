@@ -33,29 +33,6 @@ namespace p2groep11.Net.Models.DAL
         {
             return grades.FirstOrDefault(g => g.SchoolYears.Select(s => s.Year).Contains(schoolyear));
         }
-
-        public ICollection<Continent> GetContinents(int schoolyear)
-        {
-            return FindBySchoolyear(schoolyear).Continents;
-        }
-
-        public ICollection<Country> GetCountries(int schoolyear, int continentId)
-        {
-            return GetContinents(schoolyear).FirstOrDefault(c => c.ContinentID == continentId).Countries;
-        }
-
-        public ICollection<ClimateChart> GetClimateCharts(int schoolyear, int continentId, int countryId)
-        {
-            return GetCountries(schoolyear, continentId).FirstOrDefault(c => c.CountryID == countryId).ClimateCharts;
-        }
-
-        public ClimateChart GetClimateChartByClimateChartId(int schoolyear, int continentId, int countryId, int climateChartId)
-        {
-            return
-                GetClimateCharts(schoolyear, continentId, countryId)
-                    .FirstOrDefault(c => c.ClimateChartID == climateChartId);
-        }
-
         public void Remove(Grade grade)
         {
             grades.Remove(grade);

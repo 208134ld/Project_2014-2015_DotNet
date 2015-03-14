@@ -42,8 +42,11 @@ namespace p2groep11.Net.Controllers
                 
                 try
                 {
-                    ClimateChart c = gradeRepository.GetClimateChartByClimateChartId(selectedYear, continentId,
-                        countryId, climateId);
+                    ClimateChart c =
+                        gradeRepository.FindBySchoolyear(selectedYear)
+                            .GetContinent(continentId)
+                            .getCountry(countryId)
+                            .GetClimateChart(climateId);
                     
 
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
