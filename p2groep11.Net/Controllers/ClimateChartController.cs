@@ -29,6 +29,7 @@ namespace p2groep11.Net.Controllers
         {
             this.continentRepository = continentRepository;
             this.gradeRepository = gradeRepository;
+            
         }
 
         public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)

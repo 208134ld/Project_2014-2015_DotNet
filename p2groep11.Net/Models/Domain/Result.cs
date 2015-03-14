@@ -32,10 +32,10 @@ namespace p2groep11.Net.Models.Domain
         public override String GetHtmlCode(Boolean isYes)
         {
             if(isYes)
-            return "<li><span class='YesSpan'>" + Klimaatkenmerk + "</span></li>";
+                return "<li><span class='YesSpan'><span class='glyphicon glyphicon-ok'>" + " " +Klimaatkenmerk + "</span></span></li>";
             else
             {
-                return "<li><span class='NoSpan'>" + Klimaatkenmerk + "</span></li>";
+                return "<li><span class='NoSpan'><span class='glyphicon glyphicon-remove'>" + " " + Klimaatkenmerk + "</span></li>";
             }
         }
     }

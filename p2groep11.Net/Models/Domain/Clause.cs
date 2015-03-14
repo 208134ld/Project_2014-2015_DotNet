@@ -38,10 +38,10 @@ namespace p2groep11.Net.Models.Domain
         {
             String html = "";
             if(isYes)
-            html += "<li><span class='YesSpan'>" + Name + "</span><ul> \n";
+                html += "<li><span class='YesSpan'><span class='glyphicon glyphicon-ok'>" + " "+Name + "</span></span><ul> \n";
             else
             {
-                html += "<li><span class='NoSpan'>" + Name + "</span><ul> \n";
+                html += "<li><span class='NoSpan'><span class='glyphicon glyphicon-remove'>" + " " + Name + "</span></span><ul> \n";
             }
             html += YesClause.GetHtmlCode(true) + "\n" +
             NoClause.GetHtmlCode(false) + "\n</ul></li>";

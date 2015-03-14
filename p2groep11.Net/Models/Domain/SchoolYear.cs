@@ -29,7 +29,7 @@ namespace p2groep11.Net.Models.Domain
 
         public SchoolYear(int number)
         {
-            this.year = number;
+            this.Year = number;
         }
 
         

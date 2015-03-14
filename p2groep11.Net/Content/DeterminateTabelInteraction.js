@@ -1,30 +1,55 @@
 ﻿$(document).ready(function () {
 
-    function compare(itemsYes, itemsNo) {
-        //console.log("Compare word aangeroepen");
+    //function compare(itemsYes, itemsNo) {
+    //    //console.log("Compare word aangeroepen");
        
+    //    //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
+    //    var detPath = $(".invis");
+    //    var wrongItems = [];
+    //    var found = false;
+    //    $.each(itemsYes, function(key, valueItem) {
+    //        found = false;
+    //        $.each(detPath, function (keyDet, valueDet) {
+    //            console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+    //            if ((valueItem.textContent == " " +valueDet.textContent)) {
+    //                console.log(valueItem.textContent + " =  " + valueDet.textContent);
+    //                found = true;
+    //            }
+    //            if (keyDet == detPath.length - 1) {
+    //                if (!found) {
+    //                    wrongItems.push(valueItem);
+    //                }
+    //            }
+    //        });
+    //    });
+    //    return wrongItems;
+    //}
+
+
+    function compare(itemsYes) {
+        //console.log("Compare word aangeroepen");
+
         //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
         var detPath = $(".invis");
-        var wrongItems = [];
+        var wrightArr = [];
         var found = false;
-        $.each(itemsYes, function(key, valueItem) {
+        $.each(itemsYes, function (key, valueItem) {
             found = false;
             $.each(detPath, function (keyDet, valueDet) {
-                //console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
-                if ((valueItem.textContent == valueDet.textContent)) {
-                    //console.log(valueItem.textContent + " =  " + valueDet.textContent);
+                console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+                if ((valueItem.textContent == " " + valueDet.textContent)) {
+                    console.log(valueItem.textContent + " =  " + valueDet.textContent);
                     found = true;
                 }
                 if (keyDet == detPath.length - 1) {
                     if (!found) {
-                        wrongItems.push(valueItem);
+                        wrightArr.push(valueItem);
                     }
                 }
             });
         });
-        return wrongItems;
+        return wrightArr;
     }
-
     function removeClassesFromWrongItems(items) {
         $(".warning").empty();
         if (items.length != 0) {
@@ -79,8 +104,6 @@
     }
     $(".YesSpan").on("click", function() {
         $(this).toggleClass("YesSpanActive");
-        var ar  = compare($(this));
-        removeClassesFromWrongItems(ar);
     });
     $(".NoSpan").on("click", function() {
         $(this).toggleClass("NoSpanActive");
@@ -92,8 +115,8 @@
         var selectedItemsNo = document.getElementsByClassName("NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);
 
-        var wrongItems = compare(yesNo);
-        if (wrongItems.length == 0) {
+        var wrightArr = compare(yesNo);
+        if (wrightArr.length == 0) {
             //console.log("validate bereikt");
             if (validate(yesNo)) {
                 var detPath = $(".invis");
@@ -103,7 +126,7 @@
            }
 
         } else {
-            removeClassesFromWrongItems(wrongItems);
+            removeClassesFromWrongItems(wrightArr);
         }
 
     });
