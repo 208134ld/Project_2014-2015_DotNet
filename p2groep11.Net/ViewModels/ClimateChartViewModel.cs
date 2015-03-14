@@ -14,6 +14,7 @@ namespace p2groep11.Net.ViewModels
 {
     public class ClimateChartViewModel
     {
+        private Image picture;
         public Highcharts Chart { get; private set; }
         public IEnumerable<Month> Months { get; private set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
@@ -23,6 +24,12 @@ namespace p2groep11.Net.ViewModels
         public String[] ResultaatDeterminate { get;  set; }
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
+
+        public Image Picture
+        {
+            get { return picture; }
+            set { picture = CorrectResult.byteArrayToImage(); }
+        }
 
         public String HtmlDetTabel { get; private set; }
 

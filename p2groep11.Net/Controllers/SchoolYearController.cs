@@ -36,7 +36,7 @@ namespace p2groep11.Net.Controllers
                 try
                 {
 
-                    Grade grade = gradeRepository.FindById((SelectedYear + 1) / 2);
+                    Grade grade = gradeRepository.FindBySchoolyear(SelectedYear);
 
                     switch (grade.GradeId)
                     {
