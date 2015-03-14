@@ -1,4 +1,5 @@
 ﻿
+@using System.Drawing
 @using p2groep11.Net.Models.Domain
 @model p2groep11.Net.ViewModels.ClimateChartViewModel
 
@@ -59,10 +60,11 @@
 
     </div>
 
-    @*<div class="determinateResult">
+    <div class="determinateResult">
         Klimaatkenmerk: @Model.ResultaatDeterminate[0]<br/>
-        Vegetatiekenmerk: @Model.ResultaatDeterminate[1]
-    </div>*@
+        Vegetatiekenmerk: @Model.ResultaatDeterminate[1]<br/>
+        Afbeelding: @Model.Picture
+    </div>
     <div>
         @Html.Partial("DeterminateTable")
     </div>
