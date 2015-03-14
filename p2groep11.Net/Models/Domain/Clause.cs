@@ -14,16 +14,18 @@ namespace p2groep11.Net.Models.Domain
         public virtual Parameter Par1 { get; set; }
         public virtual Parameter Par2 { get; set; }
         private int Waarde { get; set; }
+        public String Operator { get; set; }
 
         public Clause()
         {
 
         }
 
-        public Clause(String name, Parameter par1, int waarde)
+        public Clause(String name, Parameter par1, String op, int waarde)
         {
             this.Name = name;
             this.Par1 = par1;
+            this.Operator = op;
             this.Waarde = waarde;
         }
 
@@ -63,16 +65,31 @@ namespace p2groep11.Net.Models.Domain
 
         public override string[] Determinate(ClimateChart chart)
         {
-            if(Par2==null)
-                return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-            return Par1.Execute(chart) <= Par2.Execute(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+            if(Par2!=null)
+                return Par1.Execute(chart) <= Par2.Execute(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+            return DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
+                /*Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);*/
+
+        }
+
+        private bool DeterminateWithOperator(ClimateChart chart)
+        {
+            switch (Operator)
+            {
+                case "<=": return (Par1.Execute(chart) <= Waarde);
+                case "<": return (Par1.Execute(chart) < Waarde);
+                case ">=": return (Par1.Execute(chart) >= Waarde);
+                case ">": return (Par1.Execute(chart) > Waarde);
+                default : return false;
+            }
+            /*return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);*/
         }
 
         public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
         {
             cp.Add(this);
             if (Par2 == null)
-                if(Par1.Execute(chart) <= Waarde)
+                if(DeterminateWithOperator(chart))
                     YesClause.CorrectPath(chart, cp);
                 else
                     NoClause.CorrectPath(chart, cp);
