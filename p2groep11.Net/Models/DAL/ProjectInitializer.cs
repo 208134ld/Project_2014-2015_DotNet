@@ -330,7 +330,7 @@ namespace p2groep11.Net.Models.DAL
                 tw0V1.Add(true, tw0YesV1);
                 tw0V1.Add(false, tw0NoV1);
                 tw10V1.Add(true, tw0V1);
-                ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm,">=", 10);
+                ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm,"<", 4);
                 tw10V1.Add(false, tm10V1);
 
                 ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd", picture);
