@@ -22,13 +22,12 @@ namespace p2groep11.Net.Controllers
 {
     public class ClimateChartController : Controller
     {
-        private IContinentRepository continentRepository;
         private IGradeRepository gradeRepository;
 
-        public ClimateChartController(IContinentRepository continentRepository, IGradeRepository gradeRepository)
+        public ClimateChartController(IGradeRepository gradeRepository)
         {
-            this.continentRepository = continentRepository;
             this.gradeRepository = gradeRepository;
+            
         }
 
         public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)
@@ -44,12 +43,13 @@ namespace p2groep11.Net.Controllers
                 try
                 {
                     ClimateChart c =
-                        continentRepository.FindById(continentId)
-                            .Countries.FirstOrDefault(co => co.CountryID == countryId)
-                            .ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateId);
+                        gradeRepository.FindBySchoolyear(selectedYear)
+                            .GetContinent(continentId)
+                            .getCountry(countryId)
+                            .GetClimateChart(climateId);
                     
 
-                    Grade gr = gradeRepository.FindById((selectedYear+1)/2);
+                    Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 
                     DeterminateTable ta = gr.DeterminateTableProp;
                     ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);

@@ -4,6 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using p2groep11.Net.Models.Domain;
@@ -87,7 +90,7 @@ namespace p2groep11.Net.Models.DAL
                     algerije, benin, djibouti, egypte, eritrea, gabon, guinea,
                     ivoorkust, kaapverdië, kenia, madagascar, madeira, malawi,
                     mali, marokko, mauritius, niger, nigeria, senegal, seychellen,
-                    sierraLeone, soedan, togo, tsjaad, tunesië, zambia, zimbabwe, zuidAfrika
+                    sierraLeone, soedan, togo, tsjaad, tunesië, zambia, zimbabwe, zuidAfrika              
                 }).ToList();
                 countriesAfrika.ForEach(c => afrika.Countries.Add(c));
 
@@ -242,7 +245,7 @@ namespace p2groep11.Net.Models.DAL
                     vanazuala
                 }).ToList();
                 countriesZAM.ForEach(c => zuidAmerika.Countries.Add(c));
-
+                
                 //DeterminateTable aanmaken met hun clauses
                 //De parameters hun waarde is bijvoorbeeld de temperatuur van de warmste maand, nu voorlopig zonder database dus nog niet nodig
                 Parameter mw = new MW("Wat is de warmste maand?");
@@ -255,52 +258,52 @@ namespace p2groep11.Net.Models.DAL
                 Parameter tj = new TJ("");
                 Parameter nj = new NJ("");
                 Parameter tm = new TM("");
-
-
-
-                ClauseComponent tw10 = new Clause("TW <= 10", tw, 10);
-                ClauseComponent tw0 = new Clause("TW <= 0", tw, 0);
-                ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat");
-                ClauseComponent tw0No = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat");
+                
+                
+                //Image image = Image.FromFile(@"C:\Users\SAMUEL\Pictures\Panda_Suit.png");
+                //MemoryStream ms = new MemoryStream();
+                //image.Save(ms, ImageFormat.Gif);
+                //byte[] picture = ms.ToArray();
+                byte[] picture = null;
+                ClauseComponent tw10 = new Clause("TW <= 10", tw,"<=", 10);
+                ClauseComponent tw0 = new Clause("TW <= 0", tw,"<=", 0);
+                ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture);
+                ClauseComponent tw0No = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat", picture);
                 tw0.Add(true, tw0Yes);
                 tw0.Add(false, tw0No);
                 tw10.Add(true, tw0);
-                ClauseComponent tj0 = new Clause("TJ <= 0", tj, 0);
+                ClauseComponent tj0 = new Clause("TJ <= 0", tj,"<=", 0);
                 tw10.Add(false, tj0);
 
-                
 
-                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat");
+                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture);
                 tj0.Add(true, tj0Yes);
-                ClauseComponent nj200 = new Clause("NJ <= 200", nj, 200);
+                ClauseComponent nj200 = new Clause("NJ <= 200", nj,"<=", 200);
 
-                ClauseComponent tk15 = new Clause("TK <= 15", tk, 15);
-                ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat",
-                    "Woestijnklimaat van de middelbreedten");
-                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen");
+                ClauseComponent tk15 = new Clause("TK <= 15", tk,"<=", 15);
+                ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten", picture);
+                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture);
                 tk15.Add(true, tk15Yes);
                 tk15.Add(false, tk15No);
                 nj200.Add(true, tk15);
                 tj0.Add(false, nj200);
 
-                ClauseComponent tk18 = new Clause("TK <= 18", tk, 18);
-                ClauseComponent nj400 = new Clause("NJ <= 400", nj, 400);
-                ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat");
-                ClauseComponent tk10N = new Clause("TK <= -10", tk, -10);
-                ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat");
-                ClauseComponent d1 = new Clause(" D <= 1", d, 1);
-                ClauseComponent tk3N = new Clause("TK <= -3", tk, -3);
-                ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat");
-                ClauseComponent tw22 = new Clause(" TW <= 22", tw, 22);
-                ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat");
-                ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat");
+                ClauseComponent tk18 = new Clause("TK <= 18", tk,"<=", 18);
+                ClauseComponent nj400 = new Clause("NJ <= 400", nj,"<=", 400);
+                ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat", picture);
+                ClauseComponent tk10N = new Clause("TK <= -10", tk, "<=", - 10);
+                ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture);
+                ClauseComponent d1 = new Clause(" D <= 1", d,"<=", 1);
+                ClauseComponent tk3N = new Clause("TK <= -3", tk, "<=", - 3);
+                ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat", picture);
+                ClauseComponent tw22 = new Clause(" TW <= 22", tw,"<=", 22);
+                ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat", picture);
+                ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat", picture);
                 ClauseComponent nznw = new Clause("NZ <= NW", nz, nw);
-                ClauseComponent tw222 = new Clause("TW <= 22", tw, 22);
-                ClauseComponent tw222Yes = new Result("Koelgematigd klimaat met natte winter",
-                    "Hardbladige-vegetatieklimaat van de centrale middelbreedten");
-                ClauseComponent tw222No = new Result("Warmgematigd klimaat met natte winter",
-                    "Hardbladige-vegetatieklimaat van de subtropen");
-                ClauseComponent nznwNo = new Result("Warmgematigd klimaat met natte zomer", "Subtropisch savanneklimaat");
+                ClauseComponent tw222 = new Clause("TW <= 22", tw,"<=", 22);
+                ClauseComponent tw222Yes = new Result("Koelgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de centrale middelbreedten", picture);
+                ClauseComponent tw222No = new Result("Warmgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de subtropen", picture);
+                ClauseComponent nznwNo = new Result("Warmgematigd klimaat met natte zomer", "Subtropisch savanneklimaat", picture);
 
                 tw222.Add(true, tw222Yes);
                 tw222.Add(false, tw222No);
@@ -319,9 +322,9 @@ namespace p2groep11.Net.Models.DAL
                 tk18.Add(true, nj400);
                 nj200.Add(false, tk18);
 
-                ClauseComponent d12 = new Clause("D <= 1", d, 1);
-                ClauseComponent d12Yes = new Result("Warm klimaat met nat seizoen", "Tropisch savanneklimaat");
-                ClauseComponent d12No = new Result("Warm altijd nat klimaat", "Tropisch regenwoudklimaat");
+                ClauseComponent d12 = new Clause("D <= 1", d,"<=", 1);
+                ClauseComponent d12Yes = new Result("Warm klimaat met nat seizoen", "Tropisch savanneklimaat", picture);
+                ClauseComponent d12No = new Result("Warm altijd nat klimaat", "Tropisch regenwoudklimaat", picture);
                 d12.Add(true, d12Yes);
                 d12.Add(false, d12No);
                 tk18.Add(false, d12);
@@ -342,40 +345,38 @@ namespace p2groep11.Net.Models.DAL
                 
 
                 //Determineertabel voor 1e graad opbouwen
-                ClauseComponent tw10V1 = new Clause("TW <= 10", tw, 10);
-                ClauseComponent tw0V1 = new Clause("TW <= 0", tw, 0);
-                ClauseComponent tw0YesV1 = new Result("Koud zonder dooiseizoen", "Koud");
-                ClauseComponent tw0NoV1 = new Result("Koud met dooiseizoen", "Koud");
+                ClauseComponent tw10V1 = new Clause("TW <= 10", tw,"<=", 10);
+                ClauseComponent tw0V1 = new Clause("TW <= 0", tw,"<=", 0);
+                ClauseComponent tw0YesV1 = new Result("Koud zonder dooiseizoen", "Koud", picture);
+                ClauseComponent tw0NoV1 = new Result("Koud met dooiseizoen", "Koud", picture);
                 tw0V1.Add(true, tw0YesV1);
                 tw0V1.Add(false, tw0NoV1);
                 tw10V1.Add(true, tw0V1);
-                ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm, 10);
+                ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm,"<", 4);
                 tw10V1.Add(false, tm10V1);
-                
-                
 
-                ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd");
-                tw10V1.Add(true, tm10YesV1);
-                ClauseComponent tk18V1 = new Clause("Tk < 18", tk, 18);
-                tw10V1.Add(false, tk18V1);
+                ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd", picture);
+                tm10V1.Add(true, tm10YesV1);
+                ClauseComponent tk18V1 = new Clause("Tk < 18", tk,"<", 18);
+                tm10V1.Add(false, tk18V1);
 
-                ClauseComponent nj400V1 = new Clause("Nj > 400mm", nj, 400);
+                ClauseComponent nj400V1 = new Clause("Nj > 400mm", nj,">", 400);
                 tk18V1.Add(true, nj400V1);
-                ClauseComponent tk18NoV1 = new Result("Warm", "Warm");
+                ClauseComponent tk18NoV1 = new Result("Warm", "Warm", picture);
                 tk18V1.Add(false, tk18NoV1);
 
-                ClauseComponent nj400YesV1 = new Clause("Tk < -3", tk, -3);
+                ClauseComponent nj400YesV1 = new Clause("Tk < -3", tk, "<", - 3);
                 nj400V1.Add(true, nj400YesV1);
-                ClauseComponent nj400NoV1 = new Result("Gematigd en droog", "Droog");
+                ClauseComponent nj400NoV1 = new Result("Gematigd en droog", "Droog", picture);
                 nj400V1.Add(false, nj400NoV1);
 
-                ClauseComponent tkMin3Yes = new Result("Koel gematigd met strenge winter", "Gematigd");
+                ClauseComponent tkMin3Yes = new Result("Koel gematigd met strenge winter", "Gematigd", picture);
                 nj400YesV1.Add(true, tkMin3Yes);
-                ClauseComponent tkMin3No = new Clause("Tw < 22", tw, 22);
+                ClauseComponent tkMin3No = new Clause("Tw < 22", tw,"<", 22);
                 nj400YesV1.Add(false, tkMin3No);
 
-                ClauseComponent tw22YesV1 = new Result("Koel gematigd met zachte winter", "Gematigd");
-                ClauseComponent tw22NoV1 = new Result("warm gematigd met natte winter", "Gematigd");
+                ClauseComponent tw22YesV1 = new Result("Koel gematigd met zachte winter", "Gematigd", picture);
+                ClauseComponent tw22NoV1 = new Result("warm gematigd met natte winter", "Gematigd", picture);
                 tkMin3No.Add(true, tw22YesV1);
                 tkMin3No.Add(false, tw22NoV1);
 
@@ -404,14 +405,14 @@ namespace p2groep11.Net.Models.DAL
                 int[] sed2 = new[] {120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100};
                 ClimateChart gent = new ClimateChart("Gent", 1920, 1921, temps, sed);
                 ClimateChart brugge = new ClimateChart("Brugge", 1550, 1551, temps2, sed2);
-
+                
 
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] {gent, brugge}).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 context.SaveChanges();
                 Debug.WriteLine("Database created!");
-
+                              
             }
             catch (DbEntityValidationException ex)
             {

@@ -29,5 +29,22 @@ namespace p2groep11.Net.Tests.Domein
             c.Countries.Add(context.Belgium);
             Assert.AreEqual("Europa",c.Name);
         }
+
+        [TestMethod]
+        public void GetCountryGetsCountry()
+        {
+            Continent c = context.Europa;
+            Country co = c.getCountry(1);
+            Assert.AreEqual(co,context.Belgium);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetCountryThrowsExceptionWhenNotFound()
+        {
+            Continent c = context.Europa;
+            Country co = c.getCountry(0);
+            
+        }
+
     }
 }

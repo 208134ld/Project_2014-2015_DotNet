@@ -1,27 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 
 namespace p2groep11.Net.Models.Domain
 {
     public class Result : ClauseComponent
     {
-        public String Vegetatiekenmerk { get; set; }
-        public String Klimaatkenmerk { get; set; }
+        public String Vegetationfeature { get; set; }
+        public String Climatefeature { get; set; }
+        public byte[] VegetationPicture { get; set; }
 
-        public Result(String km, String vk)
+        public Result(String km, String vk, byte[] image)
         {
-            this.Klimaatkenmerk = km;
-            this.Vegetatiekenmerk = vk;
+            Climatefeature = km;
+            Vegetationfeature = vk;
+            VegetationPicture = image;
+        }
+
+        public Result(String km,String vk)
+        {
+            Climatefeature = km;
+            Vegetationfeature = vk;
         }
 
         public Result()
         {
             
         }
-
         public override string[] Determinate(ClimateChart chart)
         {
-            return new string[] { Klimaatkenmerk, Vegetatiekenmerk };
+            return new string[] { Climatefeature, Vegetationfeature };
         }
 
         public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
@@ -31,12 +40,13 @@ namespace p2groep11.Net.Models.Domain
 
         public override String GetHtmlCode(Boolean isYes)
         {
-            if(isYes)
-            return "<li><span class='YesSpan'>" + Klimaatkenmerk + "</span></li>";
+            if (isYes)
+                return "<li><span class='YesSpan'><span class='glyphicon glyphicon-ok'>" + " " +Climatefeature + "</span></span></li>";
             else
             {
-                return "<li><span class='NoSpan'>" + Klimaatkenmerk + "</span></li>";
+                return "<li><span class='NoSpan'><span class='glyphicon glyphicon-remove'>" + " " + Climatefeature + "</span></li>";
             }
         }
+
     }
 }

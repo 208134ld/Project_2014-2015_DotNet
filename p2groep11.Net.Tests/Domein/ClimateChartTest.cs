@@ -95,7 +95,7 @@ namespace p2groep11.Net.Tests.Domein
         public void MonthsAbove10DegreeGivesRightAmountOfMonthes()
         {
             ClimateChart c = context.Gent;
-            Assert.AreEqual(2,c.MonthsAbove10Degree);
+            Assert.AreEqual(3,c.MonthsAbove10Degree);
         }
 
         [TestMethod]
@@ -116,19 +116,31 @@ namespace p2groep11.Net.Tests.Domein
         }
 
         [TestMethod]
-        [ExpectedException(typeof (ArgumentException))]
+        public void RainInWinterUnderEqGivesCorrectAmount()
+        {
+            ClimateChart c = context.NegTempClimateChart;
+            Assert.AreEqual(390,c.RainInWinter);
+        }
+        [TestMethod]
         public void RainInSummerCalculatesRainAboveEq()
         {
             ClimateChart c = context.Gent;
-            Assert.AreEqual(490,c.RainInSummer);
+            Assert.AreEqual(390,c.RainInSummer);
         }
 
         [TestMethod]
-        [ExpectedException(typeof (ArgumentException))]
         public void RainInSummerCalculatesRainUnderEq()
         {
             ClimateChart c = context.NegTempClimateChart;
             Assert.AreEqual(390, c.RainInSummer);
+        }
+
+        [TestMethod]
+        public void EmptyCtrSerialisedMonthsList()
+        {
+            ClimateChart c = new ClimateChart();
+            c.Months.Add(new Month(MonthsOfTheYear.Apr, 10,12));
+            Assert.AreEqual(12,c.Months[0].Sediment);
         }
     }
 }

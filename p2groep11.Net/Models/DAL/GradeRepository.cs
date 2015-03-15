@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using p2groep11.Net.Models.Domain;
+using WebGrease.Css.Extensions;
 
 namespace p2groep11.Net.Models.DAL
 {
@@ -20,7 +21,7 @@ namespace p2groep11.Net.Models.DAL
 
         public IQueryable<Grade> FindAll()
         {
-            return grades; 
+            return grades.OrderBy(g => g.GradeId); 
         }
 
         public Grade FindById(int gradeId)
@@ -28,6 +29,10 @@ namespace p2groep11.Net.Models.DAL
             return grades.Include(l => l.DeterminateTableProp.ClauseComponent).FirstOrDefault(g => g.GradeId == gradeId);         
         }
 
+        public Grade FindBySchoolyear(int schoolyear)
+        {
+            return grades.FirstOrDefault(g => g.SchoolYears.Select(s => s.Year).Contains(schoolyear));
+        }
         public void Remove(Grade grade)
         {
             grades.Remove(grade);

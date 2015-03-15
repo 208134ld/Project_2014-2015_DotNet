@@ -65,7 +65,6 @@ namespace p2groep11.Net.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IContinentRepository>().To<ContinentRepository>().InRequestScope();
             kernel.Bind<IGradeRepository>().To<GradeRepository>().InRequestScope();
             kernel.Bind<ProjectContext>().ToSelf().InSingletonScope();
         }

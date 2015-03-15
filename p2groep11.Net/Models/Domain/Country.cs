@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Linq;
 
 namespace p2groep11.Net.Models.Domain
 {
@@ -27,6 +28,14 @@ namespace p2groep11.Net.Models.Domain
             Continent = c;
             ClimateCharts = new List<ClimateChart>();
             AboveEquator = true;
+        }
+
+        public ClimateChart GetClimateChart(int climateChartID )
+        {
+            ClimateChart c =ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateChartID);
+            if (c != null)
+                return c;
+            else throw new ArgumentNullException("ClimateChart met " + climateChartID + " not found");
         }
     }
 }

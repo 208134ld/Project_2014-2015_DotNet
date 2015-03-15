@@ -181,7 +181,6 @@
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
     <Compile Include="Models\Domain\MK.cs" />
-    <Compile Include="Models\DAL\ContinentRepository.cs" />
     <Compile Include="Models\DAL\GradeRepository.cs" />
     <Compile Include="Models\DAL\IGradeRepository.cs" />
     <Compile Include="Models\DAL\Mapper\SchoolYearMapper.cs" />
@@ -189,7 +188,6 @@
     <Compile Include="Models\Domain\TM.cs" />
     <Compile Include="Models\Domain\D.cs" />
     <Compile Include="Models\Domain\Grade.cs" />
-    <Compile Include="Models\DAL\IContinentRepository.cs" />
     <Compile Include="Models\DAL\Mapper\ClauseComponentsMapper.cs" />
     <Compile Include="Models\DAL\Mapper\DeterminateTableMapper.cs" />
     <Compile Include="Models\DAL\Mapper\ClimateChartMapper.cs" />
@@ -228,6 +226,10 @@
     <Compile Include="ViewModels\SchoolYearFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lightbox.css" />
+    <Content Include="Content\bootstrap-lightbox.js" />
+    <Content Include="Content\bootstrap-lightbox.min.css" />
+    <Content Include="Content\bootstrap-lightbox.min.js" />
     <Content Include="Content\bootstrap-tree.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
