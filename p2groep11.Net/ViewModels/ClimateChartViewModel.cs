@@ -15,28 +15,6 @@ namespace p2groep11.Net.ViewModels
     public class ClimateChartViewModel
     {
         private Image picture;
-
-        public ClimateChartViewModel(ClimateChart c, DeterminateTable table)
-        {
-            voorbeeld = new VoorbeelViewModel();
-            Months = c.Months;
-            Chart = DrawClimateChart(c);
-            AvgTemp = Months.Average(m => m.AverTemp);
-            SumSed = Months.Sum(m => m.Sediment);
-            this.table = table;
-            ResultaatDeterminate = Determinate(c, table);
-            HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
-            CorrectPath = new List<Clause>();
-            CorrectResult = new Result();
-            foreach (var cc in table.CorrectPath(c))
-            {
-                if (cc.GetType().BaseType.ToString() == "p2groep11.Net.Models.Domain.Clause")
-                    CorrectPath.Add((Clause) cc);
-                else
-                    CorrectResult = (Result) cc;
-            }
-           
-        }
         public Highcharts Chart { get; private set; }
         public IEnumerable<Month> Months { get; private set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
@@ -53,7 +31,34 @@ namespace p2groep11.Net.ViewModels
             set { picture = CorrectResult.byteArrayToImage(); }
         }
 
+
+        //added
+        public byte[] ByteArray { get; set; }
+
         public String HtmlDetTabel { get; private set; }
+
+        public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
+        {
+            this.Months = c.Months;
+            this.Chart = DrawClimateChart(c);
+            
+            AvgTemp =  Months.Average(m => m.AverTemp);
+            SumSed = Months.Sum(m => m.Sediment);
+            this.table = table;
+            ResultaatDeterminate = Determinate(c, table);
+            HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
+            CorrectPath = new List<Clause>();
+            CorrectResult = new Result();
+
+            foreach (ClauseComponent cc in table.CorrectPath(c))
+            {
+                if (cc.GetType().BaseType.ToString() == "p2groep11.Net.Models.Domain.Clause")
+                    CorrectPath.Add((Clause)cc);
+                else
+                    CorrectResult = (Result)cc;
+                
+            }
+        }
 
         public String[] Determinate(ClimateChart c, DeterminateTable t)
         {
@@ -84,7 +89,7 @@ namespace p2groep11.Net.ViewModels
                     Categories =
                         new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
                 })
-                .SetYAxis(new[]
+               .SetYAxis(new[]
                 {
                     new YAxis
                     {
@@ -118,22 +123,22 @@ namespace p2groep11.Net.ViewModels
                         Min = climateChart.CalculateMinForChart()*2
                     }
                 })
-                .SetTooltip(new Tooltip
-                {
+               .SetTooltip(new Tooltip
+               {
                     Formatter =
                         "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag' ? ' mm' : '°C'); }"
-                })
-                .SetLegend(new Legend
-                {
-                    Layout = Layouts.Vertical,
-                    Align = HorizontalAligns.Left,
-                    X = 120,
-                    VerticalAlign = VerticalAligns.Top,
-                    Y = 10,
+               })
+               .SetLegend(new Legend
+               {
+                   Layout = Layouts.Vertical,
+                   Align = HorizontalAligns.Left,
+                   X = 120,
+                   VerticalAlign = VerticalAligns.Top,
+                   Y = 10,
                     Floating = true
-                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
-                })
-                .SetSeries(new[]
+                   //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
+               })
+               .SetSeries(new[]
                 {
                     new Series
                     {
