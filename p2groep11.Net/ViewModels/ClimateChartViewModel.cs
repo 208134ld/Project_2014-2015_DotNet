@@ -14,7 +14,6 @@ namespace p2groep11.Net.ViewModels
 {
     public class ClimateChartViewModel
     {
-        private Image picture;
         public Highcharts Chart { get; private set; }
         public IEnumerable<Month> Months { get; private set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
@@ -25,11 +24,9 @@ namespace p2groep11.Net.ViewModels
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
 
-        public Image Picture
-        {
-            get { return picture; }
-            set { picture = CorrectResult.byteArrayToImage(); }
-        }
+
+        //added
+        public byte[] ByteArray { get; set; }
 
         public String HtmlDetTabel { get; private set; }
 
@@ -45,6 +42,7 @@ namespace p2groep11.Net.ViewModels
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
             CorrectPath = new List<Clause>();
             CorrectResult = new Result();
+            
 
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {
@@ -54,6 +52,9 @@ namespace p2groep11.Net.ViewModels
                     CorrectResult = (Result)cc;
                 
             }
+            
+            //added
+            ByteArray = CorrectResult.VegetationPicture;
         }
 
         public String[] Determinate(ClimateChart c, DeterminateTable t)

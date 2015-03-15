@@ -48,12 +48,5 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-        public Image byteArrayToImage()
-        {
-            Image returnImage = null;
-            MemoryStream ms = new MemoryStream(VegetationPicture);
-            returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
     }
 }

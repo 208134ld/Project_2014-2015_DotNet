@@ -251,7 +251,7 @@ namespace p2groep11.Net.Models.DAL
                 Parameter tm = new TM("");
 
 
-                //Image image = Image.FromFile(@"C:\Users\Samsung\Pictures\Project II\vegetatie1.jpg");
+                //Image image = Image.FromFile(@"C:\Users\SAMUEL\Pictures\Panda_Suit.png");
                 //MemoryStream ms = new MemoryStream();
                 //image.Save(ms, ImageFormat.Gif);
                 //byte[] picture = ms.ToArray();
