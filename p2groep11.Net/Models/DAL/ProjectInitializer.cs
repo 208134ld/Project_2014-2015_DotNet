@@ -273,9 +273,9 @@ namespace p2groep11.Net.Models.DAL
 
                 ClauseComponent tk15 = new Clause("TK <= 15", tk,"<=", 15);
                 ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten", picture);
-                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture); //Nooit gebruikt in de tabel!!!!
+                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture);
                 tk15.Add(true, tk15Yes);
-                tk15.Add(false, tk15Yes);
+                tk15.Add(false, tk15No);
                 nj200.Add(true, tk15);
                 tj0.Add(false, nj200);
 
@@ -334,9 +334,9 @@ namespace p2groep11.Net.Models.DAL
                 tw10V1.Add(false, tm10V1);
 
                 ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd", picture);
-                tw10V1.Add(true, tm10YesV1);
+                tm10V1.Add(true, tm10YesV1);
                 ClauseComponent tk18V1 = new Clause("Tk < 18", tk,"<", 18);
-                tw10V1.Add(false, tk18V1);
+                tm10V1.Add(false, tk18V1);
 
                 ClauseComponent nj400V1 = new Clause("Nj > 400mm", nj,">", 400);
                 tk18V1.Add(true, nj400V1);
