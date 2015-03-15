@@ -14,9 +14,6 @@
     <div class="close">x</div>
     <h2>Voorbeeld werking determinatietabel</h2>
     <div class="tree">
-    <ul>
-        @Html.Raw(@Model.voorbeeld.Html);
-    </ul>
     <input type="button" class="testBut" value="Valideer"/>
         <span class="invis">Is appel een fruit?</span><span class="invis">Appel is een fruit</span>
         <p>Eerst word een vraag gesteld (Is appel een fruit?) dan hebben we 2 mogelijke uitkomsten.
@@ -37,8 +34,8 @@
     {
         <span class="invis">@s.Name</span>
     }
-    <span class="invis">@Model.CorrectResult.Klimaatkenmerk</span>
-    <span class="invis">@Model.CorrectResult.Vegetatiekenmerk</span>
+    <span class="invis">@Model.CorrectResult.Climatefeature</span>
+    <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
 
 <div>
     @if(@ViewBag.SchoolYear > 2)
