@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
@@ -23,6 +24,11 @@ namespace p2groep11.Net.ViewModels
         public String[] ResultaatDeterminate { get;  set; }
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
+        public List<Result> AllResults { get; set; }
+        public List<SelectListItem> OptionsVegetation { get; set; }
+        [Required]
+        [Display(Name = "Vegetatie")]
+        public String SelectedVegetation { get; set; }
 
         public String HtmlDetTabel { get; private set; }
 
@@ -38,6 +44,7 @@ namespace p2groep11.Net.ViewModels
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
             CorrectPath = new List<Clause>();
             CorrectResult = new Result();
+            AllResults = new List<Result>();
 
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {
@@ -45,8 +52,15 @@ namespace p2groep11.Net.ViewModels
                     CorrectPath.Add((Clause)cc);
                 else
                     CorrectResult = (Result)cc;
-                
             }
+
+            foreach (ClauseComponent cc in table.AllClauseComponents)
+            {
+                if (cc.GetType().BaseType.ToString() != "p2groep11.Net.Models.Domain.Clause")
+                    AllResults.Add((Result)cc);
+            }
+
+            OptionsVegetation = AllResults.Select(result => new SelectListItem { Value = result.Vegetatiekenmerk, Text = result.Vegetatiekenmerk }).ToList();
         }
 
         public String[] Determinate(ClimateChart c, DeterminateTable t)
@@ -56,11 +70,6 @@ namespace p2groep11.Net.ViewModels
 
         public Highcharts DrawClimateChart(ClimateChart climateChart)
         {
-            
-
-
-            /*ClimateChart c = climateChart;*/
-
             int m = climateChart.CalculateMaxForChart();
             int[] sed = this.Months.Select(p => p.Sediment).ToArray();
             int[] tem = this.Months.Select(p => p.AverTemp).ToArray();
@@ -144,6 +153,7 @@ namespace p2groep11.Net.ViewModels
 
             return chart;
         }
+
         private void CopyIntArrayToObjectArray(int[] intArray, Object[] objectAr)
         {
             intArray.CopyTo(objectAr, 0);

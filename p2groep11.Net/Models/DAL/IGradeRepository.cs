@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL
@@ -7,6 +8,7 @@ namespace p2groep11.Net.Models.DAL
     {
         IQueryable<Grade> FindAll();
         Grade FindById(int gradeId);
+        //ICollection<Result> FindResults(int gradeId); 
         void Remove(Grade grade);
         void SaveChanges();      
     }

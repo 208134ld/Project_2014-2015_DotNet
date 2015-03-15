@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.Owin.Security.Notifications;
 
 namespace p2groep11.Net.Models.Domain
 {
     public class DeterminateTable
     {
         public int DeterminateTableId { get; set; }
-        public virtual ClauseComponent ClauseComponent { get; set; }
+        public ClauseComponent ClauseComponent { get; set; }
+        public virtual ICollection<ClauseComponent> AllClauseComponents { get; set; }
          
 
 
         public DeterminateTable(ClauseComponent component)
         {
-            this.ClauseComponent = component;
+            AllClauseComponents = new List<ClauseComponent>();
         }
 
 
