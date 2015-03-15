@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
-using System.Web;
+using System.Web.UI;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
@@ -15,16 +15,38 @@ namespace p2groep11.Net.ViewModels
     public class ClimateChartViewModel
     {
         private Image picture;
+
+        public ClimateChartViewModel(ClimateChart c, DeterminateTable table)
+        {
+            voorbeeld = new VoorbeelViewModel();
+            Months = c.Months;
+            Chart = DrawClimateChart(c);
+            AvgTemp = Months.Average(m => m.AverTemp);
+            SumSed = Months.Sum(m => m.Sediment);
+            this.table = table;
+            ResultaatDeterminate = Determinate(c, table);
+            HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
+            CorrectPath = new List<Clause>();
+            CorrectResult = new Result();
+            foreach (var cc in table.CorrectPath(c))
+            {
+                if (cc.GetType().BaseType.ToString() == "p2groep11.Net.Models.Domain.Clause")
+                    CorrectPath.Add((Clause) cc);
+                else
+                    CorrectResult = (Result) cc;
+            }
+           
+        }
         public Highcharts Chart { get; private set; }
         public IEnumerable<Month> Months { get; private set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double AvgTemp { get; private set; }
         public int SumSed { get; private set; }
         public DeterminateTable table { get; private set; }
-        public String[] ResultaatDeterminate { get;  set; }
+        public String[] ResultaatDeterminate { get; set; }
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
-
+        public VoorbeelViewModel voorbeeld { get; set; }
         public Image Picture
         {
             get { return picture; }
@@ -33,29 +55,6 @@ namespace p2groep11.Net.ViewModels
 
         public String HtmlDetTabel { get; private set; }
 
-        public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
-        {
-            this.Months = c.Months;
-            this.Chart = DrawClimateChart(c);
-            
-            AvgTemp =  Months.Average(m => m.AverTemp);
-            SumSed = Months.Sum(m => m.Sediment);
-            this.table = table;
-            ResultaatDeterminate = Determinate(c, table);
-            HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
-            CorrectPath = new List<Clause>();
-            CorrectResult = new Result();
-
-            foreach (ClauseComponent cc in table.CorrectPath(c))
-            {
-                if (cc.GetType().BaseType.ToString() == "p2groep11.Net.Models.Domain.Clause")
-                    CorrectPath.Add((Clause)cc);
-                else
-                    CorrectResult = (Result)cc;
-                
-            }
-        }
-
         public String[] Determinate(ClimateChart c, DeterminateTable t)
         {
             return t.Determinate(c);
@@ -63,24 +62,29 @@ namespace p2groep11.Net.ViewModels
 
         public Highcharts DrawClimateChart(ClimateChart climateChart)
         {
-            
-
-
             /*ClimateChart c = climateChart;*/
 
-            int m = climateChart.CalculateMaxForChart();
-            int[] sed = this.Months.Select(p => p.Sediment).ToArray();
-            int[] tem = this.Months.Select(p => p.AverTemp).ToArray();
-            Object[] sediments = new object[12];
-            Object[] temp = new object[12];
+            var m = climateChart.CalculateMaxForChart();
+            var sed = Months.Select(p => p.Sediment).ToArray();
+            var tem = Months.Select(p => p.AverTemp).ToArray();
+            var sediments = new object[12];
+            var temp = new object[12];
             CopyIntArrayToObjectArray(sed, sediments);
             CopyIntArrayToObjectArray(tem, temp);
-            Highcharts chart = new Highcharts("chart")
-               .InitChart(new Chart { ZoomType = ZoomTypes.Xy })
-               .SetTitle(new Title { Text = "klimatogram " + climateChart.Location + " (" + climateChart.Country.Name + ")" })
-               .SetSubtitle(new Subtitle { Text = climateChart.BeginPeriod + " - " + climateChart.EndPeriod }).SetCredits(new Credits{Enabled = false})
-               .SetXAxis(new XAxis { Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" } })
-               .SetYAxis(new[]
+            var chart = new Highcharts("chart")
+                .InitChart(new Chart {ZoomType = ZoomTypes.Xy})
+                .SetTitle(new Title
+                {
+                    Text = "klimatogram " + climateChart.Location + " (" + climateChart.Country.Name + ")"
+                })
+                .SetSubtitle(new Subtitle {Text = climateChart.BeginPeriod + " - " + climateChart.EndPeriod})
+                .SetCredits(new Credits {Enabled = false})
+                .SetXAxis(new XAxis
+                {
+                    Categories =
+                        new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+                })
+                .SetYAxis(new[]
                 {
                     new YAxis
                     {
@@ -97,7 +101,6 @@ namespace p2groep11.Net.ViewModels
                         Opposite = true,
                         Max = climateChart.CalculateMaxForChart()/2,
                         Min = climateChart.CalculateMinForChart()
-                        
                     },
                     new YAxis
                     {
@@ -115,21 +118,22 @@ namespace p2groep11.Net.ViewModels
                         Min = climateChart.CalculateMinForChart()*2
                     }
                 })
-               .SetTooltip(new Tooltip
-               {
-                   Formatter = "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag' ? ' mm' : '°C'); }"
-               })
-               .SetLegend(new Legend
-               {
-                   Layout = Layouts.Vertical,
-                   Align = HorizontalAligns.Left,
-                   X = 120,
-                   VerticalAlign = VerticalAligns.Top,
-                   Y = 10,
-                   Floating = true,
-                   //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
-               })
-               .SetSeries(new[]
+                .SetTooltip(new Tooltip
+                {
+                    Formatter =
+                        "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag' ? ' mm' : '°C'); }"
+                })
+                .SetLegend(new Legend
+                {
+                    Layout = Layouts.Vertical,
+                    Align = HorizontalAligns.Left,
+                    X = 120,
+                    VerticalAlign = VerticalAligns.Top,
+                    Y = 10,
+                    Floating = true
+                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
+                })
+                .SetSeries(new[]
                 {
                     new Series
                     {
@@ -138,7 +142,6 @@ namespace p2groep11.Net.ViewModels
                         Type = ChartTypes.Column,
                         YAxis = "1",
                         Data = new Data(sediments)
-                         
                     },
                     new Series
                     {
@@ -151,9 +154,27 @@ namespace p2groep11.Net.ViewModels
 
             return chart;
         }
+
         private void CopyIntArrayToObjectArray(int[] intArray, Object[] objectAr)
         {
             intArray.CopyTo(objectAr, 0);
         }
+    }
+
+    public class VoorbeelViewModel
+    {
+        public String Html { get; private set; }
+
+        public VoorbeelViewModel()
+        { 
+           Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
+           ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
+           ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
+           ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
+           tw10.Add(true, res1);
+           tw10.Add(false, res2);
+           Html = tw10.GetHtmlCode(true);
+        }
+
     }
 }

@@ -50,7 +50,11 @@ namespace p2groep11.Net.Models.Domain
 
         public Continent GetContinent(int continentId)
         {
-            return Continents.FirstOrDefault(c => c.ContinentID == continentId);
+            Continent cont =Continents.FirstOrDefault(c => c.ContinentID == continentId);
+            if (cont != null)
+                return cont;
+            else throw new ArgumentNullException("Continent met continentID " + continentId+ " is niet gevonden" );
+
         }
         
     }

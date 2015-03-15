@@ -21,6 +21,7 @@ namespace p2groep11.Net.Models.Domain
 
         public DeterminateTable()
         {
+
         }
 
         public String[] Determinate(ClimateChart chart)

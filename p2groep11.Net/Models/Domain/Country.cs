@@ -32,7 +32,10 @@ namespace p2groep11.Net.Models.Domain
 
         public ClimateChart GetClimateChart(int climateChartID )
         {
-            return ClimateCharts.FirstOrDefault(c => c.ClimateChartID == climateChartID);
+            ClimateChart c =ClimateCharts.FirstOrDefault(cl => cl.ClimateChartID == climateChartID);
+            if (c != null)
+                return c;
+            else throw new ArgumentNullException("ClimateChart met " + climateChartID + " not found");
         }
     }
 }

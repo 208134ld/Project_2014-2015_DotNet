@@ -33,7 +33,11 @@ namespace p2groep11.Net.Models.Domain
 
         public Country getCountry(int countryID)
         {
-           return Countries.FirstOrDefault(c => c.CountryID == countryID);
+            Country countrie = Countries.FirstOrDefault(c => c.CountryID == countryID);
+          
+            if(countrie!=null)
+                return countrie;
+            else throw new ArgumentNullException("land met " + countryID + "kon niet worden gevonden");
         }
     }
 }

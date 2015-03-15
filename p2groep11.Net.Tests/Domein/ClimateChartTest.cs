@@ -116,6 +116,12 @@ namespace p2groep11.Net.Tests.Domein
         }
 
         [TestMethod]
+        public void RainInWinterUnderEqGivesCorrectAmount()
+        {
+            ClimateChart c = context.NegTempClimateChart;
+            Assert.AreEqual(390,c.RainInWinter);
+        }
+        [TestMethod]
         public void RainInSummerCalculatesRainAboveEq()
         {
             ClimateChart c = context.Gent;
@@ -127,6 +133,14 @@ namespace p2groep11.Net.Tests.Domein
         {
             ClimateChart c = context.NegTempClimateChart;
             Assert.AreEqual(390, c.RainInSummer);
+        }
+
+        [TestMethod]
+        public void EmptyCtrSerialisedMonthsList()
+        {
+            ClimateChart c = new ClimateChart();
+            c.Months.Add(new Month(MonthsOfTheYear.Apr, 10,12));
+            Assert.AreEqual(12,c.Months[0].Sediment);
         }
     }
 }

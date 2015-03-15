@@ -142,35 +142,13 @@ namespace p2groep11.Net.Models.Domain
         }
 
         public int CalculateMaxForChart()
-        {
-            int mTemp = Months.Select(m => m.AverTemp).Max();
-            int mSed = Months.Select(m => m.Sediment).Max();
-            int max = 0;
-            if (mTemp > mSed)
-            {
-                max = mTemp;
-            }
-            else
-            {
-                max = mSed;
-            }
-            return max;
+        {  
+            return  Math.Max(Months.Max(m => m.AverTemp), Months.Max(m => m.Sediment));;
         }
 
         public int CalculateMinForChart()
         {
-            int mTemp = Months.Select(m => m.AverTemp).Min();
-            int mSed = Months.Select(m => m.Sediment).Min();
-            int min = 0;
-            if (mTemp < mSed)
-            {
-                min = mTemp;
-            }
-            else
-            {
-                min = mSed;
-            }
-            return min;
+            return Math.Min(Months.Min(m => m.AverTemp), Months.Min(m => m.Sediment));
         }
     }
 }
