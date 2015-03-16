@@ -37,10 +37,10 @@ namespace p2groep11.Net.Controllers
 
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 
-                    //om met database te werken
                     DeterminateTable ta = gr.DeterminateTableProp;
+                    ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);
                     String html = "";
-                    html = gr.DeterminateTableProp.ClauseComponent.GetHtmlCode(true);
+                    html = ta.ClauseComponent.GetHtmlCode(true);
 
                     return View(new ClimateChartViewModel(c, ta));
                 }
@@ -82,6 +82,12 @@ namespace p2groep11.Net.Controllers
         public ActionResult ListContinents(int schoolyear)
         {
             return RedirectToAction("ListContinents", "Continent", new {selectedYear = schoolyear});
+        }
+
+        [HttpPost]
+        public ActionResult SelectVegetation()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Web.UI;
+using System.Web;
+using System.Web.Mvc;
 using DotNet.Highcharts;
 using DotNet.Highcharts.Enums;
 using DotNet.Highcharts.Helpers;
@@ -24,12 +26,17 @@ namespace p2groep11.Net.ViewModels
         public String[] ResultaatDeterminate { get; set; }
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
-        public VoorbeelViewModel voorbeeld { get; set; }
-        public Image Picture
-        {
-            get { return picture; }
-            set { picture = CorrectResult.byteArrayToImage(); }
-        }
+        public List<Result> AllResults { get; set; }
+        public List<SelectListItem> OptionsVegetation { get; set; }
+        [Required]
+        [Display(Name = "Vegetatie")]
+        public String SelectedVegetation { get; set; }
+        //public VoorbeelViewModel voorbeeld { get; set; }
+        //public Image Picture
+        //{
+        //    get { return picture; }
+        //    set { picture = CorrectResult.byteArrayToImage(); }
+        //}
 
 
         //added
@@ -50,6 +57,7 @@ namespace p2groep11.Net.ViewModels
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
             CorrectPath = new List<Clause>();
             CorrectResult = new Result();
+            AllResults = new List<Result>();
 
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {
@@ -57,8 +65,16 @@ namespace p2groep11.Net.ViewModels
                     CorrectPath.Add((Clause)cc);
                 else
                     CorrectResult = (Result)cc;
-                
             }
+                
+            foreach (ClauseComponent cc in table.AllClauseComponents)
+            {
+                if (cc.GetType().BaseType.ToString() != "p2groep11.Net.Models.Domain.Clause")
+                    AllResults.Add((Result)cc);
+            }
+
+            OptionsVegetation = AllResults.Select(result => new SelectListItem { Value = result.Vegetationfeature, Text = result.Vegetationfeature }).ToList();
+            ByteArray = CorrectResult.VegetationPicture;
         }
 
         public String[] Determinate(ClimateChart c, DeterminateTable t)
@@ -68,8 +84,6 @@ namespace p2groep11.Net.ViewModels
 
         public Highcharts DrawClimateChart(ClimateChart climateChart)
         {
-            /*ClimateChart c = climateChart;*/
-
             var m = climateChart.CalculateMaxForChart();
             var sed = Months.Select(p => p.Sediment).ToArray();
             var tem = Months.Select(p => p.AverTemp).ToArray();
@@ -167,20 +181,20 @@ namespace p2groep11.Net.ViewModels
         }
     }
 
-    public class VoorbeelViewModel
-    {
-        public String Html { get; private set; }
+    //public class VoorbeelViewModel
+    //{
+    //    public String Html { get; private set; }
 
-        public VoorbeelViewModel()
-        { 
-           Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
-           ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
-           ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
-           ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
-           tw10.Add(true, res1);
-           tw10.Add(false, res2);
-           Html = tw10.GetHtmlCode(true);
-        }
+    //    public VoorbeelViewModel()
+    //    { 
+    //       Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
+    //       ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
+    //       ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
+    //       ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
+    //       tw10.Add(true, res1);
+    //       tw10.Add(false, res2);
+    //       Html = tw10.GetHtmlCode(true);
+    //    }
 
-    }
+    //}
 }

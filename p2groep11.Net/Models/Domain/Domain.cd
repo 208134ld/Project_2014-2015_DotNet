@@ -27,7 +27,7 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAEwgAAEAIIAAAoAAAIAAAAGAgAAEAACAAA=</HashCode>
+      <HashCode>AAAAQAAAAAEwgAAEAIIAAQgAAAIAAAAGAgAAEAACAAA=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -58,7 +58,7 @@
   <Class Name="p2groep11.Net.Models.Domain.Clause">
     <Position X="10.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAJADAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAEAAAk=</HashCode>
+      <HashCode>AAJADAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAIEAAAk=</HashCode>
       <FileName>Models\Domain\Clause.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -71,25 +71,29 @@
   <Class Name="p2groep11.Net.Models.Domain.ClauseComponent">
     <Position X="10.75" Y="3" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>EAJAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAJAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAIAAAAA=</HashCode>
       <FileName>Models\Domain\ClauseComponent.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DTable" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Result">
     <Position X="13" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAEAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAEAAAAAAAAAEAAAABAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Models\Domain\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.DeterminateTable">
     <Position X="5.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAgAAAAIAAAAAAAAAAAAgAAAAAMAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAAgAAAAIAAAAACAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Models\Domain\DeterminateTable.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="ClauseComponent" />
+      <Property Name="Results" />
     </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Grade">
@@ -172,5 +176,9 @@
       <FileName>Models\Domain\MK.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Interface Name="System.Collections.Generic.ICollection&lt;T&gt;" Collapsed="true">
+    <Position X="11" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -28,6 +28,7 @@ namespace p2groep11.Net.Models.Domain
         {
             
         }
+
         public override string[] Determinate(ClimateChart chart)
         {
             return new string[] { Climatefeature, Vegetationfeature };

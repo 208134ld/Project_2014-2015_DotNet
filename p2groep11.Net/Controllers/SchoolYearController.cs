@@ -61,14 +61,18 @@ namespace p2groep11.Net.Controllers
         {
             return View();
         }
-            private List<SelectListItem> GetYears()
-       {
-           List<SelectListItem> years = new List<SelectListItem>();
-           years.Add(new SelectListItem {Value = "1", Text = "1ste leerjaar"});
+
+        private List<SelectListItem> GetYears()
+        {
+            List<SelectListItem> years = new List<SelectListItem>();
+            years.Add(new SelectListItem {Value = "1", Text = "1ste leerjaar"});
+
             for (int i = 2; i < 7; i++)
-           {
+            {
                 years.Add(new SelectListItem{Value = i+"",Text = i+"de leerjaar"});
-           }            return years;
+            }        
+    
+            return years;
         }
 
     }
