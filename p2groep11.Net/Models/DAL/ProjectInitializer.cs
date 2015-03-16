@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
+using System.Web;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using p2groep11.Net.Models.Domain;
@@ -261,15 +263,85 @@ namespace p2groep11.Net.Models.DAL
                 Parameter nj = new NJ("");
                 Parameter tm = new TM("");
 
-                Image image = Image.FromFile(@"~/Content/img/toendra.JPG");
+                //Pictures aanmaken
+                Image image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
                 MemoryStream ms = new MemoryStream();
                 image.Save(ms, ImageFormat.Gif);
-                byte[] picture = ms.ToArray();
+                byte[] picture1 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/toendra.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture2 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/taiga.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture3 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/woestijnklimaatmiddelbreedten.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture4 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/woestijnklimaattropen.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture5 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/steppeklimaat.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture6 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/gemengdwoud.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture8 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/loofbos.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture9 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/subtropischregenwoud.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture10 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/hardbladigemiddelbreedten.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture11 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/hardbladigesubtropen.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture12 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/subtropischsavanne.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture13 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/tropischsavanne.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture14 = ms.ToArray();
+
+                image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/tropischregenwoud.JPG"));
+                ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture15 = ms.ToArray();
+
+                
+
+
                 //byte[] picture = null;
                 ClauseComponent tw10 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw,"<=", 0);
-                ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture);
-                ClauseComponent tw0No = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat", picture);
+                ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture1);
+                ClauseComponent tw0No = new Result("Koud klimaat met dooiseizoen", "Toendraklimaat", picture2);
                 tw0.Add(true, tw0Yes);
                 tw0.Add(false, tw0No);
                 tw10.Add(true, tw0);
@@ -277,13 +349,13 @@ namespace p2groep11.Net.Models.DAL
                 tw10.Add(false, tj0);
 
 
-                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture);
+                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture3);
                 tj0.Add(true, tj0Yes);
                 ClauseComponent nj200 = new Clause("NJ <= 200", nj,"<=", 200);
 
                 ClauseComponent tk15 = new Clause("TK <= 15", tk,"<=", 15);
-                ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten", picture);
-                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture);
+                ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten", picture4);
+                ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture5);
                 tk15.Add(true, tk15Yes);
                 tk15.Add(false, tk15No);
                 nj200.Add(true, tk15);
@@ -291,20 +363,20 @@ namespace p2groep11.Net.Models.DAL
 
                 ClauseComponent tk18 = new Clause("TK <= 18", tk,"<=", 18);
                 ClauseComponent nj400 = new Clause("NJ <= 400", nj,"<=", 400);
-                ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat", picture);
+                ClauseComponent nj400Yes = new Result("Gematigd, droog klimaat", "Steppeklimaat", picture6);
                 ClauseComponent tk10N = new Clause("TK <= -10", tk, "<=", - 10);
-                ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture);
+                ClauseComponent tk10NYes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture3);
                 ClauseComponent d1 = new Clause(" D <= 1", d,"<=", 1);
                 ClauseComponent tk3N = new Clause("TK <= -3", tk, "<=", - 3);
-                ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat", picture);
+                ClauseComponent tk3NYes = new Result("Koelgematigd klimaat met koude winter", "Gemengd-woudklimaat", picture8);
                 ClauseComponent tw22 = new Clause(" TW <= 22", tw,"<=", 22);
-                ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat", picture);
-                ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat", picture);
+                ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat", picture9);
+                ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat", picture10);
                 ClauseComponent nznw = new Clause("NZ <= NW", nz, nw);
                 ClauseComponent tw222 = new Clause("TW <= 22", tw,"<=", 22);
-                ClauseComponent tw222Yes = new Result("Koelgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de centrale middelbreedten", picture);
-                ClauseComponent tw222No = new Result("Warmgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de subtropen", picture);
-                ClauseComponent nznwNo = new Result("Warmgematigd klimaat met natte zomer", "Subtropisch savanneklimaat", picture);
+                ClauseComponent tw222Yes = new Result("Koelgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de centrale middelbreedten", picture11);
+                ClauseComponent tw222No = new Result("Warmgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de subtropen", picture12);
+                ClauseComponent nznwNo = new Result("Warmgematigd klimaat met natte zomer", "Subtropisch savanneklimaat", picture13);
 
                 tw222.Add(true, tw222Yes);
                 tw222.Add(false, tw222No);
@@ -324,8 +396,8 @@ namespace p2groep11.Net.Models.DAL
                 nj200.Add(false, tk18);
 
                 ClauseComponent d12 = new Clause("D <= 1", d,"<=", 1);
-                ClauseComponent d12Yes = new Result("Warm klimaat met nat seizoen", "Tropisch savanneklimaat", picture);
-                ClauseComponent d12No = new Result("Warm altijd nat klimaat", "Tropisch regenwoudklimaat", picture);
+                ClauseComponent d12Yes = new Result("Warm klimaat met nat seizoen", "Tropisch savanneklimaat", picture14);
+                ClauseComponent d12No = new Result("Warm altijd nat klimaat", "Tropisch regenwoudklimaat", picture15);
                 d12.Add(true, d12Yes);
                 d12.Add(false, d12No);
                 tk18.Add(false, d12);
@@ -343,8 +415,14 @@ namespace p2groep11.Net.Models.DAL
 
                 results1.ForEach(r => r.DTable = detTable1);
                 results1.ForEach(r => detTable1.AllClauseComponents.Add(r));
-                
 
+
+
+                Image image1 = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
+                MemoryStream ms1 = new MemoryStream();
+                image1.Save(ms, ImageFormat.Gif);
+                byte[] picture = ms1.ToArray();
+                
                 //Determineertabel voor 1e graad opbouwen
                 ClauseComponent tw10V1 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0V1 = new Clause("TW <= 0", tw,"<=", 0);
