@@ -26,5 +26,10 @@ namespace p2groep11.Net
         {
             return chart.TotalRainOfYear;
         }
+
+        public override string[] GiveOptAnswers(ClimateChart chart)
+        {
+            throw new ApplicationException();
+        }
     }
 }

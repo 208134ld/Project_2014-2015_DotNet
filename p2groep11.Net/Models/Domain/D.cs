@@ -11,7 +11,8 @@ namespace p2groep11.Net
 {
     public class D : Parameter
     {
-        public String Beschrijving { get; set; }
+        public string Beschrijving { get; set; }
+        public string Answer { get; set; } 
 
         public D()
         {
@@ -23,7 +24,13 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
+            Answer = chart.TotalDryMonths.ToString();
             return chart.TotalDryMonths;
+        }
+
+        public override string[] GiveOptAnswers(ClimateChart chart)
+        {
+            return chart.AmountOfMonths();
         }
     }
 }
