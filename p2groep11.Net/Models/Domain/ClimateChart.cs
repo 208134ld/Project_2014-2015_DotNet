@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
+using WebGrease.Css.Extensions;
 
 namespace p2groep11.Net.Models.Domain
 {
@@ -12,10 +14,14 @@ namespace p2groep11.Net.Models.Domain
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
         public virtual List<Month> Months { get; private set; }
+        public int[] SedimentArray { get; set; }
+        public int[] TempArray { get; set; }
 
         public ClimateChart()
         {
             Months = new List<Month>();
+            SedimentArray = new int[12];
+            TempArray = new int[12];
         }
 
         public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments)
@@ -25,6 +31,8 @@ namespace p2groep11.Net.Models.Domain
             BeginPeriod = begin;
             EndPeriod = end;
             Months = new List<Month>();
+            SedimentArray = sediments;
+            TempArray = temperatures;
             MakeMonthsList(temperatures, sediments);
         }
 
@@ -48,6 +56,73 @@ namespace p2groep11.Net.Models.Domain
             get
             {
                 return Months.Select(m => m.AverTemp).Min();
+            }
+        }
+
+        public int ColdestMonthMK  //MK
+        {
+            get
+            {
+                string MK = "";
+                //return Months.Select(m => m.MonthProp).Where();//ForEach(m => m.AverTemp.Equals(ColdestMonth))
+                foreach (Month m in Months)
+                {
+                    if (m.AverTemp == ColdestMonth)
+                    {
+                        MK = m.MonthProp.ToString();
+                    }
+                }
+                return CalcMonthInt(MK);
+            }
+        }
+
+        public int HottestMonthMW  //MW
+        {
+            get
+            {
+                string MW = "";
+                //return Months.Select(m => m.MonthProp).Where();//ForEach(m => m.AverTemp.Equals(ColdestMonth))
+                foreach (Month m in Months)
+                {
+                    if (m.AverTemp == HottestMonth)
+                    {
+                        MW = m.MonthProp.ToString();
+                    }
+                }
+                return CalcMonthInt(MW);
+            }
+        }
+
+        public int CalcMonthInt(string month)
+        {
+            switch (month)
+            { //Jan,Feb,Mrt,Apr,Mei,Jun,Jul,Aug,Sep,Okt,Nov,Dec
+                case "Jan":
+                    return 1;
+                case "Feb":
+                    return 2;
+                case "Mrt":
+                    return 3;
+                case "Apr":
+                    return 4;
+                case "Mei":
+                    return 5;
+                case "Jun":
+                    return 6;
+                case "Jul":
+                    return 7;
+                case "Aug":
+                    return 8;
+                case "Sep":
+                    return 9;
+                case "Okt":
+                    return 10;
+                case "Nov":
+                    return 11;
+                case "Dec":
+                    return 12;
+                default:
+                    return 0;
             }
         }
 
@@ -150,5 +225,44 @@ namespace p2groep11.Net.Models.Domain
         {
             return Math.Min(Months.Min(m => m.AverTemp), Months.Min(m => m.Sediment));
         }
+
+        public string[] GetMonthsOfYear()
+        {
+            List<string> theMonths = new List<string>();
+            foreach (MonthsOfTheYear month in Enum.GetValues(typeof(MonthsOfTheYear)))
+            {
+                theMonths.Add(month.ToString());
+            }
+            return theMonths.ToArray();
+        }
+
+        public string[] GetAllTemperatures()
+        {
+            return TempArray.Select(t => t.ToString()).ToArray();
+        }
+
+        public string[] GetAllSediments()
+        {
+            return SedimentArray.Select(t => t.ToString()).ToArray();
+        }
+
+        public string[] AmountOfMonths()
+        {
+            int[] maandenInts = new int[12];
+            for (int i = 0; i < 12; i++)
+            {
+                maandenInts[i] = i+1;
+            }
+            return maandenInts.Select(t => t.ToString()).ToArray();
+        }
+
+        public string[] TotalRainfallInts()
+        {
+            string[] maandenStr = new string[2];
+            maandenStr[0] = RainInSummer.ToString();
+            maandenStr[1] = RainInWinter.ToString();
+            return maandenStr;
+        }
+
     }
 }

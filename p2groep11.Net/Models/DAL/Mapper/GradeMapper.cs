@@ -23,6 +23,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasRequired(g => g.DeterminateTableProp);
             HasMany(g => g.Continents).WithMany(g => g.Grades);
             HasMany(g => g.SchoolYears).WithRequired(g => g.GradeProp);
+            HasOptional(g => g.QuestionListProp);
         }
     }
 }

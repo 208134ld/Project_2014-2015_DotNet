@@ -14,6 +14,7 @@ namespace p2groep11.Net.Models.Domain
         public virtual DeterminateTable DeterminateTableProp { get; set; }
         public virtual ICollection<Continent> Continents { get; set; }
         public virtual ICollection<SchoolYear> SchoolYears { get; private set; }
+        public virtual QuestionList QuestionListProp { get; set; }
 
         public int GradeId
         {
