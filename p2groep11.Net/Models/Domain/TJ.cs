@@ -26,5 +26,10 @@ namespace p2groep11.Net
         {
             return chart.AverageYearTemp;
         }
+
+        public override string[] GiveOptAnswers(ClimateChart chart)
+        {
+            throw new ApplicationException();
+        }
     }
 }

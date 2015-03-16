@@ -23,5 +23,10 @@ namespace p2groep11.Net
         {
             return chart.MonthsAbove10Degree;
         }
+
+        public override string[] GiveOptAnswers(ClimateChart chart)
+        {
+            throw new ApplicationException();
+        }
     }
 }

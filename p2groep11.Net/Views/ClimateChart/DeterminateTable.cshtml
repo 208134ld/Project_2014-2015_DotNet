@@ -14,16 +14,13 @@
     <div class="close">x</div>
     <h2>Voorbeeld werking determinatietabel</h2>
     <div class="tree">
-        <ul>
-            @Html.Raw(@Model.voorbeeld.Html);
-        </ul>
-        <input type="button" class="testBut" value="Valideer"/>
+    <input type="button" class="testBut" value="Valideer"/>
         <span class="invis">Is appel een fruit?</span><span class="invis">Appel is een fruit</span>
         <p>Eerst word een vraag gesteld (Is appel een fruit?) dan hebben we 2 mogelijke uitkomsten.
             groen staat voor ja (appel is een fruit) en rood staat voor nee (appel is geen fruit).
-            Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
+        Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
         </p>
-    </div></div>
+</div></div>
 <div class="success">
 </div>
 <div class="tree">
@@ -39,35 +36,54 @@
     }
     <span class="invis">@Model.CorrectResult.Climatefeature</span>
     <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
-
-@*<div>
+    
+<div>
     @if(@ViewBag.SchoolYear > 2)
     {
         <div class="pane">
-            @using (Html.BeginForm("SelectVegetation", "ClimateChart", FormMethod.Post))
+            @using (Html.BeginForm("SelectVegetation", "ClimateChart", new {correctVegetation = @Model.CorrectResult.Vegetationfeature}, FormMethod.Post))
             {
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectedVegetation)
                     @Html.DropDownListFor(model => model.SelectedVegetation, Model.OptionsVegetation,
-                "--Selecteer een vegetatie--", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.SelectedVegetation, "", new { @class = "text-danger" })
+                        "--Selecteer een vegetatie--", new {@class = "form-control"})
+                    @Html.ValidationMessageFor(model => model.SelectedVegetation, "", new {@class = "text-danger"})
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Ga verder" class="btn btn-default" />
+                    <input type="submit" value="Ga verder" class="btn btn-default"/>
                 </div>
             }
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
             }
-        </div>*@
+        </div>
+        if (TempData["FoutVegetatie"] != null)
+        {
+            <div class="alert alert-danger">@TempData["FoutVegetatie"]</div>
+
+            <p>Wilt u een foto van het vegetatietype bekijken?</p>
+        
+            @Html.ActionLink("Ja", "WatchPictureVegetation", "ClimateChart")
+        }
+
+        if (TempData["WatchPicture"] != null)
+        {
+            <div>
+                @{
+                    var base64 = Convert.ToBase64String(Model.ByteArray);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+                <img src="@imgSrc" />
+            </div>
+        }
+        
     }
-    
+     
+
 </div>
-<span class="invis">@Model.CorrectResult.Climatefeature</span>
-<span class="invis">@Model.CorrectResult.Vegetationfeature</span>
 
 @*@{
     var base64 = Convert.ToBase64String(Model.ByteArray);

@@ -11,6 +11,7 @@ namespace p2groep11.Net
     public class TW : Parameter
     {
         public String Beschrijving { get; set; }
+        public string Answer { get; set; } 
 
         public TW()
         {
@@ -23,7 +24,13 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
+            Answer = chart.HottestMonth.ToString();
             return chart.HottestMonth;
+        }
+
+        public override string[] GiveOptAnswers(ClimateChart chart)
+        {
+            return chart.GetAllTemperatures();
         }
     }
 }
