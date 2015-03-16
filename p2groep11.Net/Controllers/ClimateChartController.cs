@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web.Mvc;
 using System.Windows.Forms;
 using p2groep11.Net.Models.DAL;
@@ -84,18 +85,37 @@ namespace p2groep11.Net.Controllers
             return RedirectToAction("ListContinents", "Continent", new {selectedYear = schoolyear});
         }
 
+        [HttpGet]
+        public ActionResult SelectVegetation()
+        {
+            return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+        }
+
         [HttpPost]
         public ActionResult SelectVegetation(String selectedVegetation, String correctVegetation)
         {
             if (ModelState.IsValid)
             {
-                if (selectedVegetation.Equals(correctVegetation))
-                {
-                    MessageBox.Show("U heeft het juiste vegetatietype gekozen!");
-                    return RedirectToAction("index", "SchoolYear");
+                try{
+                    if (selectedVegetation.Equals(correctVegetation))
+                    {
+                        MessageBox.Show("U heeft het juiste vegetatietype gekozen!");
+                        return RedirectToAction("index", "SchoolYear");
+                    }
+                    TempData["FoutVegetatie"] = "U heeft het foute vegetatietype gekozen!";
+                    //MessageBox.Show("U heeft het foute vegetatietype gekozen!");
                 }
-                MessageBox.Show("U heeft het foute vegetatietype gekozen!");
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("",e.Message);
+                }
             }
+            return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+        }
+
+        public ActionResult WatchPictureVegetation()
+        {
+            TempData["WatchPicture"] = "Yes";
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
     }

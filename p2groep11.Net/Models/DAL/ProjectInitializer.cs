@@ -4,12 +4,14 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using p2groep11.Net.Models.Domain;
+using Image = System.Drawing.Image;
+using Parameter = p2groep11.Net.Models.Domain.Parameter;
 
 namespace p2groep11.Net.Models.DAL
 {
@@ -258,13 +260,12 @@ namespace p2groep11.Net.Models.DAL
                 Parameter tj = new TJ("");
                 Parameter nj = new NJ("");
                 Parameter tm = new TM("");
-                
-                
-                //Image image = Image.FromFile(@"C:\Users\SAMUEL\Pictures\Panda_Suit.png");
-                //MemoryStream ms = new MemoryStream();
-                //image.Save(ms, ImageFormat.Gif);
-                //byte[] picture = ms.ToArray();
-                byte[] picture = null;
+
+                Image image = Image.FromFile(@"~/Content/img/toendra.JPG");
+                MemoryStream ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Gif);
+                byte[] picture = ms.ToArray();
+                //byte[] picture = null;
                 ClauseComponent tw10 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw,"<=", 0);
                 ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture);
