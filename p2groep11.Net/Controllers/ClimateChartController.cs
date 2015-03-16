@@ -42,7 +42,6 @@ namespace p2groep11.Net.Controllers
                     ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);
                     String html = "";
                     html = ta.ClauseComponent.GetHtmlCode(true);
-
                     return View(new ClimateChartViewModel(c, ta));
                 }
                 catch (SqlException sqlExc)

@@ -151,7 +151,7 @@ background-color: #DFF2BF;
     background-color: beige;
 }
 .invis {
-    visibility: visible;
+    visibility: hidden;
 }
 .AnswerC {
     border: 1px solid #777777;
