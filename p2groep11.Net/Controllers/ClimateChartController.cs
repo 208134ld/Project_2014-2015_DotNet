@@ -98,9 +98,18 @@ namespace p2groep11.Net.Controllers
         }
 
         [HttpPost]
-        public ActionResult SelectVegetation()
+        public ActionResult SelectVegetation(String selectedVegetation, String correctVegetation)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                if (selectedVegetation.Equals(correctVegetation))
+                {
+                    MessageBox.Show("U heeft het juiste vegetatietype gekozen!");
+                    return RedirectToAction("index", "SchoolYear");
+                }
+                MessageBox.Show("U heeft het foute vegetatietype gekozen!");
+            }
+            return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
     }
 }
