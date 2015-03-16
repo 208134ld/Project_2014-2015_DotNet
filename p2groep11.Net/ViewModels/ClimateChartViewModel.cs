@@ -46,6 +46,7 @@ namespace p2groep11.Net.ViewModels
 
         public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
         {
+            voorbeeld = new VoorbeelViewModel();
             this.Months = c.Months;
             this.Chart = DrawClimateChart(c);
             

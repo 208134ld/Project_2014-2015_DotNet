@@ -39,9 +39,9 @@ namespace p2groep11.Net.Tests.Controllers
            England.CountryID = 2;
            Belgium.AboveEquator = true;
            England.AboveEquator = false; //voor te testen. England ligt obviously boven de Equator
-           int[] temp = new int[]{1,2,3,4,5,6,7,8,9,10,11,12};
-           int[] sed = new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120};
-           int[] temp2 = new int[] { 1, 2, 3, 0, -10, -5, 7, 8, 9, 10, 11, 12 };
+           int[] temp = new int[]{1,5,3,4,5,6,7,8,9,10,40,12};
+           int[] sed = new int[] {10, 206, 30, 200, 50, 60, 70, 80, 20, 100, 110, 120};
+           int[] temp2 = new int[] { 1, 2, 3, 0, -10, -12, 7, 8, 9, 10, 11, 12 };
            int[] sed2 = new int[] { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
            NegTempClimateChart = new ClimateChart("Chelsea",2000,2030,temp2,sed2);
            NegTempClimateChart.Country = England;
@@ -79,6 +79,7 @@ namespace p2groep11.Net.Tests.Controllers
            DetTable2 = new DeterminateTable(CC2);
            DetTable3 = new DeterminateTable(CC3);
            DetTable4 = new DeterminateTable(CC4);
+           Graad.DeterminateTableProp = DetTable;
        }
     }
 }

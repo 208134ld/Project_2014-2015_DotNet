@@ -14,14 +14,14 @@ namespace p2groep11.Net.Tests.Controllers
     public class SchoolYearControllerTest
     {
         private SchoolYearController controller;
-        private Mock<GradeRepository> repo;
+        private Mock<IGradeRepository> repo;
         private DummyDataContext context;
         [TestInitialize]
         public void Init()
         {
             context = new DummyDataContext();
-            repo = new Mock<GradeRepository>();
-            repo.Setup(m => m.FindById(1)).Returns(context.Graad);
+            repo = new Mock<IGradeRepository>();
+            repo.Setup(m => m.FindBySchoolyear(1)).Returns(context.Graad);
             controller = new SchoolYearController(repo.Object);
             
            

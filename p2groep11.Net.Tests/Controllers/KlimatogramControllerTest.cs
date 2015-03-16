@@ -28,7 +28,7 @@ namespace p2groep11.Net.Tests.Controllers
             context = new DummyDataContext();
             
             gradeRepository = new Mock<IGradeRepository>();
-            gradeRepository.Setup(c => c.FindById(1)).Returns(context.Graad);
+            gradeRepository.Setup(c => c.FindBySchoolyear(1)).Returns(context.Graad);
 
             continent = context.Europa;
             controller = new ClimateChartController(gradeRepository.Object);
@@ -41,17 +41,15 @@ namespace p2groep11.Net.Tests.Controllers
         [TestMethod]
         public void ErrorInShowClimateChartRedirectToSelectSchoolyear()
         {
-            
             controller.ModelState.AddModelError("key", "error");
             RedirectToRouteResult result = controller.ShowClimateChart(1,1,1,1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["Action"]);
         }
-
+        //crasht bij viewmodel constructor foreach
         [TestMethod]
         public void ShowClimatogramPassesViewmodelToView()
         {
-            
-            ViewResult result = controller.ShowClimateChart(1,1,1,1) as ViewResult;
+            ViewResult result =controller.ShowClimateChart(1, 1, 1, 1)as ViewResult; 
             ClimateChartViewModel model = result.Model as ClimateChartViewModel;
             Assert.AreEqual(model.Months,context.Gent.Months);
         }
