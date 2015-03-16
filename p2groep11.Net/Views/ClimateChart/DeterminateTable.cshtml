@@ -14,13 +14,16 @@
     <div class="close">x</div>
     <h2>Voorbeeld werking determinatietabel</h2>
     <div class="tree">
-    <input type="button" class="testBut" value="Valideer"/>
+        <ul>
+            @Html.Raw(@Model.voorbeeld.Html);
+        </ul>
+        <input type="button" class="testBut" value="Valideer"/>
         <span class="invis">Is appel een fruit?</span><span class="invis">Appel is een fruit</span>
         <p>Eerst word een vraag gesteld (Is appel een fruit?) dan hebben we 2 mogelijke uitkomsten.
             groen staat voor ja (appel is een fruit) en rood staat voor nee (appel is geen fruit).
-        Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
+            Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
         </p>
-</div></div>
+    </div></div>
 <div class="success">
 </div>
 <div class="tree">
@@ -37,7 +40,7 @@
     <span class="invis">@Model.CorrectResult.Climatefeature</span>
     <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
 
-<div>
+@*<div>
     @if(@ViewBag.SchoolYear > 2)
     {
         <div class="pane">
@@ -59,7 +62,7 @@
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
             }
-        </div>
+        </div>*@
     }
     
 </div>

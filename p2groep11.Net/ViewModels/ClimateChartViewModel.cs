@@ -31,7 +31,7 @@ namespace p2groep11.Net.ViewModels
         [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
-        //public VoorbeelViewModel voorbeeld { get; set; }
+        public VoorbeelViewModel voorbeeld { get; set; }
         //public Image Picture
         //{
         //    get { return picture; }
@@ -181,20 +181,20 @@ namespace p2groep11.Net.ViewModels
         }
     }
 
-    //public class VoorbeelViewModel
-    //{
-    //    public String Html { get; private set; }
+    public class VoorbeelViewModel
+    {
+        public String Html { get; private set; }
 
-    //    public VoorbeelViewModel()
-    //    { 
-    //       Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
-    //       ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
-    //       ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
-    //       ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
-    //       tw10.Add(true, res1);
-    //       tw10.Add(false, res2);
-    //       Html = tw10.GetHtmlCode(true);
-    //    }
+        public VoorbeelViewModel()
+        {
+            Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
+            ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
+            ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
+            ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
+            tw10.Add(true, res1);
+            tw10.Add(false, res2);
+            Html = tw10.GetHtmlCode(true);
+        }
 
-    //}
+    }
 }
