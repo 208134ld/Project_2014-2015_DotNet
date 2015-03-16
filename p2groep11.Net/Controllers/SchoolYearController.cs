@@ -54,7 +54,7 @@ namespace p2groep11.Net.Controllers
                 }
                
             }
-                return View(new SchoolYearFormViewModel());
+                return View(new SchoolYearFormViewModel(GetYears()));
         }
 
         public ActionResult Error()

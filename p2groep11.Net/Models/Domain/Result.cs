@@ -48,5 +48,9 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
+        public Image byteArrayToImage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

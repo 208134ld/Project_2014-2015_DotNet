@@ -125,7 +125,7 @@ namespace p2groep11.Net.Tests.Domein
         public void RainInSummerCalculatesRainAboveEq()
         {
             ClimateChart c = context.Gent;
-            Assert.AreEqual(390,c.RainInSummer);
+            Assert.AreEqual(480,c.RainInSummer);
         }
 
         [TestMethod]
