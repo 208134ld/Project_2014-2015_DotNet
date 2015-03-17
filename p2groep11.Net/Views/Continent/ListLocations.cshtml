@@ -1,4 +1,5 @@
-﻿@model IEnumerable<p2groep11.Net.ViewModels.LocationListViewModel>
+﻿@using System.Globalization
+@model IEnumerable<p2groep11.Net.ViewModels.LocationListViewModel>
 
 @{
     ViewBag.Title = "Locations";
@@ -29,11 +30,23 @@
 </p>
 
 <div>
+    <div class="titlesBold">
+        <div class="chartName">Locatie</div>
+        <div class="chartLatitude">Latitude</div>
+        <div class="chartLongitude">Longitude</div>
+    </div>
+    <br/>
     @foreach (var item in Model)
     {
-        <div>      
-            @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
-            new { selectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID }, null)
+        <div class="itemRow">
+            <div class="chartName">
+                @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
+                    new {selectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID}, null)
+            </div>
+            <div class="chartLatitude">@item.ChartLatitude</div>
+            <div class="chartLongitude">@item.ChartLongitude</div>
+            <div class="mapsLink"><a href="https://www.google.be/maps/preview/&#64;@item.ChartLatitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),@item.ChartLongitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),13z" target="_blank">Bekijk op Google Maps!</a></div>
         </div>
+        <br/>
     }
 </div>

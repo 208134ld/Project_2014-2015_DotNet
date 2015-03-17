@@ -22,6 +22,9 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.Location).IsRequired();
             Property(c => c.BeginPeriod).IsRequired();
             Property(c => c.EndPeriod).IsRequired();
+            Property(c => c.AboveEquator).IsRequired();
+            Property(c => c.Latitude).IsRequired();
+            Property(c => c.Longitude).IsRequired();
 
             //Relations
             HasMany(c => c.Months);

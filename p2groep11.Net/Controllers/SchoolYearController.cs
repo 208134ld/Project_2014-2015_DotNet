@@ -43,6 +43,7 @@ namespace p2groep11.Net.Controllers
                         case 1:
                             return RedirectToAction("ListCountries", "Continent", new { SelectedYear, continentId = 1});
                         case 2:
+                        case 3:
                             return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                         default:
                             return RedirectToAction("Error");

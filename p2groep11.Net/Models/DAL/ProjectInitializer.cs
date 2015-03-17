@@ -61,37 +61,38 @@ namespace p2groep11.Net.Models.DAL
                 grades.ForEach(g => context.Grades.Add(g));
 
                 //AFRIKA
-                Country algerije = new Country {Name = "Algerije"};
-                Country benin = new Country {Name = "Benin"};
-                Country djibouti = new Country {Name = "Djibouti"};
-                Country egypte = new Country {Name = "Egypte"};
-                Country eritrea = new Country {Name = "Eritrea"};
-                Country gabon = new Country {Name = "Gabon"};
-                Country guinea = new Country {Name = "Guinea"};
-                Country ivoorkust = new Country {Name = "Ivoorkust"};
-                Country kaapverdië = new Country {Name = "Kaapverdië"};
-                Country kenia = new Country {Name = "Kenia"};
-                Country madagascar = new Country {Name = "Madagascar"};
-                Country madeira = new Country {Name = "Madeira (Portugal)"};
-                Country malawi = new Country {Name = "Malawi"};
-                Country mali = new Country {Name = "Mali"};
-                Country marokko = new Country {Name = "Marokko"};
-                Country mauritius = new Country {Name = "Mauritius"};
-                Country niger = new Country {Name = "Niger"};
-                Country nigeria = new Country {Name = "Nigeria"};
-                Country senegal = new Country {Name = "Senegal"};
-                Country seychellen = new Country {Name = "Seychellen"};
-                Country sierraLeone = new Country {Name = "Sierra Leone"};
-                Country soedan = new Country {Name = "Soedan"};
-                Country togo = new Country {Name = "Togo"};
-                Country tsjaad = new Country {Name = "Tsjaad"};
-                Country tunesië = new Country {Name = "Tunesië"};
-                Country zambia = new Country {Name = "Zambia"};
-                Country zimbabwe = new Country {Name = "Zimbabwe"};
-                Country zuidAfrika = new Country {Name = "Zuid Afrika"};
+                Country algerije = new Country ("Algerije");
+                Country benin = new Country ( "Benin");
+                Country congo = new Country ("Congo");
+                Country djibouti = new Country ("Djibouti");
+                Country egypte = new Country ("Egypte");
+                Country eritrea = new Country ("Eritrea");
+                Country gabon = new Country ("Gabon");
+                Country guinea = new Country ("Guinea");
+                Country ivoorkust = new Country ("Ivoorkust");
+                Country kaapverdië = new Country ("Kaapverdië");
+                Country kenia = new Country ("Kenia");
+                Country madagascar = new Country ("Madagascar");
+                Country madeira = new Country ("Madeira (Portugal)");
+                Country malawi = new Country ("Malawi");
+                Country mali = new Country ("Mali");
+                Country marokko = new Country ("Marokko");
+                Country mauritius = new Country ("Mauritius");
+                Country niger = new Country ("Niger");
+                Country nigeria = new Country ("Nigeria");
+                Country senegal = new Country ("Senegal");
+                Country seychellen = new Country ("Seychellen");
+                Country sierraLeone = new Country ("Sierra Leone");
+                Country soedan = new Country ("Soedan");
+                Country togo = new Country ("Togo");
+                Country tsjaad = new Country ("Tsjaad");
+                Country tunesië = new Country ("Tunesië");
+                Country zambia = new Country ("Zambia");
+                Country zimbabwe = new Country ("Zimbabwe");
+                Country zuidAfrika = new Country ("Zuid Afrika");
                 List<Country> countriesAfrika = (new Country[]
                 {
-                    algerije, benin, djibouti, egypte, eritrea, gabon, guinea,
+                    algerije, benin, congo, djibouti, egypte, eritrea, gabon, guinea,
                     ivoorkust, kaapverdië, kenia, madagascar, madeira, malawi,
                     mali, marokko, mauritius, niger, nigeria, senegal, seychellen,
                     sierraLeone, soedan, togo, tsjaad, tunesië, zambia, zimbabwe, zuidAfrika              
@@ -148,7 +149,7 @@ namespace p2groep11.Net.Models.DAL
                 countriesAzië.ForEach(c => azië.Countries.Add(c));
 
                 //EUROPA
-                Country belgië = new Country {Name = "België"};
+                Country belgië = new Country("België");
                 Country bosnië = new Country {Name = "Bosnië-Hercegovina"};
                 Country bulgarije = new Country {Name = "Bulgarije"};
                 Country cyprus = new Country {Name = "Cyprus"};
@@ -349,7 +350,7 @@ namespace p2groep11.Net.Models.DAL
                 tw10.Add(false, tj0);
 
 
-                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture3);
+                ClauseComponent tj0Yes = new Result(" Koudgematigd klimaat met strenge winter", " Taigaklimaat", picture3);
                 tj0.Add(true, tj0Yes);
                 ClauseComponent nj200 = new Clause("NJ <= 200", nj,"<=", 200);
 
@@ -478,12 +479,12 @@ namespace p2groep11.Net.Models.DAL
                 grade3.DeterminateTableProp = detTable1;
 
                 //_______________
-                int[] temps = new int[] {10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 9};
-                int[] sed = new[] {120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100};
+                int[] temps = new int[] {2, 3, 5, 8, 12, 15, 17, 17, 14, 10, 6, 3};
+                int[] sed = new[] {51, 42, 46, 50, 59, 65, 72, 74, 72, 72, 64, 59};
                 int[] temps2 = new int[] {10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9};
                 int[] sed2 = new[] {120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100};
-                ClimateChart gent = new ClimateChart("Gent", 1920, 1921, temps, sed);
-                ClimateChart brugge = new ClimateChart("Brugge", 1550, 1551, temps2, sed2);
+                ClimateChart gent = new ClimateChart("Gent", 1961, 1990, temps, sed, 51.054342, 3.717424);
+                ClimateChart brugge = new ClimateChart("Ukkel", 1961, 1990, temps2, sed2, 50.802398, 4.340670);
                 
 
 

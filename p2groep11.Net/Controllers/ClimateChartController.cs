@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Windows.Forms;
 using p2groep11.Net.Models.DAL;
@@ -85,7 +86,7 @@ namespace p2groep11.Net.Controllers
         }
 
         [HttpPost]
-        public ActionResult SelectVegetation(String selectedVegetation, String correctVegetation, int schoolYear)
+        public ActionResult SelectVegetation(String selectedVegetation, String correctVegetation, int SelectedYear)
         {
             
             if (ModelState.IsValid)
@@ -93,8 +94,10 @@ namespace p2groep11.Net.Controllers
                 try{
                     if (selectedVegetation.Equals(correctVegetation))
                     {
-                        MessageBox.Show("U heeft het juiste vegetatietype gekozen!");
-                        return RedirectToAction("index", "SchoolYear");
+                        TempData["Succes"] =
+                            "U heeft het juiste vegetatietype gekozen! U kan verder gaan met een andere locatie.";
+
+                        return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                     }
                     TempData["FoutVegetatie"] = "U heeft het foute vegetatietype gekozen!";
                 }

@@ -16,6 +16,9 @@ namespace p2groep11.Net.Models.Domain
         public virtual List<Month> Months { get; private set; }
         public int[] SedimentArray { get; set; }
         public int[] TempArray { get; set; }
+        public bool AboveEquator { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
         public ClimateChart()
         {
@@ -24,7 +27,7 @@ namespace p2groep11.Net.Models.Domain
             TempArray = new int[12];
         }
 
-        public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments)
+        public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments, double latitude, double longitude)
         {
 
             Location = loc;
@@ -34,6 +37,9 @@ namespace p2groep11.Net.Models.Domain
             SedimentArray = sediments;
             TempArray = temperatures;
             MakeMonthsList(temperatures, sediments);
+            Latitude = latitude;
+            Longitude = longitude;
+            AboveEquator = latitude > 0;
         }
 
         public int HottestMonth //TW
@@ -146,7 +152,7 @@ namespace p2groep11.Net.Models.Domain
         {
             get
             {
-                if (Country.AboveEquator)
+                if (AboveEquator)
                 {
                     var count = 0;
                     for (var i = 3; i < 9; i++)
@@ -172,7 +178,7 @@ namespace p2groep11.Net.Models.Domain
         {
             get
             {
-                if (!Country.AboveEquator)
+                if (!AboveEquator)
                 {
                     var count = 0;
                     for (var i = 3; i < 9; i++)

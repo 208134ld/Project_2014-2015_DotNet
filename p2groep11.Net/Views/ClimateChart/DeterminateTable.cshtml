@@ -63,7 +63,7 @@
             </div>
         }
         <div class="pane">
-            @using (Html.BeginForm("SelectVegetation", "ClimateChart", new {correctVegetation = @Model.CorrectResult.Vegetationfeature, schoolYear = @ViewBag.SchoolYear}, FormMethod.Post))
+            @using (Html.BeginForm("SelectVegetation", "ClimateChart", new { correctVegetation = @Model.CorrectResult.Vegetationfeature, SelectedYear = @ViewBag.SchoolYear }, FormMethod.Post))
             {
                 @Html.ValidationSummary(true)
 

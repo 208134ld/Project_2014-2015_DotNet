@@ -224,4 +224,27 @@ background-color: #DFF2BF;
 .vegetation-img {
     margin: 20px;
 }
- 
+
+.chartName, .chartLongitude, .chartLatitude {
+    display: inline-block;
+    width: 150px;
+}
+
+.titlesBold {
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 19px;
+}
+
+.mapsLink {
+    display: inline-block;
+    width: 200px;
+}
+
+.itemRow {
+    border-bottom: 1px solid grey;
+    line-height: 0px;
+    padding-bottom: 19px;
+}

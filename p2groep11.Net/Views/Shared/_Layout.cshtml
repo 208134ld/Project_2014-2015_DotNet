@@ -29,6 +29,14 @@
         {
             <div class="alert alert-danger">@TempData["Error"]</div>
         }
+        @if (TempData["FoutVegetatie"] != null)
+        {
+            <div class="alert alert-danger">@TempData["FoutVegetatie"]</div>
+        }
+        @if (TempData["Succes"] != null)
+        {
+            <div class="alert alert-success">@TempData["Succes"]</div>
+        }
     </div>
 <div class="container body-content">
     @RenderBody()
