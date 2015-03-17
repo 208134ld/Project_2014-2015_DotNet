@@ -23,19 +23,19 @@
     @using (Html.BeginForm("ListLocations", "Continent", FormMethod.Get))
     {
         <div>
-            Locatie: @Html.TextBox("Search")
-            <input type="submit" value="Zoek" />
+            Locatie: @Html.TextBox("Search", null, new { @class = "targetSearch" })
+            <input class="targetSearch" type="submit" value="Zoek" />
         </div>
     }
 </p>
 
 <div>
     <div class="titlesBold">
-        <div class="chartName">Locatie</div>
-        <div class="chartLatitude">Latitude</div>
-        <div class="chartLongitude">Longitude</div>
+        <div class="chartNameTitle">Locatie</div>
+        <div class="chartLatitudeTitle">Latitude</div>
+        <div class="chartLongitudeTitle">Longitude</div>
     </div>
-    <br/>
+    
     @foreach (var item in Model)
     {
         <div class="itemRow">
@@ -45,8 +45,11 @@
             </div>
             <div class="chartLatitude">@item.ChartLatitude</div>
             <div class="chartLongitude">@item.ChartLongitude</div>
-            <div class="mapsLink"><a href="https://www.google.be/maps/preview/&#64;@item.ChartLatitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),@item.ChartLongitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),13z" target="_blank">Bekijk op Google Maps!</a></div>
+            <div class="mapsLink"><a href="https://www.google.be/maps/preview/&#64;@item.ChartLatitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),@item.ChartLongitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),13z" target="_blank">Bekijk op Google Maps!</a>
+            </div>
         </div>
-        <br/>
     }
+    
 </div>
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Content/SearchFunction.js" type="text/javascript"></script>

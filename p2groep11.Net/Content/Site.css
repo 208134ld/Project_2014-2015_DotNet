@@ -245,6 +245,11 @@ background-color: #DFF2BF;
 
 .itemRow {
     border-bottom: 1px solid grey;
-    line-height: 0px;
-    padding-bottom: 19px;
+    padding: 10px;
+    padding-left: 0px;
+}
+
+.chartNameTitle, .chartLongitudeTitle, .chartLatitudeTitle {
+    display: inline-block;
+    width: 150px;
 }

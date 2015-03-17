@@ -483,12 +483,17 @@ namespace p2groep11.Net.Models.DAL
                 int[] sed = new[] {51, 42, 46, 50, 59, 65, 72, 74, 72, 72, 64, 59};
                 int[] temps2 = new int[] {10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9};
                 int[] sed2 = new[] {120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100};
+                int[] temps3 = new int[] { 1, 2, 5, 8, 12, 15, 17, 16, 14, 9, 5, 1 };
+                int[] sed3 = new[] { 80, 65, 63, 59, 67, 72, 79, 78, 73, 76, 78, 83 };
+                int[] temps4 = new int[] { 2, 3, 5, 8, 12, 15, 17, 16, 14, 10, 5, 3 };
+                int[] sed4 = new[] { 58, 47, 50, 54, 66, 72, 78, 76, 70, 70, 66, 65 };
                 ClimateChart gent = new ClimateChart("Gent", 1961, 1990, temps, sed, 51.054342, 3.717424);
-                ClimateChart brugge = new ClimateChart("Ukkel", 1961, 1990, temps2, sed2, 50.802398, 4.340670);
-                
+                ClimateChart ukkel = new ClimateChart("Ukkel", 1961, 1990, temps2, sed2, 50.802398, 4.340670);
+                ClimateChart virton = new ClimateChart("Virton", 1961, 1990, temps3, sed3, 49.567574, 5.533507);
+                ClimateChart chievres = new ClimateChart("Chièvres", 1961, 1990, temps4, sed4, 50.585970, 3.806090);
 
 
-                List<ClimateChart> climateCharts = (new ClimateChart[] {gent, brugge}).ToList();
+                List<ClimateChart> climateCharts = (new ClimateChart[] {gent, chievres, ukkel, virton}).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 context.SaveChanges();
                 Debug.WriteLine("Database created!");
