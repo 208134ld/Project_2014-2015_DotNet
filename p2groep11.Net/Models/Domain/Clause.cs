@@ -13,7 +13,7 @@ namespace p2groep11.Net.Models.Domain
 
         public virtual Parameter Par1 { get; set; }
         public virtual Parameter Par2 { get; set; }
-        private int Waarde { get; set; }
+        public int Waarde { get; set; }
         public String Operator { get; set; }
 
         public Clause()

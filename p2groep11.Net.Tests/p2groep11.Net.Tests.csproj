@@ -99,17 +99,19 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\ContinentControllerTest.cs" />
-    <Compile Include="Controllers\DummyDataContext.cs" />
+    <Compile Include="Controllers\DummyDataContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\KlimatogramControllerTest.cs" />
     <Compile Include="Controllers\SchoolYearControllerTest.cs" />
+    <Compile Include="Domein\ClauseTest.cs" />
     <Compile Include="Domein\ClimateChartTest.cs" />
+    <Compile Include="Domein\ContinentTest.cs" />
+    <Compile Include="Domein\CountryTest.cs" />
     <Compile Include="Domein\DeterminateTableTest.cs" />
     <Compile Include="Domein\GradeTest.cs" />
     <Compile Include="Domein\MonthTest.cs" />
     <Compile Include="Domein\SchoolYearTest.cs" />
-    <Compile Include="Domein\ContinentTest.cs" />
-    <Compile Include="Domein\CountryTest.cs" />
-    <Compile Include="Domein\ClauseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
