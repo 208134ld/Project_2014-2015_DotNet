@@ -8,41 +8,46 @@
 }
 @if (TempData["FoutVegetatie"] == null)
 {
-<h2>Determineertabel</h2>
-<a href="#" class="lightbox">
-    <p class="glyphicon glyphicon-info-sign"></p></a>
+    <h2>Determineertabel</h2>
+    <a href="#" class="lightbox">
+        <p class="glyphicon glyphicon-info-sign"></p></a>
 
-<div class="backdrop"></div>
-<div class="box">
-    <div class="close">x</div>
-    <h2>Voorbeeld werking determinatietabel</h2>
-    <div class="tree">
-    <input type="button" class="testBut" value="Controleer"/>
-        <span class="invis">Is appel een fruit?</span><span class="invis">Appel is een fruit</span>
-        <p>Eerst word een vraag gesteld (Is appel een fruit?) dan hebben we 2 mogelijke uitkomsten.
-            groen staat voor ja (appel is een fruit) en rood staat voor nee (appel is geen fruit).
-        Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
-        </p>
-</div></div>
-<div class="success">
-</div>
+    <div class="backdrop"></div>
+    <div class="box">
+        <div class="close">x</div>
+
+        <h2>Voorbeeld werking determinatietabel</h2>
+        <div class="tree">
+            <ul class="voorbeeld">
+                @Html.Raw(@Model.Voorbeeld.Html)
+            </ul>
+            <input type="button" class="btn-success testBut2" value="Controleer"/>
+            <div class="invisV"><span class="invisVoorbeeld">Is appel een fruit?</span><span class="invisVoorbeeld">Appel is een fruit</span></div>
+            <p>Eerst word een vraag gesteld (Is appel een fruit?) dan hebben we 2 mogelijke uitkomsten.
+                groen staat voor ja (appel is een fruit) en rood staat voor nee (appel is geen fruit).
+                Om dit tot een goed einde te brengen klikken we op "is appel een fruit" en "appel is een fruit".
+            </p>
+        </div>
+    </div>
+    <div class="success">
+    </div>
 
     <div class="tree">
-        <ul>
-            @Html.Raw(@Model.HtmlDetTabel);
+        <ul class="main">
+            @Html.Raw(@Model.HtmlDetTabel)
         </ul>
-        <input type="button" class="testBut" value="Valideer"/>
+        <input type="button" class="btn-success testBut" value="Controleer"/>
+    </div>
+    <div class="invisC">
+        @foreach (Clause s in @Model.CorrectPath)
+        {
+            <span class="invis">@s.Name</span>
+        }
+
+        <span class="invis">@Model.CorrectResult.Climatefeature</span>
+        <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
     </div>
 }
-
-    @*@foreach (Clause s in @Model.CorrectPath)
-    {
-        <span class="invis">@s.Name</span>
-    }
-    <span class="invis">@Model.CorrectResult.Climatefeature</span>
-    <span class="invis">@Model.CorrectResult.Vegetationfeature</span>*@
-
-    
 <div>
     @if (@ViewBag.SchoolYear > 2)
     {
@@ -68,7 +73,7 @@
                         "--Selecteer een vegetatie--", new {@class = "form-control"})
                     @Html.ValidationMessageFor(model => model.SelectedVegetation, "", new {@class = "text-danger"})
                 </div>
-                
+
                 <div class="form-group">
                     <input type="submit" value="Ga verder" class="btn btn-default"/>
                 </div>
@@ -78,15 +83,15 @@
             }
 
             @if (TempData["FoutVegetatie"] != null)
+        {
+            if (ViewBag.SchoolYear >= 4)
             {
-                if (ViewBag.SchoolYear >= 4)
-                {
                     <p class="buttonVegetation showVegetationPicture">Bekijk een foto van het vegetatietype</p>
                     //@Html.ActionLink("Ja", "WatchPictureVegetation", "ClimateChart")
-                }
             }
+        }
         </div>
-        
+
         if (TempData["FoutVegetatie"] != null)
         {
             <div class="imageVegetationHide">

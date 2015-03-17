@@ -31,7 +31,7 @@ namespace p2groep11.Net.ViewModels
         [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
-        public VoorbeelViewModel voorbeeld { get; set; }
+        public VoorbeelViewModel Voorbeeld { get; set; }
         //public Image Picture
         //{
         //    get { return picture; }
@@ -46,7 +46,7 @@ namespace p2groep11.Net.ViewModels
 
         public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
         {
-            voorbeeld = new VoorbeelViewModel();
+            Voorbeeld = new VoorbeelViewModel();
             this.Months = c.Months;
             this.Chart = DrawClimateChart(c);
             
@@ -110,12 +110,12 @@ namespace p2groep11.Net.ViewModels
                     {
                         Labels = new YAxisLabels
                         {
-                            Formatter = "function() { return this.value +'°C'; }",
+                            Formatter = "function() { return this.value; }",
                             Style = "color: '#DE091E'"
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Temperatuur",
+                            Text = "Temperatuur (T) in °C",
                             Style = "color: '#DE091E'"
                         },
                         Opposite = true,
@@ -131,7 +131,7 @@ namespace p2groep11.Net.ViewModels
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Neerslag",
+                            Text = "Neerslag (N) in mm",
                             Style = "color: '#4572A7'"
                         },
                         Max = climateChart.CalculateMaxForChart(),
@@ -157,7 +157,7 @@ namespace p2groep11.Net.ViewModels
                 {
                     new Series
                     {
-                        Name = "Neerslag",
+                        Name = "Neerslag in mmN",
                         Color = ColorTranslator.FromHtml("#4572A7"),
                         Type = ChartTypes.Column,
                         YAxis = "1",
@@ -165,7 +165,7 @@ namespace p2groep11.Net.ViewModels
                     },
                     new Series
                     {
-                        Name = "Temperatuur",
+                        Name = "Temperatuur in °C",
                         Color = ColorTranslator.FromHtml("#DE091E"),
                         Type = ChartTypes.Spline,
                         Data = new Data(temp)
@@ -186,14 +186,14 @@ namespace p2groep11.Net.ViewModels
         public String Html { get; private set; }
 
         public VoorbeelViewModel()
-        {
-            Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
-            ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
-            ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
-            ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
-            tw10.Add(true, res1);
-            tw10.Add(false, res2);
-            Html = tw10.GetHtmlCode(true);
+        { 
+           Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
+           ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
+           ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
+           ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
+           tw10.Add(true, res1);
+           tw10.Add(false, res2);
+           Html = tw10.GetHtmlCode(true);
         }
 
     }
