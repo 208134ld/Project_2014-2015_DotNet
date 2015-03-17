@@ -106,10 +106,10 @@ namespace p2groep11.Net.Controllers
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
 
-        public ActionResult WatchPictureVegetation()
-        {
-            TempData["WatchPicture"] = "Yes";
-            return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
-        }
+        //public ActionResult WatchPictureVegetation()
+        //{
+        //    TempData["WatchPicture"] = "Yes";
+        //    return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
+        //}
     }
 }

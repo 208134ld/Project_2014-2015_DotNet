@@ -196,4 +196,23 @@ background-color: #DFF2BF;
     margin-right: 6px;
     cursor: pointer;
 }
+
+.buttonVegetation {
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #0078e7;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.buttonVegetation:hover {
+    color: white;
+}
+
+.vegetation-img {
+    margin: 20px;
+}
  
