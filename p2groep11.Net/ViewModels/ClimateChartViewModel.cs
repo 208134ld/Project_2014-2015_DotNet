@@ -110,12 +110,12 @@ namespace p2groep11.Net.ViewModels
                     {
                         Labels = new YAxisLabels
                         {
-                            Formatter = "function() { return this.value +'°C'; }",
+                            Formatter = "function() { return this.value; }",
                             Style = "color: '#DE091E'"
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Temperatuur",
+                            Text = "Temperatuur (T) in °C",
                             Style = "color: '#DE091E'"
                         },
                         Opposite = true,
@@ -131,7 +131,7 @@ namespace p2groep11.Net.ViewModels
                         },
                         Title = new YAxisTitle
                         {
-                            Text = "Neerslag",
+                            Text = "Neerslag (N) in mm",
                             Style = "color: '#4572A7'"
                         },
                         Max = climateChart.CalculateMaxForChart(),
@@ -157,7 +157,7 @@ namespace p2groep11.Net.ViewModels
                 {
                     new Series
                     {
-                        Name = "Neerslag",
+                        Name = "Neerslag in mmN",
                         Color = ColorTranslator.FromHtml("#4572A7"),
                         Type = ChartTypes.Column,
                         YAxis = "1",
@@ -165,7 +165,7 @@ namespace p2groep11.Net.ViewModels
                     },
                     new Series
                     {
-                        Name = "Temperatuur",
+                        Name = "Temperatuur in °C",
                         Color = ColorTranslator.FromHtml("#DE091E"),
                         Type = ChartTypes.Spline,
                         Data = new Data(temp)

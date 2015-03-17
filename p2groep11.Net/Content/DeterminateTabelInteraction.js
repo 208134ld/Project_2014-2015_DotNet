@@ -22,7 +22,7 @@
         //console.log("Compare word aangeroepen");
 
         //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
-        var detPath = $(".invis");
+        var detPath = $(".invisC").find(".invis");
         var wrightArr = [];
         var found = false;
         $.each(itemsYes, function (key, valueItem) {
@@ -72,7 +72,7 @@
         return x;
     }
     $(".YesSpan").on("click", function () {
-        console.log($(this));
+        //console.log($(this));
         $(this).toggleClass("YesSpanActive");
     });
     $(".NoSpan").on("click", function() {
@@ -80,23 +80,82 @@
     });
 
     $(".testBut").on("click", function () {
-        
-        var selectedItemsYes = document.getElementsByClassName("YesSpanActive");
-        var selectedItemsNo = document.getElementsByClassName("NoSpanActive");
+      
+        var selectedItemsYes = $(".main").find(".YesSpanActive");
+        var selectedItemsNo = $(".main").find(".NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);
+        
         var wrightArr = compare(yesNo);
         removeClassesFromWrongItems(wrightArr);
+        console.log($(".AnswerC"));
         console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
-        if ($(".AnswerC").length == $(".invis").length-1) {
-            console.log("validate bereikt" + $(".invis").length);
+        if ($(".AnswerC").length == $(".invisC").find(".invis").length-1) {
+            //console.log("validate bereikt" + $(".invis").length);
            
-                var detPath = $(".invis");
+                var detPath = $(".invisC").find(".invis");
               
                 $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
                $(".success").append("<p> Het klimaattype is "+detPath[detPath.length - 1].textContent+"</p>");
-               //console.log("Einde bereikt");
-           
+               //      
+        }
 
+    });
+    //VOORBEELD VIEW
+    function removeClassesFromWrongItems2(items) {
+        $(".success").empty();
+        if (items.length != 0) {
+            $(".success").append("<p> Volgende statements zijn juist:</p>");
+            $.each(items, function (key, i) {
+                $(".success").append("<p>" + $(this).context.textContent + "</p>");
+                $(this).removeClass();
+                $(this).addClass("AnswerV");
+            });
+        }
+        $.each($(".YesSpanActive"), function (key, i) {
+            $(this).removeClass("YesSpanActive");
+            $(this).addClass("YesSpan");
+        });
+        $.each($(".NoSpanActive"), function (key, i) {
+            $(this).removeClass("NoSpanActive");
+            $(this).addClass("NoSpan");
+        });
+
+    }
+    function compare2(itemsYes) {
+        //console.log("Compare word aangeroepen");
+
+        //var detPath = ["TW <= 10", "TJ <= 0", "Koudgematigd klimaat met strenge winter"];
+        var detPath = $(".invisVoorbeeld");
+        var wrightArr = [];
+        var found = false;
+        $.each(itemsYes, function (key, valueItem) {
+            found = false;
+            $.each(detPath, function (keyDet, valueDet) {
+                //console.log(valueItem.textContent + " = ????? " + valueDet.textContent);
+                if ((valueItem.textContent == " " + valueDet.textContent)) {
+                    //console.log(valueItem.textContent + " =  " + valueDet.textContent);
+                    wrightArr.push(valueItem);
+                    found = true;
+                }
+            });
+        });
+        return wrightArr;
+    }
+    $(".testBut2").on("click", function () {
+
+        var selectedItemsYes = $(".voorbeeld").find(".YesSpanActive");
+        var selectedItemsNo = $(".voorbeeld").find(".NoSpanActive");
+        var yesNo = concat(selectedItemsYes, selectedItemsNo);
+      
+        var wrightArr = compare2(yesNo);
+        removeClassesFromWrongItems2(wrightArr);
+        //console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
+        if ($(".AnswerV").length == $(".invisVoorbeeld").length - 1) {
+            //console.log("validate bereikt" + $(".invis").length);
+            var detPath = $(".invisVoorbeeld");
+            $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
+            $(".success").append("<p> Het klimaattype is " + detPath[detPath.length - 1].textContent + "</p>");
+            //      
         }
 
     });

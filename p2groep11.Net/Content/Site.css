@@ -153,7 +153,16 @@ background-color: #DFF2BF;
 .invis {
     visibility: hidden;
 }
+.invisVoorbeeld {
+    visibility: hidden;
+}
 .AnswerC {
+    border: 1px solid #777777;
+    background-color: #308029;
+    color: white;
+    margin-left: 20px;
+}
+.AnswerV {
     border: 1px solid #777777;
     background-color: #308029;
     color: white;
