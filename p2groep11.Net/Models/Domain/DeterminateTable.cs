@@ -18,9 +18,6 @@ namespace p2groep11.Net.Models.Domain
         {
             AllClauseComponents = new List<ClauseComponent>();
         }
-
-
-
         public DeterminateTable()
         {
 
