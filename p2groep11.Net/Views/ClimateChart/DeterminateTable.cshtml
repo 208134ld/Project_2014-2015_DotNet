@@ -8,7 +8,45 @@
 }
 @if (TempData["FoutVegetatie"] == null)
 {
+
     <h2>Determineertabel</h2>
+    <h3>Legende</h3>
+    <table>
+        <tr>
+            <th>Code</th><th>uitleg</th>
+        </tr>
+        <tr>
+            <td>TW</td><td>Temperatuur van de warmste maand</td>
+        </tr>
+        <tr>
+            <td>TM</td>
+            <td>Warmste maand</td>
+        </tr>
+        <tr>
+            <td>TK</td>
+            <td>Temperatuur koudste maand</td>
+        </tr>
+        <tr>
+            <td>NJ</td>
+            <td>Totale jaarneerslag in mm</td>
+        </tr>
+        <tr>
+            <td>TJ</td>
+            <td>Gemiddelde jaartemperatuur in °C</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>Aantal droge maanden. Een maand is droog als 2 * maandtemperatuur > maandneerslag</td>
+        </tr>
+        <tr>
+            <td>NZ</td>
+            <td>Hoeveelheid neerslag in de zomer</td>
+        </tr>
+        <tr>
+            <td>NW</td>
+            <td>Hoeveelheid neerslag in de winter</td>
+        </tr>
+    </table>
     <a href="#" class="lightbox">
         <p class="glyphicon glyphicon-info-sign"></p></a>
 
