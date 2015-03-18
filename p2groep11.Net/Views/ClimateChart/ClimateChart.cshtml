@@ -1,0 +1,55 @@
+﻿
+@using p2groep11.Net.Models.Domain
+@model p2groep11.Net.ViewModels.ClimateChartViewModel
+<link rel="stylesheet" type="text/css" href="../../Content/bootstrap-tree.css"/>
+
+@{
+    ViewBag.Title = "Klimatogram";
+}
+@if (TempData["FoutVegetatie"] == null)
+{
+    <div class="ClimateChartDisplay">
+        <h2>Klimatogram</h2>
+
+        <div class="ClimateChart">@(Model.Chart)</div>
+
+        @(Model.Chart)
+        <div class="container">
+            <div class="ClimateTable">
+                <table class="table-condensed">
+
+                    <tr>
+                        <th></th>
+                        @foreach (Month m in @Model.Months)
+                        {
+                            <th>@m.MonthProp</th>
+                        }
+                        <th class="alert">Jaar</th>
+                    </tr>
+                    <tr>
+                        <th>T in °C</th>
+                        @foreach (Month m in @Model.Months)
+                        {
+                            <th class="alert-danger">@m.AverTemp</th>
+                        }
+
+                        <th>@Html.DisplayFor(modelItem => Model.AvgTemp)</th>
+                    </tr>
+                    <tr>
+                        <th>N in mm</th>
+                        @foreach (Month m in @Model.Months)
+                        {
+                            <th class="alert-info">@m.Sediment</th>
+                        }
+                        <th>@Model.SumSed</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="determinateResult">
+                Klimaatkenmerk: @Model.ResultaatDeterminate[0]<br />
+                Vegetatiekenmerk: @Model.ResultaatDeterminate[1]<br />
+            </div>
+        </div>
+    </div>
+}
