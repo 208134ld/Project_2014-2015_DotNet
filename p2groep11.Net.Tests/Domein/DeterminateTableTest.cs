@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using p2groep11.Net.Models.Domain;
@@ -33,25 +34,25 @@ namespace p2groep11.Net.Tests.Domein
             Country belgië = new Country { Name = "België" };
             temps = new int[] { 10, 12, 12, 14, 15, 20, 28, 32, 28, 16, 6, 2 };
             sed = new[] { 120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100 };
-            chart = new ClimateChart("Gent", 1990, 1991, temps, sed);
+            chart = new ClimateChart("Gent", 1990, 1991, temps, sed, 55, 6);
             chart.Country = belgië;
 
             temps2 = new int[] { 14, 15, 17, 21, 25, 27, 28, 27, 26, 23, 19, 15 };
             sed2 = new[] { 7, 4, 4, 2, 0, 0, 0, 0, 0, 1, 3, 5 };
-            chart2 = new ClimateChart("Kaïro", 1961, 1990, temps2, sed2);
+            chart2 = new ClimateChart("Kaïro", 1961, 1990, temps2, sed2, -20, 2);
             Country egypte = new Country { Name = "Egypte" };
-            egypte.AboveEquator = false;
+            //egypte.AboveEquator = false;
             chart2.Country = egypte;
 
             temps3 = new int[] { 0, 1, 5, 11, 17, 22, 25, 24, 20, 14, 9, 3 };
             sed3 = new[] { 77, 73, 91, 96, 97, 91, 103, 95, 86, 77, 97, 86 };
-            chart3 = new ClimateChart("New York", 1961, 1990, temps3, sed3);
+            chart3 = new ClimateChart("New York", 1961, 1990, temps3, sed3, 50, -50);
             Country newyork = new Country { Name = "New York" };
             chart3.Country = newyork;
 
             temps4 = new int[] { 25, 1, 5, 11, 17, 22, 25, 24, 20, 14, 9, 3 };
             sed4 = new[] { 1, 2, 0, 0, 0, 100, 100, 100, 100, 100, 0, 0 };
-            chart4 = new ClimateChart("Fictief", 1961, 1990, temps4, sed4);
+            chart4 = new ClimateChart("Fictief", 1961, 1990, temps4, sed4, 60, 20);
             Country fictief = new Country { Name = "Fictief" };
             chart4.Country = fictief;
             Parameter mw = new MW("Wat is de warmste maand?");
@@ -83,7 +84,7 @@ namespace p2groep11.Net.Tests.Domein
 
             ClauseComponent tk15 = new Clause("TK <= 15", tk, "<=", 15);
             ClauseComponent tk15Yes = new Result("Gematigd altijd droog klimaat", "Woestijnklimaat van de middelbreedten", picture);
-            ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture); //Nooit gebruikt in de tabel!!!!
+            ClauseComponent tk15No = new Result("Warm altijd droog klimaat", "Woestijnklimaat van de tropen", picture);
             tk15.Add(true, tk15Yes);
             tk15.Add(false, tk15Yes);
             nj200.Add(true, tk15);
@@ -130,6 +131,19 @@ namespace p2groep11.Net.Tests.Domein
             d12.Add(false, d12No);
             tk18.Add(false, d12);
             dTable = new DeterminateTable(tw10);
+
+            List<ClauseComponent> results1 = (new ClauseComponent[]
+                {
+                    tw0, tj0,nj200, tk15,tk18, nj400, tk10N, d1, tk3N, tw22, nznw, tw222, d12,
+                    tw0Yes, tw0No, tj0Yes,
+                    tk15Yes, tk15No, nj400Yes, tk10NYes, tk3NYes,
+                    tw22Yes, tw22No, tw222Yes, tw222No, nznwNo,
+                    d12Yes, d12No, tw10
+                }).ToList();
+
+            results1.ForEach(r => r.DTable = dTable);
+            results1.ForEach(r => dTable.AllClauseComponents.Add(r));
+            dTable.ClauseComponent = dTable.AllClauseComponents.ElementAt(dTable.AllClauseComponents.Count - 1);
         }
 
         [TestMethod]
