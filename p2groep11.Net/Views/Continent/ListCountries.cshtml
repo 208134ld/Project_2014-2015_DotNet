@@ -35,14 +35,12 @@
     @foreach (var item in Model)
     {
         
-        <div class="col-md-4">
             <div>
                 <div class="chartName">
                     @Html.ActionLink(@item.Name, "ListLocations",
                         new {Selectedyear = @ViewBag.SchoolYear, continentId = item.ContinentId, countryId = item.CountryId})
                 </div>
             </div>
-        </div>
     }
 </div>
 @Scripts.Render("~/bundles/jquery")

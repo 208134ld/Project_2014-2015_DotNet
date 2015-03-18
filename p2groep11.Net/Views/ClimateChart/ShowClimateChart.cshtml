@@ -14,11 +14,17 @@
     @Html.ActionLink("Kies schooljaar", "Index", "SchoolYear") >
     @if (@ViewBag.Schoolyear > 2)
     {
-        @Html.ActionLink("Kies continent", "ListContinents", new {@ViewBag.SchoolYear})
+        @Html.ActionLink("Kies continent", "ListContinents", "Continent", new {Selectedyear = @ViewBag.SchoolYear}, null)
         <span>></span>
     }
-    @Html.ActionLink("Kies land", "ListCountries", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId}) >
-    @Html.ActionLink("Kies locatie", "ListLocations", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId}) >
+    @if (true)
+    {
+        TempData["SelectedYear"] = ViewBag.SchoolYear;
+        TempData["continentId"] = ViewBag.ContinentId;
+    }
+    @Html.ActionLink("Kies land", "ListCountries", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId}, null) >
+    
+    @Html.ActionLink("Kies locatie", "ListLocations", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId}, null) >
     @Html.ActionLink("Klimatogram", "ShowClimateChart", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId, climateId = @ViewBag.ClimateId}) >
 </div>
 @if (TempData["FoutVegetatie"] == null)
