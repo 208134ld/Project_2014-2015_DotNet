@@ -331,6 +331,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\ClimateChart\DeterminateTable.cshtml" />
+    <Content Include="Views\ClimateChart\ClimateChart.cshtml" />
+    <Content Include="Views\ClimateChart\Questions.cshtml" />
+    <Content Include="Views\ClimateChart\SelectVegetation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

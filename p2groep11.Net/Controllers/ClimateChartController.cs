@@ -79,7 +79,9 @@ namespace p2groep11.Net.Controllers
                             "U heeft het juiste vegetatietype gekozen! U kan verder gaan met een andere locatie.";
 
                         return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
+                    
                     }
+                    
                     TempData["FoutVegetatie"] = "U heeft het foute vegetatietype gekozen!";
                 }
                 catch (Exception e)
@@ -87,6 +89,7 @@ namespace p2groep11.Net.Controllers
                     ModelState.AddModelError("",e.Message);
                 }
             }
+            //return View();
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
     }

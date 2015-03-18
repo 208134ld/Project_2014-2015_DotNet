@@ -8,47 +8,47 @@
 }
 @if (TempData["FoutVegetatie"] == null)
 {
-
-    <h2>Determineertabel</h2>
-    <h3>Legende</h3>
-    <table>
-        <tr>
-            <th>Code</th><th>uitleg</th>
-        </tr>
-        <tr>
-            <td>TW</td><td>Temperatuur van de warmste maand</td>
-        </tr>
-        <tr>
-            <td>TM</td>
-            <td>Warmste maand</td>
-        </tr>
-        <tr>
-            <td>TK</td>
-            <td>Temperatuur koudste maand</td>
-        </tr>
-        <tr>
-            <td>NJ</td>
-            <td>Totale jaarneerslag in mm</td>
-        </tr>
-        <tr>
-            <td>TJ</td>
-            <td>Gemiddelde jaartemperatuur in °C</td>
-        </tr>
-        <tr>
-            <td>D</td>
-            <td>Aantal droge maanden. Een maand is droog als 2 * maandtemperatuur > maandneerslag</td>
-        </tr>
-        <tr>
-            <td>NZ</td>
-            <td>Hoeveelheid neerslag in de zomer</td>
-        </tr>
-        <tr>
-            <td>NW</td>
-            <td>Hoeveelheid neerslag in de winter</td>
-        </tr>
-    </table>
-    <a href="#" class="lightbox">
-        <p class="glyphicon glyphicon-info-sign"></p></a>
+    <div class="determinateTable">
+        <h2>Determineertabel</h2>
+        <h3>Legende</h3>
+        <table class="legendTable">
+            <tr>
+                <th>Code</th><th>Uitleg</th>
+            </tr>
+            <tr>
+                <td>TW</td><td>Temperatuur van de warmste maand</td>
+            </tr>
+            <tr>
+                <td>TM</td>
+                <td>Warmste maand</td>
+            </tr>
+            <tr>
+                <td>TK</td>
+                <td>Temperatuur koudste maand</td>
+            </tr>
+            <tr>
+                <td>NJ</td>
+                <td>Totale jaarneerslag in mm</td>
+            </tr>
+            <tr>
+                <td>TJ</td>
+                <td>Gemiddelde jaartemperatuur in °C</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>Aantal droge maanden. Een maand is droog als 2 * maandtemperatuur > maandneerslag</td>
+            </tr>
+            <tr>
+                <td>NZ</td>
+                <td>Hoeveelheid neerslag in de zomer</td>
+            </tr>
+            <tr>
+                <td>NW</td>
+                <td>Hoeveelheid neerslag in de winter</td>
+            </tr>
+        </table>
+        <a href="#" class="lightbox">
+            <p class="glyphicon glyphicon-info-sign"></p></a>
 
     <div class="backdrop"></div>
     <div class="box">
@@ -67,99 +67,41 @@
             </p>
         </div>
     </div>
-    <div class="success">
     </div>
+}
 
-    if (@ViewBag.SchoolYear < 3)
-    {
-        <div class="vegetationImg1steGraad">
-            <h3>Foto vegetatietype</h3>
-            <h4>Vegetatietype: @Model.ResultaatDeterminate[1]</h4>
-            <br />
-            @{
-        var base64 = Convert.ToBase64String(Model.ByteArray);
-        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-            }
-            <img src="@imgSrc" />
-        </div>
-    }
-
+@if (@ViewBag.SchoolYear < 3)
+{
+    <div class="vegetationImg1steGraad">
+        <h3>Foto vegetatietype</h3>
+        <h4>Vegetatietype: @Model.ResultaatDeterminate[1]</h4>
+        <br/>
+        @{
+            var base64 = Convert.ToBase64String(Model.ByteArray);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        <img src="@imgSrc"/>
+    </div>
+}
+        
+@if (TempData["FoutVegetatie"] == null)
+{
     <div class="tree">
         <ul class="main">
             @Html.Raw(@Model.HtmlDetTabel)
         </ul>
         <input type="button" class="btn-success testBut" value="Controleer"/>
     </div>
-    <div class="invisC">
-        @foreach (Clause s in @Model.CorrectPath)
-        {
-            <span class="invis">@s.Name</span>
-        }
-
-        <span class="invis">@Model.CorrectResult.Climatefeature</span>
-        <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
-    </div>
 }
-<div>
-    @if (@ViewBag.SchoolYear > 2)
+
+<div class="success"></div>
+
+<div class="invisC">
+    @foreach (Clause s in @Model.CorrectPath)
     {
-        <h2>Selecteer vegetatietype</h2>
-        if (@ViewBag.SchoolYear == 3)
-        {
-            <div class="vegetation-img">
-                @{
-                    var base64 = Convert.ToBase64String(Model.ByteArray);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                }
-                <img src="@imgSrc"/>
-            </div>
-        }
-        <div class="pane">
-            @using (Html.BeginForm("SelectVegetation", "ClimateChart", new { correctVegetation = @Model.CorrectResult.Vegetationfeature, SelectedYear = @ViewBag.SchoolYear }, FormMethod.Post))
-            {
-                @Html.ValidationSummary(true)
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.SelectedVegetation)
-                    @Html.DropDownListFor(model => model.SelectedVegetation, Model.OptionsVegetation,
-                        "--Selecteer een vegetatie--", new {@class = "form-control"})
-                    @Html.ValidationMessageFor(model => model.SelectedVegetation, "", new {@class = "text-danger"})
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" value="Ga verder" class="btn btn-default"/>
-                </div>
-            }
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
-            }
-
-            @if (TempData["FoutVegetatie"] != null)
-        {
-            if (ViewBag.SchoolYear >= 4)
-            {
-                    <p class="buttonVegetation showVegetationPicture">Bekijk een foto van het vegetatietype</p>
-                    //@Html.ActionLink("Ja", "WatchPictureVegetation", "ClimateChart")
-            }
-        }
-        </div>
-
-        if (TempData["FoutVegetatie"] != null)
-        {
-            <div class="imageVegetationHide">
-                @{
-                    var base64 = Convert.ToBase64String(Model.ByteArray);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                }
-                <img class="imageVegetationHide" src="@imgSrc" />
-            </div>
-        }
+        <span class="invis">@s.Name</span>
     }
-</div>
-<script>
-    var SchoolYear = '@(ViewBag.SchoolYear)';
-</script>
-<script src="../../Content/bootstrap-lightbox.js"></script>
-<script src="../../Content/DeterminateTabelInteraction.js" type="text/javascript"></script>
-<script src="../../Content/ShowVegetationPicture.js" type="text/javascript"></script>
 
+    <span class="invis">@Model.CorrectResult.Climatefeature</span>
+    <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
+</div>

@@ -41,7 +41,7 @@
     function removeClassesFromWrongItems(items) {
         $(".success").empty();
         if (items.length != 0) {
-            $(".success").append("<p> Volgende statements zijn juist:</p>");
+            $(".success").append("<h2 class='succesTitle'> Volgende statements zijn juist:</h2>");
             $.each(items, function(key, i) {
                 $(".success").append("<p>" + $(this).context.textContent + "</p>");
                 $(this).removeClass();
@@ -102,7 +102,12 @@
                 //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
                 $(".vegetationImg1steGraad").css("display", "block");
             }
-                
+            $(".selectVegetation").css("display", "block");
+            $(".ClimateChartDisplay").css("display", "none");
+            $(".questionsDiv").css("display", "none");
+            $(".determinateTable").css("display", "none");
+            $(".tree").css("display", "none");
+            
         }
 
     });

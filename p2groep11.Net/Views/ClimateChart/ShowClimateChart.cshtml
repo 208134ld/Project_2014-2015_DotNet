@@ -23,56 +23,37 @@
         TempData["continentId"] = ViewBag.ContinentId;
     }
     @Html.ActionLink("Kies land", "ListCountries", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId}, null) >
-    
+
     @Html.ActionLink("Kies locatie", "ListLocations", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId}, null) >
     @Html.ActionLink("Klimatogram", "ShowClimateChart", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId, climateId = @ViewBag.ClimateId}) >
 </div>
+
 @if (TempData["FoutVegetatie"] == null)
 {
-    <h2>Klimatogram</h2>
-
-    <div class="ClimateChart">@(Model.Chart)</div>
-
-    @(Model.Chart)
-    <div class="container">
-        <div class="ClimateTable">
-            <table class="table-condensed">
-
-                <tr>
-                    <th></th>
-                    @foreach (Month m in @Model.Months)
-                    {
-                        <th>@m.MonthProp</th>
-                    }
-                    <th class="alert">Jaar</th>
-                </tr>
-                <tr>
-                    <th>T in °C</th>
-                    @foreach (Month m in @Model.Months)
-                    {
-                        <th class="alert-danger">@m.AverTemp</th>
-                    }
-
-                    <th>@Html.DisplayFor(modelItem => Model.AvgTemp)</th>
-                </tr>
-                <tr>
-                    <th>N in mm</th>
-                    @foreach (Month m in @Model.Months)
-                    {
-                        <th class="alert-info">@m.Sediment</th>
-                    }
-                    <th>@Model.SumSed</th>
-                </tr>
-            </table>
-
-        </div>
-
-        <div class="determinateResult">
-            Klimaatkenmerk: @Model.ResultaatDeterminate[0]<br/>
-            Vegetatiekenmerk: @Model.ResultaatDeterminate[1]<br/>
-        </div>
-    </div>
+    @Html.Partial("ClimateChart")
 }
-<div>
+
+@if (TempData["FoutVegetatie"] == null)
+{
+    @Html.Partial("Questions")
+}
+
+@if (TempData["FoutVegetatie"] == null)
+{
     @Html.Partial("DeterminateTable")
-</div>
+}
+
+@Html.Partial("SelectVegetation")
+
+@if (TempData["FoutVegetatie"] != null)
+{
+    <script>
+        $(".selectVegetation").css("display", "block");
+    </script>
+}
+<script>
+    var SchoolYear = '@(ViewBag.SchoolYear)';
+</script>
+<script src="../../Content/bootstrap-lightbox.js"></script>
+<script src="../../Content/DeterminateTabelInteraction.js" type="text/javascript"></script>
+<script src="../../Content/ShowVegetationPicture.js" type="text/javascript"></script>

@@ -138,10 +138,6 @@ div.determinateResult {
 color: #4F8A10;
 background-color: #DFF2BF;
 }
-.success {
-color: #4F8A10;
-background-color: #DFF2BF;
-}
 
 .breadcrumbs {
     padding: 10px!important;
@@ -259,4 +255,27 @@ background-color: #DFF2BF;
     padding: 20px;
     background-color: lightgrey;
     margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.legendTable {
+    margin: 20px;
+    border-spacing: 5px;
+}
+
+th, td {
+    padding: 5px;
+    padding-right: 20px;
+}
+
+.selectVegetation {
+    display: none;
+}
+
+.succesTitle {
+    
+}
+
+.success p{
+    margin: 10px;
 }
