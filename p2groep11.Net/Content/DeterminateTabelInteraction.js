@@ -78,7 +78,7 @@
     $(".NoSpan").on("click", function() {
         $(this).toggleClass("NoSpanActive");
     });
-
+    
     $(".testBut").on("click", function () {
       
         var selectedItemsYes = $(".main").find(".YesSpanActive");
@@ -87,16 +87,22 @@
         
         var wrightArr = compare(yesNo);
         removeClassesFromWrongItems(wrightArr);
-        console.log($(".AnswerC"));
-        console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
+        //console.log($(".AnswerC"));
+        //console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
         if ($(".AnswerC").length == $(".invisC").find(".invis").length-1) {
             //console.log("validate bereikt" + $(".invis").length);
            
                 var detPath = $(".invisC").find(".invis");
               
                 $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
-               $(".success").append("<p> Het klimaattype is "+detPath[detPath.length - 1].textContent+"</p>");
-               //      
+                //console.log($(".1steGraad")[0].innerText);
+            //console.log(SchoolYear);
+            if (SchoolYear < 3) {
+                
+                //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
+                $(".vegetationImg1steGraad").css("display", "block");
+            }
+                
         }
 
     });
@@ -141,8 +147,8 @@
         });
         return wrightArr;
     }
-    $(".testBut2").on("click", function () {
 
+    $(".testBut2").on("click", function () {
         var selectedItemsYes = $(".voorbeeld").find(".YesSpanActive");
         var selectedItemsNo = $(".voorbeeld").find(".NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);
@@ -155,8 +161,6 @@
             var detPath = $(".invisVoorbeeld");
             $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
             $(".success").append("<p> Het klimaattype is " + detPath[detPath.length - 1].textContent + "</p>");
-            //      
         }
-
     });
 });

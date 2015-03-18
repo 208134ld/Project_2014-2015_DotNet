@@ -253,3 +253,10 @@ background-color: #DFF2BF;
     display: inline-block;
     width: 150px;
 }
+
+.vegetationImg1steGraad {
+    display: none;
+    padding: 20px;
+    background-color: lightgrey;
+    margin-bottom: 20px;
+}

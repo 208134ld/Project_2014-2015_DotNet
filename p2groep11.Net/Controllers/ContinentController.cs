@@ -12,7 +12,6 @@ namespace p2groep11.Net.Controllers
 {
     public class ContinentController : Controller
     {
-        //private IContinentRepository repository;
         private IGradeRepository repository;
 
         public ContinentController(IGradeRepository gradeRepository)
@@ -29,8 +28,16 @@ namespace p2groep11.Net.Controllers
 
         public ActionResult ListCountries(int selectedYear, int continentId, string search)
         {
+            
+            if (TempData["SelectedYear"] != null)
+            {
+                selectedYear = (int)TempData["SelectedYear"];
+                continentId = (int)TempData["continentId"];
+            }
+
             ViewBag.SchoolYear = selectedYear;
             ViewBag.ContinentId = continentId;
+            
             IEnumerable<Country> countryList = repository.FindBySchoolyear(selectedYear).GetContinent(continentId).Countries;
             if (!String.IsNullOrEmpty(search))
             {
@@ -75,6 +82,5 @@ namespace p2groep11.Net.Controllers
                 return RedirectToAction("ListCountries", new { selectedYear, continentId });
             }
         }
-
     }
 }

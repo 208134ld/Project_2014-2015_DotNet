@@ -52,7 +52,7 @@ namespace p2groep11.Net.Controllers
                 }
                 catch (NullReferenceException nullEx)
                 {
-                    //MessageBox.Show(nullEx.InnerException.ToString());
+                    MessageBox.Show(nullEx.InnerException.ToString());
                     ModelState.AddModelError("",
                         "Could not find the climateChart associated with this continentId or countryId or climateId \n" +
                         nullEx.Message);
@@ -64,25 +64,6 @@ namespace p2groep11.Net.Controllers
                 }
             }
             return RedirectToAction("Index", "SchoolYear");
-        }
-
-        //alle redirects nodig wegens viewbag probleem tussen verschillende controllers
-        //werken met tempdata, low priority
-        public ActionResult ListLocations(int selectedyear, int continentid, int countryid)
-        {
-            return RedirectToAction("ListLocations", "Continent",
-                new {selectedYear = selectedyear, continentId = continentid, countryId = countryid});
-        }
-
-        public ActionResult ListCountries(int selectedyear, int continentid)
-        {
-            return RedirectToAction("ListCountries", "Continent",
-                new {selectedYear = selectedyear, continentId = continentid});
-        }
-
-        public ActionResult ListContinents(int schoolyear)
-        {
-            return RedirectToAction("ListContinents", "Continent", new {selectedYear = schoolyear});
         }
 
         [HttpPost]
@@ -108,11 +89,5 @@ namespace p2groep11.Net.Controllers
             }
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
-
-        //public ActionResult WatchPictureVegetation()
-        //{
-        //    TempData["WatchPicture"] = "Yes";
-        //    return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
-        //}
     }
 }
