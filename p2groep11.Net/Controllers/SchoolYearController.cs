@@ -35,7 +35,8 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-
+                    TempData["SelectedYear"] = null;
+                    TempData["continentId"] = null;
                     Grade grade = gradeRepository.FindBySchoolyear(SelectedYear);
 
                     switch (grade.GradeId)

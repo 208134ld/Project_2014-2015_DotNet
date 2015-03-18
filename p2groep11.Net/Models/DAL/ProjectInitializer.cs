@@ -419,44 +419,44 @@ namespace p2groep11.Net.Models.DAL
 
 
 
-                Image image1 = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
-                MemoryStream ms1 = new MemoryStream();
-                image1.Save(ms, ImageFormat.Gif);
-                byte[] picture = ms1.ToArray();
+                //Image image1 = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
+                //MemoryStream ms1 = new MemoryStream();
+                //image1.Save(ms, ImageFormat.Gif);
+                //byte[] picture = ms1.ToArray();
                 
                 //Determineertabel voor 1e graad opbouwen
                 ClauseComponent tw10V1 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0V1 = new Clause("TW <= 0", tw,"<=", 0);
-                ClauseComponent tw0YesV1 = new Result("Koud zonder dooiseizoen", "Koud", picture);
-                ClauseComponent tw0NoV1 = new Result("Koud met dooiseizoen", "Koud", picture);
+                ClauseComponent tw0YesV1 = new Result("Koud zonder dooiseizoen", "Ijswoestijnklimaat", picture1);
+                ClauseComponent tw0NoV1 = new Result("Koud met dooiseizoen", "Toendraklimaat", picture2);
                 tw0V1.Add(true, tw0YesV1);
                 tw0V1.Add(false, tw0NoV1);
                 tw10V1.Add(true, tw0V1);
                 ClauseComponent tm10V1 = new Clause("Minder dan 4 maanden Tm >= 10", tm,"<", 4);
                 tw10V1.Add(false, tm10V1);
 
-                ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Gematigd", picture);
+                ClauseComponent tm10YesV1 = new Result("Koud gematigd", "Taigaklimaat", picture3);
                 tm10V1.Add(true, tm10YesV1);
                 ClauseComponent tk18V1 = new Clause("Tk < 18", tk,"<", 18);
                 tm10V1.Add(false, tk18V1);
 
                 ClauseComponent nj400V1 = new Clause("Nj > 400mm", nj,">", 400);
                 tk18V1.Add(true, nj400V1);
-                ClauseComponent tk18NoV1 = new Result("Warm", "Warm", picture);
+                ClauseComponent tk18NoV1 = new Result("Warm", "Tropisch regenwoudklimaat", picture15);
                 tk18V1.Add(false, tk18NoV1);
 
                 ClauseComponent nj400YesV1 = new Clause("Tk < -3", tk, "<", - 3);
                 nj400V1.Add(true, nj400YesV1);
-                ClauseComponent nj400NoV1 = new Result("Gematigd en droog", "Droog", picture);
+                ClauseComponent nj400NoV1 = new Result("Gematigd en droog", "Steppeklimaat", picture6);
                 nj400V1.Add(false, nj400NoV1);
 
-                ClauseComponent tkMin3Yes = new Result("Koel gematigd met strenge winter", "Gematigd", picture);
+                ClauseComponent tkMin3Yes = new Result("Koel gematigd met strenge winter", "Gemengd-woudklimaat", picture8);
                 nj400YesV1.Add(true, tkMin3Yes);
                 ClauseComponent tkMin3No = new Clause("Tw < 22", tw,"<", 22);
                 nj400YesV1.Add(false, tkMin3No);
 
-                ClauseComponent tw22YesV1 = new Result("Koel gematigd met zachte winter", "Gematigd", picture);
-                ClauseComponent tw22NoV1 = new Result("warm gematigd met natte winter", "Gematigd", picture);
+                ClauseComponent tw22YesV1 = new Result("Koel gematigd met zachte winter", "Loofbosklimaat", picture9);
+                ClauseComponent tw22NoV1 = new Result("warm gematigd met natte winter", "Hardbladige-vegetatieklimaat van de subtropen", picture12);
                 tkMin3No.Add(true, tw22YesV1);
                 tkMin3No.Add(false, tw22NoV1);
 
