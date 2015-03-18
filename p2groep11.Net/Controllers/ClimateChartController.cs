@@ -35,7 +35,7 @@ namespace p2groep11.Net.Controllers
                             .GetContinent(continentId)
                             .getCountry(countryId)
                             .GetClimateChart(climateId);
-
+                    ViewBag.ClimateChart = c;
 
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 

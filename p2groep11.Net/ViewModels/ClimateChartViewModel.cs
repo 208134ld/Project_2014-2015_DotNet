@@ -28,6 +28,8 @@ namespace p2groep11.Net.ViewModels
         public Result CorrectResult { get; set; }
         public List<Result> AllResults { get; set; }
         public List<SelectListItem> OptionsVegetation { get; set; }
+        public List<Parameter> Parameters { get; set; }
+        public string[] Answers { get; set; }
         [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
@@ -58,6 +60,7 @@ namespace p2groep11.Net.ViewModels
             CorrectPath = new List<Clause>();
             CorrectResult = new Result();
             AllResults = new List<Result>();
+            Parameters = new List<Parameter>();
 
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {

@@ -8,6 +8,24 @@
 }
 <div class="questionsDiv">
 <h2>Vragenlijst</h2>
+    <div>
+        @using (Html.BeginForm("ShowClimateChart", "ClimateChart", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
 
-    
+
+            @for (var i = 0; i < Model.Parameters.Count; i++)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Parameters[i].Beschrijving)
+                    @Html.DropDownListFor(model => model.Answers[i], new List<SelectListItem> { Model.Parameters[i].GiveOptAnswers(@ViewBag.ClimateChart) })
+                    @Html.ValidationMessageFor(model => model.Answers[i], "", new { @class = "text-danger" })
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Controleer" class="btn btn-default" />
+            </div>
+        }
+    </div>
 </div>
