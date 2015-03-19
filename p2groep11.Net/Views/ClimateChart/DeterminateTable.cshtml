@@ -85,24 +85,24 @@
     </div>
 }
         
-@if (TempData["FoutVegetatie"] == null)
-{
+@*@if (TempData["FoutVegetatie"] == null)
+{*@
     <div class="tree">
         <ul class="main">
             @Html.Raw(@Model.HtmlDetTabel)
         </ul>
         <input type="button" class="btn-success testBut" value="Controleer"/>
     </div>
-}
+@*}*@
 
 <div class="success"></div>
 
 <div class="invisC">
-    @foreach (Clause s in @Model.CorrectPath)
+    @foreach (String s in @Model.CorrectPath)
     {
-        <span class="invis">@s.Name</span>
+        <span class="invis">@s</span>
     }
 
-    <span class="invis">@Model.CorrectResult.Climatefeature</span>
-    <span class="invis">@Model.CorrectResult.Vegetationfeature</span>
+    <span class="invis">@Model.CorrectClimate</span>
+    <span class="invis">@Model.CorrectVegetation</span>
 </div>

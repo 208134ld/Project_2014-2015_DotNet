@@ -11,56 +11,39 @@
     @if (@ViewBag.SchoolYear > 2)
     {
         <h2>Selecteer vegetatietype</h2>
-        
-        if (@ViewBag.SchoolYear == 3)
-        {
-            <div class="vegetation-img">
-                @{
-                    var base64 = Convert.ToBase64String(Model.ByteArray);
-                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-                }
-                <img src="@imgSrc"/>
-            </div>
-        }
-        
+
         <div class="pane">
-            @using (Html.BeginForm("SelectVegetation", "ClimateChart", new { correctVegetation = @Model.CorrectResult.Vegetationfeature, SelectedYear = @ViewBag.SchoolYear }, FormMethod.Post))
+            @using (Html.BeginForm("Index", "SchoolYear", FormMethod.Post))
             {
                 @Html.ValidationSummary(true)
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectedVegetation)
                     @Html.DropDownListFor(model => model.SelectedVegetation, Model.OptionsVegetation,
-                        "--Selecteer een vegetatie--", new {@class = "form-control"})
+                        "--Selecteer een vegetatie--", new {@class = "form-control selectVegetationList"})
                     @Html.ValidationMessageFor(model => model.SelectedVegetation, "", new {@class = "text-danger"})
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Ga verder" class="btn btn-default"/>
+                    <input type="submit" class="selectvegetationButton" value="Ga verder" class="btn btn-default"/>
                 </div>
             }
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")
             }
 
-            @if (TempData["FoutVegetatie"] != null)
+            @if (ViewBag.SchoolYear >= 4)
             {
-                if (ViewBag.SchoolYear >= 4)
-                {
-                        <p class="buttonVegetation showVegetationPicture">Bekijk een foto van het vegetatietype</p>
-                }
+                <p class="buttonVegetation showVegetationPicture">Bekijk een foto van het vegetatietype</p>
             }
-        </div>
 
-        if (TempData["FoutVegetatie"] != null)
-        {
             <div class="imageVegetationHide">
                 @{
                     var base64 = Convert.ToBase64String(Model.ByteArray);
                     var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                 }
-                <img class="imageVegetationHide" src="@imgSrc" />
+                <img src="@imgSrc"/>
             </div>
-        }
+        </div>
     }
 </div>

@@ -9,7 +9,7 @@ namespace p2groep11.Net.Models.Domain
     public class DeterminateTable
     {
         public int DeterminateTableId { get; set; }
-        public ClauseComponent ClauseComponent { get; set; }
+        //public ClauseComponent ClauseComponent { get; set; }
         public virtual ICollection<ClauseComponent> AllClauseComponents { get; set; }
          
 
@@ -20,18 +20,18 @@ namespace p2groep11.Net.Models.Domain
         }
         public DeterminateTable()
         {
-
+            AllClauseComponents = new List<ClauseComponent>();
         }
 
         public String[] Determinate(ClimateChart chart)
         {
-            return ClauseComponent.Determinate(chart);
+            return AllClauseComponents.ElementAt(AllClauseComponents.Count - 1).Determinate(chart);
         }
 
         public List<ClauseComponent> CorrectPath(ClimateChart chart)
         {
             List<ClauseComponent> cp = new List<ClauseComponent>();
-            ClauseComponent.CorrectPath(chart, cp);
+            AllClauseComponents.ElementAt(AllClauseComponents.Count - 1).CorrectPath(chart, cp);
             return cp;
         }
         

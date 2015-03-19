@@ -217,10 +217,6 @@ background-color: #DFF2BF;
     color: white;
 }
 
-.vegetation-img {
-    margin: 20px;
-}
-
 .chartName, .chartLongitude, .chartLatitude {
     display: inline-block;
     width: 150px;
@@ -272,10 +268,10 @@ th, td {
     display: none;
 }
 
-.succesTitle {
-    
-}
-
 .success p{
     margin: 10px;
+}
+
+.vegetationSuccess, .vegetationFail {
+    display: none;
 }

@@ -31,70 +31,33 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
-
-                    //repo wordt 2x aangesproken
-                    ClimateChart c =
-                        gradeRepository.FindBySchoolyear(selectedYear)
-                            .GetContinent(continentId)
-                            .getCountry(countryId)
-                            .GetClimateChart(climateId);
-                    ViewBag.ClimateChart = c;
-
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
                     
-                    //moet in constructor
+                    ClimateChart c = gr.GetContinent(continentId).getCountry(countryId).GetClimateChart(climateId);
+
+                    //Op andere manier werken
+                    ViewBag.ClimateChart = c;
+
                     DeterminateTable ta = gr.DeterminateTableProp;
-                    ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);
 
                     return View(new ClimateChartViewModel(c, ta));
                 }
                 catch (SqlException sqlExc)
                 {
-                    MessageBox.Show(sqlExc.InnerException.ToString());
                     ModelState.AddModelError("", "Connection lost with the database \n" + sqlExc.Message);
                 }
                 catch (NullReferenceException nullEx)
                 {
-                    MessageBox.Show(nullEx.InnerException.ToString());
                     ModelState.AddModelError("",
                         "Could not find the climateChart associated with this continentId or countryId or climateId \n" +
                         nullEx.Message);
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.InnerException.ToString());
                     ModelState.AddModelError("", e.Message);
                 }
             }
             return RedirectToAction("Index", "SchoolYear");
-        }
-
-        [HttpPost]
-        public ActionResult SelectVegetation(String selectedVegetation, String correctVegetation, int SelectedYear)
-        {
-            
-            if (ModelState.IsValid)
-            {
-                try{
-                    if (selectedVegetation.Equals(correctVegetation))
-                    {
-                        TempData["Succes"] =
-                            "U heeft het juiste vegetatietype gekozen! U kan verder gaan met een andere locatie.";
-
-                        //redirect niet nodig
-                        return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
-                    
-                    }
-                    
-                    TempData["FoutVegetatie"] = "U heeft het foute vegetatietype gekozen!";
-                }
-                catch (Exception e)
-                {
-                    ModelState.AddModelError("",e.Message);
-                }
-            }
-            //return View();
-            return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
     }
 }

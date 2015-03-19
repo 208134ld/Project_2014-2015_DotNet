@@ -29,14 +29,10 @@
         {
             <div class="alert alert-danger">@TempData["Error"]</div>
         }
-        @if (TempData["FoutVegetatie"] != null)
-        {
-            <div class="alert alert-danger">@TempData["FoutVegetatie"]</div>
-        }
-        @if (TempData["Succes"] != null)
-        {
-            <div class="alert alert-success">@TempData["Succes"]</div>
-        }
+
+        <div class="alert alert-danger vegetationFail">U heeft het verkeerde vegetatietype gekozen.</div>
+
+        <div class="alert alert-success vegetationSuccess">Proficiat! U heeft het juiste vegetatietype gekozen!</div>
     </div>
 <div class="container body-content">
     @RenderBody()

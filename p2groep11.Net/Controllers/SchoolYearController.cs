@@ -15,13 +15,11 @@ namespace p2groep11.Net.Controllers
     {
         private IGradeRepository gradeRepository;
 
-
         public SchoolYearController(IGradeRepository gradeRepository)
         {
             this.gradeRepository = gradeRepository;
         }
 
-        // GET: SchoolYear
         [HttpGet]
         public ActionResult Index()
         {
@@ -47,21 +45,15 @@ namespace p2groep11.Net.Controllers
                         case 3:
                             return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                         default:
-                            return RedirectToAction("Error");
+                            return View();
                     }
                 }
                 catch (Exception e)
                 {
                     ModelState.AddModelError("",e.Message);
                 }
-               
             }
-                return View(new SchoolYearFormViewModel(GetYears()));
-        }
-
-        public ActionResult Error()
-        {
-            return View();
+            return View(new SchoolYearFormViewModel(GetYears()));
         }
 
         private List<SelectListItem> GetYears()
@@ -76,6 +68,5 @@ namespace p2groep11.Net.Controllers
     
             return years;
         }
-
     }
 }

@@ -141,7 +141,7 @@ namespace p2groep11.Net.Tests.Domein
                     d12Yes, d12No, tw10
                 }).ToList();
 
-            results1.ForEach(r => r.DTable = dTable);
+            //results1.ForEach(r => r.DTable = dTable);
             results1.ForEach(r => dTable.AllClauseComponents.Add(r));
             dTable.ClauseComponent = dTable.AllClauseComponents.ElementAt(dTable.AllClauseComponents.Count - 1);
         }

@@ -98,10 +98,11 @@
                 //console.log($(".1steGraad")[0].innerText);
             //console.log(SchoolYear);
             if (SchoolYear < 3) {
-                
                 //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
                 $(".vegetationImg1steGraad").css("display", "block");
             }
+
+            
             $(".selectVegetation").css("display", "block");
             $(".ClimateChartDisplay").css("display", "none");
             $(".questionsDiv").css("display", "none");
