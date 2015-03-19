@@ -15,9 +15,9 @@ namespace p2groep11.Net.Models.Domain
             Parameters = new List<Parameter>();
         }
 
-        public string GiveAnswer(Parameter par)
-        {
-            return par.Answer;
-        }
+        //public string GiveAnswer(Parameter par)
+        //{
+        //    return par.Answer;
+        //}
     }
 }
