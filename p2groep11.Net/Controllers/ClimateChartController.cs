@@ -19,8 +19,9 @@ namespace p2groep11.Net.Controllers
             this.gradeRepository = gradeRepository;
         }
 
-        public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)
+        public ActionResult ShowExercises(int selectedYear, int continentId, int countryId, int climateId)
         {
+            //Voor breadcrumbs
             ViewBag.SchoolYear = selectedYear;
             ViewBag.ContinentId = continentId;
             ViewBag.CountryId = countryId;
@@ -30,19 +31,21 @@ namespace p2groep11.Net.Controllers
             {
                 try
                 {
+
+                    //repo wordt 2x aangesproken
                     ClimateChart c =
                         gradeRepository.FindBySchoolyear(selectedYear)
                             .GetContinent(continentId)
                             .getCountry(countryId)
                             .GetClimateChart(climateId);
-                    ViewBag.ClimateChart = c;
+                    //ViewBag.ClimateChart = c;
 
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 
+                    //moet in constructor
                     DeterminateTable ta = gr.DeterminateTableProp;
                     ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);
-                    String html = "";
-                    html = ta.ClauseComponent.GetHtmlCode(true);
+
                     return View(new ClimateChartViewModel(c, ta));
                 }
                 catch (SqlException sqlExc)
@@ -78,6 +81,7 @@ namespace p2groep11.Net.Controllers
                         TempData["Succes"] =
                             "U heeft het juiste vegetatietype gekozen! U kan verder gaan met een andere locatie.";
 
+                        //redirect niet nodig
                         return RedirectToAction("ListContinents", "Continent", new { SelectedYear });
                     
                     }

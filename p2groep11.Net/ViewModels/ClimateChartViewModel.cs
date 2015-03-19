@@ -22,23 +22,22 @@ namespace p2groep11.Net.ViewModels
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double AvgTemp { get; private set; }
         public int SumSed { get; private set; }
-        public DeterminateTable table { get; private set; }
+        //public DeterminateTable table { get; private set; }
         public String[] ResultaatDeterminate { get; set; }
         public List<Clause> CorrectPath { get; set; }
         public Result CorrectResult { get; set; }
         public List<Result> AllResults { get; set; }
         public List<SelectListItem> OptionsVegetation { get; set; }
-        public List<Parameter> Parameters { get; set; }
-        public string[] Answers { get; set; }
         [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
-        public VoorbeelViewModel Voorbeeld { get; set; }
+        public ExampleViewModel Voorbeeld { get; set; }
         //public Image Picture
         //{
         //    get { return picture; }
         //    set { picture = CorrectResult.byteArrayToImage(); }
         //}
+
 
 
         //added
@@ -48,19 +47,18 @@ namespace p2groep11.Net.ViewModels
 
         public ClimateChartViewModel(ClimateChart c,DeterminateTable table)
         {
-            Voorbeeld = new VoorbeelViewModel();
+            Voorbeeld = new ExampleViewModel();
             this.Months = c.Months;
             this.Chart = DrawClimateChart(c);
             
             AvgTemp =  Months.Average(m => m.AverTemp);
             SumSed = Months.Sum(m => m.Sediment);
-            this.table = table;
+            //this.table = table;
             ResultaatDeterminate = Determinate(c, table);
             HtmlDetTabel = table.ClauseComponent.GetHtmlCode(true);
             CorrectPath = new List<Clause>();
             CorrectResult = new Result();
             AllResults = new List<Result>();
-            Parameters = new List<Parameter>();
 
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {
@@ -184,20 +182,4 @@ namespace p2groep11.Net.ViewModels
         }
     }
 
-    public class VoorbeelViewModel
-    {
-        public String Html { get; private set; }
-
-        public VoorbeelViewModel()
-        { 
-           Parameter tw = new TW("Wat is de temperatuur van de warmste maand (TW)?");
-           ClauseComponent tw10 = new Clause("Is appel een fruit?", tw, "<=", 10);
-           ClauseComponent res1 = new Result("Appel is een fruit", "geen woestijn");
-           ClauseComponent res2 = new Result("Appel is geen fruit", "woestijn");
-           tw10.Add(true, res1);
-           tw10.Add(false, res2);
-           Html = tw10.GetHtmlCode(true);
-        }
-
-    }
 }

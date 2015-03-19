@@ -16,14 +16,14 @@ namespace p2groep11.Net.ViewModels
         public double ChartLatitude { get; set; }
         public double ChartLongitude { get; set; }
 
-        public LocationListViewModel(ClimateChart location)
+        public LocationListViewModel(ClimateChart chart)
         {
-            Location = location.Location;
-            CountryID = location.Country.CountryID;
-            ContinentID = location.Country.Continent.ContinentID;
-            ClimateChartID = location.ClimateChartID;
-            ChartLatitude = location.Latitude;
-            ChartLongitude = location.Longitude;
+            Location = chart.Location;
+            CountryID = chart.Country.CountryID;
+            ContinentID = chart.Country.Continent.ContinentID;
+            ClimateChartID = chart.ClimateChartID;
+            ChartLatitude = chart.Latitude;
+            ChartLongitude = chart.Longitude;
         }
 
         public LocationListViewModel()
