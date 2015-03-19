@@ -10,28 +10,30 @@ namespace p2groep11.Net
 {
     public class NZ : Parameter
     {
-
-        public String Beschrijving { get; set; }
-        public string Answer { get; set; } 
+        public string Beschrijving { get; set; }
 
         public NZ()
         {
             
         }
 
-        public NZ(String beschr)
+        public NZ(string beschr)
         {
-            this.Beschrijving = beschr;
+            Beschrijving = beschr;
         }
         public override int Execute(ClimateChart chart)
         {
-            Answer = chart.RainInSummer.ToString();
             return chart.RainInSummer;
         }
 
         public override string[] GiveOptAnswers(ClimateChart chart)
         {
             return chart.TotalRainfallInts();
+        }
+
+        public override string GiveAnswer(ClimateChart chart)
+        {
+            return chart.RainInSummer.ToString();
         }
     }
 }

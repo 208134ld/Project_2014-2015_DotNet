@@ -29,20 +29,7 @@ namespace p2groep11.Net.Models.DAL
                 Grade grade3 = new Grade(5);
                 List<Grade> grades = (new Grade[] {grade1, grade2, grade3}).ToList();
 
-                // SCHOOLYEARS
-                SchoolYear year1 = new SchoolYear(1);
-                SchoolYear year2 = new SchoolYear(2);
-                SchoolYear year3 = new SchoolYear(3);
-                SchoolYear year4 = new SchoolYear(4);
-                SchoolYear year5 = new SchoolYear(5);
-                SchoolYear year6 = new SchoolYear(6);
-
-                grade1.SchoolYears.Add(year1);
-                grade1.SchoolYears.Add(year2);
-                grade2.SchoolYears.Add(year3);
-                grade2.SchoolYears.Add(year4);
-                grade3.SchoolYears.Add(year5);
-                grade3.SchoolYears.Add(year6);
+                
 
                 // CONTINENTS
                 Continent europa = new Continent {Name = "Europa"};
@@ -263,6 +250,31 @@ namespace p2groep11.Net.Models.DAL
                 Parameter tj = new TJ("");
                 Parameter nj = new NJ("");
                 Parameter tm = new TM("");
+
+                //VragenLijst
+                QuestionList list = new QuestionList();
+                List<Parameter> parameters = (new Parameter[]
+                {
+                    mw, tw, mk, tk, d, nz, nw
+                }).ToList();
+                parameters.ForEach(p => list.Parameters.Add(p));
+
+                grade1.QuestionListProp = list;
+
+                // SCHOOLYEARS
+                SchoolYear year1 = new SchoolYear(1);
+                SchoolYear year2 = new SchoolYear(2);
+                SchoolYear year3 = new SchoolYear(3);
+                SchoolYear year4 = new SchoolYear(4);
+                SchoolYear year5 = new SchoolYear(5);
+                SchoolYear year6 = new SchoolYear(6);
+
+                grade1.SchoolYears.Add(year1);
+                grade1.SchoolYears.Add(year2);
+                grade2.SchoolYears.Add(year3);
+                grade2.SchoolYears.Add(year4);
+                grade3.SchoolYears.Add(year5);
+                grade3.SchoolYears.Add(year6);
 
                 //Pictures aanmaken
                 Image image = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
