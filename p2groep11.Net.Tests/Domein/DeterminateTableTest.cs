@@ -11,7 +11,7 @@ namespace p2groep11.Net.Tests.Domein
     [TestClass]
     public class DeterminateTableTest
     {
-
+        // alles in dummydata steken
         private int[] temps;
         private int[] sed;
         private int[] temps2;

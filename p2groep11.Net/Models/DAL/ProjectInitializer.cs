@@ -414,7 +414,7 @@ namespace p2groep11.Net.Models.DAL
                     d12Yes, d12No, tw10
                 }).ToList();
 
-                results1.ForEach(r => r.DTable = detTable1);
+                //results1.ForEach(r => r.DTable = detTable1);
                 results1.ForEach(r => detTable1.AllClauseComponents.Add(r));
 
 
@@ -470,7 +470,7 @@ namespace p2groep11.Net.Models.DAL
                     nj400NoV1, tkMin3Yes, tw22YesV1, tw22NoV1, tw10V1
                 }).ToList();
 
-                results2.ForEach(r => r.DTable = detTable2);
+                //results2.ForEach(r => r.DTable = detTable2);
                 results2.ForEach(r => detTable2.AllClauseComponents.Add(r));
                 
 
