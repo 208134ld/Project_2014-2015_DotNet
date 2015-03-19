@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\ClimateChartController.cs" />
     <Compile Include="Controllers\SchoolYearController.cs" />
+    <Compile Include="Models\DAL\Mapper\ParameterMapper.cs" />
     <Compile Include="Models\DAL\Mapper\QuestionListMapper.cs" />
     <Compile Include="Models\Domain\MK.cs" />
     <Compile Include="Models\DAL\GradeRepository.cs" />

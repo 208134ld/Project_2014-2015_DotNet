@@ -10,7 +10,6 @@ namespace p2groep11.Net
     public class MK : p2groep11.Net.Models.Domain.Parameter
     {
         public string Beschrijving { get; set; }
-        public string Answer { get; set; } 
 
         public MK()
         {
@@ -23,13 +22,17 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
-            Answer = chart.ColdestMonthMK.ToString();
             return chart.ColdestMonthMK;
         }
 
         public override string[] GiveOptAnswers(ClimateChart chart)
         {
             return chart.GetMonthsOfYear();
+        }
+
+        public override string GiveAnswer(ClimateChart chart)
+        {
+            return chart.ColdestMonthMK.ToString();
         }
     }
 }

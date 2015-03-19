@@ -23,13 +23,17 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
-            Answer = chart.ColdestMonth.ToString();
             return chart.ColdestMonth;
         }
 
         public override string[] GiveOptAnswers(ClimateChart chart)
         {
             return chart.GetAllTemperatures();
+        }
+
+        public override string GiveAnswer(ClimateChart chart)
+        {
+            return chart.ColdestMonth.ToString();
         }
     }
 }

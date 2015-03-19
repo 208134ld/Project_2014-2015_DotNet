@@ -31,5 +31,10 @@ namespace p2groep11.Net
         {
             throw new ApplicationException();
         }
+
+        public override string GiveAnswer(ClimateChart chart)
+        {
+            throw new ApplicationException();
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace p2groep11.Net
     {
 
         public String Beschrijving { get; set; }
-        public string Answer { get; set; } 
 
         public NW()
         {
@@ -25,13 +24,17 @@ namespace p2groep11.Net
         }
         public override int Execute(ClimateChart chart)
         {
-            Answer = chart.RainInWinter.ToString();
             return chart.RainInWinter;
         }
 
         public override string[] GiveOptAnswers(ClimateChart chart)
         {
             return chart.TotalRainfallInts();
+        }
+
+        public override string GiveAnswer(ClimateChart chart)
+        {
+            return chart.RainInWinter.ToString();
         }
     }
 }
