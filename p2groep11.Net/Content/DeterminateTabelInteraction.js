@@ -18,6 +18,8 @@
             $('.backdrop, .box').css('display', 'none');
         });
     }
+
+// Vergelijkt ItemsYes met het correcte path (detPath)
     function compare(itemsYes) {
         //console.log("Compare word aangeroepen");
 
@@ -38,6 +40,7 @@
         });
         return wrightArr;
     }
+//deselecteerd foute elementen en duid juiste elementen aan
     function removeClassesFromWrongItems(items) {
         $(".success").empty();
         if (items.length != 0) {
@@ -71,8 +74,10 @@
 
         return x;
     }
-    $(".YesSpan").on("click", function () {
-        //console.log($(this));
+
+    $(".YesSpan").on("click", function() {
+        console.log($(this).parents().get(3).children);
+        console.log($(this).parents().get(3));
         $(this).toggleClass("YesSpanActive");
     });
     $(".NoSpan").on("click", function() {
@@ -87,16 +92,12 @@
         
         var wrightArr = compare(yesNo);
         removeClassesFromWrongItems(wrightArr);
-        //console.log($(".AnswerC"));
-        //console.log($(".AnswerC").length+ "=??????="+ $(".invis").length-1);
         if ($(".AnswerC").length == $(".invisC").find(".invis").length-1) {
-            //console.log("validate bereikt" + $(".invis").length);
+           
            
                 var detPath = $(".invisC").find(".invis");
               
                 $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
-                //console.log($(".1steGraad")[0].innerText);
-            //console.log(SchoolYear);
             if (SchoolYear < 3) {
                 //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
                 $(".vegetationImg1steGraad").css("display", "block");

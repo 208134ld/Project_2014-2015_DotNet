@@ -40,13 +40,13 @@ namespace p2groep11.Net.ViewModels
         [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
-        
+
 
         //props Questions
         //geen objecten in de view
         public List<Parameter> Parameters { get; set; }
         public string[] Answers { get; set; }
-        
+
 
         //viewmodel voor de "legende" van de determineertabel
         public VoorbeelViewModel Voorbeeld { get; set; }
@@ -79,7 +79,7 @@ namespace p2groep11.Net.ViewModels
                     correctResult = (Result)cc;
                 }
             }
-
+                
             //Juiste klimaatkenmerk en vegetatiekenmerk toekennen
             CorrectClimate = correctResult.Climatefeature;
             CorrectVegetation = correctResult.Vegetationfeature;
@@ -97,7 +97,7 @@ namespace p2groep11.Net.ViewModels
 
             //foto van vegetatietype ophalen
             ByteArray = correctResult.VegetationPicture;
-        }
+            }
 
         //hulpmethode om een lijst ad random te ordenen
         private void Shuffle<T>(List<T> list)
@@ -234,4 +234,3 @@ namespace p2groep11.Net.ViewModels
            Html = tw10.GetHtmlCode(true);
         }
     }
-}

@@ -19,7 +19,7 @@ namespace p2groep11.Net.Controllers
             this.gradeRepository = gradeRepository;
         }
 
-        public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)
+        public ActionResult ShowExercises(int selectedYear, int continentId, int countryId, int climateId)
         {
             //Voor breadcrumbs
             ViewBag.SchoolYear = selectedYear;
@@ -32,11 +32,10 @@ namespace p2groep11.Net.Controllers
                 try
                 {
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
-                    
+
                     ClimateChart c = gr.GetContinent(continentId).getCountry(countryId).GetClimateChart(climateId);
 
-                    //Op andere manier werken
-                    ViewBag.ClimateChart = c;
+
 
                     DeterminateTable ta = gr.DeterminateTableProp;
 
