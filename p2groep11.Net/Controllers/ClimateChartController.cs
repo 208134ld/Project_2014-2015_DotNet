@@ -19,7 +19,7 @@ namespace p2groep11.Net.Controllers
             this.gradeRepository = gradeRepository;
         }
 
-        public ActionResult ShowClimateChart(int selectedYear, int continentId, int countryId, int climateId)
+        public ActionResult ShowExercises(int selectedYear, int continentId, int countryId, int climateId)
         {
             ViewBag.SchoolYear = selectedYear;
             ViewBag.ContinentId = continentId;
@@ -35,15 +35,13 @@ namespace p2groep11.Net.Controllers
                             .GetContinent(continentId)
                             .getCountry(countryId)
                             .GetClimateChart(climateId);
-                    ViewBag.ClimateChart = c;
+                    //ViewBag.ClimateChart = c;
 
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
 
                     DeterminateTable ta = gr.DeterminateTableProp;
                     ta.ClauseComponent = ta.AllClauseComponents.ElementAt(ta.AllClauseComponents.Count-1);
-                    String html = "";
-                    html = ta.ClauseComponent.GetHtmlCode(true);
-                    return View(new ClimateChartViewModel(c, ta));
+                    return View(new ExerciseViewModels(c, ta));
                 }
                 catch (SqlException sqlExc)
                 {

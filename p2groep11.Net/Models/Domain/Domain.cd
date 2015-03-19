@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="p2groep11.Net.Models.Domain.SchoolYear">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAABAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\SchoolYear.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GradeProp" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Continent">
     <Position X="3.5" Y="0.5" Width="1.5" />
@@ -15,6 +18,7 @@
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="Countries" />
+      <Property Name="Grades" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Month">
@@ -27,7 +31,7 @@
   <Class Name="p2groep11.Net.Models.Domain.ClimateChart">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQCAAAAEwoAAEAIIAAQgAAAIAgAAGAgQAEgACCAA=</HashCode>
+      <HashCode>AIAIQCIAAEEwoAAEAIIIAQgAAAIAgAAGAgQAEgACCAA=</HashCode>
       <FileName>Models\Domain\ClimateChart.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -45,7 +49,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAQAAACQEAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAACQEAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\Country.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -105,81 +109,85 @@
       <Property Name="DeterminateTableProp" />
       <Property Name="QuestionListProp" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Continents" />
+      <Property Name="SchoolYears" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="p2groep11.Net.TW">
     <Position X="14.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TW.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.TJ">
     <Position X="14.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TJ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NJ">
     <Position X="12.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NJ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.TK">
     <Position X="16.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\TK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.D">
     <Position X="16.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\D.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NZ">
     <Position X="18.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NZ.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.NW">
     <Position X="12.25" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\NW.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.Parameter" Collapsed="true">
     <Position X="15.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAwAAAAQAAAAAAAAAAAAAAAAAAAAAAgEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAwAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\Parameter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.MW">
     <Position X="18.25" Y="13.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAgEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\MW.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.MK">
     <Position X="20" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAQAAAAAAAAAAAAAAQAAAAAAAAEAAAA=</HashCode>
       <FileName>Models\Domain\MK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="p2groep11.Net.Models.Domain.QuestionList">
-    <Position X="8.75" Y="11.25" Width="1.5" />
+    <Position X="8.75" Y="12" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAA=</HashCode>
       <FileName>Models\Domain\QuestionList.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
