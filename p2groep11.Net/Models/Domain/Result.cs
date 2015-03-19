@@ -48,10 +48,5 @@ namespace p2groep11.Net.Models.Domain
                 return "<li><span class='NoSpan'><span class='glyphicon glyphicon-remove'>" + " " + Climatefeature + "</span></li>";
             }
         }
-
-        public Image byteArrayToImage()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
