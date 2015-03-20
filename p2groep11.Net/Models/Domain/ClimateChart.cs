@@ -19,7 +19,41 @@ namespace p2groep11.Net.Models.Domain
         public bool AboveEquator { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        private String coordinaat;
+        public String Coordinaten
+        {
+            get
+            {
+                coordinaat = "";
+                if (Latitude < 0)
+                {
+                    coordinaat += ToDecimalDegrees(Latitude) + " ZB ";
+                }
+                else
+                {
+                    coordinaat += ToDecimalDegrees(Latitude) + " NB ";
+                }
+                if (Longitude < 0)
+                {
+                    coordinaat += ToDecimalDegrees(Longitude) + " `WL ";
+                }
+                else
+                {
+                    coordinaat += ToDecimalDegrees(Longitude) + " OL ";
+                }
+                return coordinaat;
+                
+            }
+        }
 
+        private String ToDecimalDegrees(double n)
+        {
+            String degrees="";
+            double longitude = Math.Abs(n);
+            degrees += Math.Truncate(n) + "° " + Math.Truncate(longitude*60%60) + "' " + Math.Truncate(longitude*3600%60)+'"';
+            return degrees;
+            
+        }
         public ClimateChart()
         {
             Months = new List<Month>();

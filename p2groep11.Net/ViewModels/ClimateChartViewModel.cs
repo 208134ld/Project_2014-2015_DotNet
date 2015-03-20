@@ -18,9 +18,11 @@ namespace p2groep11.Net.ViewModels
     {
 
         //props ClimateChart
+        public String  Coordinaten { get; set; }
+        public String Location { get; set; }
         public Highcharts Chart { get; private set; }
         public IEnumerable<Month> Months { get; private set; }
-
+     
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double AvgTemp { get; private set; }
 
@@ -58,6 +60,8 @@ namespace p2groep11.Net.ViewModels
 
         public ClimateChartViewModel(ClimateChart c, DeterminateTable table)
         {
+            Coordinaten = c.Coordinaten;
+            Location = c.Location;
             ClauseComponent headClauseComponent =
                 table.AllClauseComponents.ElementAt(table.AllClauseComponents.Count - 1);
             Result correctResult = null;
@@ -65,7 +69,7 @@ namespace p2groep11.Net.ViewModels
             this.Chart = DrawClimateChart(c);
             AvgTemp = Months.Average(m => m.AverTemp);
             SumSed = Months.Sum(m => m.Sediment);
-
+          
             Voorbeeld = new VoorbeelViewModel();
 
             ResultaatDeterminate = Determinate(c, table);

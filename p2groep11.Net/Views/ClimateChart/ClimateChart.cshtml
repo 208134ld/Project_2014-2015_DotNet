@@ -4,13 +4,13 @@
 <link rel="stylesheet" type="text/css" href="../../Content/bootstrap-tree.css"/>
 
 @{
-    ViewBag.Title = "Klimatogram";
+    ViewBag.Title = "Klimatogram " ;
 }
 @if (TempData["FoutVegetatie"] == null)
 {
     <div class="ClimateChartDisplay">
-        <h2>Klimatogram</h2>
-
+        <h2>Klimatogram @Model.Location (@Model.Coordinaten) </h2>
+       
         <div class="ClimateChart">@(Model.Chart)</div>
 
         @(Model.Chart)

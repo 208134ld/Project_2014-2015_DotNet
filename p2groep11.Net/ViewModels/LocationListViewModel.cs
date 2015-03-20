@@ -15,7 +15,7 @@ namespace p2groep11.Net.ViewModels
         public int ClimateChartID { get; set; }
         public double ChartLatitude { get; set; }
         public double ChartLongitude { get; set; }
-
+        public String Coordinaten { get; set; }
         public LocationListViewModel(ClimateChart chart)
         {
             Location = chart.Location;
@@ -24,6 +24,7 @@ namespace p2groep11.Net.ViewModels
             ClimateChartID = chart.ClimateChartID;
             ChartLatitude = chart.Latitude;
             ChartLongitude = chart.Longitude;
+            Coordinaten = chart.Coordinaten;
         }
 
         public LocationListViewModel()
