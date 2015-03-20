@@ -34,9 +34,11 @@ namespace p2groep11.Net.Models.Domain
             return new string[] { Climatefeature, Vegetationfeature };
         }
 
-        public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
+        public override List<ClauseComponent> CorrectPath(ClimateChart chart)
         {
+            List<ClauseComponent> cp = new List<ClauseComponent>();
             cp.Add(this);
+            return cp;
         }
 
         public override String GetHtmlCode(Boolean isYes)

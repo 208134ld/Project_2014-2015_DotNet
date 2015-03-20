@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
+using Ninject.Infrastructure.Language;
 using p2groep11.Net.Models.Domain;
 
 namespace p2groep11.Net.Models.DAL.Mapper

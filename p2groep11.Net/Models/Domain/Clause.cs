@@ -85,19 +85,30 @@ namespace p2groep11.Net.Models.Domain
             /*return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);*/
         }
 
-        public override void CorrectPath(ClimateChart chart, List<ClauseComponent> cp)
+        public override List<ClauseComponent> CorrectPath(ClimateChart chart)
         {
-            cp.Add(this);
+            List<ClauseComponent> cp;
             if (Par2 == null)
-                if(DeterminateWithOperator(chart))
-                    YesClause.CorrectPath(chart, cp);
-                else
-                    NoClause.CorrectPath(chart, cp);
-            else
-                if(Par1.Execute(chart) <= Par2.Execute(chart))
-                    YesClause.CorrectPath(chart, cp);
-                else
-                    NoClause.CorrectPath(chart, cp);
+            {
+                if (DeterminateWithOperator(chart))
+                {
+                    cp = YesClause.CorrectPath(chart);
+                    cp.Add(this);
+                    return cp;
+                }
+                cp = NoClause.CorrectPath(chart);
+                cp.Add(this);
+                return cp; 
+            }
+            if (Par1.Execute(chart) <= Par2.Execute(chart))
+            {
+                cp = YesClause.CorrectPath(chart);
+                cp.Add(this);
+                return cp;
+            }
+            cp = NoClause.CorrectPath(chart);
+            cp.Add(this);
+            return cp; 
         }
     }
 }
