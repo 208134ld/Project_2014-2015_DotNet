@@ -15,7 +15,6 @@ namespace p2groep11.Net.Models.Domain
         public string Name { get; set; }
         
         public virtual ICollection<Grade> Grades { get; set; }
-
         public virtual ICollection<Country> Countries { get; set; }
 
         public Continent()

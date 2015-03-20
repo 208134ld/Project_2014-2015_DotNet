@@ -32,11 +32,7 @@ namespace p2groep11.Net.Controllers
                 try
                 {
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
-
                     ClimateChart c = gr.GetContinent(continentId).getCountry(countryId).GetClimateChart(climateId);
-
-
-
                     DeterminateTable ta = gr.DeterminateTableProp;
 
                     return View(new ClimateChartViewModel(c, ta));

@@ -15,6 +15,7 @@ namespace p2groep11.Net.Models.Domain
         {
             AllClauseComponents = new List<ClauseComponent>();
         }
+
         public DeterminateTable()
         {
             AllClauseComponents = new List<ClauseComponent>();
@@ -27,7 +28,7 @@ namespace p2groep11.Net.Models.Domain
 
         public List<ClauseComponent> CorrectPath(ClimateChart chart)
         {
-            return AllClauseComponents.ElementAt(AllClauseComponents.Count - 1).CorrectPath(chart);
+            return AllClauseComponents.ElementAt(AllClauseComponents.Count - 1).GiveCorrectPath(chart);
         }
         
 

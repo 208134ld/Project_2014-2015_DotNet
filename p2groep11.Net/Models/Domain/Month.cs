@@ -20,6 +20,7 @@ namespace p2groep11.Net.Models.Domain
         {
             
         }
+
         public Month(MonthsOfTheYear month, int temp, int sed)
         {
             this.MonthProp = month;

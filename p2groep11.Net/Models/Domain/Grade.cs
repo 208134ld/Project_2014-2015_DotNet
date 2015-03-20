@@ -55,7 +55,6 @@ namespace p2groep11.Net.Models.Domain
             if (cont != null)
                 return cont;
             else throw new ArgumentNullException("Continent met continentID " + continentId+ " is niet gevonden" );
-
         }
         
     }

@@ -17,10 +17,12 @@ namespace p2groep11.Net
         {
             
         }
+
         public D(String beschr)
         {
             this.Beschrijving = beschr;
         }
+
         public override int Execute(ClimateChart chart)
         {
             return chart.TotalDryMonths;

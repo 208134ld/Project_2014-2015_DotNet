@@ -29,7 +29,6 @@ namespace p2groep11.Net.Models.Domain
 
         public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments, double latitude, double longitude)
         {
-            //
             Location = loc;
             BeginPeriod = begin;
             EndPeriod = end;

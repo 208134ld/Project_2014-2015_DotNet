@@ -18,7 +18,6 @@ namespace p2groep11.Net.Models.Domain
 
         public Clause()
         {
-
         }
 
         public Clause(String name, Parameter par1, String op, int waarde)
@@ -65,48 +64,46 @@ namespace p2groep11.Net.Models.Domain
 
         public override string[] Determinate(ClimateChart chart)
         {
-            if(Par2!=null)
-                return Par1.Execute(chart) <= Par2.Execute(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-            return DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart);
-                /*Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);*/
-
+            switch (Operator)
+            {
+                case "<=": return (DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart));
+                case "<": return (DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart));
+                case ">=": return (DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart));
+                default: return (DeterminateWithOperator(chart) ? YesClause.Determinate(chart) : NoClause.Determinate(chart));
+            }
         }
 
-        private bool DeterminateWithOperator(ClimateChart chart)
+        public bool DeterminateWithOperator(ClimateChart chart)
         {
+            if (Par2 != null)
+            {
+                switch (Operator)
+                {
+                    case "<=": return (Par1.Execute(chart) <= Par2.Execute(chart));
+                    case "<": return (Par1.Execute(chart) < Par2.Execute(chart));
+                    case ">=": return (Par1.Execute(chart) >= Par2.Execute(chart));
+                    case ">": return (Par1.Execute(chart) > Par2.Execute(chart));
+                }
+            }
             switch (Operator)
             {
                 case "<=": return (Par1.Execute(chart) <= Waarde);
                 case "<": return (Par1.Execute(chart) < Waarde);
                 case ">=": return (Par1.Execute(chart) >= Waarde);
-                case ">": return (Par1.Execute(chart) > Waarde);
-                default : return false;
+                default: return (Par1.Execute(chart) > Waarde);
             }
-            /*return Par1.Execute(chart) <= Waarde ? YesClause.Determinate(chart) : NoClause.Determinate(chart);*/
         }
 
-        public override List<ClauseComponent> CorrectPath(ClimateChart chart)
+        public override List<ClauseComponent> GiveCorrectPath(ClimateChart chart)
         {
             List<ClauseComponent> cp;
-            if (Par2 == null)
+            if (DeterminateWithOperator(chart))
             {
-                if (DeterminateWithOperator(chart))
-                {
-                    cp = YesClause.CorrectPath(chart);
-                    cp.Add(this);
-                    return cp;
-                }
-                cp = NoClause.CorrectPath(chart);
-                cp.Add(this);
-                return cp; 
-            }
-            if (Par1.Execute(chart) <= Par2.Execute(chart))
-            {
-                cp = YesClause.CorrectPath(chart);
+                cp = YesClause.GiveCorrectPath(chart);
                 cp.Add(this);
                 return cp;
             }
-            cp = NoClause.CorrectPath(chart);
+            cp = NoClause.GiveCorrectPath(chart);
             cp.Add(this);
             return cp; 
         }

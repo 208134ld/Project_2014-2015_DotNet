@@ -73,7 +73,7 @@ namespace p2groep11.Net.ViewModels
             CorrectPath = new List<String>();
             Parameters = new List<Parameter>();
 
-            //CorrectPath lijst opvullen met de namen van alle correcte clauses en CorrectResult toewijzen
+            //GiveCorrectPath lijst opvullen met de namen van alle correcte clauses en CorrectResult toewijzen
             foreach (ClauseComponent cc in table.CorrectPath(c))
             {
                 if (cc.GetType().BaseType.ToString() == "p2groep11.Net.Models.Domain.Clause")

@@ -12,16 +12,12 @@ namespace p2groep11.Net.Models.Domain
     {
         public int CountryID { get; set; }
         public string Name { get; set; }
-        //public bool AboveEquator { get; set; }
-        //public double Latitude { get; set; }
-        //public double Longitude { get; set; }
         public virtual Continent Continent { get; set; }
         public virtual ICollection<ClimateChart> ClimateCharts { get; set; }
 
         public Country()
         {
             ClimateCharts = new List<ClimateChart>();
-            //AboveEquator = true;
         }
 
         public Country(String name, Continent c)
@@ -29,19 +25,12 @@ namespace p2groep11.Net.Models.Domain
             Name = name;
             Continent = c;
             ClimateCharts = new List<ClimateChart>();
-            //AboveEquator = true;
-            //Latitude = 0;
-            //Longitude = 0;
         }
 
         public Country(String name)
         {
             Name = name;
-            //Continent = c;
             ClimateCharts = new List<ClimateChart>();
-            //Latitude = latitude;
-            //Longitude = longitude;
-            //AboveEquator = latitude > 0;
         }
 
         public ClimateChart GetClimateChart(int climateChartID )
