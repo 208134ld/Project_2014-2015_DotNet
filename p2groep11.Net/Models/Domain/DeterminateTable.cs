@@ -11,9 +11,10 @@ namespace p2groep11.Net.Models.Domain
         public int DeterminateTableId { get; set; }
         public virtual ICollection<ClauseComponent> AllClauseComponents { get; set; }
          
-        public DeterminateTable(ClauseComponent component)
+        public DeterminateTable(int id)
         {
             AllClauseComponents = new List<ClauseComponent>();
+            this.DeterminateTableId = id;
         }
 
         public DeterminateTable()

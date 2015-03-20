@@ -153,10 +153,10 @@ background-color: #DFF2BF;
     visibility: hidden;
 }
 .AnswerC {
-    border: 1px solid #777777;
-    background-color: #308029;
-    color: white;
-    margin-left: 20px;
+    border: 1px solid #777777!important;
+    background-color: #308029!important;
+    color: white!important;
+    margin-left: 20px!important;
 }
 .AnswerV {
     border: 1px solid #777777;
@@ -217,9 +217,9 @@ background-color: #DFF2BF;
     color: white;
 }
 
-.chartName, .chartLongitude, .chartLatitude {
+.chartName, .chartLongitude {
     display: inline-block;
-    width: 150px;
+    width: 250px;
 }
 
 .titlesBold {
@@ -243,7 +243,7 @@ background-color: #DFF2BF;
 
 .chartNameTitle, .chartLongitudeTitle, .chartLatitudeTitle {
     display: inline-block;
-    width: 200px;
+    width: 250px;
 }
 
 .vegetationImg1steGraad {
