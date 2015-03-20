@@ -362,7 +362,7 @@ namespace p2groep11.Net.Models.DAL
                 tw10.Add(false, tj0);
 
 
-                ClauseComponent tj0Yes = new Result(" Koudgematigd klimaat met strenge winter", " Taigaklimaat", picture3);
+                ClauseComponent tj0Yes = new Result("Koudgematigd klimaat met strenge winter", "Taigaklimaat", picture3);
                 tj0.Add(true, tj0Yes);
                 ClauseComponent nj200 = new Clause("NJ <= 200", nj,"<=", 200);
 
@@ -503,17 +503,22 @@ namespace p2groep11.Net.Models.DAL
                 int[] sed5 = new[] {9, 10, 19, 58, 21, 8, 20, 9, 5, 10, 28, 14};
                 int[] temps6 = new int[] {28, 28, 28, 28, 26, 25, 24, 24, 25, 26, 27, 27};
                 int[] sed6 = new[] {34, 14, 56, 154, 236, 88, 72, 68, 67, 103, 105, 76};
+                int[] temps7 = new int[] {-15, -12, -6, 0, 7, 13, 16, 13, 8, 2, -5, -11};
+                int[] sed7 = new[] {34, 28, 27, 32, 41, 55, 62, 65, 61, 59, 54, 43};
                 ClimateChart gent = new ClimateChart("Gent", 1961, 1990, temps, sed, 51.054342, 3.717424);
                 ClimateChart ukkel = new ClimateChart("Ukkel", 1961, 1990, temps2, sed2, 50.802398, 4.340670);
                 ClimateChart virton = new ClimateChart("Virton", 1961, 1990, temps3, sed3, 49.567574, 5.533507);
                 ClimateChart chievres = new ClimateChart("Chièvres", 1961, 1990, temps4, sed4, 50.585970, 3.806090);
                 ClimateChart lodwar = new ClimateChart("Lodwar", 1961, 1990, temps5, sed5, 3.116667, 35.600000);
                 ClimateChart mombasa = new ClimateChart("Mombasa", 1961, 1990, temps6, sed6, -4.043477, 39.668206);
+                ClimateChart archangelsk = new ClimateChart("Archangelsk", 1961, 1990, temps7, sed7, 64.547251, 40.560155);
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] {gent, chievres, ukkel, virton}).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 List<ClimateChart> climateCharts2 = (new ClimateChart[] { lodwar, mombasa }).ToList();
                 climateCharts2.ForEach(c => kenia.ClimateCharts.Add(c));
+                List<ClimateChart> climateCharts3 = (new ClimateChart[] { archangelsk}).ToList();
+                climateCharts3.ForEach(c => russischeFed.ClimateCharts.Add(c));
                 
                 
                 context.SaveChanges();

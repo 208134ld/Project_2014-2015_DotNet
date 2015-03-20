@@ -1,4 +1,14 @@
 ﻿$(document).ready(function () {
+    $(".legende").toggle();
+
+    $('.bekijkLegende').click(function () {
+        $(".legende").toggle();
+    });
+
+    //negatieve waarden neerslag onzichtbaar maken
+    
+
+
     //Lightbox
     $('.lightbox').click(function () {
         $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
@@ -41,14 +51,16 @@
         return wrightArr;
     }
 //deselecteerd foute elementen en duid juiste elementen aan
-    function removeClassesFromWrongItems(items) {
+    function removeClassesFromWrongItems(items, countClickedItems, countCorrectPath) {
         $(".success").empty();
         if (items.length != 0) {
             $(".success").append("<h2 class='succesTitle'> Volgende statements zijn juist:</h2>");
-            $.each(items, function(key, i) {
-                $(".success").append("<p>" + $(this).context.textContent + "</p>");
-                $(this).removeClass();
-                $(this).addClass("AnswerC");
+            $.each(items, function (key, i) {
+                if (countClickedItems === countCorrectPath) {
+                    $(".success").append("<p>" + $(this).context.textContent + "</p>");
+                    $(this).removeClass();
+                    $(this).addClass("AnswerC");
+                }
             });
         }
         $.each($(".YesSpanActive"), function(key, i) {
@@ -131,29 +143,35 @@
         var selectedItemsYes = $(".main").find(".YesSpanActive");
         var selectedItemsNo = $(".main").find(".NoSpanActive");
         var yesNo = concat(selectedItemsYes, selectedItemsNo);
-        
+
+        var countClickedItems = yesNo.length;
+        var countCorrectPath = $(".invis").length - 1;
+
         var wrightArr = compare(yesNo);
-        removeClassesFromWrongItems(wrightArr);
-        if ($(".AnswerC").length == $(".invisC").find(".invis").length-1) {
-           
-           
-                var detPath = $(".invisC").find(".invis");
-              
+        removeClassesFromWrongItems(wrightArr, countClickedItems, countCorrectPath);
+        console.log($(".invis").length);
+        console.log(yesNo.length);
+        if (countCorrectPath === countClickedItems) {
+
+
+            if ($(".AnswerC").length == $(".invisC").find(".invis").length - 1) {
+
+
                 $(".success").append("<p>Determineren voltooid! goed gedaan!</p>");
-            if (SchoolYear < 3) {
-                //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
-                $(".vegetationImg1steGraad").css("display", "block");
+                if (SchoolYear < 3) {
+                    //$(".success").append("<p> Het vegetatietype is " + detPath[detPath.length - 1].textContent + "</p>");
+                    $(".vegetationImg1steGraad").css("display", "block");
+                }
+
+
+                $(".selectVegetation").css("display", "block");
+                $(".ClimateChartDisplay").css("display", "none");
+                $(".questionsDiv").css("display", "none");
+                $(".determinateTable").css("display", "none");
+                $(".tree").css("display", "none");
+
             }
-
-            
-            $(".selectVegetation").css("display", "block");
-            $(".ClimateChartDisplay").css("display", "none");
-            $(".questionsDiv").css("display", "none");
-            $(".determinateTable").css("display", "none");
-            $(".tree").css("display", "none");
-            
         }
-
     });
     //VOORBEELD VIEW
     function removeClassesFromWrongItems2(items) {
