@@ -1,7 +1,4 @@
 ﻿$(document).ready(function () {
-
-    
-
     //Lightbox
     $('.lightbox').click(function () {
         $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
@@ -78,80 +75,57 @@
         return x;
     }
 
-    $(".YesSpan").on("click", function () {
+    //Oud pad eerst initialiseren
+    var oldPath = $(".YesSpanActive");
 
+    //Functie wordt uitgevoerd als men op een Yes Clause klikt
+    $(".YesSpan").on("click", function() {
+        //Toggle de clause naar actief, zodat hij geel wordt
         $(this).toggleClass("YesSpanActive");
 
-        //voorgaande parents ook togglen
-        var thiske = $(this);
+        //Voorgaande parents ook togglen
         var parentje = $(this).parent().parent().prev('span');
         parentje.toggleClass("YesSpanActive");
 
-
-        //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
-        parentje.find("span").each(function (index) {
-            $(this).removeClass("YesSpanActive");
-            if (thiske[0].innerText == $(this)[0].innerText) {
-                //console.log("yes");
-                $(this).addClass("YesSpanActive");
-            }
-
-        });
-
+        //Dit blijven doen totdat een clause geen parent meer heeft
         while (parentje.parent().parent().prev('span').length != 0) {
-            //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
-            parentje.find("span").each(function (index) {
-                $(this).removeClass("YesSpanActive");
-                if (thiske[0].innerText == $(this)[0].innerText) {
-                    //console.log("yes");
-                    $(this).addClass("YesSpanActive");
-                }
-            });
-
-
             parentje = parentje.parent().parent().prev('span');
             parentje.toggleClass("YesSpanActive");
         }
 
+        //Oud pad inactief maken
+        oldPath.each(function () {
+            $(this).toggleClass("YesSpanActive");
+        });
 
+        //Oud pad naar huidig pad instellen
+        oldPath = $(".YesSpanActive");
     });
 
-    $(".NoSpan").on("click", function () {
+    //Functie wordt uitgevoerd als men op een No Clause klikt
+    $(".NoSpan").on("click", function() {
+        //Toggle de clause naar actief, zodat hij geel wordt
+        $(this).toggleClass("YesSpanActive");
 
-        $(this).toggleClass("NoSpanActive");
-
-        //voorgaande parents ook togglen
-        var thiske = $(this);
+        //Voorgaande parents ook togglen
         var parentje = $(this).parent().parent().prev('span');
         parentje.toggleClass("YesSpanActive");
 
-        //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
-        parentje.find("span").each(function (index) {
-            $(this).removeClass("YesSpanActive");
-            if (thiske[0].innerText == $(this)[0].innerText) {
-                //console.log("yes");
-                $(this).addClass("YesSpanActive");
-            }
-
-        });
-
+        //Dit blijven doen totdat een clause geen parent meer heeft
         while (parentje.parent().parent().prev('span').length != 0) {
-            //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
-            parentje.next().find("span").each(function (index) {
-                $(this).removeClass("YesSpanActive");
-                if (thiske[0].innerText == $(this)[0].innerText) {
-                    //console.log("yes");
-                    return false;
-                }
-
-            });
-
-
             parentje = parentje.parent().parent().prev('span');
             parentje.toggleClass("YesSpanActive");
         }
+
+        //Oud pad inactief maken
+        oldPath.each(function () {
+            $(this).toggleClass("YesSpanActive");
+        });
+
+        //Oud pad naar huidig pad instellen
+        oldPath = $(".YesSpanActive");
     });
-    
+
     $(".testBut").on("click", function () {
       
         var selectedItemsYes = $(".main").find(".YesSpanActive");
