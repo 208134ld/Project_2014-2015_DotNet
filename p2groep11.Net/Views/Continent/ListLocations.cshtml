@@ -40,7 +40,7 @@
     {
         <div class="itemRow">
             <div class="chartName">
-                @Html.ActionLink(@item.Location, "ShowClimateChart", "ClimateChart",
+                @Html.ActionLink(@item.Location, "ShowExercises", "ClimateChart",
                     new {selectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID}, null)
             </div>
             <div class="chartLatitude">@item.ChartLatitude</div>

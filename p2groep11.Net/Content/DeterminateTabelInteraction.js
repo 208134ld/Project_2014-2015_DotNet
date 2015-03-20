@@ -1,4 +1,7 @@
 ﻿$(document).ready(function () {
+
+    
+
     //Lightbox
     $('.lightbox').click(function () {
         $('.backdrop, .box').animate({ 'opacity': '.50' }, 300, 'linear');
@@ -75,13 +78,78 @@
         return x;
     }
 
-    $(".YesSpan").on("click", function() {
-        console.log($(this).parents().get(3).children);
-        console.log($(this).parents().get(3));
+    $(".YesSpan").on("click", function () {
+
         $(this).toggleClass("YesSpanActive");
+
+        //voorgaande parents ook togglen
+        var thiske = $(this);
+        var parentje = $(this).parent().parent().prev('span');
+        parentje.toggleClass("YesSpanActive");
+
+
+        //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
+        parentje.find("span").each(function (index) {
+            $(this).removeClass("YesSpanActive");
+            if (thiske[0].innerText == $(this)[0].innerText) {
+                //console.log("yes");
+                $(this).addClass("YesSpanActive");
+            }
+
+        });
+
+        while (parentje.parent().parent().prev('span').length != 0) {
+            //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
+            parentje.find("span").each(function (index) {
+                $(this).removeClass("YesSpanActive");
+                if (thiske[0].innerText == $(this)[0].innerText) {
+                    //console.log("yes");
+                    $(this).addClass("YesSpanActive");
+                }
+            });
+
+
+            parentje = parentje.parent().parent().prev('span');
+            parentje.toggleClass("YesSpanActive");
+        }
+
+
     });
-    $(".NoSpan").on("click", function() {
+
+    $(".NoSpan").on("click", function () {
+
         $(this).toggleClass("NoSpanActive");
+
+        //voorgaande parents ook togglen
+        var thiske = $(this);
+        var parentje = $(this).parent().parent().prev('span');
+        parentje.toggleClass("YesSpanActive");
+
+        //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
+        parentje.find("span").each(function (index) {
+            $(this).removeClass("YesSpanActive");
+            if (thiske[0].innerText == $(this)[0].innerText) {
+                //console.log("yes");
+                $(this).addClass("YesSpanActive");
+            }
+
+        });
+
+        while (parentje.parent().parent().prev('span').length != 0) {
+            //poging tot andere paden te togglen indien overgegaan wordt naar ander pad
+            parentje.next().find("span").each(function (index) {
+                $(this).removeClass("YesSpanActive");
+                if (thiske[0].innerText == $(this)[0].innerText) {
+                    //console.log("yes");
+                    return false;
+                }
+
+            });
+
+
+            parentje = parentje.parent().parent().prev('span');
+            parentje.toggleClass("YesSpanActive");
+        }
     });
     
     $(".testBut").on("click", function () {

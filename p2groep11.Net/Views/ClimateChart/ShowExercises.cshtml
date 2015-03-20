@@ -1,7 +1,7 @@
 ﻿
 @using System.Drawing
 @using p2groep11.Net.Models.Domain
-@model p2groep11.Net.ViewModels.ExerciseViewModels
+@model p2groep11.Net.ViewModels.ClimateChartViewModel
 
 @{
     ViewBag.Title = "Klimatogram";
@@ -33,10 +33,10 @@
     @Html.Partial("ClimateChart")
 }
 
-@if (TempData["FoutVegetatie"] == null)
+@*@if (TempData["FoutVegetatie"] == null)
 {
     @Html.Partial("Questions")
-}
+}*@
 
 @if (TempData["FoutVegetatie"] == null)
 {
