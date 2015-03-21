@@ -147,7 +147,7 @@ background-color: #DFF2BF;
     background-color: beige;
 }
 .invis {
-    visibility: none;
+    visibility: hidden;
 }
 .invisVoorbeeld {
     visibility: hidden;

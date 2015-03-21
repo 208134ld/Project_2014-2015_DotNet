@@ -200,7 +200,7 @@ namespace p2groep11.Net.ViewModels
                 .SetTooltip(new Tooltip
                 {
                     Formatter =
-                        "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag' ? ' mm' : '°C'); }"
+                        "function() { return ''+ this.x +': '+ this.y + (this.series.name == 'Neerslag in mmN' ? ' mm' : '°C'); }"
                 })
                 .SetLegend(new Legend
                 {
