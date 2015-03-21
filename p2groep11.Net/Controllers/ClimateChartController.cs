@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -34,8 +35,10 @@ namespace p2groep11.Net.Controllers
                     Grade gr = gradeRepository.FindBySchoolyear(selectedYear);
                     ClimateChart c = gr.GetContinent(continentId).getCountry(countryId).GetClimateChart(climateId);
                     DeterminateTable ta = gr.DeterminateTableProp;
+                    List<Parameter> parameters = gr.QuestionListProp.Parameters.ToList();
 
-                    return View(new ClimateChartViewModel(c, ta));
+                    return View( new ClimateChartViewModel(c, ta, parameters)); /*parameters.Select(p => new ClimateChartViewModel(c, ta, p)*/;
+                    //continents.Select(co=>new ContinentsListViewModel(co)).ToList()
                 }
                 catch (SqlException sqlExc)
                 {

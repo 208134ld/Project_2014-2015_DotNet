@@ -10,7 +10,7 @@ namespace p2groep11.Net.ViewModels
     {
         public string Beschrijving { get; private set; }
         public string Answer { get; private set; }
-        public string[] OptAnswers { get; private set; }
+        public List<SelectListItem> OptAnswers { get; private set; }
 
 
         public QuestionListViewModel(ClimateChart c, Parameter p)

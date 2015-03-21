@@ -49,8 +49,12 @@ namespace p2groep11.Net.ViewModels
 
         //props Questions
         //geen objecten in de view
-        public List<Parameter> Parameters { get; set; }
-        public string[] Answers { get; set; }
+        public List<QuestionViewModel> QuestionListVM { get; set; } //Maakt modelstate invalid???
+        //public QuestionViewModel QuestionVM { get; set; }
+        public List<Parameter> Parameters { get; set; } 
+        /*public string Beschrijving { get; private set; }
+        public string Answer { get; private set; }
+        public List<SelectListItem> OptAnswers { get; private set; }*/
 
 
         //viewmodel voor de "legende" van de determineertabel
@@ -58,7 +62,7 @@ namespace p2groep11.Net.ViewModels
 
 
 
-        public ClimateChartViewModel(ClimateChart c, DeterminateTable table)
+        public ClimateChartViewModel(ClimateChart c, DeterminateTable table, List<Parameter> parameters)
         {
             Coordinaten = c.Coordinaten;
             Location = c.Location;
@@ -75,7 +79,16 @@ namespace p2groep11.Net.ViewModels
             ResultaatDeterminate = Determinate(c, table);
             HtmlDetTabel = headClauseComponent.GetHtmlCode(true);
             CorrectPath = new List<String>();
-            Parameters = new List<Parameter>();
+            
+
+            //QuestionList opvullen
+            Parameters = parameters;
+            QuestionListVM = new List<QuestionViewModel>();
+            foreach (Parameter p in parameters)
+            {
+                QuestionListVM.Add(new QuestionViewModel(c, p));
+                //QuestionVM = new QuestionViewModel(c,p);
+            }
 
             //GiveCorrectPath lijst opvullen met de namen van alle correcte clauses en CorrectResult toewijzen
             foreach (ClauseComponent cc in table.CorrectPath(c))
@@ -241,5 +254,28 @@ namespace p2groep11.Net.ViewModels
             tw10.Add(false, res2);
             Html = tw10.GetHtmlCode(true);
         }
+
+        
+
     }
+
+    public class QuestionViewModel
+        {
+            public string Beschrijving { get; private set; }
+            public string Answer { get; private set; }
+            public List<SelectListItem> OptAnswers { get; private set; }
+
+
+            public QuestionViewModel(ClimateChart c, Parameter p)
+            {
+                Beschrijving = p.Beschrijving;
+
+                OptAnswers = new List<SelectListItem>();
+                for (int i = 0; i < p.GiveOptAnswers(c).Count(); i++)
+                {
+                    OptAnswers.Add(new SelectListItem { Value = i.ToString(), Text = p.GiveOptAnswers(c)[i] });
+                }
+            }
+        }
+
 }

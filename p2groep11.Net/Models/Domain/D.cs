@@ -11,7 +11,6 @@ namespace p2groep11.Net
 {
     public class D : Parameter
     {
-        public string Beschrijving { get; set; }
 
         public D()
         {
