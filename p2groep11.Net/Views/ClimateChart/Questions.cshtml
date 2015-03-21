@@ -15,7 +15,7 @@ foreach (var item in Model.QuestionListVM)
 {
     <div class="form-group">
         <p>@item.Beschrijving</p>
-        @Html.DropDownListFor(model => item.Answer, item.OptAnswers)
+        @Html.DropDownListFor(model => item.Answer, item.OptAnswers, new {@class="Answer"})
         @Html.ValidationMessageFor(model => item.Answer, "", new {@class = "text-danger"})
     </div>
 }
@@ -27,7 +27,7 @@ foreach(var antw in Model.JuisteAntwoorden){
 
 
     <div class="form-group">
-        <input type="submit" value="Controleer" class="btn btn-default"/>
+        <input type="submit" value="Controleer" class="btn btn-default controleerAntwoorden"/>
     </div>
 
     <script src="../../Content/CheckCorrectAnswer.js"></script>

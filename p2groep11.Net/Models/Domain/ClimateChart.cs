@@ -288,7 +288,7 @@ namespace p2groep11.Net.Models.Domain
 
         public string[] AmountOfMonths()
         {
-            int[] maandenInts = new int[12];
+            int[] maandenInts = new int[13];
             for (int i = 0; i < 13; i++)
             {
                 maandenInts[i] = i;
