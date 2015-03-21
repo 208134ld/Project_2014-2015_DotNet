@@ -20,10 +20,10 @@ namespace p2groep11.Net.Models.DAL.Mapper
             // Properties
 
             //Relations
-            HasRequired(g => g.DeterminateTableProp);
-            HasMany(g => g.Continents).WithMany(g => g.Grades);
-            HasMany(g => g.SchoolYears).WithRequired(g => g.GradeProp);
-            HasOptional(g => g.QuestionListProp);
+            HasRequired(g => g.DeterminateTableProp).WithMany().Map(m => m.MapKey("DeterminateTableId"));
+            HasMany(g => g.Continents).WithMany(g => g.Grades).Map(m => m.MapLeftKey("GradeId").MapRightKey("ContinentId"));
+            HasMany(g => g.SchoolYears).WithRequired(g => g.GradeProp).Map(m => m.MapKey("GradeId"));
+            HasOptional(g => g.QuestionListProp).WithMany().Map(m => m.MapKey("QuestionListId"));
         }
     }
 }

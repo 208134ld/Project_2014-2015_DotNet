@@ -22,7 +22,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             
             //relations
             //HasRequired(d => d.ClauseComponent);
-            HasMany(c => c.AllClauseComponents);
+            HasMany(c => c.AllClauseComponents).WithRequired().Map(m => m.MapKey("DeterminateTableId"));
         }
     }
 }
