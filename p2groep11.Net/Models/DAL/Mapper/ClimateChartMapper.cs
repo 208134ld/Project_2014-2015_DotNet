@@ -26,7 +26,6 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.AboveEquator).IsRequired();
             Property(c => c.Latitude).IsRequired();
             Property(c => c.Longitude).IsRequired();
-            //Property(c => c.TempArray).IsRequired(); WtFFF
 
             //Relations
             HasMany(c => c.Months).WithMany().Map(m => m.MapLeftKey("ClimateChartId").MapRightKey("MonthId"));

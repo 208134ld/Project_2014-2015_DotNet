@@ -41,20 +41,16 @@ namespace p2groep11.Net.ViewModels
         public List<SelectListItem> OptionsVegetation { get; set; }
         private Image picture;
         public byte[] ByteArray { get; set; }
-
-        [Required]
         [Display(Name = "Vegetatie")]
         public String SelectedVegetation { get; set; }
 
 
         //props Questions
         //geen objecten in de view
-        public List<QuestionViewModel> QuestionListVM { get; set; } //Maakt modelstate invalid???
-        //public QuestionViewModel QuestionVM { get; set; }
-        public List<Parameter> Parameters { get; set; } 
-        /*public string Beschrijving { get; private set; }
-        public string Answer { get; private set; }
-        public List<SelectListItem> OptAnswers { get; private set; }*/
+        public List<QuestionViewModel> QuestionListVM { get; set; }
+        public List<Parameter> Parameters { get; set; }
+        public List<String> JuisteAntwoorden { get; set; }
+
 
 
         //viewmodel voor de "legende" van de determineertabel
@@ -84,10 +80,11 @@ namespace p2groep11.Net.ViewModels
             //QuestionList opvullen
             Parameters = parameters;
             QuestionListVM = new List<QuestionViewModel>();
+            JuisteAntwoorden = new List<string>();
             foreach (Parameter p in parameters)
             {
                 QuestionListVM.Add(new QuestionViewModel(c, p));
-                //QuestionVM = new QuestionViewModel(c,p);
+                JuisteAntwoorden.Add(p.GiveAnswer(c));
             }
 
             //GiveCorrectPath lijst opvullen met de namen van alle correcte clauses en CorrectResult toewijzen

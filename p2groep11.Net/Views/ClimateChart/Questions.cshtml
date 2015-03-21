@@ -1,4 +1,6 @@
 ﻿
+@using System.Activities.Statements
+@using System.Collections.Specialized
 @using p2groep11.Net.Models.Domain
 @model p2groep11.Net.ViewModels.ClimateChartViewModel
 <link rel="stylesheet" type="text/css" href="../../Content/bootstrap-tree.css"/>
@@ -9,24 +11,24 @@
 @if (ViewBag.SchoolYear <= 2) { 
 <h2>Vragen</h2>
 
-@*@<div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.QuestionVM.Beschrijving)
-        @Html.DropDownListFor(model => model.QuestionVM.Answer, Model.QuestionVM.OptAnswers)
-        @Html.ValidationMessageFor(model => model.QuestionVM.Answer, "", new { @class = "text-danger" })
-    </div>
-</div>*@
 foreach (var item in Model.QuestionListVM)
 {
     <div class="form-group">
-        @*@Html.LabelFor(model => item.Beschrijving)*@
         <p>@item.Beschrijving</p>
         @Html.DropDownListFor(model => item.Answer, item.OptAnswers)
-        @Html.ValidationMessageFor(model => item.Answer, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => item.Answer, "", new {@class = "text-danger"})
     </div>
 }
+
+
+foreach(var antw in Model.JuisteAntwoorden){
+        <span class="invisAnswers">@antw</span>
+}
+
 
     <div class="form-group">
         <input type="submit" value="Controleer" class="btn btn-default"/>
     </div>
+
+    <script src="../../Content/CheckCorrectAnswer.js"></script>
 }

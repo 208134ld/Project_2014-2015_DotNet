@@ -152,6 +152,11 @@ background-color: #DFF2BF;
 .invisVoorbeeld {
     visibility: hidden;
 }
+
+.invisAnswers {
+    visibility: hidden;
+}
+
 .AnswerC {
     border: 1px solid #777777!important;
     background-color: #308029!important;

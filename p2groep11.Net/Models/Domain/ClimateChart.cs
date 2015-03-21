@@ -277,7 +277,8 @@ namespace p2groep11.Net.Models.Domain
 
         public string[] GetAllTemperatures()
         {
-            return TempArray.Select(t => t.ToString()).ToArray();
+            //return TempArray.Select(t => t.ToString()).ToArray();
+            return Months.Select(m => m.AverTemp.ToString()).ToArray();
         }
 
         public string[] GetAllSediments()
@@ -288,9 +289,9 @@ namespace p2groep11.Net.Models.Domain
         public string[] AmountOfMonths()
         {
             int[] maandenInts = new int[12];
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 13; i++)
             {
-                maandenInts[i] = i+1;
+                maandenInts[i] = i;
             }
             return maandenInts.Select(t => t.ToString()).ToArray();
         }
