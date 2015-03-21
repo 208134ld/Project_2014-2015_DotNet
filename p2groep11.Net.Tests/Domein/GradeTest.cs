@@ -30,23 +30,6 @@ namespace p2groep11.Net.Tests.Domein
         {
             grade.GradeId = 5;
         }
-
-        [TestMethod]
-        public void CalculateGradeGivesCorrectGrade()
-        {
-            grade.CalculateGrade(1);
-            Assert.AreEqual(1, grade.GradeId);
-            grade.CalculateGrade(2);
-            Assert.AreEqual(1,grade.GradeId);
-            grade.CalculateGrade(3);
-            Assert.AreEqual(2,grade.GradeId);
-            grade.CalculateGrade(4);
-            Assert.AreEqual(2, grade.GradeId);
-            grade.CalculateGrade(5);
-            Assert.AreEqual(3, grade.GradeId);
-            
-        }
-
         [TestMethod]
         public void gradeConstructorInitGrade()
         {

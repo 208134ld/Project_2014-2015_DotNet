@@ -42,14 +42,14 @@ namespace p2groep11.Net.Tests.Controllers
         public void ErrorInShowClimateChartRedirectToSelectSchoolyear()
         {
             controller.ModelState.AddModelError("key", "error");
-            RedirectToRouteResult result = controller.ShowExercises1,1,1) as RedirectToRouteResult;
+            RedirectToRouteResult result = controller.ShowExercises(1,1,1,1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["Action"]);
         }
         //crasht bij viewmodel constructor foreach
         [TestMethod]
         public void ShowClimatogramPassesViewmodelToView()
         {
-            ViewResult result =controller.ShowExercises 1, 1, 1)as ViewResult; 
+            ViewResult result =controller.ShowExercises(1, 1, 1, 1)as ViewResult; 
             ClimateChartViewModel model = result.Model as ClimateChartViewModel;
             Assert.AreEqual(model.Months,context.Gent.Months);
         }

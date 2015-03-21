@@ -81,10 +81,12 @@ namespace p2groep11.Net.ViewModels
             Parameters = parameters;
             QuestionListVM = new List<QuestionViewModel>();
             JuisteAntwoorden = new List<string>();
+            int teller = 0;
             foreach (Parameter p in parameters)
             {
-                QuestionListVM.Add(new QuestionViewModel(c, p));
+                QuestionListVM.Add(new QuestionViewModel(teller,c, p));
                 JuisteAntwoorden.Add(p.GiveAnswer(c));
+                teller++;
             }
 
             //GiveCorrectPath lijst opvullen met de namen van alle correcte clauses en CorrectResult toewijzen
@@ -258,13 +260,15 @@ namespace p2groep11.Net.ViewModels
 
     public class QuestionViewModel
         {
+        public int Id { get; set; }
             public string Beschrijving { get; private set; }
             public string Answer { get; private set; }
             public List<SelectListItem> OptAnswers { get; private set; }
 
 
-            public QuestionViewModel(ClimateChart c, Parameter p)
+            public QuestionViewModel(int id,ClimateChart c, Parameter p)
             {
+                Id = id;
                 Beschrijving = p.Beschrijving;
 
                 OptAnswers = new List<SelectListItem>();

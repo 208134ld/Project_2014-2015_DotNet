@@ -15,7 +15,9 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.errorMessage {
+    color: red;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -154,7 +156,6 @@ background-color: #DFF2BF;
 }
 
 .invisAnswers {
-    visibility: hidden;
 }
 
 .AnswerC {
@@ -283,4 +284,10 @@ th, td {
 
 .controleerAntwoorden {
     
+}
+.succesQuestions {
+color: #4F8A10;
+background-color: #DFF2BF;
+padding :10px;
+display: none;
 }

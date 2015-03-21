@@ -75,13 +75,12 @@ namespace p2groep11.Net.Tests.Controllers
            CC4.Add(true, res1);
            CC4.Add(false, res2);
            DetTable = new DeterminateTable(tw10);
-           DetTable.ClauseComponent = tw10;
+           
            DetTable2 = new DeterminateTable(CC2);
-           DetTable2.ClauseComponent = CC2;
+           
            DetTable3 = new DeterminateTable(CC3);
-           DetTable3.ClauseComponent = CC3;
+           
            DetTable4 = new DeterminateTable(CC4);
-           DetTable4.ClauseComponent = CC4;
            Graad.DeterminateTableProp = DetTable;
        }
     }

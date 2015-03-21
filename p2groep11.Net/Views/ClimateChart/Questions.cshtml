@@ -13,21 +13,26 @@
 
 foreach (var item in Model.QuestionListVM)
 {
-    <div class="form-group">
+    
+    <div class="form-group" data-vraag=@item.Id>
         <p>@item.Beschrijving</p>
-        @Html.DropDownListFor(model => item.Answer, item.OptAnswers, new {@class="Answer"})
+        <p>@Html.DropDownListFor(model => item.Answer, item.OptAnswers, new { @class = "Answer" }) <label class="errorMessage" data-vraag=@item.Id></label></p>
         @Html.ValidationMessageFor(model => item.Answer, "", new {@class = "text-danger"})
+
     </div>
+    
 }
 
 
 foreach(var antw in Model.JuisteAntwoorden){
-        <span class="invisAnswers">@antw</span>
+        <span hidden class="invisAnswers" style="display: none">@antw</span>
 }
 
 
     <div class="form-group">
-        <input type="submit" value="Controleer" class="btn btn-default controleerAntwoorden"/>
+        <input type="submit" value="Controleer" class="btn btn-default controleerAntwoorden"/><label class="glyphicon glyphicon-ok succesQuestions">
+    De vragen zijn correct beantwoord!
+</label>
     </div>
 
     <script src="../../Content/CheckCorrectAnswer.js"></script>
