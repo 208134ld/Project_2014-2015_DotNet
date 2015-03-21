@@ -10,7 +10,6 @@ namespace p2groep11.Net
 {
     public class TK : Parameter
     {
-        public String Beschrijving { get; set; }
 
         public TK()
         {

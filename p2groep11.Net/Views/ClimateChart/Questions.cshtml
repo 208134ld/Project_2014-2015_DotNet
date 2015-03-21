@@ -1,22 +1,32 @@
 ﻿
 @using p2groep11.Net.Models.Domain
-@model p2groep11.Net.ViewModels.QuestionListViewModel
+@model p2groep11.Net.ViewModels.ClimateChartViewModel
 <link rel="stylesheet" type="text/css" href="../../Content/bootstrap-tree.css"/>
 
 @{
     ViewBag.Title = "Klimatogram";
 }
-<div class="questionsDiv">
-    <div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Parameters[i].Beschrijving)
-                    @Html.DropDownListFor(model => model.Answers[i], new List<SelectListItem> { Model.Parameters[i].GiveOptAnswers(@ViewBag.ClimateChart) })
-                    @Html.ValidationMessageFor(model => model.Answers[i], "", new { @class = "text-danger" })
-                </div>
+@if (ViewBag.SchoolYear <= 2) { 
+<h2>Vragen</h2>
 
-            <div class="form-group">
-                <input type="submit" value="Controleer" class="btn btn-default" />
-            </div>
-        
+@*@<div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.QuestionVM.Beschrijving)
+        @Html.DropDownListFor(model => model.QuestionVM.Answer, Model.QuestionVM.OptAnswers)
+        @Html.ValidationMessageFor(model => model.QuestionVM.Answer, "", new { @class = "text-danger" })
     </div>
-</div>
+</div>*@
+foreach (var item in Model.QuestionListVM)
+{
+    <div class="form-group">
+        @*@Html.LabelFor(model => item.Beschrijving)*@
+        <p>@item.Beschrijving</p>
+        @Html.DropDownListFor(model => item.Answer, item.OptAnswers)
+        @Html.ValidationMessageFor(model => item.Answer, "", new { @class = "text-danger" })
+    </div>
+}
+
+    <div class="form-group">
+        <input type="submit" value="Controleer" class="btn btn-default"/>
+    </div>
+}

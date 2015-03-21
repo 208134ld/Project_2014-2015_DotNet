@@ -8,7 +8,6 @@ namespace p2groep11.Net
 {
     public class TM : Parameter
     {
-        public String Beschrijving { get; set; }
 
         public TM()
         {

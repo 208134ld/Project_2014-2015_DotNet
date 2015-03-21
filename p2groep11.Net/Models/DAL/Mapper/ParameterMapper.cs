@@ -16,7 +16,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasKey(p => p.ParameterId);
             // Properties
             Property(p => p.ParameterId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(p => p.Beschrijving).IsOptional();
+            Property(p => p.Beschrijving).IsRequired();
 
             //Relations
 

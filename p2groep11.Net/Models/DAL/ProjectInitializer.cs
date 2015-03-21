@@ -25,8 +25,8 @@ namespace p2groep11.Net.Models.DAL
             {
                 // GRADES
                 Grade grade1 = new Grade(1);
-                Grade grade2 = new Grade(3);
-                Grade grade3 = new Grade(5);
+                Grade grade2 = new Grade(2);
+                Grade grade3 = new Grade(3);
                 List<Grade> grades = (new Grade[] {grade1, grade2, grade3}).ToList();
 
                 
@@ -260,6 +260,8 @@ namespace p2groep11.Net.Models.DAL
                 parameters.ForEach(p => list.Parameters.Add(p));
 
                 grade1.QuestionListProp = list;
+                grade2.QuestionListProp = list;
+                grade3.QuestionListProp = list;
 
                 // SCHOOLYEARS
                 SchoolYear year1 = new SchoolYear(1);
@@ -415,7 +417,7 @@ namespace p2groep11.Net.Models.DAL
                 d12.Add(false, d12No);
                 tk18.Add(false, d12);
 
-                DeterminateTable detTable1 = new DeterminateTable(tw10);
+                DeterminateTable detTable1 = new DeterminateTable();
 
                 List<ClauseComponent> results1 = (new ClauseComponent[]
                 {
@@ -473,7 +475,7 @@ namespace p2groep11.Net.Models.DAL
                 tkMin3No.Add(false, tw22NoV1);
 
 
-                DeterminateTable detTable2 = new DeterminateTable(tw10V1);
+                DeterminateTable detTable2 = new DeterminateTable();
 
                 List<ClauseComponent> results2 = (new ClauseComponent[]
                 {

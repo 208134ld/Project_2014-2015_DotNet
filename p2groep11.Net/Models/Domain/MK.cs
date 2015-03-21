@@ -9,7 +9,6 @@ namespace p2groep11.Net
 {
     public class MK : p2groep11.Net.Models.Domain.Parameter
     {
-        public string Beschrijving { get; set; }
 
         public MK()
         {

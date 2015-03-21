@@ -10,7 +10,6 @@ namespace p2groep11.Net
 {
     public class NZ : Parameter
     {
-        public string Beschrijving { get; set; }
 
         public NZ()
         {

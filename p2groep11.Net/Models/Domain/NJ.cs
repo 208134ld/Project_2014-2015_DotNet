@@ -11,8 +11,6 @@ namespace p2groep11.Net
     public class NJ : Parameter
     {
 
-        public String Beschrijving { get; set; }
-
         public NJ()
         {
             

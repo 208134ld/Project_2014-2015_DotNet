@@ -25,7 +25,7 @@
     @Html.ActionLink("Kies land", "ListCountries", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId}, null) >
 
     @Html.ActionLink("Kies locatie", "ListLocations", "Continent", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId}, null) >
-    @Html.ActionLink("Klimatogram", "ShowClimateChart", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId, climateId = @ViewBag.ClimateId}) >
+    @Html.ActionLink("Klimatogram", "ShowExercises", new {Selectedyear = @ViewBag.SchoolYear, continentId = @ViewBag.ContinentId, countryId = @ViewBag.CountryId, climateId = @ViewBag.ClimateId}) >
 </div>
 
 @if (TempData["FoutVegetatie"] == null)
@@ -33,10 +33,10 @@
     @Html.Partial("ClimateChart")
 }
 
-@*@if (TempData["FoutVegetatie"] == null)
+@if (TempData["FoutVegetatie"] == null)
 {
     @Html.Partial("Questions")
-}*@
+} @*Uit commentaar gezet*@
 
 @if (TempData["FoutVegetatie"] == null)
 {

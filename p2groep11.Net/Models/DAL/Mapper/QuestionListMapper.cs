@@ -19,7 +19,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             Property(c => c.QuestionListID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             //Relations
-            HasMany(c => c.Parameters);
+            HasMany(c => c.Parameters).WithMany().Map(m => m.MapLeftKey("QuestionListId").MapRightKey("ParameterId"));
         }
     }
 }

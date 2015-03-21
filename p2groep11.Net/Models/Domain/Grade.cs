@@ -36,18 +36,18 @@ namespace p2groep11.Net.Models.Domain
             Continents = new List<Continent>();
         }
 
-        public Grade(int selectedYear)
+        public Grade(int id)
         {
-            CalculateGrade(selectedYear);
+            //CalculateGrade(selectedYear);
             SchoolYears = new List<SchoolYear>();
             Continents = new List<Continent>();
-            GradeId = grade;
+            GradeId = id;
         }
 
-        public void CalculateGrade(int selectedYear)
-        {
-            grade = (selectedYear + 1)/2;
-        }
+        //public void CalculateGrade(int selectedYear)
+        //{
+        //    grade = (selectedYear + 1)/2;
+        //}
 
         public Continent GetContinent(int continentId)
         {

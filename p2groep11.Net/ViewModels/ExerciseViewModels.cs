@@ -7,7 +7,7 @@ namespace p2groep11.Net.ViewModels
     {
 
         public ClimateChartViewModel ClimateChartVM { get; set; }
-        public QuestionListViewModel QuestionListVM { get; set; }
+        public QuestionViewModel QuestionListVM { get; set; }
         public ExampleViewModel ExampleVM { get; set; }
         public DeterminateTableViewModel DeterminateTableVM { get; set; }
         public SelectVegetationViewModel SelectVehetationVM { get; set; }
@@ -25,10 +25,10 @@ namespace p2groep11.Net.ViewModels
 
 
             //ViewModels aanmaken
-            ClimateChartVM = new ClimateChartViewModel(c, table); //table eventueel eruit
+            ClimateChartVM = new ClimateChartViewModel(c, table, Parameters); //table eventueel eruit
             foreach (Parameter p in Parameters)
             {
-                QuestionListVM = new QuestionListViewModel(c, p);
+                QuestionListVM = new QuestionViewModel(c, p);
             }
             ExampleVM = new ExampleViewModel();
             DeterminateTableVM = new DeterminateTableViewModel();
