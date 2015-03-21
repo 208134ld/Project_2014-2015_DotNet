@@ -32,7 +32,6 @@
 <div>
     <div class="titlesBold">
         <div class="chartNameTitle">Locatie</div>
-        <div class="chartLatitudeTitle"></div>
         <div class="chartLongitudeTitle">Locatie in graden</div>
     </div>
     
@@ -43,7 +42,6 @@
                 @Html.ActionLink(@item.Location, "ShowExercises", "ClimateChart",
                     new {selectedYear = ViewBag.SchoolYear, continentId = item.ContinentID, countryId = item.CountryID, climateId = item.ClimateChartID}, null)
             </div>
-            <div class="chartLatitude"></div>
             <div class="chartLongitude">@item.Coordinaten</div>
             <div class="mapsLink"><a href="https://www.google.be/maps/preview/&#64;@item.ChartLatitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),@item.ChartLongitude.ToString(CultureInfo.CreateSpecificCulture("en-GB")),13z" target="_blank">Bekijk op Google Maps!</a>
             </div>
