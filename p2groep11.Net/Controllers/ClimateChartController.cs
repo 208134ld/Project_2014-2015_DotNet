@@ -37,8 +37,7 @@ namespace p2groep11.Net.Controllers
                     DeterminateTable ta = gr.DeterminateTableProp;
                     List<Parameter> parameters = gr.QuestionListProp.Parameters.ToList();
 
-                    return View( new ClimateChartViewModel(c, ta, parameters)); /*parameters.Select(p => new ClimateChartViewModel(c, ta, p)*/;
-                    //continents.Select(co=>new ContinentsListViewModel(co)).ToList()
+                    return View( new ClimateChartViewModel(c, ta, parameters)); 
                 }
                 catch (SqlException sqlExc)
                 {

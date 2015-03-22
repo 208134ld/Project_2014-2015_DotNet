@@ -46,7 +46,6 @@ namespace p2groep11.Net.ViewModels
 
 
         //props Questions
-        //geen objecten in de view
         public List<QuestionViewModel> QuestionListVM { get; set; }
         public List<Parameter> Parameters { get; set; }
         public List<String> JuisteAntwoorden { get; set; }
@@ -209,7 +208,6 @@ namespace p2groep11.Net.ViewModels
                     VerticalAlign = VerticalAligns.Top,
                     Y = 10,
                     Floating = true
-                    //BackgroundColor = new BackColorOrGradient(ColorTranslator.FromHtml("#FFFFFF"))
                 })
                 .SetSeries(new[]
                 {

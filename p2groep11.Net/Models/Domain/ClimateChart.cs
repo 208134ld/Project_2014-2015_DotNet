@@ -103,7 +103,6 @@ namespace p2groep11.Net.Models.Domain
             get
             {
                 string MK = "";
-                //return Months.Select(m => m.MonthProp).Where();//ForEach(m => m.AverTemp.Equals(ColdestMonth))
                 foreach (Month m in Months)
                 {
                     if (m.AverTemp == ColdestMonth)
@@ -120,7 +119,6 @@ namespace p2groep11.Net.Models.Domain
             get
             {
                 string MW = "";
-                //return Months.Select(m => m.MonthProp).Where();//ForEach(m => m.AverTemp.Equals(ColdestMonth))
                 foreach (Month m in Months)
                 {
                     if (m.AverTemp == HottestMonth)
@@ -277,8 +275,7 @@ namespace p2groep11.Net.Models.Domain
 
         public string[] GetAllTemperatures()
         {
-            //return TempArray.Select(t => t.ToString()).ToArray();
-            return Months.Select(m => m.AverTemp.ToString()).ToArray();
+            return Months.Select(m => m.AverTemp.ToString()).Distinct().ToArray();
         }
 
         public string[] GetAllSediments()

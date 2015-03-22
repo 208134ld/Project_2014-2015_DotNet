@@ -323,7 +323,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ClimateChart\ShowExercises.cshtml" />
-    <Content Include="Views\ClimateChart\Index.cshtml" />
     <Content Include="Views\Continent\ListContinents.cshtml" />
     <Content Include="Views\Continent\ListCountries.cshtml" />
     <Content Include="Views\Continent\ListLocations.cshtml" />

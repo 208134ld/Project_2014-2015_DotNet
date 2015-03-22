@@ -191,8 +191,8 @@ namespace p2groep11.Net.Models.DAL
                 Country canada = new Country {Name = "Canada"};
                 Country costa = new Country {Name = "Costa Rica"};
                 Country cuba = new Country {Name = "Cuba"};
-                Country doReMii = new Country {Name = "Dominkaanse Republiek"};
-                Country salvador = new Country {Name = "El alvador"};
+                Country doReMii = new Country {Name = "Dominicaanse Republiek"};
+                Country salvador = new Country {Name = "El Salvador"};
                 Country guadeloupe = new Country {Name = "Guadeloupe"};
                 Country honduras = new Country {Name = "Honduras"};
                 Country mehico = new Country {Name = "Mexico"};
@@ -350,9 +350,7 @@ namespace p2groep11.Net.Models.DAL
                 byte[] picture15 = ms.ToArray();
 
                 
-
-
-                //byte[] picture = null;
+                //ClauseComponents
                 ClauseComponent tw10 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0 = new Clause("TW <= 0", tw,"<=", 0);
                 ClauseComponent tw0Yes = new Result("Koud klimaat zonder dooiseizoen", "Ijswoestijnklimaat", picture1);
@@ -428,16 +426,9 @@ namespace p2groep11.Net.Models.DAL
                     d12Yes, d12No, tw10
                 }).ToList();
 
-                //results1.ForEach(r => r.DTable = detTable1);
                 results1.ForEach(r => detTable1.AllClauseComponents.Add(r));
 
-
-
-                //Image image1 = Image.FromFile(HttpContext.Current.Server.MapPath("~/Content/img/ijswoestijn.JPG"));
-                //MemoryStream ms1 = new MemoryStream();
-                //image1.Save(ms, ImageFormat.Gif);
-                //byte[] picture = ms1.ToArray();
-                
+               
                 //Determineertabel voor 1e graad opbouwen
                 ClauseComponent tw10V1 = new Clause("TW <= 10", tw,"<=", 10);
                 ClauseComponent tw0V1 = new Clause("TW <= 0", tw,"<=", 0);
@@ -484,7 +475,6 @@ namespace p2groep11.Net.Models.DAL
                     nj400NoV1, tkMin3Yes, tw22YesV1, tw22NoV1, tw10V1
                 }).ToList();
 
-                //results2.ForEach(r => r.DTable = detTable2);
                 results2.ForEach(r => detTable2.AllClauseComponents.Add(r));
                 
 
@@ -492,7 +482,7 @@ namespace p2groep11.Net.Models.DAL
                 grade2.DeterminateTableProp = detTable1;
                 grade3.DeterminateTableProp = detTable1;
 
-                //_______________
+                //ClimateCharts
                 int[] temps = new int[] {2, 3, 5, 8, 12, 15, 17, 17, 14, 10, 6, 3};
                 int[] sed = new[] {51, 42, 46, 50, 59, 65, 72, 74, 72, 72, 64, 59};
                 int[] temps2 = new int[] {10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9};
@@ -521,10 +511,9 @@ namespace p2groep11.Net.Models.DAL
                 climateCharts2.ForEach(c => kenia.ClimateCharts.Add(c));
                 List<ClimateChart> climateCharts3 = (new ClimateChart[] { archangelsk}).ToList();
                 climateCharts3.ForEach(c => russischeFed.ClimateCharts.Add(c));
-                
-                
-                context.SaveChanges();
+
                 Debug.WriteLine("Database created!");
+                context.SaveChanges(); 
                               
             }
             catch (DbEntityValidationException ex)
