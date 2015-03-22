@@ -104,7 +104,7 @@
     </Compile>
     <Compile Include="Controllers\KlimatogramControllerTest.cs" />
     <Compile Include="Controllers\SchoolYearControllerTest.cs" />
-    <Compile Include="Domein\ClauseTest.cs" />
+    <Compile Include="Domein\ClauseComponentTest.cs" />
     <Compile Include="Domein\ClimateChartTest.cs" />
     <Compile Include="Domein\ContinentTest.cs" />
     <Compile Include="Domein\CountryTest.cs" />

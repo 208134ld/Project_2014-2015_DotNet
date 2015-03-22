@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
@@ -19,10 +20,9 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             // Properties
             Property(c => c.ClauseComponentId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            
 
             //Relations
-            
+
         }
     }
 }

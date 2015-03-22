@@ -140,5 +140,17 @@ namespace p2groep11.Net.Tests.Domein
             c.Months.Add(new Month(MonthsOfTheYear.Apr, 10,12));
             Assert.AreEqual(12,c.Months[0].Sediment);
         }
+
+        [TestMethod]
+        public void ColdestMonthGivesColdestMonth()
+        {
+            Assert.AreEqual(1, context.Gent.ColdestMonthMK);
+        }
+
+        [TestMethod]
+        public void hottestMonthGivesHottestMonth()
+        {
+            Assert.AreEqual(11, context.Gent.HottestMonthMW);
+        }
     }
 }

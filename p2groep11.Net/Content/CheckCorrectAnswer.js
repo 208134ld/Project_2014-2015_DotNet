@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    $(".determinateTable").css('display', 'none');
     $(".tree").css('display', 'none');
     var monthAray = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dev"];
     function haalAntwoordenOp() {
@@ -39,6 +40,7 @@
     $(".controleerAntwoorden").on("click", function() {
         if (!vergelijk(haalAntwoordenOp(), haalJuisteAntwoordenOp())) {
             $(".succesQuestions").css('display', 'block');
+            $(".determinateTable").css('display', 'block');
             $(".tree").css('display', 'block');
         }
 
