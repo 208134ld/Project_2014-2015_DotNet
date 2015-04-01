@@ -18,7 +18,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasKey(c => c.ContinentID);
 
             // Properties
-            Property(c => c.ContinentID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(c => c.ContinentID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(c => c.Name).IsRequired();
 
             //Relations

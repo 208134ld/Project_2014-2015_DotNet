@@ -32,12 +32,12 @@ namespace p2groep11.Net.Models.DAL
                 
 
                 // CONTINENTS
-                Continent europa = new Continent {Name = "Europa"};
-                Continent azië = new Continent {Name = "Azië"};
-                Continent afrika = new Continent {Name = "Afrika"};
-                Continent noordCentraalAmerika = new Continent {Name = "Noord- en Centraal-Amerika"};
-                Continent zuidAmerika = new Continent {Name = "Zuid-Amerika"};
-                Continent oceanië = new Continent {Name = "Oceanië"};
+                Continent europa = new Continent("Europa", 1);
+                Continent azië = new Continent("Azië", 2);
+                Continent afrika = new Continent("Afrika", 3);
+                Continent noordCentraalAmerika = new Continent("Noord- en Centraal-Amerika", 4);
+                Continent zuidAmerika = new Continent("Zuid-Amerika", 5);
+                Continent oceanië = new Continent("Oceanië", 6);
                 List<Continent> continents =
                     (new Continent[] {europa, azië, afrika, noordCentraalAmerika, zuidAmerika, oceanië}).ToList();
 
