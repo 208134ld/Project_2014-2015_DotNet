@@ -18,7 +18,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasKey(c => c.CountryID);
 
             // Properties
-            Property(c => c.CountryID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(c => c.CountryID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(c => c.Name).IsRequired();
             
 

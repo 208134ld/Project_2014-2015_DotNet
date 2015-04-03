@@ -48,35 +48,35 @@ namespace p2groep11.Net.Models.DAL
                 grades.ForEach(g => context.Grades.Add(g));
 
                 //AFRIKA
-                Country algerije = new Country ("Algerije");
-                Country benin = new Country ( "Benin");
-                Country congo = new Country ("Congo");
-                Country djibouti = new Country ("Djibouti");
-                Country egypte = new Country ("Egypte");
-                Country eritrea = new Country ("Eritrea");
-                Country gabon = new Country ("Gabon");
-                Country guinea = new Country ("Guinea");
-                Country ivoorkust = new Country ("Ivoorkust");
-                Country kaapverdië = new Country ("Kaapverdië");
-                Country kenia = new Country ("Kenia");
-                Country madagascar = new Country ("Madagascar");
-                Country madeira = new Country ("Madeira (Portugal)");
-                Country malawi = new Country ("Malawi");
-                Country mali = new Country ("Mali");
-                Country marokko = new Country ("Marokko");
-                Country mauritius = new Country ("Mauritius");
-                Country niger = new Country ("Niger");
-                Country nigeria = new Country ("Nigeria");
-                Country senegal = new Country ("Senegal");
-                Country seychellen = new Country ("Seychellen");
-                Country sierraLeone = new Country ("Sierra Leone");
-                Country soedan = new Country ("Soedan");
-                Country togo = new Country ("Togo");
-                Country tsjaad = new Country ("Tsjaad");
-                Country tunesië = new Country ("Tunesië");
-                Country zambia = new Country ("Zambia");
-                Country zimbabwe = new Country ("Zimbabwe");
-                Country zuidAfrika = new Country ("Zuid Afrika");
+                Country algerije = new Country ("Algerije", 1);
+                Country benin = new Country ( "Benin", 2);
+                Country congo = new Country ("Congo", 3);
+                Country djibouti = new Country ("Djibouti", 4);
+                Country egypte = new Country ("Egypte", 5);
+                Country eritrea = new Country ("Eritrea", 6);
+                Country gabon = new Country ("Gabon", 7);
+                Country guinea = new Country ("Guinea", 8);
+                Country ivoorkust = new Country ("Ivoorkust", 9);
+                Country kaapverdië = new Country ("Kaapverdië", 10);
+                Country kenia = new Country ("Kenia", 11);
+                Country madagascar = new Country ("Madagascar", 12);
+                Country madeira = new Country ("Madeira (Portugal)", 13);
+                Country malawi = new Country ("Malawi", 14);
+                Country mali = new Country ("Mali", 15);
+                Country marokko = new Country ("Marokko", 16);
+                Country mauritius = new Country ("Mauritius", 17);
+                Country niger = new Country ("Niger", 18);
+                Country nigeria = new Country ("Nigeria", 19);
+                Country senegal = new Country ("Senegal", 20);
+                Country seychellen = new Country ("Seychellen", 21);
+                Country sierraLeone = new Country ("Sierra Leone", 22);
+                Country soedan = new Country ("Soedan", 23);
+                Country togo = new Country ("Togo", 24);
+                Country tsjaad = new Country ("Tsjaad", 25);
+                Country tunesië = new Country ("Tunesië", 26);
+                Country zambia = new Country ("Zambia", 27);
+                Country zimbabwe = new Country ("Zimbabwe", 28);
+                Country zuidAfrika = new Country ("Zuid Afrika", 29);
                 List<Country> countriesAfrika = (new Country[]
                 {
                     algerije, benin, congo, djibouti, egypte, eritrea, gabon, guinea,
@@ -87,119 +87,121 @@ namespace p2groep11.Net.Models.DAL
                 countriesAfrika.ForEach(c => afrika.Countries.Add(c));
 
                 //AZIË
-                Country afghanistan = new Country {Name = "Afghanistan"};
-                Country azerbeidzjan = new Country {Name = "Azerbeidzjan"};
-                Country bahrein = new Country {Name = "Bahrein"};
-                Country china = new Country {Name = "China"};
-                Country filippijnen = new Country {Name = "Filippijnen"};
-                Country hongKong = new Country {Name = "Hong Kong, China"};
-                Country indiaN = new Country {Name = "India (Noord)"};
-                Country indiaZ = new Country {Name = "India (Zuid)"};
-                Country iran = new Country {Name = "Iran"};
-                Country israël = new Country {Name = "Israël"};
-                Country japan = new Country {Name = "Japan"};
-                Country jordanië = new Country {Name = "Jordanië"};
-                Country katar = new Country {Name = "Katar"};
-                Country kazachstan = new Country {Name = "Kazachstan"};
-                Country kirgizië = new Country {Name = "Kirgizië"};
-                Country koeweit = new Country {Name = "Koeweit"};
-                Country libanon = new Country {Name = "Libanon"};
-                Country malediven = new Country {Name = "Malediven"};
-                Country maleisië = new Country {Name = "Maleisië"};
-                Country mongolië = new Country {Name = "Mongolië"};
-                Country myanmar = new Country {Name = "Myanmar"};
-                Country noordKorea = new Country {Name = "Noord-Korea"};
-                Country oezbekistan = new Country {Name = "Oezbekistan"};
-                Country oman = new Country {Name = "Oman"};
-                Country pakistan = new Country {Name = "Pakistan"};
-                Country ru = new Country {Name = "Russische Federatie"};
-                Country saudi = new Country {Name = "Saudi-Arabië"};
-                Country singapore = new Country {Name = "Singapore"};
-                Country sriLanka = new Country {Name = "Sri Lanka"};
-                Country syrië = new Country {Name = "Syrië"};
-                Country tadzjikistan = new Country {Name = "Tadzjikistan"};
-                Country thailand = new Country {Name = "Thailand"};
-                Country turkije = new Country {Name = "Turkije"};
-                Country turkmenistan = new Country {Name = "Turkmenistan"};
-                Country vae = new Country {Name = "Verenigde Arabische Emiraten"};
-                Country vietnam = new Country {Name = "Vietnam"};
-                Country laos = new Country {Name = "Volksrepubliek Laos"};
-                Country zuidKorea = new Country {Name = "Zuid-Korea"};
+                Country afghanistan = new Country ("Afghanistan", 30);
+                Country azerbeidzjan = new Country ("Azerbeidzjan", 31);
+                Country bahrein = new Country ("Bahrein", 32);
+                Country china = new Country ("China", 33);
+                Country filippijnen = new Country ("Filippijnen", 34);
+                Country hongKong = new Country ("Hong Kong, China", 35);
+                Country indiaN = new Country ("India (Noord)", 36);
+                Country indiaZ = new Country ("India (Zuid)", 37);
+                Country iran = new Country ("Iran", 38);
+                //Country israël = new Country ("Israël"};
+                //Country japan = new Country {Name = "Japan"};
+                //Country jordanië = new Country {Name = "Jordanië"};
+                //Country katar = new Country {Name = "Katar"};
+                //Country kazachstan = new Country {Name = "Kazachstan"};
+                //Country kirgizië = new Country {Name = "Kirgizië"};
+                //Country koeweit = new Country {Name = "Koeweit"};
+                //Country libanon = new Country {Name = "Libanon"};
+                //Country malediven = new Country {Name = "Malediven"};
+                //Country maleisië = new Country {Name = "Maleisië"};
+                //Country mongolië = new Country {Name = "Mongolië"};
+                //Country myanmar = new Country {Name = "Myanmar"};
+                //Country noordKorea = new Country {Name = "Noord-Korea"};
+                //Country oezbekistan = new Country {Name = "Oezbekistan"};
+                //Country oman = new Country {Name = "Oman"};
+                //Country pakistan = new Country {Name = "Pakistan"};
+                //Country ru = new Country {Name = "Russische Federatie"};
+                //Country saudi = new Country {Name = "Saudi-Arabië"};
+                //Country singapore = new Country {Name = "Singapore"};
+                //Country sriLanka = new Country {Name = "Sri Lanka"};
+                //Country syrië = new Country {Name = "Syrië"};
+                //Country tadzjikistan = new Country {Name = "Tadzjikistan"};
+                //Country thailand = new Country {Name = "Thailand"};
+                //Country turkije = new Country {Name = "Turkije"};
+                //Country turkmenistan = new Country {Name = "Turkmenistan"};
+                //Country vae = new Country {Name = "Verenigde Arabische Emiraten"};
+                //Country vietnam = new Country {Name = "Vietnam"};
+                //Country laos = new Country {Name = "Volksrepubliek Laos"};
+                //Country zuidKorea = new Country {Name = "Zuid-Korea"};
                 List<Country> countriesAzië = (new Country[]
                 {
-                    afghanistan, azerbeidzjan, bahrein, china, filippijnen, hongKong, indiaN, indiaZ, iran, israël,
-                    japan, jordanië, katar, kazachstan, kirgizië,
-                    koeweit, libanon, malediven, maleisië, mongolië, myanmar, noordKorea, oezbekistan, oman, pakistan,
-                    ru, saudi, singapore, sriLanka, syrië,
-                    tadzjikistan, thailand, turkije, turkmenistan, vae, vietnam, laos, zuidKorea
+                    afghanistan, azerbeidzjan, bahrein, china, filippijnen, hongKong, indiaN, indiaZ, iran
+                    //, 
+                    //israël,
+                    //japan, jordanië, katar, kazachstan, kirgizië,
+                    //koeweit, libanon, malediven, maleisië, mongolië, myanmar, noordKorea, oezbekistan, oman, pakistan,
+                    //ru, saudi, singapore, sriLanka, syrië,
+                    //tadzjikistan, thailand, turkije, turkmenistan, vae, vietnam, laos, zuidKorea
                 }).ToList();
                 countriesAzië.ForEach(c => azië.Countries.Add(c));
 
                 //EUROPA
-                Country belgië = new Country("België");
-                Country bosnië = new Country {Name = "Bosnië-Hercegovina"};
-                Country bulgarije = new Country {Name = "Bulgarije"};
-                Country cyprus = new Country {Name = "Cyprus"};
-                Country denemarken = new Country {Name = "Denemarken"};
-                Country duitsland = new Country {Name = "Duitsland"};
-                Country estland = new Country {Name = "Estland"};
-                Country finland = new Country {Name = "Finland"};
-                Country fr = new Country {Name = "Frankrijk"};
-                Country lux = new Country {Name = "Luxemburg"};
-                Country georgië = new Country {Name = "Georgië"};
-                Country griekenland = new Country {Name = "Griekenland"};
-                Country groenland = new Country {Name = "Groenland"};
-                Country hongarije = new Country {Name = "Hongarije"};
-                Country ierland = new Country {Name = "Ierland"};
-                Country ijsland = new Country {Name = "Ijsland"};
-                Country italië = new Country {Name = "Italië"};
-                Country kroatië = new Country {Name = "Kroatië"};
-                Country letland = new Country {Name = "Letland"};
-                Country lithouwen = new Country {Name = "Lithouwen"};
-                Country macedonië = new Country {Name = "Macedonië"};
-                Country malta = new Country {Name = "Malta"};
-                Country moldavië = new Country {Name = "Moldavische Republiek"};
-                Country ned = new Country {Name = "Nederland"};
-                Country noorwegen = new Country {Name = "Noorwegen"};
-                Country oekraïne = new Country {Name = "Oekraïne"};
-                Country oostenrijk = new Country {Name = "Oostenrijk"};
-                Country polen = new Country {Name = "Polen"};
-                Country portugal = new Country {Name = "Portugal"};
-                Country roemenië = new Country {Name = "Roemenië"};
-                Country russischeFed = new Country {Name = "Russische Federatie"};
-                Country servië = new Country {Name = "Servië en Montenegro"};
-                Country slovenië = new Country {Name = "Slovenië"};
-                Country slowakije = new Country {Name = "Slowakije"};
-                Country spanje = new Country {Name = "Spanje"};
-                Country spanjeEilanden = new Country {Name = "Spanje (Canarische Eilanden)"};
-                Country tsjechië = new Country {Name = "Tsjechië"};
-                Country vk = new Country {Name = "Verenigd Koninkrijk"};
-                Country zweden = new Country {Name = "Zweden"};
-                Country zwitserland = new Country {Name = "Zwitserland"};
+                Country belgië = new Country("België", 39);
+                Country bosnië = new Country ("Bosnië-Hercegovina", 40);
+                Country bulgarije = new Country ("Bulgarije", 41);
+                Country cyprus = new Country ("Cyprus", 42);
+                Country denemarken = new Country ("Denemarken", 43);
+                Country duitsland = new Country ("Duitsland", 44);
+                Country estland = new Country ("Estland", 45);
+                Country finland = new Country ("Finland", 46);
+                Country fr = new Country ("Frankrijk", 47);
+                Country lux = new Country ("Luxemburg", 48);
+                Country georgië = new Country ("Georgië", 49);
+                //Country griekenland = new Country {Name = "Griekenland"};
+                //Country groenland = new Country {Name = "Groenland"};
+                //Country hongarije = new Country {Name = "Hongarije"};
+                //Country ierland = new Country {Name = "Ierland"};
+                //Country ijsland = new Country {Name = "Ijsland"};
+                //Country italië = new Country {Name = "Italië"};
+                //Country kroatië = new Country {Name = "Kroatië"};
+                //Country letland = new Country {Name = "Letland"};
+                //Country lithouwen = new Country {Name = "Lithouwen"};
+                //Country macedonië = new Country {Name = "Macedonië"};
+                //Country malta = new Country {Name = "Malta"};
+                //Country moldavië = new Country {Name = "Moldavische Republiek"};
+                //Country ned = new Country {Name = "Nederland"};
+                //Country noorwegen = new Country {Name = "Noorwegen"};
+                //Country oekraïne = new Country {Name = "Oekraïne"};
+                //Country oostenrijk = new Country {Name = "Oostenrijk"};
+                //Country polen = new Country {Name = "Polen"};
+                //Country portugal = new Country {Name = "Portugal"};
+                //Country roemenië = new Country {Name = "Roemenië"};
+                //Country russischeFed = new Country {Name = "Russische Federatie"};
+                //Country servië = new Country {Name = "Servië en Montenegro"};
+                //Country slovenië = new Country {Name = "Slovenië"};
+                //Country slowakije = new Country {Name = "Slowakije"};
+                //Country spanje = new Country {Name = "Spanje"};
+                //Country spanjeEilanden = new Country {Name = "Spanje (Canarische Eilanden)"};
+                //Country tsjechië = new Country {Name = "Tsjechië"};
+                //Country vk = new Country {Name = "Verenigd Koninkrijk"};
+                //Country zweden = new Country {Name = "Zweden"};
+                //Country zwitserland = new Country {Name = "Zwitserland"};
                 List<Country> countriesEU = (new Country[]
                 {
                     belgië, bosnië, bulgarije, cyprus, denemarken, duitsland, estland, finland, fr, lux, georgië,
-                    griekenland, groenland, hongarije, ierland, ijsland, italië, kroatië,
-                    letland, lithouwen, macedonië, malta, moldavië, ned, noorwegen, oekraïne, oostenrijk, polen,
-                    portugal, roemenië, russischeFed, servië, slovenië, slowakije, spanje,
-                    spanjeEilanden, tsjechië, vk, zweden, zwitserland
+                    //griekenland, groenland, hongarije, ierland, ijsland, italië, kroatië,
+                    //letland, lithouwen, macedonië, malta, moldavië, ned, noorwegen, oekraïne, oostenrijk, polen,
+                    //portugal, roemenië, russischeFed, servië, slovenië, slowakije, spanje,
+                    //spanjeEilanden, tsjechië, vk, zweden, zwitserland
                 }).ToList();
                 countriesEU.ForEach(c => europa.Countries.Add(c));
 
                 //Noord en centraan Amerika
-                Country bahamas = new Country {Name = "Bahamas"};
-                Country canada = new Country {Name = "Canada"};
-                Country costa = new Country {Name = "Costa Rica"};
-                Country cuba = new Country {Name = "Cuba"};
-                Country doReMii = new Country {Name = "Dominicaanse Republiek"};
-                Country salvador = new Country {Name = "El Salvador"};
-                Country guadeloupe = new Country {Name = "Guadeloupe"};
-                Country honduras = new Country {Name = "Honduras"};
-                Country mehico = new Country {Name = "Mexico"};
-                Country aruba = new Country {Name = "Nederlandse Antillen en Aruba"};
-                Country nicaragua = new Country {Name = "Nicaragua"};
-                Country tobago = new Country {Name = "Trinidad en Tobago"};
-                Country vs = new Country {Name = "Verenigde Staten"};
+                Country bahamas = new Country ("Bahamas", 50);
+                Country canada = new Country ("Canada", 51);
+                Country costa = new Country ("Costa Rica", 52);
+                Country cuba = new Country ("Cuba", 53);
+                Country doReMii = new Country ("Dominicaanse Republiek", 54);
+                Country salvador = new Country ("El Salvador", 55);
+                Country guadeloupe = new Country ("Guadeloupe", 56);
+                Country honduras = new Country ("Honduras", 57);
+                Country mehico = new Country ("Mexico", 58);
+                Country aruba = new Country ("Nederlandse Antillen en Aruba", 59);
+                Country nicaragua = new Country ("Nicaragua", 60);
+                Country tobago = new Country ("Trinidad en Tobago", 61);
+                Country vs = new Country ("Verenigde Staten", 62);
                 List<Country> countriesVS = (new Country[]
                 {
                     bahamas, canada, costa, cuba, doReMii, salvador, guadeloupe, honduras, mehico, aruba, nicaragua,
@@ -208,11 +210,11 @@ namespace p2groep11.Net.Models.DAL
                 countriesVS.ForEach(c => noordCentraalAmerika.Countries.Add(c));
 
                 //Ocieaië
-                Country au = new Country {Name = "Australië"};
-                Country fiji = new Country {Name = "Fiji"};
-                Country poly = new Country {Name = "Frans Polynesië"};
-                Country celedonië = new Country {Name = "Nieuw Celedonië"};
-                Country newZ = new Country {Name = "Nieuw Zeeland"};
+                Country au = new Country ("Australië", 63);
+                Country fiji = new Country ("Fiji", 64);
+                Country poly = new Country ("Frans Polynesië", 65);
+                Country celedonië = new Country ("Nieuw Celedonië", 66);
+                Country newZ = new Country ("Nieuw Zeeland", 67);
                 List<Country> countriesOceanië = (new Country[]
                 {
                     au, fiji, poly, celedonië, newZ
@@ -220,17 +222,17 @@ namespace p2groep11.Net.Models.DAL
                 countriesOceanië.ForEach(c => oceanië.Countries.Add(c));
 
                 //ZUID_AMERIKA
-                Country argentinië = new Country {Name = "Argentinië"};
-                Country brbrbr = new Country {Name = "Brazillië"};
-                Country chili = new Country {Name = "Chili"};
-                Country colombia = new Country {Name = "Colombia"};
-                Country acuador = new Country {Name = "Ecuador"};
-                Country fransGuyana = new Country {Name = "Frans Guyana"};
-                Country guyana = new Country {Name = "Guyana"};
-                Country paraguay = new Country {Name = "Paraguay"};
-                Country peru = new Country {Name = "Peru"};
-                Country uruguay = new Country {Name = "Uruguay"};
-                Country vanazuala = new Country {Name = "Venezuela"};
+                Country argentinië = new Country ("Argentinië", 68);
+                Country brbrbr = new Country ("Brazilië", 69);
+                Country chili = new Country ("Chili", 70);
+                Country colombia = new Country ("Colombia", 71);
+                Country acuador = new Country ("Ecuador", 72);
+                Country fransGuyana = new Country ("Frans Guyana", 73);
+                Country guyana = new Country ("Guyana", 74);
+                Country paraguay = new Country ("Paraguay", 75);
+                Country peru = new Country ("Peru", 76);
+                Country uruguay = new Country ("Uruguay", 77);
+                Country vanazuala = new Country ("Venezuela", 78);
                 List<Country> countriesZAM = (new Country[]
                 {
                     argentinië, brbrbr, chili, colombia, acuador, fransGuyana, guyana, paraguay, peru, uruguay,
@@ -503,14 +505,14 @@ namespace p2groep11.Net.Models.DAL
                 ClimateChart chievres = new ClimateChart("Chièvres", 1961, 1990, temps4, sed4, 50.585970, 3.806090);
                 ClimateChart lodwar = new ClimateChart("Lodwar", 1961, 1990, temps5, sed5, 3.116667, 35.600000);
                 ClimateChart mombasa = new ClimateChart("Mombasa", 1961, 1990, temps6, sed6, -4.043477, 39.668206);
-                ClimateChart archangelsk = new ClimateChart("Archangelsk", 1961, 1990, temps7, sed7, 64.547251, 40.560155);
+                //ClimateChart archangelsk = new ClimateChart("Archangelsk", 1961, 1990, temps7, sed7, 64.547251, 40.560155);
 
                 List<ClimateChart> climateCharts = (new ClimateChart[] {gent, chievres, ukkel, virton}).ToList();
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 List<ClimateChart> climateCharts2 = (new ClimateChart[] { lodwar, mombasa }).ToList();
                 climateCharts2.ForEach(c => kenia.ClimateCharts.Add(c));
-                List<ClimateChart> climateCharts3 = (new ClimateChart[] { archangelsk}).ToList();
-                climateCharts3.ForEach(c => russischeFed.ClimateCharts.Add(c));
+                //List<ClimateChart> climateCharts3 = (new ClimateChart[] { archangelsk}).ToList();
+                //climateCharts3.ForEach(c => russischeFed.ClimateCharts.Add(c));
 
                 Debug.WriteLine("Database created!");
                 context.SaveChanges(); 
