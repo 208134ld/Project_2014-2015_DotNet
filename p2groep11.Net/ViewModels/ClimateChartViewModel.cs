@@ -59,7 +59,7 @@ namespace p2groep11.Net.ViewModels
 
         public ClimateChartViewModel(ClimateChart c, DeterminateTable table, List<Parameter> parameters)
         {
-            Coordinaten = c.Coordinaten;
+            Coordinaten = c.BCord+" " + c.LCord;
             Location = c.Location;
             ClauseComponent headClauseComponent =
                 table.AllClauseComponents.ElementAt(table.AllClauseComponents.Count - 1);

@@ -24,7 +24,7 @@ namespace p2groep11.Net.ViewModels
             ClimateChartID = chart.ClimateChartID;
             ChartLatitude = chart.Latitude;
             ChartLongitude = chart.Longitude;
-            Coordinaten = chart.Coordinaten;
+            Coordinaten = chart.BCord+" " +chart.LCord;
         }
 
         public LocationListViewModel()

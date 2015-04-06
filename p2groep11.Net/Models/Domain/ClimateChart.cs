@@ -19,33 +19,37 @@ namespace p2groep11.Net.Models.Domain
         public bool AboveEquator { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        private String coordinaat;
-        public String Coordinaten
+        public String BCord { get; set; }
+        public String LCord { get; set; }
+       
+
+        private void CalculateBCord()
         {
-            get
+            String cord = "";
+            if (Latitude < 0)
             {
-                coordinaat = "";
-                if (Latitude < 0)
-                {
-                    coordinaat += ToDecimalDegrees(Latitude) + " ZB ";
-                }
-                else
-                {
-                    coordinaat += ToDecimalDegrees(Latitude) + " NB ";
-                }
-                if (Longitude < 0)
-                {
-                    coordinaat += ToDecimalDegrees(Longitude) + " `WL ";
-                }
-                else
-                {
-                    coordinaat += ToDecimalDegrees(Longitude) + " OL ";
-                }
-                return coordinaat;
-                
+                cord += ToDecimalDegrees(Latitude) + " ZB ";
             }
+            else
+            {
+                cord += ToDecimalDegrees(Latitude) + " NB ";
+            }
+            BCord = cord;
         }
 
+        private void CalculateLCord()
+        {
+            String cord = "";
+            if (Longitude < 0)
+            {
+                cord += ToDecimalDegrees(Longitude) + " `WL ";
+            }
+            else
+            {
+                cord += ToDecimalDegrees(Longitude) + " OL ";
+            }
+            LCord = cord;
+        }
         private String ToDecimalDegrees(double n)
         {
             String degrees="";
@@ -73,6 +77,9 @@ namespace p2groep11.Net.Models.Domain
             Latitude = latitude;
             Longitude = longitude;
             AboveEquator = latitude > 0;
+            CalculateBCord();
+            CalculateLCord();
+
         }
 
         public int HottestMonth //TW
