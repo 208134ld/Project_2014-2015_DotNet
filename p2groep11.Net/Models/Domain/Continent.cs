@@ -23,11 +23,10 @@ namespace p2groep11.Net.Models.Domain
             Countries = new List<Country>();
         }
 
-        public Continent(string name, int id)
+        public Continent(string name)
         {
             Grades = new List<Grade>();
             Countries = new List<Country>();
-            ContinentID = id;
             Name = name;
         }
 
