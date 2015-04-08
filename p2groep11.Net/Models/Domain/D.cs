@@ -22,7 +22,7 @@ namespace p2groep11.Net
             this.Beschrijving = beschr;
         }
 
-        public override int Execute(ClimateChart chart)
+        public override double Execute(ClimateChart chart)
         {
             return chart.TotalDryMonths;
         }

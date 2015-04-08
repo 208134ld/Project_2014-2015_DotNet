@@ -14,7 +14,7 @@ namespace p2groep11.Net.Models.DAL
     public class ProjectContext : DbContext
     {
         public ProjectContext()
-            : base("climate_DB")
+            : base("HOGENT1415_11")
         {
             //this.Configuration.ProxyCreationEnabled = false;
         }

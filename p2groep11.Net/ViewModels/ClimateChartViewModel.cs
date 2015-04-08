@@ -147,7 +147,7 @@ namespace p2groep11.Net.ViewModels
             var sediments = new object[12];
             var temp = new object[12];
             CopyIntArrayToObjectArray(sed, sediments);
-            CopyIntArrayToObjectArray(tem, temp);
+            tem.CopyTo(temp,0);
             var chart = new Highcharts("chart")
                 .InitChart(new Chart {ZoomType = ZoomTypes.Xy})
                 .SetTitle(new Title
@@ -235,6 +235,7 @@ namespace p2groep11.Net.ViewModels
         {
             intArray.CopyTo(objectAr, 0);
         }
+        
     }
 
     public class VoorbeelViewModel

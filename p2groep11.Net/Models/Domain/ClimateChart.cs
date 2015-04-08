@@ -15,7 +15,7 @@ namespace p2groep11.Net.Models.Domain
         public virtual Country Country { get; set; }
         public virtual List<Month> Months { get; private set; }
         public int[] SedimentArray { get; set; }
-        public int[] TempArray { get; set; }
+        public double[] TempArray { get; set; }
         public bool AboveEquator { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
@@ -62,10 +62,10 @@ namespace p2groep11.Net.Models.Domain
         {
             Months = new List<Month>();
             SedimentArray = new int[12];
-            TempArray = new int[12];
+            TempArray = new double[12];
         }
 
-        public ClimateChart(string loc, int begin, int end, int[] temperatures, int[] sediments, double latitude, double longitude)
+        public ClimateChart(string loc, int begin, int end, double[] temperatures, int[] sediments, double latitude, double longitude)
         {
             Location = loc;
             BeginPeriod = begin;
@@ -82,7 +82,7 @@ namespace p2groep11.Net.Models.Domain
 
         }
 
-        public int HottestMonth //TW
+        public double HottestMonth //TW
         {
             get
             {
@@ -97,7 +97,7 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-        public int ColdestMonth  //TK
+        public double ColdestMonth  //TK
         {
             get
             {
@@ -246,7 +246,7 @@ namespace p2groep11.Net.Models.Domain
             }
         }
 
-        private void MakeMonthsList(int[] temperatures,int[] sediments)
+        private void MakeMonthsList(double[] temperatures,int[] sediments)
         {
             if (temperatures.Length != 12 || sediments.Length != 12)
                 throw new ArgumentException("Temperatures and sediments have to contain 12 values");
@@ -262,12 +262,12 @@ namespace p2groep11.Net.Models.Domain
 
         public int CalculateMaxForChart()
         {  
-            return  Math.Max(Months.Max(m => m.AverTemp), Months.Max(m => m.Sediment));;
+            return (int) Math.Max(Months.Max(m => m.AverTemp), Months.Max(m => m.Sediment));;
         }
 
         public int CalculateMinForChart()
         {
-            return Math.Min(Months.Min(m => m.AverTemp), Months.Min(m => m.Sediment));
+            return (int) Math.Min(Months.Min(m => m.AverTemp), Months.Min(m => m.Sediment));
         }
 
         public string[] GetMonthsOfYear()

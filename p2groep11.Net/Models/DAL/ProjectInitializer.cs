@@ -483,19 +483,19 @@ namespace p2groep11.Net.Models.DAL
                 grade3.DeterminateTableProp = detTable1;
 
                 //ClimateCharts
-                int[] temps = new int[] {2, 3, 5, 8, 12, 15, 17, 17, 14, 10, 6, 3};
+                double[] temps = new double[] {2, 3, 5.4, 8.5, 12.23, 15, 17, 17, 14, 10, 6, 3};
                 int[] sed = new[] {51, 42, 46, 50, 59, 65, 72, 74, 72, 72, 64, 59};
-                int[] temps2 = new int[] {10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9};
+                double[] temps2 = new double[] { 10, -12, -12, -14, -15, -20, 28, 32, 28, 16, 6, 9 };
                 int[] sed2 = new[] {120, 145, 200, 120, 150, 100, 140, 40, 100, 120, 130, 100};
-                int[] temps3 = new int[] { 1, 2, 5, 8, 12, 15, 17, 16, 14, 9, 5, 1 };
+                double[] temps3 = new double[] { 1, 2, 5, 8, 12, 15, 17, 16, 14, 9, 5, 1 };
                 int[] sed3 = new[] { 80, 65, 63, 59, 67, 72, 79, 78, 73, 76, 78, 83 };
-                int[] temps4 = new int[] { 2, 3, 5, 8, 12, 15, 17, 16, 14, 10, 5, 3 };
+                double[] temps4 = new double[] { 2, 3, 5, 8, 12, 15, 17, 16, 14, 10, 5, 3 };
                 int[] sed4 = new[] { 58, 47, 50, 54, 66, 72, 78, 76, 70, 70, 66, 65 };
-                int[] temps5 = new int[] {29, 30, 30, 30, 30, 29, 28, 29, 30, 30, 29, 29};
+                double[] temps5 = new double[] { 29, 30, 30, 30, 30, 29, 28, 29, 30, 30, 29, 29 };
                 int[] sed5 = new[] {9, 10, 19, 58, 21, 8, 20, 9, 5, 10, 28, 14};
-                int[] temps6 = new int[] {28, 28, 28, 28, 26, 25, 24, 24, 25, 26, 27, 27};
+                double[] temps6 = new double[] { 28, 28, 28, 28, 26, 25, 24, 24, 25, 26, 27, 27 };
                 int[] sed6 = new[] {34, 14, 56, 154, 236, 88, 72, 68, 67, 103, 105, 76};
-                int[] temps7 = new int[] {-15, -12, -6, 0, 7, 13, 16, 13, 8, 2, -5, -11};
+                double[] temps7 = new double[] { -15, -12, -6, 0, 7, 13, 16, 13, 8, 2, -5, -11 };
                 int[] sed7 = new[] {34, 28, 27, 32, 41, 55, 62, 65, 61, 59, 54, 43};
                 ClimateChart gent = new ClimateChart("Gent", 1961, 1990, temps, sed, 51.054342, 3.717424);
                 ClimateChart ukkel = new ClimateChart("Ukkel", 1961, 1990, temps2, sed2, 50.802398, 4.340670);

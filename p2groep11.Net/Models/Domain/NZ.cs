@@ -20,7 +20,7 @@ namespace p2groep11.Net
         {
             Beschrijving = beschr;
         }
-        public override int Execute(ClimateChart chart)
+        public override double Execute(ClimateChart chart)
         {
             return chart.RainInSummer;
         }
