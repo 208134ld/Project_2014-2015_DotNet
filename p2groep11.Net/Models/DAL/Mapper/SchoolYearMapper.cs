@@ -17,6 +17,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
             HasKey(c => c.Year);
 
             // Properties
+            this.Property(c => c.Year).HasColumnName("YearInt");
 
             //Relations
         }
