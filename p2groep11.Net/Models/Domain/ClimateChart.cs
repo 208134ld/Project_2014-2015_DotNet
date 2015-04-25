@@ -13,7 +13,7 @@ namespace p2groep11.Net.Models.Domain
         public int BeginPeriod { get; set; }
         public int EndPeriod { get; set; }
         public virtual Country Country { get; set; }
-        public virtual List<Month> Months { get; private set; }
+        public virtual List<Month> Months { get; set; }
         public int[] SedimentArray { get; set; }
         public double[] TempArray { get; set; }
         public bool AboveEquator { get; set; }

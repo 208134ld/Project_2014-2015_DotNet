@@ -511,7 +511,7 @@ namespace p2groep11.Net.Models.DAL
                 climateCharts.ForEach(c => belgië.ClimateCharts.Add(c));
                 List<ClimateChart> climateCharts2 = (new ClimateChart[] { lodwar, mombasa }).ToList();
                 climateCharts2.ForEach(c => kenia.ClimateCharts.Add(c));
-                //List<ClimateChart> climateCharts3 = (new ClimateChart[] { archangelsk}).ToList();
+                //List<ClimateChart> climateCharts3 = (new ClimateChart[] {archangelsk}).ToList();
                 //climateCharts3.ForEach(c => russischeFed.ClimateCharts.Add(c));
 
                 Debug.WriteLine("Database created!");
