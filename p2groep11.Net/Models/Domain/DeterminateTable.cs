@@ -10,6 +10,7 @@ namespace p2groep11.Net.Models.Domain
     {
         public int DeterminateTableId { get; set; }
         public virtual ICollection<ClauseComponent> AllClauseComponents { get; set; }
+        public String Name { get; set; }
 
         public DeterminateTable()
         {

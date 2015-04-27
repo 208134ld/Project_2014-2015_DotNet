@@ -19,6 +19,7 @@ namespace p2groep11.Net.Models.DAL.Mapper
 
             // Properties
             Property(c => c.DeterminateTableId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(c => c.Name).IsOptional();
             
             //relations
             HasMany(c => c.AllClauseComponents).WithRequired().Map(m => m.MapKey("DeterminateTableId"));
