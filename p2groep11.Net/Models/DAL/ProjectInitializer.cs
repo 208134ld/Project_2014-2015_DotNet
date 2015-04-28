@@ -17,7 +17,7 @@ using Parameter = p2groep11.Net.Models.Domain.Parameter;
 
 namespace p2groep11.Net.Models.DAL
 {
-    public class ProjectInitializer :  DropCreateDatabaseAlways<ProjectContext>
+    public class ProjectInitializer :  CreateDatabaseIfNotExists<ProjectContext>
     {
         protected override void Seed(ProjectContext context)
         {
