@@ -387,7 +387,7 @@ namespace p2groep11.Net.Models.DAL
                 ClauseComponent tw22 = new Clause(" TW <= 22", tw,"<=", 22);
                 ClauseComponent tw22Yes = new Result("Koelgematigd klimaat met zachte winter", "Loofbosklimaat", picture9);
                 ClauseComponent tw22No = new Result("Warmgematigd altijd nat klimaat", "Subtropisch regenwoudklimaat", picture10);
-                ClauseComponent nznw = new Clause("NZ <= NW", nz, nw);
+                ClauseComponent nznw = new Clause("NZ <= NW", nz, "<=", nw);
                 ClauseComponent tw222 = new Clause("TW <= 22", tw,"<=", 22);
                 ClauseComponent tw222Yes = new Result("Koelgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de centrale middelbreedten", picture11);
                 ClauseComponent tw222No = new Result("Warmgematigd klimaat met natte winter", "Hardbladige-vegetatieklimaat van de subtropen", picture12);
@@ -417,7 +417,7 @@ namespace p2groep11.Net.Models.DAL
                 d12.Add(false, d12No);
                 tk18.Add(false, d12);
 
-                DeterminateTable detTable1 = new DeterminateTable();
+                DeterminateTable detTable1 = new DeterminateTable("Determineertabel 2de en 3de graad");
 
                 List<ClauseComponent> results1 = (new ClauseComponent[]
                 {
@@ -468,7 +468,7 @@ namespace p2groep11.Net.Models.DAL
                 tkMin3No.Add(false, tw22NoV1);
 
 
-                DeterminateTable detTable2 = new DeterminateTable();
+                DeterminateTable detTable2 = new DeterminateTable("Determineertabel 1ste graad");
 
                 List<ClauseComponent> results2 = (new ClauseComponent[]
                 {
