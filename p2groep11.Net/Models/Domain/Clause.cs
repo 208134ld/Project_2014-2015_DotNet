@@ -27,11 +27,12 @@ namespace p2groep11.Net.Models.Domain
             this.Waarde = waarde;
         }
 
-        public Clause(String name, Parameter par1, Parameter par2)
+        public Clause(String name, Parameter par1, String op, Parameter par2)
         {
             this.Name = name;
             this.Par1 = par1;
             this.Par2 = par2;
+            this.Operator = op;
         }
 
         public override String GetHtmlCode(Boolean isYes)

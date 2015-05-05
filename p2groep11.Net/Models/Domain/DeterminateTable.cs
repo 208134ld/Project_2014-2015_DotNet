@@ -17,6 +17,12 @@ namespace p2groep11.Net.Models.Domain
             AllClauseComponents = new List<ClauseComponent>();
         }
 
+        public DeterminateTable(String name)
+        {
+            AllClauseComponents = new List<ClauseComponent>();
+            Name = name;
+        }
+
         public String[] Determinate(ClimateChart chart)
         {
             return AllClauseComponents.ElementAt(AllClauseComponents.Count - 1).Determinate(chart);
